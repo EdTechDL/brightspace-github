@@ -5,7 +5,7 @@
     "institution": "Michigan State University",
     "origin": "https://d2l.msu.edu",
     "course": "Same Playground (sandbox)",
-    "org_unit_id": "SANDBOX-COURSE-ID",
+    "org_unit_id": "2747167",
     "role_label": "OrgUnit Admin (course scope only)",
     "ui_variant": "Classic Grades tool; Classic Content; new activity editor for Assignments and Quizzes"
   },
@@ -676,8 +676,9 @@
         },
         {
           "label": "Learning Repository",
-          "kind": "link",
-          "group": "Tools"
+          "kind": "other",
+          "group": "Tools",
+          "notes": "Category heading, not a link. Its tools are Manage Repositories, Publish, Search."
         },
         {
           "label": "Manage Repositories",
@@ -693,6 +694,12 @@
           "label": "Search",
           "kind": "link",
           "group": "Tools"
+        },
+        {
+          "label": "Tools",
+          "kind": "link",
+          "group": "Administration",
+          "notes": "Observed href /d2l/lp/tools/orgUnits/<ou>; opens the Tool Status page."
         }
       ],
       "menus": [],
@@ -705,16 +712,190 @@
         {
           "control": "Manage Dates",
           "result_screen_id": "manage-dates"
+        },
+        {
+          "control": "Availability Date Defaults",
+          "result_screen_id": "availability-date-defaults"
+        },
+        {
+          "control": "Course Offering Information",
+          "result_screen_id": "course-offering-information"
+        },
+        {
+          "control": "Homepages",
+          "result_screen_id": "homepages"
+        },
+        {
+          "control": "Navigation & Themes",
+          "result_screen_id": "navigation-themes"
+        },
+        {
+          "control": "Widgets",
+          "result_screen_id": "widgets"
+        },
+        {
+          "control": "Calendar",
+          "result_screen_id": "calendar"
+        },
+        {
+          "control": "Course Builder",
+          "result_screen_id": "course-builder-welcome"
+        },
+        {
+          "control": "Course Design Accelerator",
+          "result_screen_id": "course-design-accelerator"
+        },
+        {
+          "control": "External Learning Tools",
+          "result_screen_id": "external-learning-tools"
+        },
+        {
+          "control": "Forms",
+          "result_screen_id": "forms"
+        },
+        {
+          "control": "Frequently Asked Questions",
+          "result_screen_id": "faq"
+        },
+        {
+          "control": "Glossary",
+          "result_screen_id": "glossary"
+        },
+        {
+          "control": "Import / Export / Copy Components",
+          "result_screen_id": "import-export-copy"
+        },
+        {
+          "control": "Instructional Design Wizard",
+          "result_screen_id": "instructional-design-wizard-resume"
+        },
+        {
+          "control": "Learning Activity Library",
+          "result_screen_id": "learning-activity-library"
+        },
+        {
+          "control": "Links",
+          "result_screen_id": "links"
+        },
+        {
+          "control": "Manage Files",
+          "result_screen_id": "manage-files"
+        },
+        {
+          "control": "Attendance",
+          "result_screen_id": "attendance-registers"
+        },
+        {
+          "control": "Class Progress",
+          "result_screen_id": "class-progress"
+        },
+        {
+          "control": "Groups",
+          "result_screen_id": "groups"
+        },
+        {
+          "control": "Assignments",
+          "result_screen_id": "assignments-list"
+        },
+        {
+          "control": "Awards",
+          "result_screen_id": "awards"
+        },
+        {
+          "control": "Checklists",
+          "result_screen_id": "checklists"
+        },
+        {
+          "control": "Competencies",
+          "result_screen_id": "competencies-home"
+        },
+        {
+          "control": "Grades",
+          "result_screen_id": "grades-setup-wizard-landing"
+        },
+        {
+          "control": "Quick Eval",
+          "result_screen_id": "quick-eval"
+        },
+        {
+          "control": "Quizzes",
+          "result_screen_id": "quizzes-list"
+        },
+        {
+          "control": "Rubrics",
+          "result_screen_id": "rubrics"
+        },
+        {
+          "control": "Self Assessments",
+          "result_screen_id": "self-assessments"
+        },
+        {
+          "control": "Standards",
+          "result_screen_id": "standards"
+        },
+        {
+          "control": "Surveys",
+          "result_screen_id": "surveys"
+        },
+        {
+          "control": "Announcements",
+          "result_screen_id": "announcements"
+        },
+        {
+          "control": "Discussions",
+          "result_screen_id": "discussions-list"
+        },
+        {
+          "control": "Intelligent Agents",
+          "result_screen_id": "intelligent-agents"
+        },
+        {
+          "control": "Course Reset",
+          "result_screen_id": "course-reset"
+        },
+        {
+          "control": "Insights Portal",
+          "result_screen_id": "insights-portal"
+        },
+        {
+          "control": "Sharing Groups",
+          "result_screen_id": "sharing-groups"
+        },
+        {
+          "control": "Manage Repositories",
+          "result_screen_id": "lor-manage"
+        },
+        {
+          "control": "Publish",
+          "result_screen_id": "lor-publish"
+        },
+        {
+          "control": "Search",
+          "result_screen_id": "lor-search"
+        },
+        {
+          "control": "Content",
+          "description": "Not followed from Course Admin; the Content tool is screen content-classic-with-prompt."
+        },
+        {
+          "control": "Tools",
+          "result_screen_id": "tools-status"
+        },
+        {
+          "control": "Learning Repository",
+          "description": "Category heading with three links: Manage Repositories (lor-manage), Publish (lor-publish), Search (lor-search)."
         }
       ],
       "notes": [
         "Course navbar (Course Home, Content, Course Tools v, Assessments v, Communication v, Help, Course Admin, More v) sits above this page; its menus are recorded on screen navbar-menus.",
         "h1 'Course Administration'; tools are listed under category headings in the order Site Setup, Site Resources, Learner Management, Assessment, Communication, Administration, Tools.",
-        "Manage Dates opened from here carries fromCMC=1 in its URL."
+        "Manage Dates opened from here carries fromCMC=1 in its URL.",
+        "Destination pages for every category were captured on 2026-09-22 (raw/course-admin-*.md); each link's transition points to the captured screen. Assignments, Grades, Quizzes and Classlist are cross-referenced by the capture to their own raw files, so their transitions point to the screens captured from the Assessments and Communication menus.",
+        "The Tool Status page (screen tools-status) was captured during the same pass but the Course Admin link that opens it was not recorded."
       ],
       "unobserved": [
         "The page ordered by Name.",
-        "Destinations of every tool other than Classlist and Manage Dates (Grades, Assignments and Quizzes were reached through the Assessments menu, not from here)."
+        "Which Course Admin link opens the Tool Status page (screen tools-status); the destination of the 'Learning Repository' link."
       ]
     },
     {
@@ -6731,6 +6912,3895 @@
       "unobserved": [
         "Advanced Attempt Conditions (appear only with 2 to 10 attempts).",
         "Whether Has Due Date and the Availability dates disable the pickers until ticked."
+      ]
+    },
+    {
+      "id": "availability-date-defaults",
+      "title": "Availability Date Defaults",
+      "url_pattern": "/d2l/le/availabilitydatedefaults/<ou>",
+      "route": "Course Admin > Availability Date Defaults",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "Availability Date Defaults\nThese defaults determine the behavior applied when adding availability dates to activities. You can customize individual activity availability dates from their create and edit screens.\n[reconstructed from control list] Assignments\nBefore Start Dates: (x) Visible with access restricted before start  ( ) Visible with submission restricted before start  ( ) Hidden before start\nAfter End Dates: (x) Visible with access restricted after end  ( ) Visible with submission restricted after end  ( ) Hidden after end\nDiscussions\nBefore Start Dates: (x) Visible with access restricted before start  ( ) Visible with submission restricted before start  ( ) Hidden before start\nAfter End Dates: (x) Visible with access restricted after end  ( ) Visible with submission restricted after end  ( ) Hidden after end\nSave | Cancel",
+      "controls": [
+        {
+          "label": "These defaults determine the behavior applied when adding availability dates to activities. You can customize individual activity availability dates from their create and edit screens.",
+          "kind": "other",
+          "group": "page",
+          "notes": "static text under the h1"
+        },
+        {
+          "label": "Visible with access restricted before start",
+          "kind": "radio",
+          "state": "selected",
+          "group": "Assignments > Before Start Dates"
+        },
+        {
+          "label": "Visible with submission restricted before start",
+          "kind": "radio",
+          "group": "Assignments > Before Start Dates"
+        },
+        {
+          "label": "Hidden before start",
+          "kind": "radio",
+          "group": "Assignments > Before Start Dates"
+        },
+        {
+          "label": "Visible with access restricted after end",
+          "kind": "radio",
+          "state": "selected",
+          "group": "Assignments > After End Dates"
+        },
+        {
+          "label": "Visible with submission restricted after end",
+          "kind": "radio",
+          "group": "Assignments > After End Dates"
+        },
+        {
+          "label": "Hidden after end",
+          "kind": "radio",
+          "group": "Assignments > After End Dates"
+        },
+        {
+          "label": "Visible with access restricted before start",
+          "kind": "radio",
+          "state": "selected",
+          "group": "Discussions > Before Start Dates"
+        },
+        {
+          "label": "Visible with submission restricted before start",
+          "kind": "radio",
+          "group": "Discussions > Before Start Dates"
+        },
+        {
+          "label": "Hidden before start",
+          "kind": "radio",
+          "group": "Discussions > Before Start Dates"
+        },
+        {
+          "label": "Visible with access restricted after end",
+          "kind": "radio",
+          "state": "selected",
+          "group": "Discussions > After End Dates"
+        },
+        {
+          "label": "Visible with submission restricted after end",
+          "kind": "radio",
+          "group": "Discussions > After End Dates"
+        },
+        {
+          "label": "Hidden after end",
+          "kind": "radio",
+          "group": "Discussions > After End Dates"
+        },
+        {
+          "label": "Save",
+          "kind": "button",
+          "state": "primary",
+          "group": "bottom bar",
+          "notes": "sticky bottom bar; not pressed"
+        },
+        {
+          "label": "Cancel",
+          "kind": "button",
+          "group": "bottom bar"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Save",
+          "description": "Not pressed; nothing saved."
+        },
+        {
+          "control": "Cancel",
+          "description": "Leaves the page (return target not recorded)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Availability Date Defaults - Same Playground'.",
+        "h2 Assignments and h2 Discussions each carry the same two radio groups (Before Start Dates, After End Dates) with the same defaults: 'Visible with access restricted before start' and 'Visible with access restricted after end' selected.",
+        "Sticky bottom: Save (primary), Cancel. Not saved."
+      ],
+      "unobserved": [
+        "Whether other tools (for example Quizzes) have their own sections lower on the page.",
+        "Help text beside the radios."
+      ]
+    },
+    {
+      "id": "course-offering-information",
+      "title": "Course Offering Information: Same Playground",
+      "url_pattern": "/d2l/lp/manageCourses/course_offering_info_viewedit.d2l?ou=<ou>",
+      "route": "Course Admin > Course Offering Information",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Course Offering Information\nSame Playground\nCourse Image: Browse\nAll standard image file types are supported. We recommend course images be 2400 x 960 pixels and that they don't contain text...\nHomepage Banner: [x] Display the image in a banner on the course homepage\nCourse Offering Name: Same Playground\nCourse Offering Code: DEV23-<user>-20260918-SamePlayground\nCourse Template Name: Same Playground TEMPLATE\nCourse Template Code: DEV23-TEMPLATE-...\nDepartment: DEVELOPMENT\nSemester: Development Courses\nLocale: (blank)\nForce Locale: No\nActive: [ ] Course is active\nPublic in ePortfolio: [ ] Enable anyone in the organization to add this course to their ePortfolio sharing groups\nRegistration: False\nStart Date: [ ] Course has start date  (date)\nEnd Date: [ ] Course has end date  (date)\nCourse Offering Path: /content/DEVELOPMENT/2026/courses/<code>/\nCourse Address Book: [ ] Show course address book\nColors: Dark Color #65696e  Light Color #f39120  Soft Color #e7e7e2\nSave | Cancel",
+      "controls": [
+        {
+          "label": "Browse",
+          "kind": "button",
+          "group": "Course Image",
+          "notes": "text below: 'All standard image file types are supported. We recommend course images be 2400 x 960 pixels and that they don't contain text...' (capture truncates with ...)"
+        },
+        {
+          "label": "Display the image in a banner on the course homepage",
+          "kind": "checkbox",
+          "state": "checked",
+          "group": "Homepage Banner",
+          "notes": "checked in the sandbox; the banner shows on Course Home"
+        },
+        {
+          "label": "Course Offering Name",
+          "kind": "textbox",
+          "group": "form",
+          "notes": "value 'Same Playground'"
+        },
+        {
+          "label": "Course Offering Code",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value DEV23-<user>-20260918-SamePlayground (pattern: DEV23-<username>-<yyyymmdd>-<name>); the username part is the signed-in account and is withheld"
+        },
+        {
+          "label": "Course Template Name",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value 'Same Playground TEMPLATE'"
+        },
+        {
+          "label": "Course Template Code",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value 'DEV23-TEMPLATE-...' (capture truncates)"
+        },
+        {
+          "label": "Department",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value DEVELOPMENT"
+        },
+        {
+          "label": "Semester",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value 'Development Courses'"
+        },
+        {
+          "label": "Locale",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "blank"
+        },
+        {
+          "label": "Force Locale",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value No"
+        },
+        {
+          "label": "Course is active",
+          "kind": "checkbox",
+          "group": "Active",
+          "notes": "checked state not recorded on this page; the Course Reset page shows Status 'Active'"
+        },
+        {
+          "label": "Enable anyone in the organization to add this course to their ePortfolio sharing groups",
+          "kind": "checkbox",
+          "group": "Public in ePortfolio",
+          "notes": "state not recorded"
+        },
+        {
+          "label": "Registration",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value False"
+        },
+        {
+          "label": "Course has start date",
+          "kind": "checkbox",
+          "group": "Start Date",
+          "notes": "with a date picker; state not recorded on this page (Manage Dates shows Course Start: Sep 18, 2026 3:50 AM)"
+        },
+        {
+          "label": "Course has end date",
+          "kind": "checkbox",
+          "group": "End Date",
+          "notes": "with a date picker; state not recorded (Manage Dates shows Course End: -)"
+        },
+        {
+          "label": "Course Offering Path",
+          "kind": "other",
+          "state": "readonly",
+          "group": "form",
+          "notes": "value /content/DEVELOPMENT/2026/courses/<code>/"
+        },
+        {
+          "label": "Show course address book",
+          "kind": "checkbox",
+          "group": "Course Address Book",
+          "notes": "state not recorded"
+        },
+        {
+          "label": "Colors",
+          "kind": "other",
+          "group": "form",
+          "notes": "Dark Color #65696e, Light Color #f39120, Soft Color #e7e7e2; control type not recorded"
+        },
+        {
+          "label": "Save",
+          "kind": "button",
+          "state": "primary",
+          "group": "bottom bar",
+          "notes": "not pressed"
+        },
+        {
+          "label": "Cancel",
+          "kind": "button",
+          "group": "bottom bar"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Save",
+          "description": "Not pressed; nothing saved."
+        },
+        {
+          "control": "Cancel",
+          "description": "Leaves the page (return target not recorded)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Course Offering Information: Same Playground'. h1 'Course Offering Information' with the course name as subtitle.",
+        "Read-only fields: Course Offering Code, Course Template Name, Course Template Code, Department, Semester, Locale, Force Locale, Registration, Course Offering Path.",
+        "Support note: \"Course is active\" and Start/End Date are the classic \"students can't get into the course at all\" causes; sandbox courses live in department DEVELOPMENT / semester Development Courses.",
+        "Save (primary), Cancel. Not saved."
+      ],
+      "unobserved": [
+        "Checked state of Course is active, Public in ePortfolio, Course has start date, Course has end date and Show course address book.",
+        "The color picker controls.",
+        "The full image guidance text (truncated in the capture)."
+      ]
+    },
+    {
+      "id": "homepages",
+      "title": "Homepages",
+      "url_pattern": "/d2l/lp/homepages/<ou>/list",
+      "route": "Course Admin > Homepages",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Homepages | Widgets\nSelect a homepage to use in this org unit. Selecting the default option means your homepage will reflect any changes made to the default homepage.\nCreate Homepage\nActive Homepage: -- Default --   Apply\nKaltura MediaSpace Course Media Gallery Homepage v   The Kaltura MediaSpace Course Media Gallery widget is included in this homepage; Shared to this org unit from Michigan State University\nMPH Master Homepage v   Shared to this org unit from Michigan State University\nMSU Default Course Homepage v   Default Homepage: Not Enforced   Default course homepage a larger left-hand panel and smaller right-hand panel.   Shared to this org unit from Michigan State University",
+      "controls": [
+        {
+          "label": "Homepages",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Widgets",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Select a homepage to use in this org unit. Selecting the default option means your homepage will reflect any changes made to the default homepage.",
+          "kind": "other",
+          "group": "page",
+          "notes": "static text"
+        },
+        {
+          "label": "Create Homepage",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Active Homepage",
+          "kind": "select",
+          "group": "active homepage",
+          "notes": "options: '-- Default --' (selected), Kaltura MediaSpace Course Media Gallery Homepage, MPH Master Homepage, MSU Default Course Homepage"
+        },
+        {
+          "label": "Apply",
+          "kind": "button",
+          "group": "active homepage"
+        },
+        {
+          "label": "Homepages list",
+          "kind": "table",
+          "group": "list",
+          "notes": "each row has a chevron menu (not opened)"
+        },
+        {
+          "label": "Kaltura MediaSpace Course Media Gallery Homepage",
+          "kind": "row",
+          "group": "list",
+          "notes": "'The Kaltura MediaSpace Course Media Gallery widget is included in this homepage'; 'Shared to this org unit from Michigan State University'"
+        },
+        {
+          "label": "icon:chevron beside Kaltura MediaSpace Course Media Gallery Homepage",
+          "kind": "menu",
+          "group": "list",
+          "notes": "not opened"
+        },
+        {
+          "label": "MPH Master Homepage",
+          "kind": "row",
+          "group": "list",
+          "notes": "'Shared to this org unit from Michigan State University'"
+        },
+        {
+          "label": "icon:chevron beside MPH Master Homepage",
+          "kind": "menu",
+          "group": "list",
+          "notes": "not opened"
+        },
+        {
+          "label": "MSU Default Course Homepage",
+          "kind": "row",
+          "group": "list",
+          "notes": "badge 'Default Homepage: Not Enforced'; 'Default course homepage a larger left-hand panel and smaller right-hand panel.'; 'Shared to this org unit from Michigan State University'"
+        },
+        {
+          "label": "icon:chevron beside MSU Default Course Homepage",
+          "kind": "menu",
+          "group": "list",
+          "notes": "not opened"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Widgets",
+          "result_screen_id": "widgets"
+        },
+        {
+          "control": "Create Homepage",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Apply",
+          "description": "Not pressed; the active homepage stayed '-- Default --'."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Homepages - Same Playground'. Tool tabs: Homepages (selected) | Widgets.",
+        "Three shared homepages are listed; the active homepage is '-- Default --'."
+      ],
+      "unobserved": [
+        "Row chevron menus.",
+        "Create Homepage form.",
+        "Which homepage '-- Default --' resolves to."
+      ]
+    },
+    {
+      "id": "navigation-themes",
+      "title": "Manage Navigation & Themes (Navbars tab)",
+      "url_pattern": "/d2l/lp/navbars/<ou>/list",
+      "route": "Course Admin > Navigation & Themes",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Navbars | Themes | Custom Links\nCreate Navbar\nActive Navbar: -- Default --   Apply\nDefault Course Navbar v   Shared from Michigan State University\nGEO v   Shared from Michigan State University\nKaltura MediaSpace Course Media Gallery v   Shared from Michigan State University\nMSU Beaumont v   Shared from Michigan State University\nMSU Course Fall Seasonal 2016 v   Shared from Michigan State University\nMSU Course Spring Seasonal 2016 v   Shared from Michigan State University\nMSU Course Summer Seasonal 2016 v   Shared from Michigan State University\nMSU Course Winter Seasonal 2016 v   Shared from Michigan State University\nMSU Default Course (Default) v   Shared from Michigan State University\nMSU Fall Course v   Shared from Michigan State University\nMSU Knowledge v   Shared from Michigan State University\nMSU Oasis v   Shared from Michigan State University\nMSU Popcorn Box v   Shared from Michigan State University\nMSU Student Life v   Shared from Michigan State University\nMSU Winter Course v   Shared from Michigan State University\nNCPP v   Shared from Michigan State University\nPPH Theme v   Shared from Michigan State University",
+      "controls": [
+        {
+          "label": "Navbars",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Themes",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "/d2l/lp/navbars/<ou>/themes/list; not opened"
+        },
+        {
+          "label": "Custom Links",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "/d2l/lp/navbars/<ou>/customlink/list; not opened"
+        },
+        {
+          "label": "Create Navbar",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Active Navbar",
+          "kind": "select",
+          "group": "active navbar",
+          "notes": "options: '-- Default --' (selected) plus 17 shared navbars: Default Course Navbar, GEO, Kaltura MediaSpace Course Media Gallery, MSU Beaumont, MSU Course Fall Seasonal 2016, MSU Course Spring Seasonal 2016, MSU Course Summer Seasonal 2016, MSU Course Winter Seasonal 2016, MSU Default Course, MSU Fall Course, MSU Knowledge, MSU Oasis, MSU Popcorn Box, MSU Student Life, MSU Winter Course, NCPP, PPH Theme; MSU Default Course is marked Default"
+        },
+        {
+          "label": "Apply",
+          "kind": "button",
+          "group": "active navbar"
+        },
+        {
+          "label": "Navbars list",
+          "kind": "table",
+          "group": "list",
+          "notes": "17 rows, each 'Shared from Michigan State University' with a chevron menu (not opened)"
+        },
+        {
+          "label": "Default Course Navbar",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "GEO",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "Kaltura MediaSpace Course Media Gallery",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Beaumont",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Course Fall Seasonal 2016",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Course Spring Seasonal 2016",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Course Summer Seasonal 2016",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Course Winter Seasonal 2016",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Default Course",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University; marked Default"
+        },
+        {
+          "label": "MSU Fall Course",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Knowledge",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Oasis",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Popcorn Box",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Student Life",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "MSU Winter Course",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "NCPP",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "PPH Theme",
+          "kind": "row",
+          "group": "list",
+          "notes": "Shared from Michigan State University"
+        },
+        {
+          "label": "icon:chevron beside each navbar row",
+          "kind": "menu",
+          "group": "list",
+          "notes": "row chevron menu; not opened. The Gradescope guide says Copy is where an instructor makes an editable navbar to add a Gradescope link (guide claim, not observed)."
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Themes",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "Custom Links",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "Create Navbar",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Apply",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Navigation & Themes - Same Playground'. The Course Admin link points to /d2l/lp/navbars/<ou>/home; the page observed was /d2l/lp/navbars/<ou>/list.",
+        "Tool tabs: Navbars (selected) | Themes | Custom Links.",
+        "Support note: the Gradescope guide's \"Edit this Navbar\" route needs a course-owned copy; shared navbars are read-only."
+      ],
+      "unobserved": [
+        "Themes tab; Custom Links tab.",
+        "Row chevron menus (Copy and any other items).",
+        "Create Navbar form."
+      ]
+    },
+    {
+      "id": "widgets",
+      "title": "Manage Widgets (Custom Widgets tab)",
+      "url_pattern": "/d2l/lp/homepage/admin/widget/widget_manage.d2l?ou=<ou>&tu=hp",
+      "route": "Course Admin > Widgets",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Homepages | Widgets\nCreate Widget\nCustom Widgets | System Widgets\nCustom Widget List\nName | Actions\nBusiness Librarian Chat | (action icons)\nLibrary Resources | (action icons)\nMSU Counseling and Psychiatric Services | (action icons)\nMSU Style | (action icons)\nMSU Toolbox | (action icons)\nName Game | (action icons)\nNeed Help? | (action icons)\nSAFE E-Learning | (action icons)\nStudent Perceptions of Learning (SPLS) Pop-up Notification | (action icons)\nStudent Resources | (action icons)\nResults Per Page: 10 per page",
+      "controls": [
+        {
+          "label": "Homepages",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Widgets",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Create Widget",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Custom Widgets",
+          "kind": "tab",
+          "state": "selected",
+          "group": "widget tabs"
+        },
+        {
+          "label": "System Widgets",
+          "kind": "tab",
+          "group": "widget tabs",
+          "notes": "not opened (unobserved)"
+        },
+        {
+          "label": "Custom Widget List",
+          "kind": "table",
+          "group": "Custom Widget List",
+          "notes": "Columns: Name | Actions; each row has action icon buttons (accessible names not captured)"
+        },
+        {
+          "label": "Business Librarian Chat",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "Library Resources",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "MSU Counseling and Psychiatric Services",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "MSU Style",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "MSU Toolbox",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "Name Game",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "Need Help?",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "SAFE E-Learning",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "Student Perceptions of Learning (SPLS) Pop-up Notification",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "Student Resources",
+          "kind": "row",
+          "group": "Custom Widget List"
+        },
+        {
+          "label": "Results Per Page",
+          "kind": "select",
+          "group": "footer",
+          "notes": "10/20/50/100/200"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Homepages",
+          "result_screen_id": "homepages"
+        },
+        {
+          "control": "System Widgets",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "Create Widget",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Widgets - Same Playground'. Tool tabs: Homepages | Widgets (selected).",
+        "Ten custom widgets are listed; several appear on the Course Home page (Library Resources, MSU Toolbox, Need Help?)."
+      ],
+      "unobserved": [
+        "System Widgets tab.",
+        "Action icons per row.",
+        "Create Widget form."
+      ]
+    },
+    {
+      "id": "calendar",
+      "title": "Calendar (Agenda view)",
+      "url_pattern": "/d2l/le/calendar/<ou>",
+      "route": "Course Admin > Calendar",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Agenda | Day | Week | Month | List    Print | Settings | Search Events\n< >  Today and tomorrow\nAll Calendars ( 5 )\nCreate Event | Set Dates | Import Events\nGroup by: Date | Course | Category\nNo events scheduled\n(mini month calendar: September 2026, today bold)\nTasks v\nAdd a task...",
+      "controls": [
+        {
+          "label": "Agenda",
+          "kind": "tab",
+          "state": "selected",
+          "group": "view tabs"
+        },
+        {
+          "label": "Day",
+          "kind": "tab",
+          "group": "view tabs"
+        },
+        {
+          "label": "Week",
+          "kind": "tab",
+          "group": "view tabs"
+        },
+        {
+          "label": "Month",
+          "kind": "tab",
+          "group": "view tabs"
+        },
+        {
+          "label": "List",
+          "kind": "tab",
+          "group": "view tabs"
+        },
+        {
+          "label": "Print",
+          "kind": "other",
+          "group": "top right",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "Settings",
+          "kind": "other",
+          "group": "top right",
+          "notes": "gear icon; control type not recorded"
+        },
+        {
+          "label": "Search Events",
+          "kind": "textbox",
+          "group": "top right",
+          "notes": "with magnifier icon"
+        },
+        {
+          "label": "icon:Previous",
+          "kind": "button",
+          "group": "left panel",
+          "notes": "arrow; accessible name not captured"
+        },
+        {
+          "label": "icon:Next",
+          "kind": "button",
+          "group": "left panel",
+          "notes": "arrow; accessible name not captured"
+        },
+        {
+          "label": "Today and tomorrow",
+          "kind": "other",
+          "group": "left panel",
+          "notes": "heading"
+        },
+        {
+          "label": "All Calendars ( 5 )",
+          "kind": "menu",
+          "group": "left panel",
+          "notes": "dropdown; contents not opened"
+        },
+        {
+          "label": "Create Event",
+          "kind": "button",
+          "state": "primary",
+          "group": "left panel"
+        },
+        {
+          "label": "Set Dates",
+          "kind": "button",
+          "group": "left panel"
+        },
+        {
+          "label": "Import Events",
+          "kind": "button",
+          "group": "left panel"
+        },
+        {
+          "label": "Date",
+          "kind": "other",
+          "state": "selected",
+          "group": "Group by:",
+          "notes": "toggle"
+        },
+        {
+          "label": "Course",
+          "kind": "other",
+          "group": "Group by:",
+          "notes": "toggle"
+        },
+        {
+          "label": "Category",
+          "kind": "other",
+          "group": "Group by:",
+          "notes": "toggle"
+        },
+        {
+          "label": "No events scheduled",
+          "kind": "other",
+          "group": "left panel",
+          "notes": "empty state"
+        },
+        {
+          "label": "mini month calendar",
+          "kind": "other",
+          "group": "right panel",
+          "notes": "September 2026 with today in bold"
+        },
+        {
+          "label": "Tasks",
+          "kind": "other",
+          "group": "right panel",
+          "notes": "h2 with a chevron"
+        },
+        {
+          "label": "Add a task...",
+          "kind": "textbox",
+          "group": "right panel"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Create Event",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Set Dates",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Import Events",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Day",
+          "description": "Not opened."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Calendar Agenda View - Same Playground'.",
+        "Left panel: Previous / Next arrows, heading 'Today and tomorrow', dropdown 'All Calendars ( 5 )', buttons Create Event (primary), Set Dates, Import Events, 'Group by:' toggles Date (selected) | Course | Category, empty state 'No events scheduled'. Right panel: mini month calendar, h2 'Tasks' with chevron, textbox 'Add a task...'."
+      ],
+      "unobserved": [
+        "Day, Week, Month and List views.",
+        "Settings page; the All Calendars dropdown; Create Event, Set Dates and Import Events forms."
+      ]
+    },
+    {
+      "id": "course-builder-welcome",
+      "title": "Course Builder: Same Playground (welcome page)",
+      "url_pattern": "/d2l/lms/courseBuilder/welcome.d2l?ou=<ou>",
+      "route": "Course Admin > Course Builder",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "Course Builder\nSame Playground\nCourse Builder enables you to build a course outline, create and edit course materials and assignments, manage grades and learning objectives, all from one central location using a drag and drop interface.\nUse modules and placeholders to create a course outline.  How do I use placeholders and structures?\nCreate content and assignments.  How do I create and edit objects in my course?\nManage learning objectives and grades and associate them with assignments.  How do I associate grades and learning objectives?\n[reconstructed from control list] [ ] Always show this welcome page\nStart",
+      "controls": [
+        {
+          "label": "Course Builder enables you to build a course outline, create and edit course materials and assignments, manage grades and learning objectives, all from one central location using a drag and drop interface.",
+          "kind": "other",
+          "group": "intro",
+          "notes": "intro text"
+        },
+        {
+          "label": "Use modules and placeholders to create a course outline.",
+          "kind": "other",
+          "group": "intro items",
+          "notes": "item text"
+        },
+        {
+          "label": "How do I use placeholders and structures?",
+          "kind": "link",
+          "group": "intro items"
+        },
+        {
+          "label": "Create content and assignments.",
+          "kind": "other",
+          "group": "intro items",
+          "notes": "item text"
+        },
+        {
+          "label": "How do I create and edit objects in my course?",
+          "kind": "link",
+          "group": "intro items"
+        },
+        {
+          "label": "Manage learning objectives and grades and associate them with assignments.",
+          "kind": "other",
+          "group": "intro items",
+          "notes": "item text"
+        },
+        {
+          "label": "How do I associate grades and learning objectives?",
+          "kind": "link",
+          "group": "intro items"
+        },
+        {
+          "label": "Always show this welcome page",
+          "kind": "checkbox",
+          "group": "form",
+          "notes": "state not recorded"
+        },
+        {
+          "label": "Start",
+          "kind": "button",
+          "state": "primary",
+          "group": "form",
+          "notes": "not pressed"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Start",
+          "description": "Not pressed; the builder itself was not opened (unobserved)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Course Builder: Same Playground'. The Course Admin link goes to main.d2l, which redirects to this welcome page.",
+        "Manage Files also shows a 'Course Builder' tool tab."
+      ],
+      "unobserved": [
+        "The Course Builder itself (drag and drop interface).",
+        "The help link destinations.",
+        "State of the Always show this welcome page checkbox."
+      ]
+    },
+    {
+      "id": "course-design-accelerator",
+      "title": "Course Design Accelerator",
+      "url_pattern": "/d2l/lms/accelerator/main.d2l?ou=<ou>",
+      "route": "Course Admin > Course Design Accelerator",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Course Design Accelerator\nAnalyze and Design your Course Structure v\nStart designing your course. For a new course we recommend the following tasks:\n  Review course offering information\n  Plan your course using the Instructional Design Wizard\n  Configure your grade book settings using the Grades Setup Wizard\n  Create groups workspaces for your activities\n  Reuse course content by importing or copying from another course or package\n  Create rubrics for your assessments\n  Build your course structure and manage content using the Course Builder\n(section heading not recorded) v\nAutomate common course administration tasks using the course administration tools:\n  Copy or import course administration components\n  Collect external resources and tools\n  Set up notifications to monitor learners' progress\n(section heading not recorded) v\nCommunication tools are integral for an online course, here you can configure the following:\n  Copy or import course communication components\n  Create asynchronous discussion forums and topics\n(section heading not recorded) v\nTo finish your course set up, welcome learners to the class and set expectations:\n  Introduce yourself to the class by updating your profile\n  Post a welcome announcement\n  Welcome learners to the forums and provide expectations for using forums\n  Send a welcome email to your class\n  Create a glossary of terms relevant to the course\n  Create and maintain an FAQ section",
+      "controls": [
+        {
+          "label": "Analyze and Design your Course Structure",
+          "kind": "other",
+          "state": "expanded",
+          "group": "sections",
+          "notes": "collapsible section heading with chevron"
+        },
+        {
+          "label": "Start designing your course. For a new course we recommend the following tasks:",
+          "kind": "other",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "section intro text"
+        },
+        {
+          "label": "Review course offering information",
+          "kind": "link",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Plan your course using the Instructional Design Wizard",
+          "kind": "link",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Configure your grade book settings using the Grades Setup Wizard",
+          "kind": "link",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Create groups workspaces for your activities",
+          "kind": "link",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Reuse course content by importing or copying from another course or package",
+          "kind": "link",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Create rubrics for your assessments",
+          "kind": "link",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Build your course structure and manage content using the Course Builder",
+          "kind": "link",
+          "group": "Analyze and Design your Course Structure",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Automate common course administration tasks using the course administration tools:",
+          "kind": "other",
+          "group": "Automate common course administration tasks using the course administration tools:",
+          "notes": "section intro text"
+        },
+        {
+          "label": "Copy or import course administration components",
+          "kind": "link",
+          "group": "Automate common course administration tasks using the course administration tools:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Collect external resources and tools",
+          "kind": "link",
+          "group": "Automate common course administration tasks using the course administration tools:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Set up notifications to monitor learners' progress",
+          "kind": "link",
+          "group": "Automate common course administration tasks using the course administration tools:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Communication tools are integral for an online course, here you can configure the following:",
+          "kind": "other",
+          "group": "Communication tools are integral for an online course, here you can configure the following:",
+          "notes": "section intro text"
+        },
+        {
+          "label": "Copy or import course communication components",
+          "kind": "link",
+          "group": "Communication tools are integral for an online course, here you can configure the following:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Create asynchronous discussion forums and topics",
+          "kind": "link",
+          "group": "Communication tools are integral for an online course, here you can configure the following:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "To finish your course set up, welcome learners to the class and set expectations:",
+          "kind": "other",
+          "group": "To finish your course set up, welcome learners to the class and set expectations:",
+          "notes": "section intro text"
+        },
+        {
+          "label": "Introduce yourself to the class by updating your profile",
+          "kind": "link",
+          "group": "To finish your course set up, welcome learners to the class and set expectations:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Post a welcome announcement",
+          "kind": "link",
+          "group": "To finish your course set up, welcome learners to the class and set expectations:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Welcome learners to the forums and provide expectations for using forums",
+          "kind": "link",
+          "group": "To finish your course set up, welcome learners to the class and set expectations:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Send a welcome email to your class",
+          "kind": "link",
+          "group": "To finish your course set up, welcome learners to the class and set expectations:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Create a glossary of terms relevant to the course",
+          "kind": "link",
+          "group": "To finish your course set up, welcome learners to the class and set expectations:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        },
+        {
+          "label": "Create and maintain an FAQ section",
+          "kind": "link",
+          "group": "To finish your course set up, welcome learners to the class and set expectations:",
+          "notes": "linked task with a description (description text not recorded); links into the named tool; not opened"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Plan your course using the Instructional Design Wizard",
+          "description": "Not followed from here; the wizard's resume page is screen instructional-design-wizard-resume."
+        },
+        {
+          "control": "Configure your grade book settings using the Grades Setup Wizard",
+          "description": "Not followed from here; the wizard landing is screen grades-setup-wizard-landing."
+        },
+        {
+          "control": "Build your course structure and manage content using the Course Builder",
+          "description": "Not followed from here; see screen course-builder-welcome."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Course Design Accelerator - Same Playground'. h1 'Course Design Accelerator'; collapsible sections with chevrons.",
+        "Only the first section's heading ('Analyze and Design your Course Structure') was recorded; the later sections are identified by their intro sentence.",
+        "Each task is a link into the named tool with a description; none opened from here."
+      ],
+      "unobserved": [
+        "Headings of the second, third and fourth sections.",
+        "Per-task description text.",
+        "Collapsed state of each section."
+      ]
+    },
+    {
+      "id": "external-learning-tools",
+      "title": "LTI Advantage Links - External Learning Tools",
+      "url_pattern": "/d2l/le/ltiadvantage/<ou>/links",
+      "route": "Course Admin > External Learning Tools (LTI Advantage tab)",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] LTI Advantage Links - External Learning Tools\nLTI Advantage | Manage Tool Links (Legacy)\nYou can now migrate from Legacy LTI\nNew Link\nAll | Enabled | Disabled\n17 items in the list.\nLink Name | Deployment | Last Modified Date | Status | Type\nAccess Pearson | Access Pearson | 1/19/2024 | Enabled | Basic Launch\nALEKS | ALEKS | 7/31/2023 | Enabled | Basic Launch\nAlly Configuration | Ally Configuration LTI 1.3 | 5/23/2023 | Enabled | Basic Launch\nAlly Course Accessibility Report | Ally Course Accessibility Report LTI 1.3 | 5/23/2023 | Enabled | Basic Launch\nAlly Institution Report | Ally Institution Report LTI 1.3 | 5/19/2023 | Enabled | Basic Launch\nGradescope 1.3 - Course Level | Gradescope LTI 1.3 | 9/21/2026 5:26 PM | Enabled | Basic Launch\nMacmillan LTI 1.3 Course Tools | (deployment not recorded) | 1/14/2025 | Enabled | Basic Launch\nMATLAB and Simulink Online Courses LTI 1.3 | (deployment not recorded) | 4/23/2025 | Enabled | Basic Launch\nMATLAB Grader LTI 1.3 | (deployment not recorded) | 4/23/2025 | Enabled | Basic Launch\nMcGraw Hill Connect LTIA Basic Link | McGraw Hill Connect LTIA | 10/3/2023 | Enabled | Basic Launch\nMediaSpace Course Gallery (LTI 1.3) | Kaltura LTI 1.3 Tools | 8/16/2025 | Enabled | Basic Launch\nMy Media on MediaSpace (LTI 1.3) | Kaltura LTI 1.3 Tools | 8/16/2025 | Enabled | Basic Launch\nPackback Questions | (deployment not recorded) | 8/24/2020 | Enabled | Basic Launch\nPerusall | (deployment not recorded) | 4/20/2023 | Enabled | Basic Launch\nSPLS Tasks | (deployment not recorded) | 5/10/2023 | Enabled | Basic Launch\nTop Hat LTI 1.3 Basic Launch | Top Hat LTI 1.3 | 1/7/2026 | Enabled | Basic Launch\nZoom Meetings LTI 1.3 | Zoom LTI 1.3 Deployment | 6/20/2024 | Enabled | Basic Launch\nPage Size: (1 to 200 per page)",
+      "controls": [
+        {
+          "label": "LTI Advantage",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Manage Tool Links (Legacy)",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "not opened (unobserved)"
+        },
+        {
+          "label": "You can now migrate from Legacy LTI",
+          "kind": "other",
+          "group": "banner",
+          "notes": "banner text"
+        },
+        {
+          "label": "New Link",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "All",
+          "kind": "other",
+          "state": "selected",
+          "group": "filter",
+          "notes": "filter; control type not recorded; selected state inferred from the count '17 items in the list.' showing every row"
+        },
+        {
+          "label": "Enabled",
+          "kind": "other",
+          "group": "filter",
+          "notes": "filter; control type not recorded"
+        },
+        {
+          "label": "Disabled",
+          "kind": "other",
+          "group": "filter",
+          "notes": "filter; control type not recorded"
+        },
+        {
+          "label": "17 items in the list.",
+          "kind": "other",
+          "group": "list",
+          "notes": "count text"
+        },
+        {
+          "label": "LTI Advantage Links table",
+          "kind": "table",
+          "group": "list",
+          "notes": "Columns: Link Name | Deployment | Last Modified Date | Status | Type; 17 rows, all Status Enabled and Type Basic Launch"
+        },
+        {
+          "label": "Access Pearson",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Access Pearson; Last Modified Date: 1/19/2024; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "ALEKS",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: ALEKS; Last Modified Date: 7/31/2023; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Ally Configuration",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Ally Configuration LTI 1.3; Last Modified Date: 5/23/2023; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Ally Course Accessibility Report",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Ally Course Accessibility Report LTI 1.3; Last Modified Date: 5/23/2023; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Ally Institution Report",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Ally Institution Report LTI 1.3; Last Modified Date: 5/19/2023; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Gradescope 1.3 - Course Level",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Gradescope LTI 1.3; Last Modified Date: 9/21/2026 5:26 PM; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Macmillan LTI 1.3 Course Tools",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: (deployment not recorded); Last Modified Date: 1/14/2025; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "MATLAB and Simulink Online Courses LTI 1.3",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: (deployment not recorded); Last Modified Date: 4/23/2025; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "MATLAB Grader LTI 1.3",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: (deployment not recorded); Last Modified Date: 4/23/2025; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "McGraw Hill Connect LTIA Basic Link",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: McGraw Hill Connect LTIA; Last Modified Date: 10/3/2023; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "MediaSpace Course Gallery (LTI 1.3)",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Kaltura LTI 1.3 Tools; Last Modified Date: 8/16/2025; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "My Media on MediaSpace (LTI 1.3)",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Kaltura LTI 1.3 Tools; Last Modified Date: 8/16/2025; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Packback Questions",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: (deployment not recorded); Last Modified Date: 8/24/2020; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Perusall",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: (deployment not recorded); Last Modified Date: 4/20/2023; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "SPLS Tasks",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: (deployment not recorded); Last Modified Date: 5/10/2023; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Top Hat LTI 1.3 Basic Launch",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Top Hat LTI 1.3; Last Modified Date: 1/7/2026; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Zoom Meetings LTI 1.3",
+          "kind": "row",
+          "group": "list",
+          "notes": "Deployment: Zoom LTI 1.3 Deployment; Last Modified Date: 6/20/2024; Status Enabled; Type Basic Launch"
+        },
+        {
+          "label": "Page Size",
+          "kind": "select",
+          "group": "footer",
+          "notes": "1 to 200 per page"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Manage Tool Links (Legacy)",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "New Link",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'LTI Advantage Links - Same Playground'. The Course Admin link /d2l/lms/lti/index/<ou> redirects to /d2l/le/ltiadvantage/<ou>/links.",
+        "Source: raw/course-admin-site-resources.md (External Learning Tools) plus /home/claude/gradescope-pack/observed/msu-lti-advantage-links-2026-09-22.md, which holds the row list.",
+        "Rows where the source gives only one name are recorded with '(deployment not recorded)' in the Deployment column; the source lists the link name and date for those.",
+        "Meaning for support (from the Gradescope pack note): Gradescope is deployed at MSU as LTI 1.3 at course level. A course that \"has no Gradescope\" is missing a link (navbar or Content topic), not the deployment.",
+        "The Legacy tab was not opened (unobserved)."
+      ],
+      "unobserved": [
+        "Manage Tool Links (Legacy) tab.",
+        "Row menus and the New Link form.",
+        "Deployment names for the rows marked '(deployment not recorded)'."
+      ]
+    },
+    {
+      "id": "forms",
+      "title": "Manage Form Templates",
+      "url_pattern": "/d2l/eP/forms/forms_list.d2l?ou=<ou>",
+      "route": "Course Admin > Forms",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Manage Form Templates\nNew Form Template | Import Form Template | Copy Form Template\nForm Templates List\nWhat are forms?\n(empty list; screen-reader text: List of all the form templates created in the current org unit)",
+      "controls": [
+        {
+          "label": "New Form Template",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Import Form Template",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Copy Form Template",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "What are forms?",
+          "kind": "link",
+          "group": "Form Templates List"
+        },
+        {
+          "label": "Form Templates List",
+          "kind": "table",
+          "group": "Form Templates List",
+          "notes": "empty; screen-reader text 'List of all the form templates created in the current org unit'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "New Form Template",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Form Templates - Same Playground'. h1 'Manage Form Templates'; h2 'Form Templates List'."
+      ],
+      "unobserved": [
+        "The three form-template flows.",
+        "List columns when templates exist."
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "Manage FAQ",
+      "url_pattern": "/d2l/lms/faq/manage_faq.d2l?ou=<ou>",
+      "route": "Course Admin > Frequently Asked Questions",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Manage FAQ\nNew Category | New Question | More Actions v\nCategory: View All Categories   Apply\n(empty table; screen-reader text: This table is a list of frequently asked questions, organized by categories...)",
+      "controls": [
+        {
+          "label": "New Category",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "New Question",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "Category",
+          "kind": "select",
+          "group": "filter",
+          "notes": "value 'View All Categories'"
+        },
+        {
+          "label": "Apply",
+          "kind": "button",
+          "group": "filter"
+        },
+        {
+          "label": "FAQ table",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; screen-reader text 'This table is a list of frequently asked questions, organized by categories...' (truncated in the capture)"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        },
+        {
+          "control": "New Question",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage FAQ - Same Playground'."
+      ],
+      "unobserved": [
+        "More Actions menu.",
+        "New Category and New Question forms.",
+        "Full screen-reader text."
+      ]
+    },
+    {
+      "id": "glossary",
+      "title": "Glossary",
+      "url_pattern": "/d2l/lms/glossary/glossary.d2l?ou=<ou>&nb=1",
+      "route": "Course Admin > Glossary",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Glossary\nNew Term | Import Terms\nJump To: # A B C ... Z\n(empty)",
+      "controls": [
+        {
+          "label": "New Term",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Import Terms",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Jump To:",
+          "kind": "other",
+          "group": "jump to",
+          "notes": "letter links: '#' then A to Z (the capture abbreviates the list as '# A B C ... Z'); each letter is a link"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "New Term",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Import Terms",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Glossary - Same Playground'. The glossary is empty."
+      ],
+      "unobserved": [
+        "New Term and Import Terms forms.",
+        "Term list layout when terms exist."
+      ]
+    },
+    {
+      "id": "import-export-copy",
+      "title": "Import/Export/Copy Components",
+      "url_pattern": "/d2l/lms/importExport/import_export.d2l?ou=<ou>",
+      "route": "Course Admin > Import / Export / Copy Components",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Import/Export/Copy Components\nWhat would you like to do?\n( ) Copy Components from another Org Unit   What is an Org Unit?\n    Course to Copy: Search for offering\n    [ ] Include protected resources\n( ) Export as Brightspace Package   What is a Brightspace Package?\n( ) Export as Common Cartridge   What is Common Cartridge?\n( ) Export as Thin Common Cartridge   What is Thin Common Cartridge?\n( ) Import Components\n    Select a component source: ( ) from Learning Object Repository  ( ) from a course package\n    View Import History\nCopy All Components | Select Components",
+      "controls": [
+        {
+          "label": "Copy Components from another Org Unit",
+          "kind": "radio",
+          "group": "What would you like to do?",
+          "notes": "selected state not recorded"
+        },
+        {
+          "label": "What is an Org Unit?",
+          "kind": "link",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "Search for offering",
+          "kind": "button",
+          "group": "Course to Copy:"
+        },
+        {
+          "label": "Include protected resources",
+          "kind": "checkbox",
+          "group": "Course to Copy:",
+          "notes": "state not recorded"
+        },
+        {
+          "label": "Export as Brightspace Package",
+          "kind": "radio",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "What is a Brightspace Package?",
+          "kind": "link",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "Export as Common Cartridge",
+          "kind": "radio",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "What is Common Cartridge?",
+          "kind": "link",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "Export as Thin Common Cartridge",
+          "kind": "radio",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "What is Thin Common Cartridge?",
+          "kind": "link",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "Import Components",
+          "kind": "radio",
+          "group": "What would you like to do?"
+        },
+        {
+          "label": "from Learning Object Repository",
+          "kind": "radio",
+          "group": "Import Components > Select a component source:"
+        },
+        {
+          "label": "from a course package",
+          "kind": "radio",
+          "group": "Import Components > Select a component source:"
+        },
+        {
+          "label": "View Import History",
+          "kind": "link",
+          "group": "Import Components"
+        },
+        {
+          "label": "Copy All Components",
+          "kind": "button",
+          "group": "buttons"
+        },
+        {
+          "label": "Select Components",
+          "kind": "button",
+          "group": "buttons"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Search for offering",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Copy All Components",
+          "description": "Not pressed; nothing started."
+        },
+        {
+          "control": "Select Components",
+          "description": "Not pressed; nothing started."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Import/Export/Copy Components - Same Playground'.",
+        "Nothing started. Which radio is selected by default and which button is primary were not recorded.",
+        "Support note: the most common request from educators (\"copy my course from last term\") starts here with Search for offering."
+      ],
+      "unobserved": [
+        "Default radio selection; primary button.",
+        "Search for offering dialog; the component selection pages; Import History."
+      ]
+    },
+    {
+      "id": "instructional-design-wizard-resume",
+      "title": "Instructional Design Wizard: Resume the Instructional Design Wizard",
+      "url_pattern": "/d2l/lms/accelerator/idw/startWizard.d2l?ou=<ou>",
+      "route": "Course Admin > Instructional Design Wizard",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Instructional Design Wizard\nResume the Instructional Design Wizard\n(intro paragraphs about instructional design; text not recorded)\nReview your progress and click the Resume button to continue.\nCourse Blueprint Summary\nNo selected activities in <module>\nObjective-Based Assessment Summary\nNo selected learning objectives in Course Competency: <competency>\nResume",
+      "controls": [
+        {
+          "label": "Review your progress and click the Resume button to continue.",
+          "kind": "other",
+          "group": "intro",
+          "notes": "static text"
+        },
+        {
+          "label": "Course Blueprint Summary",
+          "kind": "other",
+          "group": "summaries",
+          "notes": "h2; text and a per-module list"
+        },
+        {
+          "label": "No selected activities in <module>",
+          "kind": "other",
+          "group": "Course Blueprint Summary",
+          "notes": "one line per placeholder module; the module name the user typed is withheld as <module>"
+        },
+        {
+          "label": "Objective-Based Assessment Summary",
+          "kind": "other",
+          "group": "summaries",
+          "notes": "h2; collapsible per competency"
+        },
+        {
+          "label": "No selected learning objectives in Course Competency: <competency>",
+          "kind": "other",
+          "group": "Objective-Based Assessment Summary",
+          "notes": "the competency name the user typed is withheld as <competency>"
+        },
+        {
+          "label": "Resume",
+          "kind": "button",
+          "state": "primary",
+          "group": "bottom",
+          "notes": "sticky; not pressed"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Resume",
+          "description": "Not pressed; the wizard was not resumed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Instructional Design Wizard: Resume the Instructional Design Wizard'. h1 'Instructional Design Wizard'; h2 'Resume the Instructional Design Wizard'.",
+        "The sandbox already had a started wizard with one placeholder module and one course competency, so this page shows the resume state rather than the wizard start. The names of that module and competency were typed by the user and are withheld here as <module> and <competency>.",
+        "The wizard's step pages were seen earlier in the session but not captured: a 'Create Learning Objective' dialog with Name, a Description editor and Create / Cancel, and a validation toast 'You must select at least 1 learning objective to continue'. They are otherwise unobserved."
+      ],
+      "unobserved": [
+        "The intro paragraph text.",
+        "The wizard step pages (start state and each step).",
+        "The Create Learning Objective dialog layout beyond the fields named in the notes."
+      ]
+    },
+    {
+      "id": "learning-activity-library",
+      "title": "Manage Activity Library",
+      "url_pattern": "/d2l/lms/accelerator/idw/admin/activities/list.d2l?ou=<ou>",
+      "route": "Course Admin > Learning Activity Library",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Manage Activity Library\nView By: All Categories\nName | Owner | Cognitive Skills | Last Modified\nCase Study\n  New Case Study | System | | \n  Predefined Case Study | System | | \nCollaborations\n  Brainstorming | System | | \n  Collaboration (General) | System | | \n  Fishbowl | System | | \n  Jigsaw | System | | \n  Piece the Puzzle | System | | \n  Roundtable Review | System | | \n  Think Pair Share | System | | \nDiscussions\n  Debate | System | | \n  Forum (General) | System | | \n  Group Discussion | System | | \nExperimental Learning\n  Experiment | System | | \n  Field Observation | System | | \n  Interview | System | | \n  Learning Contract | System | | \n  Project (General) | System | | \n  Role Playing | System | | \n  Simulation | System | | \nExplicit Teaching\n  Demonstration | System | | \n  ... (further Explicit Teaching rows not recorded)\nPage 1 of 3   Results Per Page",
+      "controls": [
+        {
+          "label": "View By:",
+          "kind": "select",
+          "group": "filter",
+          "notes": "options: All Categories / Case Study / Collaborations / Discussions / Experimental Learning / Explicit Teaching / Imprinting Activities / Media / Presentations / Reference / Surveys / Tests / Writing"
+        },
+        {
+          "label": "Activity Library table",
+          "kind": "table",
+          "group": "list",
+          "notes": "Columns: Name | Owner | Cognitive Skills | Last Modified; rows grouped by category; page 1 of 3 captured"
+        },
+        {
+          "label": "New Case Study",
+          "kind": "row",
+          "group": "Case Study",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Predefined Case Study",
+          "kind": "row",
+          "group": "Case Study",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Brainstorming",
+          "kind": "row",
+          "group": "Collaborations",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Collaboration (General)",
+          "kind": "row",
+          "group": "Collaborations",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Fishbowl",
+          "kind": "row",
+          "group": "Collaborations",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Jigsaw",
+          "kind": "row",
+          "group": "Collaborations",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Piece the Puzzle",
+          "kind": "row",
+          "group": "Collaborations",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Roundtable Review",
+          "kind": "row",
+          "group": "Collaborations",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Think Pair Share",
+          "kind": "row",
+          "group": "Collaborations",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Debate",
+          "kind": "row",
+          "group": "Discussions",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Forum (General)",
+          "kind": "row",
+          "group": "Discussions",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Group Discussion",
+          "kind": "row",
+          "group": "Discussions",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Experiment",
+          "kind": "row",
+          "group": "Experimental Learning",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Field Observation",
+          "kind": "row",
+          "group": "Experimental Learning",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Interview",
+          "kind": "row",
+          "group": "Experimental Learning",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Learning Contract",
+          "kind": "row",
+          "group": "Experimental Learning",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Project (General)",
+          "kind": "row",
+          "group": "Experimental Learning",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Role Playing",
+          "kind": "row",
+          "group": "Experimental Learning",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Simulation",
+          "kind": "row",
+          "group": "Experimental Learning",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Demonstration",
+          "kind": "row",
+          "group": "Explicit Teaching",
+          "notes": "Owner 'System'; Cognitive Skills and Last Modified values not recorded"
+        },
+        {
+          "label": "Page 1 of 3",
+          "kind": "other",
+          "group": "pager",
+          "notes": "pager"
+        },
+        {
+          "label": "Results Per Page",
+          "kind": "select",
+          "group": "pager"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "View By:",
+          "description": "Not changed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Activity Library - Same Playground'.",
+        "Page 1 of 3 shows: Case Study (New Case Study, Predefined Case Study), Collaborations (Brainstorming, Collaboration (General), Fishbowl, Jigsaw, Piece the Puzzle, Roundtable Review, Think Pair Share), Discussions (Debate, Forum (General), Group Discussion), Experimental Learning (Experiment, Field Observation, Interview, Learning Contract, Project (General), Role Playing, Simulation), Explicit Teaching (Demonstration ...); Owner 'System' for all."
+      ],
+      "unobserved": [
+        "Pages 2 and 3 and the rest of Explicit Teaching.",
+        "Cognitive Skills and Last Modified values.",
+        "Row actions."
+      ]
+    },
+    {
+      "id": "links",
+      "title": "Manage Links",
+      "url_pattern": "/d2l/lms/links/manage_links.d2l?ou=<ou>",
+      "route": "Course Admin > Links",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Manage Links\nNew Category | New Link | More Actions v\nCategory: View All Categories   Apply\n(empty list)",
+      "controls": [
+        {
+          "label": "New Category",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "New Link",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "Category",
+          "kind": "select",
+          "group": "filter",
+          "notes": "value 'View All Categories'"
+        },
+        {
+          "label": "Apply",
+          "kind": "button",
+          "group": "filter"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        },
+        {
+          "control": "New Link",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Links - Same Playground'. Empty list."
+      ],
+      "unobserved": [
+        "More Actions menu.",
+        "New Category and New Link forms.",
+        "List layout when links exist."
+      ]
+    },
+    {
+      "id": "manage-files",
+      "title": "Manage Files",
+      "url_pattern": "/d2l/lp/manageFiles/main.d2l?ou=<ou>",
+      "route": "Course Admin > Manage Files",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Content | Manage Files | Course Builder\nLocation: content > DEVELOPMENT > 2026 > courses > <course code>\nHide Tree | New File | New Folder | Paste | Upload    Add Learning Object\n(Folder Tree Pane: course folder selected)\nThis folder is empty.",
+      "controls": [
+        {
+          "label": "Content",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Manage Files",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Course Builder",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Location: content > DEVELOPMENT > 2026 > courses > <course code>",
+          "kind": "other",
+          "group": "breadcrumb",
+          "notes": "breadcrumb; the course code is the DEV23-... offering code"
+        },
+        {
+          "label": "Hide Tree",
+          "kind": "link",
+          "group": "action links",
+          "notes": "link with icon"
+        },
+        {
+          "label": "New File",
+          "kind": "link",
+          "group": "action links",
+          "notes": "link with icon"
+        },
+        {
+          "label": "New Folder",
+          "kind": "link",
+          "group": "action links",
+          "notes": "link with icon"
+        },
+        {
+          "label": "Paste",
+          "kind": "link",
+          "group": "action links",
+          "notes": "link with icon"
+        },
+        {
+          "label": "Upload",
+          "kind": "link",
+          "group": "action links",
+          "notes": "link with icon"
+        },
+        {
+          "label": "Add Learning Object",
+          "kind": "link",
+          "group": "action links right",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "Folder Tree Pane",
+          "kind": "other",
+          "group": "left",
+          "notes": "course folder selected"
+        },
+        {
+          "label": "This folder is empty.",
+          "kind": "other",
+          "group": "right",
+          "notes": "empty state"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Content",
+          "description": "Not followed from here; the Content tool is screen content-classic-with-prompt."
+        },
+        {
+          "control": "Course Builder",
+          "description": "Not followed from here; see screen course-builder-welcome."
+        },
+        {
+          "control": "Upload",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Files - Same Playground'. Tool tabs: Content | Manage Files (selected) | Course Builder."
+      ],
+      "unobserved": [
+        "Upload, New File and New Folder dialogs.",
+        "File list layout when files exist.",
+        "Row menus."
+      ]
+    },
+    {
+      "id": "attendance-registers",
+      "title": "Attendance Registers",
+      "url_pattern": "/d2l/lms/attendance/registers/registers_list.d2l?ou=<ou>",
+      "route": "Course Admin > Attendance",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Attendance Registers | Attendance Schemes\nNew Register | More Actions v\nWhat are attendance registers?\n(empty table; screen-reader text: This table is a list of all attendance registers in the current org unit. Item specific actions are available in each row.)",
+      "controls": [
+        {
+          "label": "Attendance Registers",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Attendance Schemes",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "/d2l/lms/attendance/schemes/scheme_list.d2l?ou=<ou>; not opened"
+        },
+        {
+          "label": "New Register",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "What are attendance registers?",
+          "kind": "link",
+          "group": "page"
+        },
+        {
+          "label": "Attendance registers table",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; screen-reader text 'This table is a list of all attendance registers in the current org unit. Item specific actions are available in each row.'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Attendance Schemes",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Attendance Registers - Same Playground'."
+      ],
+      "unobserved": [
+        "Attendance Schemes tab.",
+        "More Actions menu.",
+        "New Register form."
+      ]
+    },
+    {
+      "id": "class-progress",
+      "title": "Class Progress",
+      "url_pattern": "/d2l/le/userprogress/<ou>/classprogress/List?searchString=&sortDescending=0&sortField=SortLastName",
+      "route": "Course Admin > Class Progress",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Class Progress    Help | Settings | Search users\nUse agents to automate feedback\nName | Content Completed | Objectives | Logins | Grades  >\n(avatar) Student, Demo  DemoStudent_<ou>  DemoStudent_<ou>_<hash> | No content topics | No objectives | No logins | No grades\n1 / 1   Page Size",
+      "controls": [
+        {
+          "label": "Help",
+          "kind": "other",
+          "group": "top right",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "Settings",
+          "kind": "other",
+          "group": "top right",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "Search users",
+          "kind": "textbox",
+          "group": "top right"
+        },
+        {
+          "label": "Use agents to automate feedback",
+          "kind": "link",
+          "group": "page"
+        },
+        {
+          "label": "Class Progress table",
+          "kind": "table",
+          "group": "list",
+          "notes": "Columns: Name (sortable) | Content Completed | Objectives | Logins | Grades; more columns scroll right via an arrow"
+        },
+        {
+          "label": "Name",
+          "kind": "other",
+          "group": "list",
+          "notes": "sortable column header"
+        },
+        {
+          "label": "icon:scroll columns right",
+          "kind": "button",
+          "group": "list",
+          "notes": "arrow that reveals more columns; accessible name not captured"
+        },
+        {
+          "label": "Student, Demo",
+          "kind": "row",
+          "group": "list",
+          "notes": "avatar; username DemoStudent_<ou>; org-defined id DemoStudent_<ou>_<hash>; cells 'No content topics', 'No objectives', 'No logins', 'No grades'"
+        },
+        {
+          "label": "Student, Demo",
+          "kind": "link",
+          "group": "list",
+          "notes": "aria 'View profile card for Demo Student'"
+        },
+        {
+          "label": "1 / 1",
+          "kind": "other",
+          "group": "pager",
+          "notes": "pager"
+        },
+        {
+          "label": "Page Size",
+          "kind": "select",
+          "group": "pager",
+          "notes": "1/5/10/20/50 per page"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Student, Demo",
+          "description": "Not followed (would open the learner's progress page)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Class Progress - Same Playground'. Only the demo learner is listed; the instructor does not appear in the Class Progress list."
+      ],
+      "unobserved": [
+        "Columns to the right of Grades.",
+        "Settings page.",
+        "The individual learner progress page."
+      ]
+    },
+    {
+      "id": "groups",
+      "title": "Manage Groups",
+      "url_pattern": "/d2l/lms/group/group_list.d2l?ou=<ou>&sp=1",
+      "route": "Course Admin > Groups",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Manage Groups\n(icon) (icon) New Category | Recycle Bin | Import | Export\n(empty grid; screen-reader text: This grid displays information about all of the groups in the org unit, including: the category the group belongs to, and the number of members, lockers, assignments, and discussion forums associated with the group.)",
+      "controls": [
+        {
+          "label": "icon:unlabelled button 1",
+          "kind": "button",
+          "group": "button row",
+          "notes": "icon button before New Category; label not captured"
+        },
+        {
+          "label": "icon:unlabelled button 2",
+          "kind": "button",
+          "group": "button row",
+          "notes": "icon button before New Category; label not captured"
+        },
+        {
+          "label": "New Category",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Recycle Bin",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Import",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Export",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Groups grid",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; screen-reader text 'This grid displays information about all of the groups in the org unit, including: the category the group belongs to, and the number of members, lockers, assignments, and discussion forums associated with the group.'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "New Category",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Groups - Same Playground'. No groups exist (the assignment editor's Assignment Type note says 'No groups exist. Create new groups in the Groups tool.')."
+      ],
+      "unobserved": [
+        "The two unlabelled icon buttons.",
+        "New Category form; Recycle Bin; Import and Export pages."
+      ]
+    },
+    {
+      "id": "awards",
+      "title": "Classlist Award Summary",
+      "url_pattern": "/d2l/awards/<ou>/#/roster",
+      "route": "Course Admin > Awards",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Classlist Awards | Course Awards | My Awards | View Available Awards\nIssue | Revoke    Search classlist   Award Leaders Descending\nClasslist | Course Awards\n(instructor row: real name withheld) | This user has no awards\n[ ] Demo Student | This user has no awards",
+      "controls": [
+        {
+          "label": "Classlist Awards",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Course Awards",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "My Awards",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "View Available Awards",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Issue",
+          "kind": "button",
+          "state": "selected",
+          "group": "toggle",
+          "notes": "toggle button"
+        },
+        {
+          "label": "Revoke",
+          "kind": "button",
+          "group": "toggle",
+          "notes": "toggle button"
+        },
+        {
+          "label": "Search classlist",
+          "kind": "textbox",
+          "group": "filter"
+        },
+        {
+          "label": "Award Leaders Descending",
+          "kind": "select",
+          "group": "filter",
+          "notes": "sort; options: Award Leaders Descending, Award Leaders Ascending, Last Name Z-A, Last Name A-Z, First Name Z-A, First Name A-Z"
+        },
+        {
+          "label": "Award summary table",
+          "kind": "table",
+          "group": "list",
+          "notes": "Columns: Classlist | Course Awards"
+        },
+        {
+          "label": "[instructor row: real name withheld]",
+          "kind": "row",
+          "group": "list",
+          "notes": "'This user has no awards'; the name is the signed-in MSU account and is withheld"
+        },
+        {
+          "label": "Demo Student",
+          "kind": "row",
+          "group": "list",
+          "notes": "checkbox; 'This user has no awards'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Course Awards",
+          "description": "Not opened."
+        },
+        {
+          "control": "Revoke",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Classlist Award Summary'. Tool tabs: Classlist Awards (selected) | Course Awards | My Awards | View Available Awards."
+      ],
+      "unobserved": [
+        "Course Awards, My Awards and View Available Awards tabs.",
+        "Issue flow."
+      ]
+    },
+    {
+      "id": "checklists",
+      "title": "Checklists",
+      "url_pattern": "/d2l/lms/checklist/checklists.d2l?ou=<ou>",
+      "route": "Course Admin > Checklists",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Checklists\nNew Checklist | More Actions v\n(empty list: List of checklists that have been created)",
+      "controls": [
+        {
+          "label": "New Checklist",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "Checklists list",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; 'List of checklists that have been created'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        },
+        {
+          "control": "New Checklist",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Checklists - Same Playground'."
+      ],
+      "unobserved": [
+        "More Actions menu.",
+        "New Checklist form."
+      ]
+    },
+    {
+      "id": "competencies-home",
+      "title": "Competency Home",
+      "url_pattern": "/d2l/lms/competencies/frame_advanced_view.d2l?ou=<ou>",
+      "route": "Course Admin > Competencies",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] (left frame) By Hierarchy | Search\nCompetency Home    Settings | Help\nSelect one of the following:\nNew: Create New Competency | Create New Learning Objective\nCopy: Copy Competency | Copy Learning Objective\nDelete\nSettings",
+      "controls": [
+        {
+          "label": "By Hierarchy",
+          "kind": "other",
+          "group": "left frame",
+          "notes": "tree pane; not expanded"
+        },
+        {
+          "label": "Search",
+          "kind": "other",
+          "group": "left frame",
+          "notes": "tree pane search; control type not recorded"
+        },
+        {
+          "label": "Settings",
+          "kind": "link",
+          "group": "top right"
+        },
+        {
+          "label": "Help",
+          "kind": "link",
+          "group": "top right"
+        },
+        {
+          "label": "Select one of the following:",
+          "kind": "other",
+          "group": "Competency Home",
+          "notes": "static text"
+        },
+        {
+          "label": "Create New Competency",
+          "kind": "link",
+          "group": "New"
+        },
+        {
+          "label": "Create New Learning Objective",
+          "kind": "link",
+          "group": "New"
+        },
+        {
+          "label": "Copy Competency",
+          "kind": "link",
+          "group": "Copy"
+        },
+        {
+          "label": "Copy Learning Objective",
+          "kind": "link",
+          "group": "Copy"
+        },
+        {
+          "label": "Delete",
+          "kind": "link",
+          "group": "Competency Home"
+        },
+        {
+          "label": "Settings",
+          "kind": "link",
+          "group": "Competency Home",
+          "notes": "second Settings link, below Delete"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Create New Competency",
+          "description": "Not followed."
+        },
+        {
+          "control": "By Hierarchy",
+          "description": "Not expanded; one course competency exists (name withheld)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Competencies - Same Playground'. The Course Admin link (list.d2l) redirects to frame_advanced_view.d2l.",
+        "The sandbox has one course competency created earlier through the Instructional Design Wizard (name withheld); the hierarchy pane was not expanded."
+      ],
+      "unobserved": [
+        "The hierarchy tree contents.",
+        "Every linked form."
+      ]
+    },
+    {
+      "id": "quick-eval",
+      "title": "Quick Eval",
+      "url_pattern": "/d2l/le/<ou>/quickeval/",
+      "route": "Course Admin > Quick Eval",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Quick Eval    ...\nView by: Submissions | Activities    Filters v   (search)\nSame Playground\nFirst Name, Last Name | Activity Name | Submission Date\nYou're all caught up!\nThere are no submissions that need your attention in this course.\nCheck the Multi-Course Quick Eval to see if there are new submissions in your other courses.",
+      "controls": [
+        {
+          "label": "icon:... more menu",
+          "kind": "menu",
+          "group": "top right",
+          "notes": "'...' more menu; contents not opened"
+        },
+        {
+          "label": "Submissions",
+          "kind": "other",
+          "state": "selected",
+          "group": "View by:",
+          "notes": "toggle"
+        },
+        {
+          "label": "Activities",
+          "kind": "other",
+          "group": "View by:",
+          "notes": "toggle"
+        },
+        {
+          "label": "Filters",
+          "kind": "menu",
+          "group": "filter",
+          "notes": "shown with a v caret; not opened"
+        },
+        {
+          "label": "icon:search box",
+          "kind": "textbox",
+          "group": "filter",
+          "notes": "search box; placeholder not recorded"
+        },
+        {
+          "label": "Quick Eval table",
+          "kind": "table",
+          "group": "list",
+          "notes": "course heading 'Same Playground'; columns First Name, Last Name | Activity Name | Submission Date (sorted)"
+        },
+        {
+          "label": "You're all caught up!",
+          "kind": "other",
+          "group": "empty state",
+          "notes": "with an illustration"
+        },
+        {
+          "label": "There are no submissions that need your attention in this course.",
+          "kind": "other",
+          "group": "empty state"
+        },
+        {
+          "label": "Check the Multi-Course Quick Eval to see if there are new submissions in your other courses.",
+          "kind": "link",
+          "group": "empty state",
+          "notes": "the capture marks this text as a link"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Activities",
+          "description": "Not opened."
+        },
+        {
+          "control": "Check the Multi-Course Quick Eval to see if there are new submissions in your other courses.",
+          "description": "Not followed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Quick Eval - Same Playground'."
+      ],
+      "unobserved": [
+        "The ... menu; Filters; Activities view; search placeholder.",
+        "Table rows when submissions exist."
+      ]
+    },
+    {
+      "id": "rubrics",
+      "title": "Rubrics",
+      "url_pattern": "/d2l/lp/rubrics/list.d2l?ou=<ou>",
+      "route": "Course Admin > Rubrics",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Rubrics\nNew Rubric\nRubrics available to this org unit are listed below.\nShow Search Options\n(empty table; screen-reader text: ...Rubric-specific actions are available in context menus, accessible via the \"Actions for...\" link.)",
+      "controls": [
+        {
+          "label": "New Rubric",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Rubrics available to this org unit are listed below.",
+          "kind": "other",
+          "group": "page",
+          "notes": "static text"
+        },
+        {
+          "label": "Show Search Options",
+          "kind": "link",
+          "group": "search"
+        },
+        {
+          "label": "Rubrics table",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; screen-reader text ends '...Rubric-specific actions are available in context menus, accessible via the \"Actions for...\" link.'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "New Rubric",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Rubrics - Same Playground'."
+      ],
+      "unobserved": [
+        "New Rubric form.",
+        "Search options.",
+        "Full screen-reader text."
+      ]
+    },
+    {
+      "id": "self-assessments",
+      "title": "Manage Self Assessments",
+      "url_pattern": "/d2l/lms/selfassess/admin/selfassess_manage.d2l?ou=<ou>",
+      "route": "Course Admin > Self Assessments",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Manage Self Assessments | Question Library\nNew Self Assessment | Edit Categories | More Actions v\nThere are no self assessments.",
+      "controls": [
+        {
+          "label": "Manage Self Assessments",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Question Library",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "not opened"
+        },
+        {
+          "label": "New Self Assessment",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Edit Categories",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "There are no self assessments.",
+          "kind": "other",
+          "group": "empty state"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Question Library",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Self Assessments - Same Playground'."
+      ],
+      "unobserved": [
+        "Question Library tab.",
+        "More Actions menu.",
+        "New Self Assessment editor."
+      ]
+    },
+    {
+      "id": "standards",
+      "title": "Course Standards",
+      "url_pattern": "/d2l/le/lo/<ou>/outcomes-management",
+      "route": "Course Admin > Standards",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "Course Standards\nStandards describe what students should know and be able to do after completing a course or lesson.\n[reconstructed from control list] Add Standard | Import v | More Actions v\nAdd or import standards to get started",
+      "controls": [
+        {
+          "label": "Standards describe what students should know and be able to do after completing a course or lesson.",
+          "kind": "other",
+          "group": "page",
+          "notes": "subtitle"
+        },
+        {
+          "label": "Add Standard",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Import",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "shown with a v caret"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "state": "disabled",
+          "group": "button row",
+          "notes": "disabled while empty"
+        },
+        {
+          "label": "Add or import standards to get started",
+          "kind": "other",
+          "group": "empty state"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Add Standard",
+          "description": "Not pressed."
+        },
+        {
+          "control": "Import",
+          "description": "Not opened."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Course Standards'. More Actions is disabled while the list is empty."
+      ],
+      "unobserved": [
+        "Import menu.",
+        "Add Standard flow."
+      ]
+    },
+    {
+      "id": "surveys",
+      "title": "Manage Surveys",
+      "url_pattern": "/d2l/lms/survey/admin/surveys_manage.d2l?ou=<ou>",
+      "route": "Course Admin > Surveys",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Manage Surveys | Question Library\nNew Survey | Edit Categories | More Actions v\nThere are currently no surveys available.",
+      "controls": [
+        {
+          "label": "Manage Surveys",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Question Library",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "not opened"
+        },
+        {
+          "label": "New Survey",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Edit Categories",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "There are currently no surveys available.",
+          "kind": "other",
+          "group": "empty state"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Question Library",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage Surveys - Same Playground'."
+      ],
+      "unobserved": [
+        "Question Library tab.",
+        "More Actions menu.",
+        "New Survey editor."
+      ]
+    },
+    {
+      "id": "announcements",
+      "title": "Announcements",
+      "url_pattern": "/d2l/lms/news/main.d2l?ou=<ou>",
+      "route": "Course Admin > Announcements",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Announcements\nNew Announcement | More Actions v\n(empty list: List of announcements)",
+      "controls": [
+        {
+          "label": "New Announcement",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "Announcements list",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; 'List of announcements'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        },
+        {
+          "control": "New Announcement",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Announcements - Same Playground'. Course Home's Announcements widget shows the same empty state ('There are no announcements to display.')."
+      ],
+      "unobserved": [
+        "More Actions menu.",
+        "New Announcement editor."
+      ]
+    },
+    {
+      "id": "discussions-list",
+      "title": "Discussions List",
+      "url_pattern": "/d2l/le/<ou>/discussions/List",
+      "route": "Course Admin > Discussions",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Discussions    Settings | Help\nDiscussions List | Subscriptions | Group and Section Restrictions | Statistics\nNew v | More Actions v\nFilter by: Unread | Unapproved\nYou don't have any discussion topics available to post to. First create a forum by clicking New > Forum and then add a discussion topic to it by clicking New > Topic.",
+      "controls": [
+        {
+          "label": "Settings",
+          "kind": "other",
+          "group": "top right",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "Help",
+          "kind": "other",
+          "group": "top right",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "Discussions List",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Subscriptions",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "not opened"
+        },
+        {
+          "label": "Group and Section Restrictions",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "not opened"
+        },
+        {
+          "label": "Statistics",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "not opened"
+        },
+        {
+          "label": "New",
+          "kind": "menu",
+          "state": "primary",
+          "group": "button row",
+          "notes": "shown with a v caret; menu not opened (the empty-state text names New > Forum and New > Topic)"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "Unread",
+          "kind": "other",
+          "group": "Filter by:",
+          "notes": "toggle"
+        },
+        {
+          "label": "Unapproved",
+          "kind": "other",
+          "group": "Filter by:",
+          "notes": "toggle"
+        },
+        {
+          "label": "You don't have any discussion topics available to post to. First create a forum by clicking New > Forum and then add a discussion topic to it by clicking New > Topic.",
+          "kind": "other",
+          "group": "empty state"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "New",
+          "description": "Menu not opened; the empty-state text says it holds Forum and Topic."
+        },
+        {
+          "control": "Subscriptions",
+          "description": "Not opened (unobserved)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Discussions List - Same Playground'. h1 'Discussions'; tool tabs Discussions List (selected) | Subscriptions | Group and Section Restrictions | Statistics."
+      ],
+      "unobserved": [
+        "New and More Actions menus.",
+        "Subscriptions, Group and Section Restrictions and Statistics tabs.",
+        "Settings page."
+      ]
+    },
+    {
+      "id": "intelligent-agents",
+      "title": "Agent List",
+      "url_pattern": "/d2l/lms/IntelligentAgents/AgentList.d2l?ou=<ou>",
+      "route": "Course Admin > Intelligent Agents",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Agent List\n(icon) New Agent | Edit Categories | More Actions v\nView: All agents   Apply\n(empty table: This table is a list of all intelligent agents. Item specific actions are available in each row.)",
+      "controls": [
+        {
+          "label": "icon:unlabelled button",
+          "kind": "button",
+          "group": "button row",
+          "notes": "unlabelled icon button before New Agent; the capture says 'likely Settings' (not confirmed)"
+        },
+        {
+          "label": "New Agent",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "Edit Categories",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "More Actions",
+          "kind": "menu",
+          "group": "button row",
+          "notes": "menu not opened"
+        },
+        {
+          "label": "View:",
+          "kind": "select",
+          "group": "filter",
+          "notes": "options: All agents (selected), By category, Enabled, Disabled"
+        },
+        {
+          "label": "Apply",
+          "kind": "button",
+          "group": "filter"
+        },
+        {
+          "label": "Agent table",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; 'This table is a list of all intelligent agents. Item specific actions are available in each row.'"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "More Actions",
+          "description": "Menu not opened (unobserved)."
+        },
+        {
+          "control": "New Agent",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Agent List - Same Playground'."
+      ],
+      "unobserved": [
+        "The unlabelled icon button.",
+        "More Actions menu.",
+        "New Agent form."
+      ]
+    },
+    {
+      "id": "course-reset",
+      "title": "Course Reset",
+      "url_pattern": "/d2l/lp/coursereset/<ou>/Home",
+      "route": "Course Admin > Course Reset",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Course Reset | Audit Log\nCourse Reset\nCourse Reset returns your course to an empty shell. This means all user data will be deleted and not available in data sets; all activities and content will be permanently deleted and cannot be restored.\nWhat is affected by Course Reset?\n(Course Information card) Same Playground   Active\nCourse Code: <course code>   Course ID: <ou>\nCourse Start: Friday, September 18, 2026 3:50 AM EDT   Course End: No date defined\nDepartment: DEVELOPMENT   Semester: Development Courses   Course Parent: <name> TEMPLATE\nReset Course Actions\n[ ] Reset course content, activities, associated files, user grades, user progress, and interaction data\n    [ ] Group enrollments and categories\n    [ ] Course homepages, navbars, and widgets\nReset Course (disabled)",
+      "controls": [
+        {
+          "label": "Course Reset",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Audit Log",
+          "kind": "tab",
+          "group": "tool tabs",
+          "notes": "not opened"
+        },
+        {
+          "label": "Course Reset returns your course to an empty shell. This means all user data will be deleted and not available in data sets; all activities and content will be permanently deleted and cannot be restored.",
+          "kind": "other",
+          "group": "page",
+          "notes": "warning text"
+        },
+        {
+          "label": "What is affected by Course Reset?",
+          "kind": "other",
+          "group": "page",
+          "notes": "expander; not opened"
+        },
+        {
+          "label": "Course Information",
+          "kind": "other",
+          "group": "Course Information card",
+          "notes": "card: course name; Status badge 'Active'; Course Code; Course ID (org unit id); Course Start 'Friday, September 18, 2026 3:50 AM EDT'; Course End 'No date defined'; Department DEVELOPMENT; Semester Development Courses; Course Parent '<name> TEMPLATE'"
+        },
+        {
+          "label": "Reset course content, activities, associated files, user grades, user progress, and interaction data",
+          "kind": "checkbox",
+          "state": "unchecked",
+          "group": "Reset Course Actions"
+        },
+        {
+          "label": "Group enrollments and categories",
+          "kind": "checkbox",
+          "state": "unchecked",
+          "group": "Reset Course Actions",
+          "notes": "nested under the first checkbox"
+        },
+        {
+          "label": "Course homepages, navbars, and widgets",
+          "kind": "checkbox",
+          "state": "unchecked",
+          "group": "Reset Course Actions",
+          "notes": "nested under the first checkbox"
+        },
+        {
+          "label": "Reset Course",
+          "kind": "button",
+          "state": "disabled",
+          "group": "Reset Course Actions",
+          "notes": "disabled until a box is ticked; NOTHING TICKED OR CLICKED"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Audit Log",
+          "description": "Not opened (unobserved)."
+        },
+        {
+          "control": "Reset Course",
+          "description": "Disabled; nothing ticked or clicked."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Course Reset - Same Playground'. Tool tabs: Course Reset (selected) | Audit Log.",
+        "NOTHING TICKED OR CLICKED.",
+        "Support note: destructive and irreversible; a ticket asking to \"start my course over\" should be confirmed in writing and usually handled by copying from a template instead."
+      ],
+      "unobserved": [
+        "Audit Log tab.",
+        "The 'What is affected by Course Reset?' expander contents.",
+        "Any confirmation after Reset Course."
+      ]
+    },
+    {
+      "id": "insights-portal",
+      "title": "Insights Portal",
+      "url_pattern": "/d2l/ap/InsightsPortal/<ou>/dashboards",
+      "route": "Course Admin > Insights Portal",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Insights Portal\nSystem Dashboards\nEngagement: Identify disengaged learners, intervene early, recognize successful learner behaviors. Last course access; Time in content; Assignment status\nLearner Engagement: Review engagement metrics for an individual learner across their courses to follow up on interventions. Course activity; Assignment status; Course history\nAssessment Quality: Evaluate quiz results, assess question effectiveness. Average grade; Reliability; Discrimination index; Point biserial\nPowered by D2L Brightspace",
+      "controls": [
+        {
+          "label": "Engagement",
+          "kind": "link",
+          "group": "System Dashboards",
+          "notes": "card: 'Identify disengaged learners, intervene early, recognize successful learner behaviors. Last course access; Time in content; Assignment status'; control type not recorded (card)"
+        },
+        {
+          "label": "Learner Engagement",
+          "kind": "link",
+          "group": "System Dashboards",
+          "notes": "card: 'Review engagement metrics for an individual learner across their courses to follow up on interventions. Course activity; Assignment status; Course history'; control type not recorded (card)"
+        },
+        {
+          "label": "Assessment Quality",
+          "kind": "link",
+          "group": "System Dashboards",
+          "notes": "card: 'Evaluate quiz results, assess question effectiveness. Average grade; Reliability; Discrimination index; Point biserial'; control type not recorded (card)"
+        },
+        {
+          "label": "Powered by D2L Brightspace",
+          "kind": "other",
+          "group": "footer",
+          "notes": "footer text"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Engagement",
+          "description": "Dashboards not opened."
+        },
+        {
+          "control": "Learner Engagement",
+          "description": "Dashboards not opened."
+        },
+        {
+          "control": "Assessment Quality",
+          "description": "Dashboards not opened."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Insights Portal'. h1 'Insights Portal'; h2 'System Dashboards'; three cards. Dashboards not opened."
+      ],
+      "unobserved": [
+        "The three dashboards.",
+        "Whether the cards are links or buttons."
+      ]
+    },
+    {
+      "id": "sharing-groups",
+      "title": "Sharing Groups",
+      "url_pattern": "/d2l/eP/ePObjects/sharing/profiles_list.d2l?ou=<ou>&profileType=2",
+      "route": "Course Admin > Sharing Groups",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Sharing Groups\nNew Sharing Group\nWhat are sharing groups?\n(empty table; screen-reader text about sharing groups and attributes)",
+      "controls": [
+        {
+          "label": "New Sharing Group",
+          "kind": "button",
+          "group": "button row"
+        },
+        {
+          "label": "What are sharing groups?",
+          "kind": "link",
+          "group": "page"
+        },
+        {
+          "label": "Sharing groups table",
+          "kind": "table",
+          "group": "list",
+          "notes": "empty; screen-reader text about sharing groups and attributes (not quoted in the capture)"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "New Sharing Group",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Sharing Groups - Same Playground'. Without profileType=2 the URL returns 'Bad Request'."
+      ],
+      "unobserved": [
+        "New Sharing Group form.",
+        "Full screen-reader text."
+      ]
+    },
+    {
+      "id": "tools-status",
+      "title": "Tool Status - <course code> (Development Courses)",
+      "url_pattern": "/d2l/lp/tools/orgUnits/<ou>",
+      "route": "Course Admin > Administration > Tools (link observed 2026-09-22, href /d2l/lp/tools/orgUnits/<ou>)",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Tool Status - <course code> (Development Courses)\nTool Name | Custom Navbar Name | Status\nAccelerator | [ ] | (on)\nAccommodations | [ ] | (on)\nAdvanced Data Sets | [ ] | (on)\nAnnouncements | [ ] | (on)\nAssignments | [ ] | (on)\nAttendance | [ ] | (on)\nAudio Capture | [ ] | (on)\nAwards | [ ] | (on)\nBrightspace Data Sets | [ ] | (on)\nBroken Link Viewer | [ ] | (on)\nCalendar | [ ] | (on)\nChecklist | [ ] | (on)\nClass Progress | [ ] | (on)\nClasslist | [ ] | (on)\nCompetencies | [ ] | (on)\nContent | [ ] | (on)\nContent Service | [ ] | (on)\nCourse Builder | [ ] | (on)\nCustom Course Branding | [ ] | (on)\nCustom Reporting Framework | [ ] | (on)\nDiscussions | [ ] | (on)\nePortfolio | [ ] | (on)\nExternal Learning Tools | [ ] | (on)\nFAQ | [ ] | (on)\nGlossary | [ ] | (on)\nGoogle Workspace | [ ] | (on)\nGrades | [ ] | (on)\nImport/Export/Copy Components | [ ] | (on)\nIMS Configuration | [ ] | (on)\nInsights | [ ] | (on)\nIntelligent Agents | [ ] | (on)\nKaltura | [ ] | (on)\nLearning Outcomes | [ ] | (on)\nLinks | [ ] | (on)\nLocations | [ ] | (on)\nLOR | [ ] | (on)\nManage Dates | [ ] | (on)\nMedia Integration | [ ] | (on)\nMedia Platform | [ ] | (on)\nMy Org Units | [ ] | (on)\nPublish | [ ] | (on)\nQuestion Collections | [ ] | (on)\nQuick Eval | [ ] | (on)\nQuizzes | [ ] | (on)\nRemote Plugins | [ ] | (on)\nRubrics | [ ] | (on)\nSeating Chart | [ ] | (on)\nSelf Assessments | [ ] | (on)\nSelf Registration | [ ] | (on)\nSingle Profile Widget | [ ] | (on)\nSlim Announcements Widget | [ ] | (on)\nSurvey | [ ] | (on)\nUser Profile | [ ] | (on)\nVideo Capture | [ ] | (on)\nWelcome Window Widget | [ ] | (on)\nWidgets Editor | [ ] | (on)",
+      "controls": [
+        {
+          "label": "Tool Status table",
+          "kind": "table",
+          "group": "list",
+          "notes": "Columns: Tool Name | Custom Navbar Name (textbox per row) | Status (toggle switch, all shown on); 56 rows"
+        },
+        {
+          "label": "Custom Navbar Name",
+          "kind": "textbox",
+          "group": "list",
+          "notes": "one per row; placeholder aria 'Custom display name for tool <name>'"
+        },
+        {
+          "label": "Status",
+          "kind": "other",
+          "group": "list",
+          "notes": "toggle switch per row; all shown on; control type recorded as a toggle switch"
+        },
+        {
+          "label": "Accelerator",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Accommodations",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Advanced Data Sets",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Announcements",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Assignments",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Attendance",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Audio Capture",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Awards",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Brightspace Data Sets",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Broken Link Viewer",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Calendar",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Checklist",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Class Progress",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Classlist",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Competencies",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Content",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Content Service",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Course Builder",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Custom Course Branding",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Custom Reporting Framework",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Discussions",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "ePortfolio",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "External Learning Tools",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "FAQ",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Glossary",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Google Workspace",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Grades",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Import/Export/Copy Components",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "IMS Configuration",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Insights",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Intelligent Agents",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Kaltura",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Learning Outcomes",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Links",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Locations",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "LOR",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Manage Dates",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Media Integration",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Media Platform",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "My Org Units",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Publish",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Question Collections",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Quick Eval",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Quizzes",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Remote Plugins",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Rubrics",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Seating Chart",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Self Assessments",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Self Registration",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Single Profile Widget",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Slim Announcements Widget",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Survey",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "User Profile",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Video Capture",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Welcome Window Widget",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        },
+        {
+          "label": "Widgets Editor",
+          "kind": "row",
+          "group": "list",
+          "notes": "Status on"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Status",
+          "description": "No toggle was changed (read only)."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Tool Status - <course code> (<semester>) - Same Playground'. h1 'Tool Status - <course code> (Development Courses)'.",
+        "No toggles changed. Support note: a tool missing from a course's menus can be switched off here at the course level; check this before escalating \"the Quizzes tool is gone\".",
+        "Reached from the Course Admin link labelled Tools under the Administration category; the Tools category heading further down the page (Learning Repository group) is a different thing."
+      ],
+      "unobserved": [
+        "The Course Admin link that opens this page.",
+        "Effect of switching a toggle; whether a Save step exists."
+      ]
+    },
+    {
+      "id": "lor-manage",
+      "title": "Learning Repository: Manage",
+      "url_pattern": "/d2l/lor/admin/lors_list.d2l?ou=<ou>",
+      "route": "Course Admin > Manage Repositories",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Search | Publish | Manage\nLearning Object Repositories\nA list of learning object repositories (LORs) that are available in your system. Click a repository's name to view/edit its properties.\nLearning Object Repositories | Last Completed Index\n(one row; repository name not recorded) | Aug 28, 2026 3:10 PM\nFederated Repositories\n(same pattern; empty)",
+      "controls": [
+        {
+          "label": "Search",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Publish",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Manage",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "A list of learning object repositories (LORs) that are available in your system. Click a repository's name to view/edit its properties.",
+          "kind": "other",
+          "group": "Learning Object Repositories",
+          "notes": "static text"
+        },
+        {
+          "label": "Learning Object Repositories table",
+          "kind": "table",
+          "group": "Learning Object Repositories",
+          "notes": "Columns: Learning Object Repositories | Last Completed Index; one row with index 'Aug 28, 2026 3:10 PM' (repository name not recorded)"
+        },
+        {
+          "label": "Federated Repositories table",
+          "kind": "table",
+          "group": "Federated Repositories",
+          "notes": "same pattern; empty"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Search",
+          "result_screen_id": "lor-search"
+        },
+        {
+          "control": "Publish",
+          "result_screen_id": "lor-publish"
+        }
+      ],
+      "notes": [
+        "Browser title: 'Manage - Same Playground'. Tool tabs: Search | Publish | Manage (selected)."
+      ],
+      "unobserved": [
+        "The repository row's name and its properties page.",
+        "Federated Repositories text."
+      ]
+    },
+    {
+      "id": "lor-publish",
+      "title": "Publish New Learning Object",
+      "url_pattern": "/d2l/lor/publish/publish.d2l?ou=<ou>",
+      "route": "Course Admin > Publish",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Publish New Learning Object\nWhat are you sharing?\n( ) File or Package   Drop file here, or click below!   Upload   Choose a file or SCORM package to publish.\n( ) Internet Address   Enter a URL or Internet Address for the object.\nPublish To: Pick a Repository\n[ ] Overwrite Existing Object\nSharing and Publishing Options\nNext | Cancel",
+      "controls": [
+        {
+          "label": "File or Package",
+          "kind": "radio",
+          "group": "What are you sharing?",
+          "notes": "selected state not recorded; with drop zone 'Drop file here, or click below!', button Upload and text 'Choose a file or SCORM package to publish.'"
+        },
+        {
+          "label": "Drop file here, or click below!",
+          "kind": "other",
+          "group": "What are you sharing? > File or Package",
+          "notes": "drop zone"
+        },
+        {
+          "label": "Upload",
+          "kind": "button",
+          "group": "What are you sharing? > File or Package"
+        },
+        {
+          "label": "Internet Address",
+          "kind": "radio",
+          "group": "What are you sharing?",
+          "notes": "text 'Enter a URL or Internet Address for the object.'"
+        },
+        {
+          "label": "Publish To:",
+          "kind": "select",
+          "group": "form",
+          "notes": "options: 'Pick a Repository', 'MPH Repository'"
+        },
+        {
+          "label": "Overwrite Existing Object",
+          "kind": "checkbox",
+          "group": "form",
+          "notes": "state not recorded"
+        },
+        {
+          "label": "Sharing and Publishing Options",
+          "kind": "other",
+          "group": "form",
+          "notes": "expander; not opened"
+        },
+        {
+          "label": "Next",
+          "kind": "button",
+          "group": "buttons"
+        },
+        {
+          "label": "Cancel",
+          "kind": "button",
+          "group": "buttons"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Next",
+          "description": "Not used."
+        },
+        {
+          "control": "Cancel",
+          "description": "Not used."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Publish New Learning Object - Same Playground'. Not used. Whether the Search | Publish | Manage tool tabs appear on this page was not recorded."
+      ],
+      "unobserved": [
+        "Tool tabs on this page.",
+        "Sharing and Publishing Options contents.",
+        "Default radio selection; primary button."
+      ]
+    },
+    {
+      "id": "lor-search",
+      "title": "Search Repository (Welcome to Learning Repository)",
+      "url_pattern": "/d2l/lor/search/search.d2l?ou=<ou>",
+      "route": "Course Admin > Search",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "[reconstructed from control list] Search | Publish | Manage\nWelcome to Learning Repository\nLearning Repository is a library for storing, managing, and sharing your learning resources.\nSearch For: [ ]   Search | Advanced Search   Show Options\nExplore a Repository\nLibrary Research Tips (object count and description not recorded)\nMPH Repository (object count and description not recorded)\n(further repositories named after individuals: withheld)\nBrowse By: Category | RSS Feeds\nCourse (652)   Bloom's Taxonomy (1)   Repository (701)\nMy Objects: You haven't published anything yet. Let's publish some objects!\nMy Collections: You have not created any collections.\nBackground Publishing | RSS Feeds",
+      "controls": [
+        {
+          "label": "Search",
+          "kind": "tab",
+          "state": "selected",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Publish",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Manage",
+          "kind": "tab",
+          "group": "tool tabs"
+        },
+        {
+          "label": "Learning Repository is a library for storing, managing, and sharing your learning resources.",
+          "kind": "other",
+          "group": "Welcome to Learning Repository",
+          "notes": "static text"
+        },
+        {
+          "label": "Search For",
+          "kind": "textbox",
+          "group": "search"
+        },
+        {
+          "label": "Search",
+          "kind": "button",
+          "group": "search"
+        },
+        {
+          "label": "Advanced Search",
+          "kind": "button",
+          "group": "search"
+        },
+        {
+          "label": "Show Options",
+          "kind": "link",
+          "group": "search"
+        },
+        {
+          "label": "Explore a Repository",
+          "kind": "other",
+          "group": "Explore a Repository",
+          "notes": "h2; list of repositories with object counts and descriptions"
+        },
+        {
+          "label": "Library Research Tips",
+          "kind": "row",
+          "group": "Explore a Repository",
+          "notes": "institutional repository; object count and description not recorded"
+        },
+        {
+          "label": "MPH Repository",
+          "kind": "row",
+          "group": "Explore a Repository",
+          "notes": "institutional repository; object count and description not recorded; also offered in the Publish To select on lor-publish"
+        },
+        {
+          "label": "Category",
+          "kind": "link",
+          "group": "Browse By",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "RSS Feeds",
+          "kind": "link",
+          "group": "Browse By",
+          "notes": "control type not recorded"
+        },
+        {
+          "label": "Course (652)",
+          "kind": "other",
+          "group": "Browse By",
+          "notes": "count"
+        },
+        {
+          "label": "Bloom's Taxonomy (1)",
+          "kind": "other",
+          "group": "Browse By",
+          "notes": "count"
+        },
+        {
+          "label": "Repository (701)",
+          "kind": "other",
+          "group": "Browse By",
+          "notes": "count"
+        },
+        {
+          "label": "You haven't published anything yet. Let's publish some objects!",
+          "kind": "other",
+          "group": "My Objects"
+        },
+        {
+          "label": "You have not created any collections.",
+          "kind": "other",
+          "group": "My Collections"
+        },
+        {
+          "label": "Background Publishing",
+          "kind": "link",
+          "group": "links"
+        },
+        {
+          "label": "RSS Feeds",
+          "kind": "link",
+          "group": "links",
+          "notes": "second RSS Feeds link, beside Background Publishing"
+        }
+      ],
+      "menus": [],
+      "dialogs": [],
+      "transitions": [
+        {
+          "control": "Publish",
+          "result_screen_id": "lor-publish"
+        },
+        {
+          "control": "Manage",
+          "result_screen_id": "lor-manage"
+        },
+        {
+          "control": "Advanced Search",
+          "description": "Not pressed."
+        }
+      ],
+      "notes": [
+        "Browser title: 'Search Repository - Same Playground'. Tool tabs: Search (selected) | Publish | Manage.",
+        "The Explore a Repository list also contains repositories named after individual owners; those names are withheld from this pack. Only the institutional repositories Library Research Tips and MPH Repository are recorded (names supplied with the capture instructions; counts and descriptions not recorded)."
+      ],
+      "unobserved": [
+        "Object counts and descriptions per repository.",
+        "The other repositories in the list (withheld).",
+        "Advanced Search, Show Options, Category and RSS Feeds pages."
       ]
     }
   ]

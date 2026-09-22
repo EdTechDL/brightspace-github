@@ -20,6 +20,9 @@ for(const s of normalize(gsInventory))for(const k of ['controls','dialogs','menu
 const ids=new Set(inventory.screens.map(s=>s.id));
 for(const s of gsInventory.screens)assert.ok(!ids.has(s.id),'screen id collides across libraries: '+s.id);
 assert.notEqual(tour.tour_id,gsTour.tour_id);
+// A transition must never point at a screen the library cannot open.
+for(const inv of [inventory,gsInventory]){const has=new Set(inv.screens.map(s=>s.id));
+ for(const s of inv.screens)for(const t of s.transitions||[])if(t.result_screen_id)assert.ok(has.has(t.result_screen_id),s.id+' -> unknown screen '+t.result_screen_id);}
 const bads=[{}, {...tour,schema_version:9},{...tour,steps:[{screen:'missing',target:'x',card:'x'}]}, {...tour,screens:{x:{extends:'x'}},steps:[{screen:'x',target:'x',card:'x'}]},{...tour,screens:{x:{blocks:[{type:'script'}]}},steps:[{screen:'x',target:'x',card:'x'}]}];
 for(const t of bads)assert.throws(()=>ctx.validateReplayTour(t));
 assert.ok(!ctx.renderReplayBlocks([{type:'text',text:'<script>alert(1)</script>'}]).includes('<script>'));
