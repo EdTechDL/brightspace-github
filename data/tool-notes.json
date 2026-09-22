@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "evidence": "web-research",
+  "compiled": "2026-09-22",
+  "disclaimer": "Compiled from vendor and MSU documentation on the date shown, not seen in the sandbox. Each note says what a tool is for and why it reaches support. None of it describes menus, screens or button wording, because none of that was observed. Confirm behaviour in a real course before telling an educator it works.",
+  "notes": {
+    "external-learning-tools": [
+      {
+        "label": "SPLS Tasks",
+        "what": "Student Perceptions of Learning Survey, MSU's course evaluation, which replaced the older SIRS form. Students reach their evaluations from the Brightspace homepage under My Surveys and Evaluations. Results feed instructor feedback and retention, promotion, tenure and salary decisions, so timing and access questions are handled by the SPLS office rather than by a course instructor.",
+        "source": "spls.msu.edu",
+        "url": "https://spls.msu.edu/students/accessing-evaluations"
+      },
+      {
+        "label": "Packback Questions",
+        "what": "An AI-supported discussion platform where students, not the instructor, post the open-ended questions. It scores each post for curiosity, credibility, communication and convention, and auto-moderates the thread. Tickets usually involve the score rather than the posting itself.",
+        "source": "help.packback.co",
+        "url": "https://help.packback.co/hc/en-us/articles/360045380571-Introduction-to-Packback-Questions-for-Instructors"
+      },
+      {
+        "label": "Perusall",
+        "what": "A social annotation tool from Harvard: students collaboratively annotate and discuss uploaded readings, and Perusall can grade the annotations automatically and pass scores to the Brightspace gradebook. It runs on LTI 1.3 here, which adds roster sync and group and grade sync. Its confusion report summarises what students misunderstood.",
+        "source": "support.perusall.com",
+        "url": "https://support.perusall.com/hc/en-us/articles/360042919194-Desire2Learn-Admin-Setup"
+      },
+      {
+        "label": "Ally Course Accessibility Report",
+        "what": "The instructor-facing Anthology Ally report for one course. Overview shows the course accessibility score and content grouped by type; Content lists each evaluated item. Issues are ranked severe to minor by how many students are affected, how often the issue occurs and the score.",
+        "source": "help.anthology.com",
+        "url": "https://help.anthology.com/ally-lms/en/instructors/course-accessibility-report.html"
+      },
+      {
+        "label": "Ally Institution Report",
+        "what": "The administrator view across courses: enrolment, total content, overall accessibility score and issues per course, exportable per course. Its Usage report covers how often students download alternative formats and instructors fix issues. Not an instructor tool, so a course-level ticket rarely belongs here.",
+        "source": "help.anthology.com",
+        "url": "https://help.anthology.com/ally-lms/en/administrators/ally-institution-report.html"
+      },
+      {
+        "label": "Ally Configuration",
+        "what": "The administrative setup for Ally in Brightspace. Configuration changes are an LMS administrator task, not something an instructor can adjust from inside a course.",
+        "source": "help.anthology.com",
+        "url": "https://help.anthology.com/ally-lms/en/administrators/configure-ally/ally-in-d2l-brightspace.html"
+      },
+      {
+        "label": "MediaSpace Course Gallery (LTI 1.3)",
+        "what": "The shared Kaltura media gallery for a course: instructor and student videos that appear on the course homepage and in content. Media lives in MSU MediaSpace; the gallery manages what the class can see.",
+        "source": "help.d2l.msu.edu",
+        "url": "https://help.d2l.msu.edu/msu-docs/other-tools-at-msu/kaltura-mediaspace-and-d2l-integration"
+      },
+      {
+        "label": "My Media on MediaSpace (LTI 1.3)",
+        "what": "A person's own Kaltura library inside Brightspace: record, upload, publish or edit as if signed in at mediaspace.msu.edu, including webcam and screen recordings through Kaltura Capture. Personal, so content here is not automatically visible to a class.",
+        "source": "help.d2l.msu.edu",
+        "url": "https://help.d2l.msu.edu/msu-docs/other-tools-at-msu/kaltura-mediaspace-and-d2l-integration"
+      },
+      {
+        "label": "MATLAB Grader LTI 1.3",
+        "what": "Browser-based MATLAB assignments with autograded student solutions and custom scoring, graded without a local MATLAB install and synced to the gradebook over LTI. A known failure mode in Brightspace is several problems reporting into one grade item.",
+        "source": "mathworks.com",
+        "url": "https://www.mathworks.com/help/matlabgrader/ug/integrate-matlab-grader-with-brightspaced2l-lti-1-3.html"
+      },
+      {
+        "label": "MATLAB and Simulink Online Courses LTI 1.3",
+        "what": "MathWorks self-paced online course content, distinct from MATLAB Grader: coursework to work through rather than assignments the instructor authors and grades.",
+        "source": "mathworks.com",
+        "url": "https://www.mathworks.com/help/matlabgrader/integrate-lms-using-lti.html"
+      },
+      {
+        "label": "McGraw Hill Connect LTIA Basic Link",
+        "what": "Publisher courseware. The instructor pairs the Brightspace course with an existing Connect section before assignments can be deployed or grades returned. Since June 2024 McGraw Hill funnels Connect, Go and SimNet through a single integration point. Most tickets are an unpaired or wrongly paired section.",
+        "source": "mheducation.com",
+        "url": "https://www.mheducation.com/highered/support/knowledge/d2l-lti-advantage-integration.html"
+      },
+      {
+        "label": "ALEKS",
+        "what": "McGraw Hill's adaptive courseware, most often mathematics and chemistry, launched from Brightspace through the McGraw Hill integration. Placement and mastery data live on the ALEKS side.",
+        "source": "utrgv.edu",
+        "url": "https://support.utrgv.edu/TDClient/1849/Portal/KB/Article/163989/Accessing-McGraw-Hill-ALEKS-Through-Your-Brightspace-Course"
+      },
+      {
+        "label": "Access Pearson",
+        "what": "Pearson courseware reached through External Learning Tools. The instructor links their existing Pearson account to the course before content appears, so account linking is the usual first check.",
+        "source": "studio.smu.ca",
+        "url": "https://studio.smu.ca/brightspace-courseware-integrations"
+      },
+      {
+        "label": "Top Hat LTI 1.3 Basic Launch",
+        "what": "Classroom engagement: students answer questions, view annotated slides, join discussions and enter attendance codes from a phone or laptop. Attendance disputes are the common support thread.",
+        "source": "help.d2l.msu.edu",
+        "url": "https://help.d2l.msu.edu/msu-docs/other-tools-at-msu/top-hat"
+      },
+      {
+        "label": "Macmillan LTI 1.3 Course Tools",
+        "what": "Macmillan Learning courseware, including Achieve: readings, homework and assessment delivered from Macmillan with grades returned to Brightspace.",
+        "source": "macmillanlearning",
+        "url": "https://mhe.my.site.com/macmillanlearning/s/article/Using-Macmillan-Course-Tools-in-your-D2L-Brightspace-course"
+      },
+      {
+        "label": "Zoom Meetings LTI 1.3",
+        "what": "Scheduling and joining Zoom meetings from inside the course, normally on the Communication menu. The panel syncs with the person's own Zoom account and shows past and upcoming meetings; settings beyond the basics have to be set at msu.zoom.us.",
+        "source": "help.d2l.msu.edu",
+        "url": "https://help.d2l.msu.edu/msu-docs/other-tools-at-msu/zoom"
+      },
+      {
+        "label": "Gradescope 1.3 - Course Level",
+        "what": "The Gradescope deployment enabled for this course. The handshake is course link, roster sync, assignment link, then Post Grades to Brightspace. The Gradescope screen library and the handshake tour in this app cover it step by step.",
+        "source": "guides.gradescope.com (via the pack in library/references)",
+        "url": "https://guides.gradescope.com"
+      }
+    ]
+  }
+}

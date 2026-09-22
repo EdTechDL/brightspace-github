@@ -23,6 +23,22 @@ assert.notEqual(tour.tour_id,gsTour.tour_id);
 // A transition must never point at a screen the library cannot open.
 for(const inv of [inventory,gsInventory]){const has=new Set(inv.screens.map(s=>s.id));
  for(const s of inv.screens)for(const t of s.transitions||[])if(t.result_screen_id)assert.ok(has.has(t.result_screen_id),s.id+' -> unknown screen '+t.result_screen_id);}
+// Researched notes must hang off controls that really exist, and never replace observed data.
+const toolNotes=JSON.parse(fs.readFileSync(root+'/data/tool-notes.json'));
+assert.equal(toolNotes.evidence,'web-research');
+assert.ok(toolNotes.disclaimer&&toolNotes.compiled,'notes need a disclaimer and a compiled date');
+let noteCount=0;
+for(const [screenId,notes] of Object.entries(toolNotes.notes)){
+ const screen=[...inventory.screens,...gsInventory.screens].find(s=>s.id===screenId);
+ assert.ok(screen,'tool note for unknown screen '+screenId);
+ const labels=new Set(screen.controls.map(c=>c.label));
+ for(const n of notes){
+  noteCount++;
+  assert.ok(labels.has(n.label),screenId+': no control labelled '+n.label);
+  assert.ok(/^https?:\/\//.test(n.url),n.label+' needs an http(s) source url');
+  assert.ok(n.what&&n.what.length>40,n.label+' needs a real description');
+  assert.ok(!(screen.unobserved||[]).includes(n.what),n.label+' must not overwrite an observed gap');
+ }}
 const bads=[{}, {...tour,schema_version:9},{...tour,steps:[{screen:'missing',target:'x',card:'x'}]}, {...tour,screens:{x:{extends:'x'}},steps:[{screen:'x',target:'x',card:'x'}]},{...tour,screens:{x:{blocks:[{type:'script'}]}},steps:[{screen:'x',target:'x',card:'x'}]}];
 for(const t of bads)assert.throws(()=>ctx.validateReplayTour(t));
 assert.ok(!ctx.renderReplayBlocks([{type:'text',text:'<script>alert(1)</script>'}]).includes('<script>'));
@@ -31,4 +47,4 @@ for(const t of tickets){if(t.tourId)assert.ok(flows.some(f=>f.id===t.tourId),t.i
 vm.runInContext('const TICKETS='+JSON.stringify(tickets)+';'+fs.readFileSync(root+'/src/support.js','utf8').split("document.addEventListener")[0],ctx);
 assert.equal(ctx.searchSupport('student cannot see final grade')[0].id,'grades-final-not-visible');
 assert.ok(ctx.searchSupport('extra time for one quiz').some(t=>t.tourId==='quiz-special'));
-console.log((tour.steps.length+gsTour.steps.length)+' replay targets across '+2+' tours, '+gsInventory.screens.length+' Gradescope screens, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');
+console.log((tour.steps.length+gsTour.steps.length)+' replay targets across '+2+' tours, '+noteCount+' researched tool notes, '+gsInventory.screens.length+' Gradescope screens, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');

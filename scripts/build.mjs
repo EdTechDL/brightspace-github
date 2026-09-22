@@ -12,7 +12,8 @@ const prelude = [
   ['PACK_CASES', 'data/capture/calc-test-cases.json'],
   ['CAPTURE_TOUR', 'data/capture/gradebook-lab-msu.tour.json'],
   ['CAPTURE_GS', 'data/capture/gradescope-ui-inventory.json'],
-  ['TOUR_GS', 'data/capture/gradescope-lti-handshake.tour.json']
+  ['TOUR_GS', 'data/capture/gradescope-lti-handshake.tour.json'],
+  ['TOOL_NOTES', 'data/tool-notes.json']
 ].map(([key, path]) => `const ${key}=${json(path)};`).join('\n');
 
 // These extensions are ordered deliberately: later definitions replace prototype views.
