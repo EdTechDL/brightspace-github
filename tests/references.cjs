@@ -1,11 +1,25 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const root=__dirname+'/..',base=root+'/data/capture/';
 const tour=JSON.parse(fs.readFileSync(base+'gradebook-lab-msu.tour.json'));
+const gsTour=JSON.parse(fs.readFileSync(base+'gradescope-lti-handshake.tour.json'));
 const inventory=JSON.parse(fs.readFileSync(base+'d2l-ui-inventory.json'));
+const gsInventory=JSON.parse(fs.readFileSync(base+'gradescope-ui-inventory.json'));
 const code=fs.readFileSync(root+'/src/capture.js','utf8');
 const ctx={clone:x=>structuredClone(x),h:s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};vm.createContext(ctx);vm.runInContext(code.slice(code.indexOf('function validateReplayTour('),code.indexOf('function replayPage(')),ctx);
 ctx.validateReplayTour(tour);
 for(const step of tour.steps){const html=ctx.renderReplayBlocks(ctx.resolveReplayScreen(tour,step.screen));assert.ok([step.target,'menu:'+step.target,'dialog:'+step.target].some(t=>html.includes('data-replay-label="'+ctx.h(t)+'"')),step.id+' missing target');}
+// Every embedded tour must validate and resolve each target, not just the D2L one.
+ctx.validateReplayTour(gsTour);
+for(const step of gsTour.steps){const html=ctx.renderReplayBlocks(ctx.resolveReplayScreen(gsTour,step.screen));assert.ok([step.target,'menu:'+step.target,'dialog:'+step.target].some(t=>html.includes('data-replay-label="'+ctx.h(t)+'"')),step.id+' missing target');}
+// The library picker assumes both inventories share the D2L schema.
+assert.equal(gsInventory.schema_version,inventory.schema_version);
+for(const s of gsInventory.screens)for(const k of ['id','title','route','controls','transitions','unobserved','notes','page_text'])assert.ok(k in s,s.id+' missing '+k);
+// dialogs and menus are optional in supplied packs; normalizeInventory fills them, so the renderer must never see a bare screen.
+const normalize=d=>d.screens.map(s=>({controls:[],dialogs:[],menus:[],transitions:[],notes:[],unobserved:[],...s}));
+for(const s of normalize(gsInventory))for(const k of ['controls','dialogs','menus','transitions','notes','unobserved'])assert.ok(Array.isArray(s[k]),s.id+' '+k+' not an array after normalize');
+const ids=new Set(inventory.screens.map(s=>s.id));
+for(const s of gsInventory.screens)assert.ok(!ids.has(s.id),'screen id collides across libraries: '+s.id);
+assert.notEqual(tour.tour_id,gsTour.tour_id);
 const bads=[{}, {...tour,schema_version:9},{...tour,steps:[{screen:'missing',target:'x',card:'x'}]}, {...tour,screens:{x:{extends:'x'}},steps:[{screen:'x',target:'x',card:'x'}]},{...tour,screens:{x:{blocks:[{type:'script'}]}},steps:[{screen:'x',target:'x',card:'x'}]}];
 for(const t of bads)assert.throws(()=>ctx.validateReplayTour(t));
 assert.ok(!ctx.renderReplayBlocks([{type:'text',text:'<script>alert(1)</script>'}]).includes('<script>'));
@@ -14,4 +28,4 @@ for(const t of tickets){if(t.tourId)assert.ok(flows.some(f=>f.id===t.tourId),t.i
 vm.runInContext('const TICKETS='+JSON.stringify(tickets)+';'+fs.readFileSync(root+'/src/support.js','utf8').split("document.addEventListener")[0],ctx);
 assert.equal(ctx.searchSupport('student cannot see final grade')[0].id,'grades-final-not-visible');
 assert.ok(ctx.searchSupport('extra time for one quiz').some(t=>t.tourId==='quiz-special'));
-console.log(tour.steps.length+' replay targets, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');
+console.log((tour.steps.length+gsTour.steps.length)+' replay targets across '+2+' tours, '+gsInventory.screens.length+' Gradescope screens, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');

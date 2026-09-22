@@ -1,0 +1,810 @@
+{
+  "schema_version": 1,
+  "captured": "2026-09-22",
+  "environment": {
+    "institution": "Michigan State University",
+    "origin": "https://www.gradescope.com",
+    "course": "Same Playground Gradescope (fictional, not yet created)",
+    "org_unit_id": "2747167",
+    "role_label": "Instructor",
+    "ui_variant": "Gradescope LTI 1.3 with Brightspace (documentation-based draft)"
+  },
+  "screens": [
+    {
+      "id": "d2l-navbar-add-gradescope-link",
+      "title": "Edit Navbar, Add Links, Create Custom Link (Brightspace)",
+      "url_pattern": null,
+      "route": "Course homepage > dotted menu > Edit this Navbar > Add Links > Create Custom Link > Insert Quicklink > External Learning Tools > Gradescope",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Edit this Navbar", "kind": "menuitem", "group": "dotted menu", "notes": "(guide) edits one course navbar"},
+        {"label": "Manage all Course Navbars", "kind": "menuitem", "group": "dotted menu", "notes": "(guide) edits all course navbars"},
+        {"label": "Add Links", "kind": "button", "group": "Edit Navbar page", "notes": "(guide) opens the Add Links modal"},
+        {"label": "Create Custom Link", "kind": "button", "group": "Add Links modal", "notes": "(guide)"},
+        {"label": "name", "kind": "textbox", "group": "Create Custom Link modal", "notes": "(guide) 'Enter a name'"},
+        {"label": "URL", "kind": "textbox", "group": "Create Custom Link modal", "notes": "(guide)"},
+        {"label": "Insert Quicklink", "kind": "button", "group": "Create Custom Link modal", "notes": "(guide)"},
+        {"label": "External Learning Tools", "kind": "link", "group": "Insert Quicklink modal", "notes": "(guide)"},
+        {"label": "Gradescope", "kind": "link", "group": "Insert Quicklink modal", "notes": "(guide) may be absent depending on institution configuration"},
+        {"label": "Create", "kind": "button", "group": "Create Custom Link modal", "notes": "(guide) closes the Create Custom Link modal"},
+        {"label": "Gradescope link is checked", "kind": "checkbox", "state": "checked", "group": "Add Links modal", "notes": "(guide) wording from the guide; the checkbox label is the link name"},
+        {"label": "Add", "kind": "button", "group": "Add Links modal", "notes": "(guide) closes the Add Links modal"},
+        {"label": "Save and Close", "kind": "button", "group": "Edit Navbar page", "notes": "(guide)"}
+      ],
+      "dialogs": [
+        {"title": "Add Links", "text": "", "buttons": ["Create Custom Link", "Add"]},
+        {"title": "Create Custom Link", "text": "", "buttons": ["Insert Quicklink", "Create"]},
+        {"title": "Insert Quicklink", "text": "", "buttons": ["External Learning Tools", "Gradescope"]}
+      ],
+      "transitions": [
+        {"control": "Save and Close", "result_screen_id": "d2l-course-home-more-menu"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "Guide note: 'Don't see Gradescope? Based on your institution's configuration, you may not see the Gradescope course-level LTI link.'"
+      ],
+      "unobserved": ["Exact dialog body text", "Position of the dotted menu", "Whether the modal buttons appear in this order"]
+    },
+    {
+      "id": "d2l-course-home-more-menu",
+      "title": "Course homepage, More menu (Brightspace)",
+      "url_pattern": null,
+      "route": "Course homepage > More > Gradescope",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "More", "kind": "menu", "group": "top navigation bar", "notes": "(guide) 'select More at the end of the top navigation bar'"},
+        {"label": "Gradescope", "kind": "menuitem", "group": "More menu", "notes": "(guide) 'it may be named slightly differently'"},
+        {"label": "Content", "kind": "link", "group": "top navigation bar", "notes": "(guide) route used for the module tool link"}
+      ],
+      "menus": [
+        {"anchor": "More", "items": [{"label": "Gradescope", "notes": "(guide) presence of this item is the LTI 1.3 indicator per the version article"}]}
+      ],
+      "transitions": [
+        {"control": "Gradescope", "result_screen_id": "gs-course-link-dialog"},
+        {"control": "Content", "result_screen_id": "d2l-content-module-gradescope"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor and https://guides.gradescope.com/hc/en-us/articles/23734240055565-Determining-your-Brightspace-D2L-LTI-tool-version, checked 2026-09-22"
+      ],
+      "unobserved": ["Other items in the More menu", "Whether Gradescope opens embedded or in a new tab (admin setting 'Open as External Resource')"]
+    },
+    {
+      "id": "gs-course-link-dialog",
+      "title": "Gradescope first launch, course-linking dialog",
+      "url_pattern": null,
+      "route": "Course homepage > More > Gradescope > course-linking dialog",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "link to a new or existing course", "kind": "other", "group": "course-linking options", "notes": "(guide) 'Choose to link to a new or existing course'; the actual control labels are UNCONFIRMED"},
+        {"label": "Link Course", "kind": "button", "state": "primary", "group": "course-linking options", "notes": "(guide) goes to the Course Settings page"}
+      ],
+      "dialogs": [
+        {"title": "course-linking options (exact title UNCONFIRMED)", "text": "", "buttons": ["Link Course"]}
+      ],
+      "transitions": [
+        {"control": "Link Course", "result_screen_id": "gs-course-settings-after-link"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "Account behaviour (guide): a new Gradescope account is created if none matches the Brightspace email; an existing account under that email is used instead.",
+        "Guide warning: several Gradescope courses per one Brightspace course is not recommended."
+      ],
+      "unobserved": ["Dialog title and body text", "Labels of the new-course and existing-course choices", "How the existing-course list is presented"]
+    },
+    {
+      "id": "gs-course-settings-after-link",
+      "title": "Course Settings (after Link Course)",
+      "url_pattern": null,
+      "route": "course-linking dialog > Link Course > Course Settings",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "course title", "kind": "textbox", "group": "Course Settings", "notes": "(guide) wording; exact field label UNCONFIRMED"},
+        {"label": "description", "kind": "textbox", "group": "Course Settings", "notes": "(guide) wording; exact field label UNCONFIRMED"},
+        {"label": "rubric types", "kind": "other", "group": "Course Settings", "notes": "(guide) wording; exact control UNCONFIRMED"},
+        {"label": "score bounds", "kind": "other", "group": "Course Settings", "notes": "(guide) wording; exact control UNCONFIRMED"},
+        {"label": "Update Course", "kind": "button", "state": "primary", "group": "Course Settings", "notes": "(guide) 'Your course is now linked and students will be able to access it.'"}
+      ],
+      "transitions": [
+        {"control": "Update Course", "result_screen_id": "gs-course-dashboard"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "LTI 1.0 article adds that title and description changes here appear only in Gradescope, not in Brightspace."
+      ],
+      "unobserved": ["Full Course Settings form (see gs-course-settings)", "Any Brightspace link indicator on this page"]
+    },
+    {
+      "id": "d2l-content-module-gradescope",
+      "title": "Content module with Gradescope tool link (Brightspace)",
+      "url_pattern": null,
+      "route": "Course > Content > module > Gradescope tool link",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Content", "kind": "link", "group": "top navigation bar", "notes": "(guide)"},
+        {"label": "Gradescope tool link", "kind": "link", "group": "module", "notes": "(guide) wording; the link carries the name given when it was added"},
+        {"label": "Add Existing Activities", "kind": "menu", "group": "module", "notes": "(guide) used to add a Gradescope 1.3 assignment link"}
+      ],
+      "menus": [
+        {"anchor": "Add Existing Activities", "items": [
+          {"label": "the Gradescope 1.3 assignment", "notes": "(guide) wording from the LTI 1.3 article; the item name is the admin-chosen link name, exact label UNCONFIRMED"},
+          {"label": "External Learning Tools", "notes": "(LTI 1.0 guide) item used in the LTI 1.0 workflow"}
+        ]}
+      ],
+      "transitions": [
+        {"control": "Gradescope tool link", "result_screen_id": "gs-course-dashboard"},
+        {"control": "the Gradescope 1.3 assignment", "result_screen_id": "gs-assignment-link-modal"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "Students use the same link: 'select the Gradescope tool link in your course module' (student guide)."
+      ],
+      "unobserved": ["Module name", "Whether the assignment link opens embedded or in a new tab", "Grade item created by the deep link (UNCONFIRMED for LTI 1.3)"]
+    },
+    {
+      "id": "gs-assignment-link-modal",
+      "title": "Gradescope modal, link Brightspace assignment to Gradescope assignment",
+      "url_pattern": null,
+      "route": "Content > module > Add Existing Activities > the Gradescope 1.3 assignment > Gradescope modal",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Create a new assignment", "kind": "radio", "group": "how you want to link the assignment", "notes": "(guide)"},
+        {"label": "Link with an existing assignment", "kind": "radio", "group": "how you want to link the assignment", "notes": "(guide)"},
+        {"label": "Link Assignment", "kind": "button", "state": "primary", "notes": "(guide)"}
+      ],
+      "dialogs": [
+        {"title": "Gradescope modal (exact title UNCONFIRMED)", "text": "", "buttons": ["Link Assignment"]}
+      ],
+      "transitions": [
+        {"control": "Link Assignment", "description": "Returns to the Brightspace module with a new assignment link. The guide adds: select the assignment link once in Brightspace to finalize; 'You won't be able to post grades until you do this step.'"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "Assignment name under LTI 1.3 'comes from the LMS and can only be changed within the LMS' (Assignment Settings Overview)."
+      ],
+      "unobserved": ["Whether the control is radio buttons or tabs", "Existing-assignment picker", "Point value field, if any"]
+    },
+    {
+      "id": "gs-account-dashboard",
+      "title": "Gradescope course dashboard (account level)",
+      "url_pattern": null,
+      "route": "Log in to Gradescope website (or select the Gradescope logo)",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Create Course", "kind": "button", "group": "action bar in the bottom right corner", "notes": "(guide)"},
+        {"label": "Gradescope logo", "kind": "link", "notes": "(guide) 'by selecting the Gradescope logo'"},
+        {"label": "course card", "kind": "link", "notes": "(guide) 'click your course'; card contents UNCONFIRMED"},
+        {"label": "No Published Grades", "kind": "other", "notes": "(guide) label on courses with all grades unpublished"}
+      ],
+      "transitions": [
+        {"control": "course card", "result_screen_id": "gs-course-dashboard"},
+        {"control": "Create Course", "description": "Create course form: 'Enter the course number, course name, term, year, and school' (guide); exact field labels UNCONFIRMED"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22011729587597-Creating-Editing-and-Deleting-a-Course and https://guides.gradescope.com/hc/en-us/articles/21925888998669-Managing-Course-Grades, checked 2026-09-22"
+      ],
+      "unobserved": ["Term grouping", "Account menu", "Demo course cards"]
+    },
+    {
+      "id": "gs-course-dashboard",
+      "title": "Course Dashboard",
+      "url_pattern": null,
+      "route": "Brightspace Gradescope link or Gradescope website > course",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Assignments", "kind": "link", "group": "left sidebar", "notes": "(guide)"},
+        {"label": "Roster", "kind": "link", "group": "left sidebar", "notes": "(guide)"},
+        {"label": "Course Settings", "kind": "link", "group": "left sidebar", "notes": "(guide) 'from the left navigation bar'"},
+        {"label": "Unenroll from Course", "kind": "link", "group": "left sidebar", "notes": "(guide) 'Within the side navigation'"},
+        {"label": "Create Assignment", "kind": "button", "group": "bottom right", "notes": "(guide)"},
+        {"label": "assignment row", "kind": "row", "notes": "(guide) 'click an existing Gradescope assignment'"},
+        {"label": "three-dot menu", "kind": "menu", "group": "assignment row", "notes": "(guide) 'Select the three-dot menu next to the assignment'"}
+      ],
+      "menus": [
+        {"anchor": "three-dot menu", "items": ["Assignment Settings"]}
+      ],
+      "transitions": [
+        {"control": "Assignments", "result_screen_id": "gs-assignments-list"},
+        {"control": "Roster", "result_screen_id": "gs-roster"},
+        {"control": "Course Settings", "result_screen_id": "gs-course-settings"},
+        {"control": "Create Assignment", "result_screen_id": "gs-create-assignment-type"},
+        {"control": "Assignment Settings", "result_screen_id": "gs-assignment-settings"},
+        {"control": "assignment row", "result_screen_id": "gs-grade-submissions"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor and https://guides.gradescope.com/hc/en-us/articles/22242992536205-Assignment-Settings-Overview, checked 2026-09-22",
+        "The guide says to 'expand the left sidebar (if it isn't already)'; the sidebar can be collapsed."
+      ],
+      "unobserved": ["Full left sidebar order", "Extensions link", "Assignment status columns", "Instructor names shown to students"]
+    },
+    {
+      "id": "gs-assignments-list",
+      "title": "Assignments",
+      "url_pattern": null,
+      "route": "Course Dashboard > Assignments",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Create Assignment", "kind": "button", "group": "bottom of the page", "notes": "(guide)"},
+        {"label": "Download Grades", "kind": "button", "group": "bottom action bar", "notes": "(guide) exports all assignment grades and roster info for the course"},
+        {"label": "three vertical dots", "kind": "menu", "group": "assignment row", "notes": "(guide) 'at the end of the row of assignment details'"},
+        {"label": "caret arrow", "kind": "button", "group": "assignment row", "notes": "(guide) reveals sections and their dates"}
+      ],
+      "menus": [
+        {"anchor": "three vertical dots", "items": ["Assignment Settings"]}
+      ],
+      "transitions": [
+        {"control": "Create Assignment", "result_screen_id": "gs-create-assignment-type"},
+        {"control": "Assignment Settings", "result_screen_id": "gs-assignment-settings"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/21869517106445-Sections-Management and https://guides.gradescope.com/hc/en-us/articles/21925888998669-Managing-Course-Grades, checked 2026-09-22"
+      ],
+      "unobserved": ["Table columns", "Other items in the three-dot menu (for example duplicate or delete)"]
+    },
+    {
+      "id": "gs-roster",
+      "title": "Roster",
+      "url_pattern": null,
+      "route": "Course Dashboard > Roster",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Add Students or Staff", "kind": "button", "group": "bottom right corner", "notes": "(guide) Sections article prints it as 'Add Students or Staff +'"},
+        {"label": "Sync Brightspace Roster", "kind": "button", "group": "bottom action bar", "notes": "(guide) under LTI 1.3 the word Brightspace may be replaced by the institution's Branded Platform Name"},
+        {"label": "Download Roster", "kind": "button", "group": "bottom action bar", "notes": "(guide) 'It may be located within the More option.'"},
+        {"label": "More", "kind": "menu", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Manage Sections", "kind": "button", "group": "bottom action bar", "notes": "(guide) opens the Sections page"},
+        {"label": "View by", "kind": "select", "notes": "(guide) option 'Sections'"},
+        {"label": "Swap", "kind": "button", "group": "name column", "notes": "(guide) alphabetize by last name"},
+        {"label": "pencil icon", "kind": "button", "group": "Edit column", "notes": "(guide) opens the Edit Course Member modal"},
+        {"label": "X", "kind": "button", "group": "roster row", "notes": "(guide) removes the user; submissions and grades are kept"},
+        {"label": "Submissions", "kind": "other", "group": "table column", "notes": "(guide) count of non-anonymous submissions"},
+        {"label": "Section", "kind": "other", "group": "table column", "notes": "(guide) sortable"},
+        {"label": "course entry code", "kind": "other", "group": "footer", "notes": "(guide) shown only when self-enroll is enabled in Course Settings"}
+      ],
+      "menus": [
+        {"anchor": "More", "items": [{"label": "Download Roster", "notes": "(guide) placement varies with screen size"}]}
+      ],
+      "dialogs": [
+        {"title": "Add Students or Staff (exact title UNCONFIRMED)", "text": "", "buttons": ["CSV file"]},
+        {"title": "Edit Course Member", "text": "", "buttons": ["Save"]}
+      ],
+      "transitions": [
+        {"control": "Sync Brightspace Roster", "result_screen_id": "gs-roster-sync-dialog"},
+        {"control": "Add Students or Staff", "description": "Dialog with two buttons (guide); single-user form asks first and last name, school email, student ID (optional), role, notify checkbox, then Submit; CSV path shows a column-mapping dialog with 'My CSV file has separate first and last name columns', a '+ sign', and 'Import'"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/21926598776333-Adding-Students-and-Staff, https://guides.gradescope.com/hc/en-us/articles/21933831945741-Modifying-Course-Member-Information, https://guides.gradescope.com/hc/en-us/articles/21869517106445-Sections-Management, https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22"
+      ],
+      "unobserved": ["Second button label in the Add Students or Staff dialog", "Role column and role values", "Email column", "Whether dropped Brightspace students are removed on re-sync (UNCONFIRMED)"]
+    },
+    {
+      "id": "gs-roster-sync-dialog",
+      "title": "Roster, Sync Brightspace Roster dialog",
+      "url_pattern": null,
+      "route": "Course Dashboard > Roster > Sync Brightspace Roster",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Let new users know that they were added to the course", "kind": "checkbox", "state": "checked", "notes": "(guide) checked by default; uncheck to suppress enrollment emails"},
+        {"label": "Sync Roster", "kind": "button", "state": "primary", "notes": "(guide)"}
+      ],
+      "dialogs": [
+        {"title": "Sync roster dialog (exact title UNCONFIRMED)", "text": "", "buttons": ["Sync Roster"]}
+      ],
+      "transitions": [
+        {"control": "Sync Roster", "result_screen_id": "d2l-authorize-gradescope"},
+        {"control": "Sync Roster", "description": "When already authorized: names, emails and IDs are synced from Brightspace; roles per institution configuration; returns to the Roster page (guide)"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "Guide: 'A dialog box will appear explaining how accounts will be synced. All names, emails, and IDs will be auto-synced from Brightspace.'",
+        "Section sync under LTI 1.3 is UNCONFIRMED; the Sections article says some LMS integrations show a checkbox to sync sections."
+      ],
+      "unobserved": ["Dialog body text", "Section sync checkbox, if present"]
+    },
+    {
+      "id": "d2l-authorize-gradescope",
+      "title": "Brightspace login and authorize Gradescope message",
+      "url_pattern": null,
+      "route": "Roster > Sync Brightspace Roster > Sync Roster (first time) > Brightspace login screen > authorize message",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Continue", "kind": "button", "state": "primary", "notes": "(guide) 'a message will appear asking if you'd like to authorize Gradescope. Click Continue'"}
+      ],
+      "transitions": [
+        {"control": "Continue", "result_screen_id": "gs-roster"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "After Continue the guide says to 'click the Sync Roster button again in Gradescope'."
+      ],
+      "unobserved": ["Login screen fields (never entered by the simulator)", "Authorization message text"]
+    },
+    {
+      "id": "gs-create-assignment-type",
+      "title": "Create Assignment, choose assignment type",
+      "url_pattern": null,
+      "route": "Course Dashboard > Assignments > Create Assignment",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Exam / Quiz", "kind": "radio", "group": "assignment type", "notes": "(guide) creation article prints 'Exam/Quiz'"},
+        {"label": "Homework / Problem Set", "kind": "radio", "group": "assignment type", "notes": "(guide) creation article prints the option as 'Problem / Homework Set'; exact picker label UNCONFIRMED"},
+        {"label": "Bubble Sheet", "kind": "radio", "group": "assignment type", "notes": "(guide) Institutional license"},
+        {"label": "Programming Assignment", "kind": "radio", "group": "assignment type", "notes": "(guide) Institutional license"},
+        {"label": "Online Assignment", "kind": "radio", "group": "assignment type", "notes": "(guide) Institutional license; labelled Beta in the types article"},
+        {"label": "Next", "kind": "button", "state": "primary", "notes": "(guide)"}
+      ],
+      "transitions": [
+        {"control": "Next", "result_screen_id": "gs-assignment-settings"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22244660005901-Assignment-Types, https://guides.gradescope.com/hc/en-us/articles/23589161520141-Creating-a-Homework-Problem-Set-Assignment, https://guides.gradescope.com/hc/en-us/articles/22242117406093-Creating-an-Exam-Quiz-Assignment, checked 2026-09-22"
+      ],
+      "unobserved": ["Type descriptions shown on the picker", "Whether the picker is radios or cards"]
+    },
+    {
+      "id": "gs-assignment-settings",
+      "title": "Assignment Settings (create step and Settings page)",
+      "url_pattern": null,
+      "route": "Create Assignment > type > Next > Assignment Settings; or assignment > Settings (left sidebar)",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Assignment Name", "kind": "textbox", "state": "required", "notes": "(guide) read-only when linked via LTI 1.3 (name comes from the LMS)"},
+        {"label": "Template", "kind": "other", "notes": "(guide) PDF upload for Exam / Quiz and Homework / Problem Set"},
+        {"label": "Replace PDF", "kind": "button", "group": "Template", "notes": "(guide) on the Settings page of an existing assignment"},
+        {"label": "Instructor", "kind": "radio", "group": "Who will upload submissions?", "notes": "(guide) default for Exam / Quiz and Bubble Sheet; also printed as 'Instructors'"},
+        {"label": "Student", "kind": "radio", "group": "Who will upload submissions?", "notes": "(guide) default for Homework / Problem Set; also printed as 'Students'"},
+        {"label": "Release Date", "kind": "textbox", "group": "Release date, due date, and late due date", "notes": "(guide) date and time"},
+        {"label": "Due Date", "kind": "textbox", "group": "Release date, due date, and late due date", "notes": "(guide)"},
+        {"label": "Allow late submissions", "kind": "checkbox", "state": "unchecked", "group": "Release date, due date, and late due date", "notes": "(guide) reveals Late Due Date; default state UNCONFIRMED"},
+        {"label": "Late Due Date", "kind": "textbox", "group": "Release date, due date, and late due date", "notes": "(guide) final deadline; submissions after Due Date are marked late"},
+        {"label": "Enforce time limit", "kind": "checkbox", "state": "unchecked", "group": "Timed assignments", "notes": "(guide) default state UNCONFIRMED"},
+        {"label": "Maximum Time Permitted", "kind": "textbox", "group": "Timed assignments", "notes": "(guide) minutes from the moment the student opens the assignment"},
+        {"label": "Variable Length", "kind": "radio", "group": "Submission Type", "notes": "(guide) PDF and images; students pick pages per question"},
+        {"label": "Templated (Fixed Length)", "kind": "radio", "group": "Submission Type", "notes": "(guide) PDF only; AI-Assisted Grading available"},
+        {"label": "Group submissions", "kind": "checkbox", "state": "unchecked", "group": "Group submissions", "notes": "(guide) default state UNCONFIRMED"},
+        {"label": "maximum number of students that can be in a group", "kind": "textbox", "group": "Group submissions", "notes": "(guide) wording; exact field label UNCONFIRMED"},
+        {"label": "Allow students to view and download the template", "kind": "checkbox", "state": "unchecked", "group": "Template Visibility", "notes": "(guide) Homework article prints 'Allow students to view and download template'; default state UNCONFIRMED"},
+        {"label": "Enable Anonymous Grading", "kind": "checkbox", "state": "unchecked", "group": "Submission Anonymization", "notes": "(guide) Institutional license"},
+        {"label": "All staff can edit rubrics", "kind": "radio", "state": "selected", "group": "Rubric Permissions", "notes": "(guide) default; disabled for TAs"},
+        {"label": "Only instructors can edit rubrics", "kind": "radio", "group": "Rubric Permissions", "notes": "(guide)"},
+        {"label": "No one can edit rubrics", "kind": "radio", "group": "Rubric Permissions", "notes": "(guide)"},
+        {"label": "Select one", "kind": "radio", "group": "Default Selection Style", "notes": "(guide) rubric item groups"},
+        {"label": "Select many", "kind": "radio", "state": "selected", "group": "Default Selection Style", "notes": "(guide) 'By default, graders can select multiple rubrics items within a group'"},
+        {"label": "Positive Scoring", "kind": "radio", "group": "Default Scoring Method", "notes": "(guide)"},
+        {"label": "Negative Scoring", "kind": "radio", "state": "selected", "group": "Default Scoring Method", "notes": "(guide) 'the default mode' per the rubric article"},
+        {"label": "Ceiling", "kind": "checkbox", "state": "checked", "group": "Default Score Bounds", "notes": "(guide) enabled by default"},
+        {"label": "Floor", "kind": "checkbox", "state": "checked", "group": "Default Score Bounds", "notes": "(guide) enabled by default"},
+        {"label": "Apply These Settings to All Questions", "kind": "checkbox", "state": "unchecked", "group": "Grading Defaults", "notes": "(guide)"},
+        {"label": "Rubric Item Visibility", "kind": "select", "group": "student visibility", "notes": "(guide) options: Show all rubric items; Show only applied rubric items; Show all rubric items for positive scoring and all applied rubric items for negative scoring; Hide all rubric items"},
+        {"label": "Enable grading by course section", "kind": "checkbox", "state": "checked", "notes": "(guide) default on, inherited from Course Settings"},
+        {"label": "Section Management", "kind": "tab", "notes": "(guide) per-section dates and visibility, Institutional license"},
+        {"label": "Save", "kind": "button", "state": "primary", "notes": "(guide) on the Settings page of an existing assignment"},
+        {"label": "Create Assignment", "kind": "button", "state": "primary", "notes": "(guide) on the create step"}
+      ],
+      "transitions": [
+        {"control": "Create Assignment", "result_screen_id": "gs-edit-outline"},
+        {"control": "Save", "description": "Settings saved; stays on the assignment (guide)"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22242992536205-Assignment-Settings-Overview, https://guides.gradescope.com/hc/en-us/articles/22020218026893-Anonymous-Grading, https://guides.gradescope.com/hc/en-us/articles/22067099093517-Reviewing-Grades, https://guides.gradescope.com/hc/en-us/articles/21869517106445-Sections-Management, https://guides.gradescope.com/hc/en-us/articles/23589161520141-Creating-a-Homework-Problem-Set-Assignment, checked 2026-09-22",
+        "Which controls appear depends on assignment type and on 'Who will upload submissions?'. Date and timing fields apply to student-uploaded assignments.",
+        "Regrade request start and end dates are set from the Regrade Requests page per the regrade article; whether they also appear here is UNCONFIRMED.",
+        "LTI 1.0 only: a 'Brightspace Assignment' section with a 'Link' button and a grade item dropdown; not part of the LTI 1.3 flow."
+      ],
+      "unobserved": ["Field order and section headings as rendered", "Default states marked UNCONFIRMED above", "Date picker format", "Leaderboard and autograder options for Programming Assignments"]
+    },
+    {
+      "id": "gs-edit-outline",
+      "title": "Create Outline / Edit Outline",
+      "url_pattern": null,
+      "route": "Create Assignment > Create Outline; or assignment > Edit Outline (left sidebar)",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "+ new question", "kind": "button", "group": "side panel", "notes": "(guide)"},
+        {"label": "question title", "kind": "textbox", "group": "side panel", "notes": "(guide) 'You can title your questions'; exact label UNCONFIRMED"},
+        {"label": "point value", "kind": "textbox", "group": "side panel", "notes": "(guide) 'add point values'; 0 for extra credit"},
+        {"label": "plus sign icon", "kind": "button", "group": "question row", "notes": "(guide) creates a subquestion"},
+        {"label": "red x delete icon", "kind": "button", "group": "question row", "notes": "(guide) deletes a question or subquestion"},
+        {"label": "Create Name Region", "kind": "button", "group": "side panel", "notes": "(guide) Exam / Quiz only"},
+        {"label": "Create ID Region", "kind": "button", "group": "side panel", "notes": "(guide) Exam / Quiz only"},
+        {"label": "total point tally", "kind": "other", "group": "top of the side panel", "notes": "(guide)"},
+        {"label": "Save Outline", "kind": "button", "state": "primary", "notes": "(guide)"}
+      ],
+      "transitions": [
+        {"control": "Save Outline", "result_screen_id": "gs-create-rubric"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23588082773773-Creating-an-Outline-for-Homework-Problem-set-Assignments and https://guides.gradescope.com/hc/en-us/articles/23589211453325-Creating-an-Outline-for-an-Exam-Quiz-Assignment, checked 2026-09-22",
+        "Layout per guide: template PDF on the left, outline list on the right; question regions can be drawn directly on the page for Exam / Quiz.",
+        "After Save Outline the Create Rubric page appears only with an Institutional license (rubric article); otherwise rubrics are made while grading."
+      ],
+      "unobserved": ["Drag handles", "Region drawing tools", "Page navigation controls"]
+    },
+    {
+      "id": "gs-create-rubric",
+      "title": "Create Rubric",
+      "url_pattern": null,
+      "route": "Edit Outline > Save Outline > Create Rubric",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "List View", "kind": "tab", "state": "selected", "group": "top right corner", "notes": "(guide) default"},
+        {"label": "Grid View", "kind": "tab", "group": "top right corner", "notes": "(guide) Institutional license"},
+        {"label": "Correct", "kind": "row", "group": "rubric", "notes": "(guide) default rubric item, edit points and description"},
+        {"label": "+ Add Rubric Item", "kind": "button", "group": "rubric", "notes": "(guide)"},
+        {"label": "Create Group", "kind": "button", "group": "rubric", "notes": "(guide) beside Add Rubric Item; Institutional license"},
+        {"label": "Selection Style", "kind": "other", "group": "group settings menu", "notes": "(guide) toggle for a rubric item group"},
+        {"label": "Import", "kind": "button", "group": "below the rubric", "notes": "(guide) opens course > assignment > question picker"},
+        {"label": "New Grid", "kind": "button", "group": "Grid View", "notes": "(guide)"},
+        {"label": "New Rubric Item", "kind": "button", "group": "Grid View", "notes": "(guide) single detached cell"}
+      ],
+      "dialogs": [
+        {"title": "Import (exact title UNCONFIRMED)", "text": "", "buttons": ["Import Rubric"]}
+      ],
+      "transitions": [
+        {"control": "Import Rubric", "description": "Copies the selected question rubric into this assignment (guide)"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22249389005709-Grading-submissions-with-rubrics, checked 2026-09-22",
+        "Rubric items accept Markdown and LaTeX and autosave. Edits here also appear in the grading interface."
+      ],
+      "unobserved": ["Per-item point field and description field labels", "Question navigation on this page"]
+    },
+    {
+      "id": "gs-grade-submissions",
+      "title": "Grade Submissions (question list and grading page)",
+      "url_pattern": null,
+      "route": "assignment > Grade Submissions > question",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "question row", "kind": "row", "group": "Grade Submissions", "notes": "(guide) select a question to grade"},
+        {"label": "Grade by Course Section", "kind": "button", "group": "Grade Submissions", "notes": "(guide) link or button; Institutional license"},
+        {"label": "Start Grading", "kind": "button", "group": "Grade by Course Section modal", "notes": "(guide)"},
+        {"label": "rubric item", "kind": "button", "group": "rubric", "notes": "(guide) 'the box with a number in it'; number keys apply"},
+        {"label": "+ Add Rubric Item", "kind": "button", "group": "rubric", "notes": "(guide)"},
+        {"label": "Rubric Settings", "kind": "button", "group": "rubric", "notes": "(guide) scoring style and point floor and ceiling"},
+        {"label": "Positive Scoring", "kind": "radio", "group": "Rubric Settings", "notes": "(guide)"},
+        {"label": "Negative Scoring", "kind": "radio", "state": "selected", "group": "Rubric Settings", "notes": "(guide) default mode"},
+        {"label": "point ceiling", "kind": "checkbox", "state": "checked", "group": "Rubric Settings", "notes": "(guide) wording; exact label UNCONFIRMED"},
+        {"label": "point floor", "kind": "checkbox", "state": "checked", "group": "Rubric Settings", "notes": "(guide) wording; exact label UNCONFIRMED"},
+        {"label": "Collapse View", "kind": "button", "group": "rubric", "notes": "(guide)"},
+        {"label": "Grid View", "kind": "link", "group": "right panel", "notes": "(guide) opens the grid in a separate window"},
+        {"label": "question navigation menu", "kind": "menu", "group": "top left of the rubric", "notes": "(guide) click the question title to jump"},
+        {"label": "Submission Specific Adjustments", "kind": "other", "group": "rubric", "notes": "(guide) points and comment for one submission"},
+        {"label": "Next Ungraded", "kind": "button", "state": "primary", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "All Pages", "kind": "button", "group": "bottom action bar", "notes": "(guide) used when pages were not assigned"},
+        {"label": "Section", "kind": "select", "group": "top-right corner", "notes": "(guide) when grading by section"},
+        {"label": "T", "kind": "button", "group": "annotation tools", "notes": "(guide) text tool; Institutional license"},
+        {"label": "icon: pencil tool", "kind": "button", "group": "annotation tools", "notes": "(guide) blue; green and red with Institutional license"},
+        {"label": "icon: box tool", "kind": "button", "group": "annotation tools", "notes": "(guide)"},
+        {"label": "icon: emoji tool", "kind": "button", "group": "annotation tools", "notes": "(guide) Institutional license"},
+        {"label": "icon: eraser tool", "kind": "button", "group": "annotation tools", "notes": "(guide)"},
+        {"label": "Rubric", "kind": "tab", "group": "annotation popover", "notes": "(guide)"},
+        {"label": "Comments", "kind": "tab", "group": "annotation popover", "notes": "(guide)"},
+        {"label": "Clear Rubric Item", "kind": "button", "group": "annotation popover", "notes": "(guide)"},
+        {"label": "Review Grades", "kind": "link", "group": "left sidebar", "notes": "(guide)"},
+        {"label": "Manage Submissions", "kind": "link", "group": "left sidebar", "notes": "(guide)"},
+        {"label": "Regrade Requests", "kind": "link", "group": "left sidebar", "notes": "(guide)"}
+      ],
+      "transitions": [
+        {"control": "Review Grades", "result_screen_id": "gs-review-grades"},
+        {"control": "Manage Submissions", "result_screen_id": "gs-manage-submissions"},
+        {"control": "Regrade Requests", "result_screen_id": "gs-regrade-requests"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22249389005709-Grading-submissions-with-rubrics and https://guides.gradescope.com/hc/en-us/articles/21869517106445-Sections-Management, checked 2026-09-22",
+        "Guide: 'There are three core components to the grading page. They are the student submission area, the rubric, and the bottom action bar.'",
+        "Guide: 'At least one rubric item must be applied for the question to be considered graded'."
+      ],
+      "unobserved": ["Progress counter", "Keyboard shortcut list", "Previous or next submission buttons other than Next Ungraded", "Grading-progress columns on the question list"]
+    },
+    {
+      "id": "gs-manage-submissions",
+      "title": "Manage Submissions",
+      "url_pattern": null,
+      "route": "assignment > Manage Submissions",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Unassigned", "kind": "tab", "group": "upper right corner", "notes": "(guide) instructor-uploaded assignments"},
+        {"label": "Enter Student Name", "kind": "textbox", "notes": "(guide) autocomplete; Tab selects"},
+        {"label": "Show Details", "kind": "button", "group": "student row", "notes": "(guide)"},
+        {"label": "Delete Submission", "kind": "button", "group": "student row details", "notes": "(guide)"},
+        {"label": "Replace PDF", "kind": "button", "group": "student row details", "notes": "(guide) keeps grading progress"},
+        {"label": "Upload Submission", "kind": "button", "group": "bottom action bar", "notes": "(guide) disabled when anonymous grading is on"},
+        {"label": "Resubmit", "kind": "button", "notes": "(guide) inside a student's submission"},
+        {"label": "Download Original", "kind": "button", "group": "bottom action bar", "notes": "(guide) disabled when anonymous grading is on"},
+        {"label": "Download Graded Copy", "kind": "button", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Submission History", "kind": "button", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Group Members", "kind": "button", "group": "bottom action bar", "notes": "(guide) when group submission is enabled"},
+        {"label": "Reselect Pages", "kind": "button", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Assign Pages Sequentially", "kind": "button", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Submit", "kind": "button", "state": "primary", "notes": "(guide)"}
+      ],
+      "transitions": [
+        {"control": "Upload Submission", "description": "Upload Submission modal: pick the student, upload a file or connect a repository, Submit (guide)"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22252373258381-Managing-Submissions, checked 2026-09-22"
+      ],
+      "unobserved": ["Submission count and unmatched count text", "Toggle to turn off automatic roster matching", "Table columns"]
+    },
+    {
+      "id": "gs-review-grades",
+      "title": "Review Grades",
+      "url_pattern": null,
+      "route": "assignment > Review Grades",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Grades Not Published", "kind": "other", "notes": "(guide) grey indicator before publishing"},
+        {"label": "All", "kind": "tab", "notes": "(guide) multi-version assignments"},
+        {"label": "Swap", "kind": "button", "group": "name column", "notes": "(guide)"},
+        {"label": "Time", "kind": "other", "group": "table column", "notes": "(guide) submission or upload time"},
+        {"label": "Graded", "kind": "other", "group": "table column", "notes": "(guide) checkmark when fully graded; only these post to Brightspace"},
+        {"label": "Viewed?", "kind": "other", "group": "table column", "notes": "(guide) green eye icon after the student viewed"},
+        {"label": "student name", "kind": "link", "group": "table", "notes": "(guide) opens the graded submission"},
+        {"label": "question name", "kind": "link", "group": "table", "notes": "(guide) then Grade in the bottom action bar"},
+        {"label": "Grade", "kind": "button", "group": "bottom action bar", "notes": "(guide) regrade a question"},
+        {"label": "Publish Grades", "kind": "button", "state": "primary", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Post Grades to Brightspace", "kind": "button", "group": "bottom action bar", "notes": "(guide) appears only after the assignment is linked; if missing, launch the Brightspace assignment"},
+        {"label": "Compose Email to Students", "kind": "button", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Download Grades", "kind": "button", "group": "bottom action bar", "notes": "(guide) CSV or Excel"},
+        {"label": "Export Evaluations", "kind": "button", "group": "bottom action bar", "notes": "(guide) zip of per-question spreadsheets"},
+        {"label": "Export Submissions", "kind": "button", "group": "bottom action bar", "notes": "(guide)"},
+        {"label": "Download", "kind": "button", "group": "bottom action bar", "notes": "(guide) original or graded submission"},
+        {"label": "More", "kind": "menu", "group": "bottom action bar", "notes": "(guide) holds Unpublish Grades on small screens"}
+      ],
+      "menus": [
+        {"anchor": "More", "items": ["Unpublish Grades"]}
+      ],
+      "transitions": [
+        {"control": "Publish Grades", "result_screen_id": "gs-publish-grades-result"},
+        {"control": "Post Grades to Brightspace", "result_screen_id": "gs-post-grades-dialog"},
+        {"control": "Download Grades", "description": "Choice of CSV or Excel download (guide)"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22067099093517-Reviewing-Grades, https://guides.gradescope.com/hc/en-us/articles/22239057709453-Exporting-Grades-Evaluations-and-Submissions, https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "Page top per guide: histogram and basic statistics."
+      ],
+      "unobserved": ["Exact button order in the bottom action bar", "Score and status columns", "Whether Post Grades to Brightspace uses the Branded Platform Name"]
+    },
+    {
+      "id": "gs-publish-grades-result",
+      "title": "Review Grades, after Publish Grades",
+      "url_pattern": null,
+      "route": "assignment > Review Grades > Publish Grades",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Grades Published", "kind": "other", "notes": "(guide) green indicator"},
+        {"label": "Unpublish Grades", "kind": "button", "group": "bottom action bar", "notes": "(guide) or under More"},
+        {"label": "Compose Email to Students", "kind": "button", "group": "bottom action bar", "notes": "(guide) publishing does not notify students"}
+      ],
+      "transitions": [
+        {"control": "Compose Email to Students", "description": "Email form with basic assignment statistics included by default; sends to all students with submissions (guide)"},
+        {"control": "Unpublish Grades", "result_screen_id": "gs-review-grades"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22067099093517-Reviewing-Grades, checked 2026-09-22",
+        "Publishing makes graded work visible in Gradescope; it does not post scores to Brightspace (separate Post Grades action)."
+      ],
+      "unobserved": ["Confirmation dialog on publish, if any", "Toast text"]
+    },
+    {
+      "id": "gs-post-grades-dialog",
+      "title": "Review Grades, Post Grades to Brightspace dialog",
+      "url_pattern": null,
+      "route": "assignment > Review Grades > Post Grades to Brightspace",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Post Grades", "kind": "button", "state": "primary", "notes": "(guide) 'When the dialog box appears, select Post Grades.'"}
+      ],
+      "dialogs": [
+        {"title": "Post Grades to Brightspace (dialog title UNCONFIRMED)", "text": "", "buttons": ["Post Grades"]}
+      ],
+      "transitions": [
+        {"control": "Post Grades", "result_screen_id": "gs-post-grades-result"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, checked 2026-09-22",
+        "Prerequisites per guide: assignment linked in Brightspace and roster synced."
+      ],
+      "unobserved": ["Dialog body text", "Cancel button label"]
+    },
+    {
+      "id": "gs-post-grades-result",
+      "title": "Review Grades, after Post Grades (result)",
+      "url_pattern": null,
+      "route": "assignment > Review Grades > Post Grades to Brightspace > Post Grades",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Post Grades to Brightspace", "kind": "button", "group": "bottom action bar", "notes": "(guide) whether it can be re-run under LTI 1.3 is UNCONFIRMED; the LTI 1.0 article says to re-sync the roster and click it again"}
+      ],
+      "transitions": [
+        {"control": "Post Grades to Brightspace", "description": "Brightspace side: final assignment scores for fully graded submissions appear in the linked grade item; students see them under Grades in Brightspace (student guide). Point values must match in both systems (troubleshooting guide)."}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/23587619649805-Using-Gradescope-LTI-1-3-with-Brightspace-D2L-as-an-Instructor, https://guides.gradescope.com/hc/en-us/articles/21753755447949-Troubleshooting-Brightspace-D2L-Issues-for-Instructors, https://guides.gradescope.com/hc/en-us/articles/21749752941069-Using-Gradescope-with-Brightspace-D2L-as-a-Student, checked 2026-09-22",
+        "Guide: 'Posting grades to Brightspace will only post the students' final assignment scores from Gradescope to the linked grade item in Brightspace. Only grades for fully graded submissions (which have a checkmark in the Graded column on the Gradescope Review Grades page) will be posted.'",
+        "Whether the deep link creates the Brightspace grade item automatically is UNCONFIRMED for LTI 1.3."
+      ],
+      "unobserved": ["Success or error message text", "Per-student posting status", "Timestamp of last post"]
+    },
+    {
+      "id": "gs-regrade-requests",
+      "title": "Regrade Requests",
+      "url_pattern": null,
+      "route": "assignment > Regrade Requests",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Regrade Request Settings", "kind": "button", "notes": "(guide)"},
+        {"label": "Regrade requests enabled", "kind": "checkbox", "state": "checked", "group": "Regrade Request Settings", "notes": "(guide) enabled by default for published assignments"},
+        {"label": "start and end date", "kind": "textbox", "group": "Regrade Request Settings", "notes": "(guide) wording; exact field labels UNCONFIRMED"},
+        {"label": "Review", "kind": "button", "group": "request row", "notes": "(guide) opens the student's submission"},
+        {"label": "Regrade Request", "kind": "other", "group": "submission view", "notes": "(guide) notification beside Total Points"},
+        {"label": "Close & Respond", "kind": "button", "state": "primary", "group": "submission view", "notes": "(guide) sends the reply by email"},
+        {"label": "IR", "kind": "other", "group": "submission view badges", "notes": "(guide) pending review"},
+        {"label": "R", "kind": "other", "group": "submission view badges", "notes": "(guide) resolved"}
+      ],
+      "transitions": [
+        {"control": "Review", "result_screen_id": "gs-grade-submissions"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22237994239885-Managing-Regrade-Requests, checked 2026-09-22",
+        "Guide: 'All instructors, TAs, and readers can view all regrade requests on the Regrade Requests page.'",
+        "Student side labels (student guide): 'Request Regrade', 'Regrade Request for Question X' modal, 'Request a Regrade'; statuses 'In Review', 'Resolved', 'Completed'."
+      ],
+      "unobserved": ["Request list columns", "Notification preference controls", "Filter by status"]
+    },
+    {
+      "id": "gs-course-settings",
+      "title": "Course Settings",
+      "url_pattern": null,
+      "route": "Course Dashboard > Course Settings",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Edit basic course settings", "kind": "other", "group": "Course Settings", "notes": "(guide) includes a department field; Unknown when not assignable"},
+        {"label": "course Entry Code", "kind": "checkbox", "state": "unchecked", "group": "Course Settings", "notes": "(guide) wording 'course Entry Code checkbox'; exact label UNCONFIRMED; not needed for LMS courses"},
+        {"label": "Edit default Regrade Requests Settings", "kind": "other", "group": "Course Settings", "notes": "(guide)"},
+        {"label": "Edit Grading Defaults", "kind": "other", "group": "Course Settings", "notes": "(guide) scoring method and score bounds"},
+        {"label": "All staff can edit rubrics", "kind": "radio", "state": "selected", "group": "Edit default Rubric Permissions Settings", "notes": "(guide) default; instructors only"},
+        {"label": "Only instructors can edit rubrics", "kind": "radio", "group": "Edit default Rubric Permissions Settings", "notes": "(guide)"},
+        {"label": "No one can edit rubrics", "kind": "radio", "group": "Edit default Rubric Permissions Settings", "notes": "(guide)"},
+        {"label": "Edit default Student Visibility Settings", "kind": "other", "group": "Course Settings", "notes": "(guide)"},
+        {"label": "Enable grading by course section", "kind": "checkbox", "state": "checked", "group": "Course Settings", "notes": "(guide) default on; applies to new assignments"},
+        {"label": "Unpublish All Grades", "kind": "button", "group": "bottom of the page", "notes": "(guide) Institutional license"},
+        {"label": "Duplicate the course", "kind": "button", "group": "Course Settings", "notes": "(guide) wording; exact label UNCONFIRMED"},
+        {"label": "Delete the course", "kind": "button", "group": "Course Settings", "notes": "(guide) wording; only when the course has no assignments"},
+        {"label": "Update Course", "kind": "button", "state": "primary", "notes": "(guide) from the LMS linking flow"}
+      ],
+      "transitions": [
+        {"control": "Update Course", "result_screen_id": "gs-course-dashboard"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/22011729587597-Creating-Editing-and-Deleting-a-Course, https://guides.gradescope.com/hc/en-us/articles/21926598776333-Adding-Students-and-Staff, https://guides.gradescope.com/hc/en-us/articles/21869517106445-Sections-Management, https://guides.gradescope.com/hc/en-us/articles/21925888998669-Managing-Course-Grades, checked 2026-09-22",
+        "The LMS course-link flow lands here to edit course title, description, rubric types and score bounds (LTI 1.3 guide)."
+      ],
+      "unobserved": ["Field labels for course number, name, term, year, school, department", "Any Brightspace link or unlink control on this page (UNCONFIRMED)"]
+    },
+    {
+      "id": "gs-student-assignment-view",
+      "title": "Student view of an assignment launched from Brightspace",
+      "url_pattern": null,
+      "route": "Brightspace > course > Content > Gradescope assignment link",
+      "read_only": true,
+      "observed_at": "2026-09-22",
+      "screenshot": null,
+      "page_text": "",
+      "controls": [
+        {"label": "Submitted", "kind": "other", "group": "course dashboard status", "notes": "(student guide) received, grades not published"},
+        {"label": "No submission", "kind": "other", "group": "course dashboard status", "notes": "(student guide)"},
+        {"label": "Ungraded", "kind": "other", "group": "side panel", "notes": "(student guide)"},
+        {"label": "Graded", "kind": "other", "group": "side panel", "notes": "(student guide)"},
+        {"label": "Download Graded Copy", "kind": "button", "notes": "(student guide)"},
+        {"label": "Download Submission", "kind": "button", "notes": "(student guide)"},
+        {"label": "Request Regrade", "kind": "button", "group": "bottom action bar", "notes": "(student guide)"}
+      ],
+      "transitions": [
+        {"control": "Request Regrade", "description": "Opens the 'Regrade Request for Question X' modal with a 'Request a Regrade' button (student guide)"}
+      ],
+      "notes": [
+        "evidence: official-docs, not observed; replace with a live capture from a demo course",
+        "Source: https://guides.gradescope.com/hc/en-us/articles/21749752941069-Using-Gradescope-with-Brightspace-D2L-as-a-Student, https://guides.gradescope.com/hc/en-us/articles/21856421392525-Understand-Your-Submission-Feedback-and-Grades, https://guides.gradescope.com/hc/en-us/articles/21854736042253-Submitting-a-Regrade-Request, checked 2026-09-22",
+        "Brightspace student guide: the assignment 'will either launch directly or direct you to the Gradescope Course Dashboard'; the posted score is under Grades in Brightspace; feedback is in Gradescope once grades are published."
+      ],
+      "unobserved": ["Upload controls (PDF or images)", "Page-assignment step", "Group member controls"]
+    }
+  ]
+}

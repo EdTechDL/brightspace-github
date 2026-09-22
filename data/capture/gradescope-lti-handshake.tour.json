@@ -1,0 +1,752 @@
+{
+  "schema_version": 1,
+  "tour_id": "gradescope-lti-handshake-msu",
+  "title": "Gradescope and Brightspace handshake (MSU, inferred)",
+  "recorded": "2026-09-22",
+  "environment": {
+    "institution": "Michigan State University",
+    "origin": "https://d2l.msu.edu and https://www.gradescope.com",
+    "course": "Same Playground (sandbox, org unit 2747167); Gradescope side not yet created",
+    "ui": "Classic Content; Gradescope LTI 1.3 deployment 'Gradescope 1.3 - Course Level' observed in External Learning Tools",
+    "role_label_in_course": "OrgUnit Admin (course scope only)"
+  },
+  "evidence": "MIXED. Step 1 observed live (LTI Advantage Links page, 2026-09-22). Steps 2 to 11 official-docs (guides.gradescope.com LTI 1.3 instructor and troubleshooting articles, checked 2026-09-22). Steps 12 and 13 proposed (expected D2L result, not yet seen). Nothing in this tour was performed in the sandbox. Do not treat it as verified.",
+  "limitations": [
+    "Gradescope-side screens are documentation-based mocks; layout, sidebar order and dialog titles are not observed.",
+    "Whether LTI 1.3 auto-creates the D2L grade item is unconfirmed.",
+    "The MSU Content module button label for adding existing activities was not captured in a populated module.",
+    "Institutions can rename the Sync Brightspace Roster button and the navbar link."
+  ],
+  "screens": {
+    "d2l-lti-advantage-links": {
+      "blocks": [
+        {
+          "type": "h1",
+          "text": "LTI Advantage Links - External Learning Tools"
+        },
+        {
+          "type": "tabs",
+          "items": [
+            "LTI Advantage",
+            "Manage Tool Links (Legacy)"
+          ],
+          "active": "LTI Advantage"
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "New Link",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Filter: All | Enabled | Disabled.  17 items in the list."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Link Name",
+            "Deployment",
+            "Last Modified Date",
+            "Status",
+            "Type"
+          ],
+          "rows": [
+            [
+              "Ally Course Accessibility Report",
+              "Ally Course Accessibility Report LTI 1.3",
+              "5/23/2023",
+              "Enabled",
+              "Basic Launch"
+            ],
+            [
+              "Gradescope 1.3 - Course Level",
+              "Gradescope LTI 1.3",
+              "9/21/2026",
+              "Enabled",
+              "Basic Launch"
+            ],
+            [
+              "Top Hat LTI 1.3 Basic Launch",
+              "Top Hat LTI 1.3",
+              "1/7/2026",
+              "Enabled",
+              "Basic Launch"
+            ],
+            [
+              "Zoom Meetings LTI 1.3",
+              "Zoom LTI 1.3 Deployment",
+              "6/20/2024",
+              "Enabled",
+              "Basic Launch"
+            ]
+          ]
+        }
+      ]
+    },
+    "d2l-content-module": {
+      "blocks": [
+        {
+          "type": "text",
+          "text": "[Classic Content, module view. Observed button labels in this MSU sandbox were not captured for a populated module; the guide says \"Add Existing Activities\", Classic Content usually shows \"Existing Activities\".]"
+        },
+        {
+          "type": "h1",
+          "text": "Week 1"
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "Upload / Create",
+              "primary": true,
+              "caret": true
+            },
+            {
+              "label": "Existing Activities",
+              "caret": true
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Add dates and restrictions..."
+        }
+      ]
+    },
+    "d2l-content-existing-menu": {
+      "extends": "d2l-content-module",
+      "add": [
+        {
+          "type": "menu",
+          "anchor": "Existing Activities",
+          "items": [
+            "Assignments",
+            "Checklist",
+            "Discussions",
+            "External Learning Tools",
+            "Quizzes",
+            "Surveys",
+            "Gradescope 1.3 assignment"
+          ]
+        }
+      ]
+    },
+    "d2l-gradescope-link-modal": {
+      "extends": "d2l-content-module",
+      "add": [
+        {
+          "type": "dialog",
+          "title": "Gradescope (link assignment)",
+          "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]\nChoose: Create a new assignment, or Link with an existing assignment.",
+          "buttons": [
+            "Link Assignment",
+            "Cancel"
+          ]
+        }
+      ]
+    },
+    "gs-first-launch-dialog": {
+      "blocks": [
+        {
+          "type": "text",
+          "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"
+        },
+        {
+          "type": "h1",
+          "text": "Gradescope"
+        },
+        {
+          "type": "dialog",
+          "title": "Course linking options",
+          "text": "Link this Brightspace course to a new Gradescope course, or to an existing Gradescope course you already teach.\n\nA Gradescope account is created automatically under your school email if you do not have one.",
+          "buttons": [
+            "Link Course",
+            "Cancel"
+          ]
+        }
+      ]
+    },
+    "gs-course-settings": {
+      "blocks": [
+        {
+          "type": "text",
+          "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"
+        },
+        {
+          "type": "h1",
+          "text": "Course Settings"
+        },
+        {
+          "type": "field",
+          "label": "Course title",
+          "value": "Same Playground",
+          "wide": true
+        },
+        {
+          "type": "field",
+          "label": "Description",
+          "value": "",
+          "wide": true
+        },
+        {
+          "type": "label",
+          "text": "Rubric types"
+        },
+        {
+          "type": "radios",
+          "options": [
+            "Negative scoring",
+            "Positive scoring"
+          ],
+          "selected": "Negative scoring"
+        },
+        {
+          "type": "label",
+          "text": "Score bounds"
+        },
+        {
+          "type": "checkbox",
+          "label": "Enable score bounds"
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "Update Course",
+              "primary": true
+            }
+          ]
+        }
+      ]
+    },
+    "gs-roster": {
+      "blocks": [
+        {
+          "type": "text",
+          "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"
+        },
+        {
+          "type": "h1",
+          "text": "Roster"
+        },
+        {
+          "type": "tabs",
+          "items": [
+            "Dashboard",
+            "Assignments",
+            "Roster",
+            "Extensions",
+            "Course Settings"
+          ],
+          "active": "Roster"
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "Sync Brightspace Roster",
+              "primary": true
+            },
+            {
+              "label": "Add Students or Staff"
+            },
+            {
+              "label": "Download Roster"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Name",
+            "Email",
+            "Role",
+            "Submissions"
+          ],
+          "rows": [
+            [
+              "Demo Student",
+              "DemoStudent_2747167@d2l.msu.edu",
+              "Student",
+              "0"
+            ]
+          ]
+        }
+      ]
+    },
+    "gs-roster-sync-dialog": {
+      "extends": "gs-roster",
+      "add": [
+        {
+          "type": "dialog",
+          "title": "Sync roster",
+          "text": "All names, emails, and IDs will be auto-synced from Brightspace. Students are matched on email.\n\n[ ] Let new users know that they were added to the course",
+          "buttons": [
+            "Sync Roster",
+            "Cancel"
+          ]
+        }
+      ]
+    },
+    "gs-assignments": {
+      "blocks": [
+        {
+          "type": "text",
+          "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"
+        },
+        {
+          "type": "h1",
+          "text": "Assignments"
+        },
+        {
+          "type": "tabs",
+          "items": [
+            "Dashboard",
+            "Assignments",
+            "Roster",
+            "Extensions",
+            "Course Settings"
+          ],
+          "active": "Assignments"
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "Create Assignment",
+              "primary": true
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Name",
+            "Released",
+            "Due",
+            "Submissions",
+            "% Graded",
+            "Published"
+          ],
+          "rows": [
+            [
+              "Project",
+              "Sep 22",
+              "Sep 29",
+              "1",
+              "100%",
+              "No"
+            ]
+          ]
+        }
+      ]
+    },
+    "gs-review-grades": {
+      "blocks": [
+        {
+          "type": "text",
+          "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"
+        },
+        {
+          "type": "h1",
+          "text": "Review Grades: Project"
+        },
+        {
+          "type": "tabs",
+          "items": [
+            "Outline",
+            "Manage Submissions",
+            "Grade Submissions",
+            "Review Grades",
+            "Regrade Requests",
+            "Settings"
+          ],
+          "active": "Review Grades"
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "Post Grades to Brightspace",
+              "primary": true
+            },
+            {
+              "label": "Publish Grades"
+            },
+            {
+              "label": "Compose Email to Students"
+            },
+            {
+              "label": "Download Grades"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Name",
+            "Email",
+            "Total Score",
+            "Max Points",
+            "Graded",
+            "Viewed"
+          ],
+          "rows": [
+            [
+              "Demo Student",
+              "DemoStudent_2747167@d2l.msu.edu",
+              "90.0",
+              "100.0",
+              "Yes",
+              "No"
+            ]
+          ]
+        }
+      ]
+    },
+    "gs-post-grades-dialog": {
+      "extends": "gs-review-grades",
+      "add": [
+        {
+          "type": "dialog",
+          "title": "Post Grades to Brightspace",
+          "text": "Only grades for fully graded submissions (checkmark in the Graded column) will be posted to the linked Brightspace grade item.",
+          "buttons": [
+            "Post Grades",
+            "Cancel"
+          ]
+        }
+      ]
+    },
+    "d2l-manage-grades-linked": {
+      "blocks": [
+        {
+          "type": "tooltabs",
+          "items": [
+            "Enter Grades",
+            "Manage Grades",
+            "Schemes",
+            "Setup Wizard"
+          ],
+          "active": "Manage Grades",
+          "right": [
+            "Settings",
+            "Help"
+          ]
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "New",
+              "primary": true,
+              "caret": true
+            },
+            {
+              "label": "More Actions",
+              "caret": true
+            }
+          ]
+        },
+        {
+          "type": "link",
+          "text": "Bulk Edit"
+        },
+        {
+          "type": "table",
+          "checkbox": true,
+          "columns": [
+            "Grade Item",
+            "Type",
+            "Association",
+            "Max. Points",
+            "Weight"
+          ],
+          "rows": [
+            [
+              "Project",
+              "Numeric",
+              "Gradescope",
+              "100",
+              "60"
+            ],
+            [
+              "Final Calculated Grade",
+              "",
+              "",
+              "100",
+              "100"
+            ],
+            [
+              "Final Adjusted Grade",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    "d2l-enter-grades-linked": {
+      "blocks": [
+        {
+          "type": "tooltabs",
+          "items": [
+            "Enter Grades",
+            "Manage Grades",
+            "Schemes",
+            "Setup Wizard"
+          ],
+          "active": "Enter Grades",
+          "right": [
+            "Settings",
+            "Help"
+          ]
+        },
+        {
+          "type": "buttons",
+          "items": [
+            {
+              "label": "Import",
+              "primary": true
+            },
+            {
+              "label": "Export"
+            },
+            {
+              "label": "Switch to Spreadsheet View"
+            },
+            {
+              "label": "More Actions",
+              "caret": true
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "checkbox": true,
+          "columns": [
+            "Learner",
+            "Project",
+            "Final Calculated Grade"
+          ],
+          "rows": [
+            [
+              "Student, Demo",
+              "90 / 100, 90 %",
+              "- / -, -%"
+            ]
+          ]
+        }
+      ]
+    },
+    "troubleshooting-card": {
+      "blocks": [
+        {
+          "type": "h1",
+          "text": "Gradescope and Brightspace: what breaks"
+        },
+        {
+          "type": "kv",
+          "items": [
+            [
+              "Post Grades to Brightspace button missing",
+              "Launch the assignment from the Brightspace link first, then return to Review Grades."
+            ],
+            [
+              "Scores post wrong or not at all",
+              "The Brightspace grade item must have the same total points as the Gradescope assignment."
+            ],
+            [
+              "TA cannot sync roster, create assignments or post grades",
+              "Their Brightspace role must be an instructor role in the Classlist; then resync the roster."
+            ],
+            [
+              "Students missing after sync",
+              "Brightspace accounts without an email do not sync; students are also added when they open a Gradescope link."
+            ],
+            [
+              "Embedded window blank",
+              "Safari Prevent cross-site tracking or Chrome incognito blocks third-party cookies; open in a new tab or allow cookies."
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "steps": [
+    {
+      "id": "gs-01-deployment",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "d2l-lti-advantage-links",
+      "target": "Gradescope 1.3 - Course Level",
+      "title": "Deployment exists at MSU (observed)",
+      "card": "WHAT: Course Admin > External Learning Tools > LTI Advantage tab lists every LTI 1.3 link this course can use. \"Gradescope 1.3 - Course Level\" is Enabled (deployment \"Gradescope LTI 1.3\", last modified 9/21/2026).\nWHY: support checks this first. If the row is missing or Disabled, nothing downstream can work and the ticket goes to the D2L admins, not the instructor.\nTICKET: \"I don't see Gradescope anywhere in my course.\" Deployment present means the instructor has not added the link yet (navbar or Content), not that Gradescope is off.\nNEXT: the instructor adds a link where students will click it: in a Content module.",
+      "action": "look",
+      "actionLabel": "Read only. Observed live on 2026-09-22.",
+      "next": "d2l-content-module",
+      "evidence": "live"
+    },
+    {
+      "id": "gs-02-existing-activities",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "d2l-content-module",
+      "target": "Existing Activities",
+      "title": "Add the Gradescope link in Content (documentation)",
+      "card": "WHAT: inside a module, the Existing Activities menu (guide wording: Add Existing Activities) lists tools that can be dropped in as a topic, including External Learning Tools and the Gradescope 1.3 assignment picker.\nWHY: this is the student-facing entry point. Launching through it is also what creates the Gradescope side of the link.\nTICKET: \"Students say the Gradescope link is not in Content.\" Check the module, its visibility, and whether the topic was ever added.\nNEXT: a menu opens listing tool types.\nEVIDENCE: label from the guide; the exact MSU button text in a populated module was not captured.",
+      "action": "click",
+      "actionLabel": "Click Existing Activities",
+      "next": "d2l-content-existing-menu",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-03-pick-gradescope",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "d2l-content-existing-menu",
+      "target": "menu:Gradescope 1.3 assignment",
+      "title": "Choose the Gradescope 1.3 assignment picker",
+      "card": "WHAT: the Gradescope entry opens a small window from Gradescope, not from D2L.\nWHY: from here on, dialogs are drawn by Gradescope inside D2L. Cookie settings that block third-party content break this step (Safari cross-site tracking, incognito).\nTICKET: \"The window is blank when I click Gradescope.\" Browser cookie settings, or a role that Gradescope does not treat as instructor.\nNEXT: a modal asking to create a new assignment or link an existing one.",
+      "action": "click",
+      "actionLabel": "Click Gradescope 1.3 assignment",
+      "next": "d2l-gradescope-link-modal",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-04-link-assignment",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "d2l-gradescope-link-modal",
+      "target": "dialog:Link Assignment",
+      "title": "Create new or link existing, then Link Assignment",
+      "card": "WHAT: the modal offers Create a new assignment or Link with an existing assignment. Link Assignment inserts a topic into the module.\nWHY: one Gradescope assignment maps to one Brightspace link and one grade item. Linking twice makes duplicates.\nTICKET: \"There are two Project columns in my gradebook.\" The instructor linked the same assignment from two modules.\nNEXT: the first time this course launches Gradescope, a course-linking dialog appears.",
+      "action": "click",
+      "actionLabel": "Click Link Assignment",
+      "next": "gs-first-launch-dialog",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-05-link-course",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "gs-first-launch-dialog",
+      "target": "dialog:Link Course",
+      "title": "First launch: link the course",
+      "card": "WHAT: Gradescope asks whether this Brightspace course should become a new Gradescope course or attach to an existing one. Link Course confirms. A Gradescope account is created automatically under the instructor's school email if none exists.\nWHY: this is the handshake. After it, Gradescope knows which D2L course to sync rosters from and post grades to.\nTICKET: \"I have three Gradescope courses for one D2L course.\" The guide says not to link in that case; students could enrol in any of them.\nNEXT: Gradescope Course Settings.",
+      "action": "click",
+      "actionLabel": "Click Link Course",
+      "next": "gs-course-settings",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-06-update-course",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "gs-course-settings",
+      "target": "Update Course",
+      "title": "Course Settings, then Update Course",
+      "card": "WHAT: title, description, rubric types (negative or positive scoring) and score bounds. Update Course saves and lands on the course.\nWHY: rubric type decides whether graders subtract from full marks or add up points; changing it later is possible but confusing mid-term.\nTICKET: \"My rubric takes points away and I wanted it to add.\" Course Settings > rubric type.\nNEXT: the Roster page.",
+      "action": "click",
+      "actionLabel": "Click Update Course",
+      "next": "gs-roster",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-07-sync-roster",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "gs-roster",
+      "target": "Sync Brightspace Roster",
+      "title": "Roster > Sync Brightspace Roster",
+      "card": "WHAT: pulls names, emails and IDs from the linked D2L course. Matching is on email. Students are also added automatically the first time they open a Gradescope link from D2L.\nWHY: no roster, no grade posting. Re-sync after every add or drop; dropped students keep their submissions and grades.\nTICKET: \"A student is in D2L but not on my Gradescope roster.\" Re-sync; if still missing, the D2L account may have no email.\nNEXT: a sync dialog with a notification checkbox.",
+      "action": "click",
+      "actionLabel": "Click Sync Brightspace Roster",
+      "next": "gs-roster-sync-dialog",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-08-sync-confirm",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "gs-roster-sync-dialog",
+      "target": "dialog:Sync Roster",
+      "title": "Confirm the sync",
+      "card": "WHAT: untick \"Let new users know that they were added to the course\" to avoid emailing everyone, then Sync Roster. The first time, Gradescope may bounce to a Brightspace login and an authorize step (Continue); run the sync again after that.\nWHY: the authorize step is the one instructors abandon, then report that sync does nothing.\nTICKET: \"Sync Roster does nothing.\" Ask whether a Brightspace login page appeared and whether they clicked Continue.\nNEXT: the Assignments page.",
+      "action": "click",
+      "actionLabel": "Click Sync Roster",
+      "next": "gs-assignments",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-09-finalize-link",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "gs-assignments",
+      "target": "Create Assignment",
+      "title": "Create the assignment, then finalize the link from D2L",
+      "card": "WHAT: Create Assignment sets type and settings. Under LTI 1.3 the assignment name comes from the Brightspace link and is read-only in Gradescope. Then the instructor clicks the assignment link in Brightspace once, which finalizes the pairing.\nWHY: the guide is explicit: you cannot post grades until that link has been selected in Brightspace.\nTICKET: \"Post Grades to Brightspace is missing.\" Launch the assignment from the Brightspace link, then return to Review Grades.\nNEXT: after grading, Review Grades.",
+      "action": "click",
+      "actionLabel": "Click Create Assignment (then open the link once from D2L)",
+      "next": "gs-review-grades",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-10-post-grades",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "gs-review-grades",
+      "target": "Post Grades to Brightspace",
+      "title": "Review Grades > Post Grades to Brightspace",
+      "card": "WHAT: sends the total score of every fully graded submission (checkmark in the Graded column) to the linked D2L grade item. Publish Grades is different: it shows feedback to students inside Gradescope. Compose Email to Students notifies them.\nWHY: three buttons, three outcomes. Most \"students can't see their grade\" tickets are one of these not clicked.\nTICKET: \"I posted grades but students see nothing in D2L.\" Posted to D2L means the grade item has values; the D2L item or final grade may still be hidden or unreleased on the D2L side.\nNEXT: a confirmation dialog.",
+      "action": "click",
+      "actionLabel": "Click Post Grades to Brightspace",
+      "next": "gs-post-grades-dialog",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-11-confirm-post",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "gs-post-grades-dialog",
+      "target": "dialog:Post Grades",
+      "title": "Confirm Post Grades",
+      "card": "WHAT: confirms the post. Max points must match: the D2L grade item total must equal the Gradescope assignment total or scores post wrong.\nWHY: D2L stores points, not percentages; a 100-point Gradescope exam posted into a 50-point item shows 90/50 or fails.\nTICKET: \"Everyone has more than 100 percent after posting.\" Compare Max. Points on the D2L item with the Gradescope total.\nNEXT: Manage Grades in D2L shows the linked item.",
+      "action": "click",
+      "actionLabel": "Click Post Grades",
+      "next": "d2l-manage-grades-linked",
+      "evidence": "official-docs"
+    },
+    {
+      "id": "gs-12-d2l-item",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "d2l-manage-grades-linked",
+      "target": "Project",
+      "title": "Verify in D2L: Manage Grades",
+      "card": "WHAT: the linked item appears with an Association to the external tool and Max. Points equal to the Gradescope total. Whether LTI 1.3 creates the item automatically or the instructor must create it first is UNCONFIRMED in the guides; check it in the sandbox before telling anyone.\nWHY: this row is your proof that the handshake completed.\nTICKET: \"Gradescope says posted but the column is empty.\" Check Association, Max. Points, and whether the right item was linked.\nNEXT: Enter Grades to see learner values.",
+      "action": "look",
+      "actionLabel": "Read only. Verify Association and Max. Points.",
+      "next": "d2l-enter-grades-linked",
+      "evidence": "proposed"
+    },
+    {
+      "id": "gs-13-d2l-scores",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "d2l-enter-grades-linked",
+      "target": "Student, Demo",
+      "title": "Verify in D2L: Enter Grades",
+      "card": "WHAT: posted scores appear per learner. Release and visibility follow the normal D2L rules: the item can be hidden, the final grade unreleased.\nWHY: Gradescope's job ends at the item; visibility is a D2L ticket.\nTICKET: \"Grades are in D2L but the student cannot see them.\" Normal gradebook visibility diagnosis (gradebook-diagnosis.md).\nNEXT: troubleshooting summary.",
+      "action": "look",
+      "actionLabel": "Read only.",
+      "next": "troubleshooting-card",
+      "evidence": "proposed"
+    },
+    {
+      "id": "gs-14-troubleshooting",
+      "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)",
+      "screen": "troubleshooting-card",
+      "target": "Gradescope and Brightspace: what breaks",
+      "title": "Five recurring causes (from the troubleshooting guide)",
+      "card": "CHECK before replying to a Gradescope ticket: link finalized from D2L, roster synced, points match, role is instructor, cookies allowed.\nEVIDENCE: steps 2 to 11 come from guides.gradescope.com (checked 2026-09-22) and were not performed in the sandbox; step 1 was observed. Perform the handshake in a sandbox before promising any of it to an educator.\nNEXT: replace this tour with an observed one after a live run.",
+      "action": "look",
+      "actionLabel": "End of tour.",
+      "next": null,
+      "evidence": "official-docs"
+    }
+  ]
+}

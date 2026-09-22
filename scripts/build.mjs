@@ -10,7 +10,9 @@ const json = name => JSON.stringify(JSON.parse(read(name))).replace(/</g, '\\u00
 const prelude = [
   ['CAPTURE', 'data/capture/d2l-ui-inventory.json'],
   ['PACK_CASES', 'data/capture/calc-test-cases.json'],
-  ['CAPTURE_TOUR', 'data/capture/gradebook-lab-msu.tour.json']
+  ['CAPTURE_TOUR', 'data/capture/gradebook-lab-msu.tour.json'],
+  ['CAPTURE_GS', 'data/capture/gradescope-ui-inventory.json'],
+  ['TOUR_GS', 'data/capture/gradescope-lti-handshake.tour.json']
 ].map(([key, path]) => `const ${key}=${json(path)};`).join('\n');
 
 // These extensions are ordered deliberately: later definitions replace prototype views.
