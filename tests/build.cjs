@@ -16,4 +16,8 @@ new vm.Script(script);
 for (const key of ['CAPTURE', 'PACK_CASES', 'CAPTURE_TOUR', 'TOOL_HELP', 'TICKETS']) {
   assert.ok(script.includes(`const ${key}=`), `Missing ${key}`);
 }
-console.log('Standalone HTML build, embedded JSON, and script syntax checks passed.');
+assert.ok(/<form class="gate-card" id="gate-form">/.test(html), 'Missing access gate form');
+assert.ok(/<div id="app" hidden>/.test(html), 'App should start hidden behind the gate');
+assert.ok(script.includes("const PASSWORD = 'amarah'"), 'Missing gate password');
+
+console.log('Standalone HTML build, embedded JSON, access gate, and script syntax checks passed.');

@@ -21,7 +21,8 @@ const extensions = ['capture.js', 'grade-ui.js', 'experience.js']
 const entry = read('src/app.js');
 const marker = 'render();\n\n// Optional WebMCP';
 if (entry.split(marker).length !== 2) throw new Error('Expected exactly one extension insertion marker in src/app.js.');
-const script = `${prelude}\n${entry.replace(marker, () => `${extensions}\n${marker}`)}`;
+// The gate runs last so the unlock handler binds after the app has rendered.
+const script = `${prelude}\n${entry.replace(marker, () => `${extensions}\n${marker}`)}\n${read('src/gate.js')}`;
 new Script(script, { filename: 'brightspace-bundle.js' });
 if (/<\/script/i.test(script)) throw new Error('Escape a closing script tag before embedding JavaScript in HTML.');
 let html = read('src/shell.html');

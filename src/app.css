@@ -22,3 +22,16 @@
 .modal-step-help{border:2px solid #c92323;border-radius:5px;padding:12px 15px;margin:12px 0 20px;font-size:14px;background:#fffafa}.modal-step-help summary{cursor:pointer;color:#a51e24;font-weight:700}.modal-step-help p{line-height:1.55;margin:12px 0 0}
 .ticket-card{border:1px solid #d8e0e7;border-radius:5px;padding:18px;margin:15px 0;background:white}.ticket-card h3{color:#0068ad;font-size:18px;line-height:1.4}.ticket-card p,.ticket-card li{font-size:14px;line-height:1.6}.ticket-card li{margin-bottom:9px}.ticket-card details>summary{cursor:pointer;font-size:14px;color:#005faa}.ticket-card .toolbar{margin:14px 0 10px}.ticket-card .toolbar button{font-size:13px;padding:9px 11px}.dialog:has(#support-search-form){max-width:820px}
 .walkthrough-box.is-minimized .walkthrough-explanation{display:none}.walkthrough-box.is-minimized h2{font-size:14px;margin-bottom:5px}.walkthrough-box.is-minimized .walkthrough-box-controls{margin-top:5px;padding-top:6px}
+
+/* Access gate. Client-side only: the password is visible in the page source. */
+body.locked{overflow:hidden}
+.gate{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;background:#eef2f5}
+.gate-card{width:100%;max-width:390px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:7px;padding:30px;box-shadow:0 10px 40px #1827341f}
+.gate-card h1{font-size:23px;font-weight:500;margin:0 0 9px}
+.gate-card p{font-size:14px;margin:0 0 22px}
+.gate-field{display:block;font-weight:700;font-size:14px;margin-bottom:8px}
+.gate-card input{width:100%}
+.gate-card button{width:100%;margin-top:20px}
+.gate-error{color:#a91c27;font-weight:700;font-size:14px;margin:14px 0 0}
+.gate-error[hidden]{display:none}
+@media(max-width:520px){.gate{padding:16px;align-items:start}.gate-card{padding:24px;margin-top:30px}}
