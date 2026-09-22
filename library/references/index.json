@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-22",
+  "entries": [
+    {
+      "id": "gradebook-lab",
+      "title": "Learn gradebook setup and calculations",
+      "aliases": [
+        "set up grades",
+        "weighted",
+        "points",
+        "gradebook overview",
+        "grade settings"
+      ],
+      "file": "gradebook-lab.md",
+      "evidence": "institution-verified (partial): Setup Wizard, Settings > Calculation Options, category delete, all performed live 2026-09-22; categories/items build, score entry, release and learner checks still pending",
+      "institution_verified_at": "2026-09-22",
+      "tour": "tours/gradebook-lab-msu.tour.json"
+    },
+    {
+      "id": "gradebook-diagnosis",
+      "title": "Diagnose gradebook support tickets",
+      "aliases": [
+        "wrong total",
+        "missing grade",
+        "blank column",
+        "extra credit",
+        "exempt",
+        "drop lowest",
+        "adjusted grade",
+        "grade scheme"
+      ],
+      "file": "gradebook-diagnosis.md",
+      "evidence": "official-docs",
+      "institution_verified_at": null
+    },
+    {
+      "id": "content-visibility",
+      "title": "Make a hidden content module visible",
+      "aliases": [
+        "missing content",
+        "cannot see module",
+        "hidden lesson"
+      ],
+      "file": "content-visibility.md",
+      "evidence": "official-docs",
+      "institution_verified_at": null
+    },
+    {
+      "id": "assignment-dates",
+      "title": "Distinguish assignment due and end dates",
+      "aliases": [
+        "late submissions",
+        "assignment closed",
+        "deadline",
+        "end date"
+      ],
+      "file": "assignment-dates.md",
+      "evidence": "official-docs",
+      "institution_verified_at": null
+    },
+    {
+      "id": "quiz-special-access",
+      "title": "Extra time for one learner on one quiz",
+      "aliases": [
+        "one quiz 1.5x",
+        "quiz extension",
+        "special access",
+        "extra time on one quiz"
+      ],
+      "file": "quiz-special-access.md",
+      "evidence": "official-docs; labels institution-checked 2026-09-22 (see file note)",
+      "institution_verified_at": null
+    },
+    {
+      "id": "quiz-accommodations",
+      "title": "Extra time across all quizzes in one course",
+      "aliases": [
+        "all quizzes",
+        "coursewide extra time",
+        "quiz accommodations",
+        "1.5x accommodation"
+      ],
+      "file": "quiz-accommodations.md",
+      "evidence": "official-docs; labels institution-checked 2026-09-22 (see file note)",
+      "institution_verified_at": null
+    },
+    {
+      "id": "final-grade-release",
+      "title": "Release an existing calculated final grade",
+      "aliases": [
+        "final grade hidden",
+        "release total",
+        "cannot see final grade"
+      ],
+      "file": "final-grade-release.md",
+      "evidence": "official-docs",
+      "institution_verified_at": null
+    },
+    {
+      "id": "gradebook-undo-category-and-grading-system",
+      "title": "Delete a grade category and switch Points/Weighted via Settings",
+      "aliases": [
+        "delete category",
+        "remove grade item",
+        "switch to points",
+        "switch to weighted",
+        "calculation options"
+      ],
+      "file": "tours/gradebook-lab-msu.tour.json#section-B",
+      "evidence": "institution-verified",
+      "institution_verified_at": "2026-09-22"
+    },
+    {
+      "id": "tour-player",
+      "title": "Replay a recorded tour offline (player kit)",
+      "aliases": [
+        "replay",
+        "tour",
+        "player",
+        "red boxes",
+        "simulation"
+      ],
+      "file": "tours/README.md",
+      "evidence": "institution-verified (player built and checked 2026-09-22; simulation only)",
+      "institution_verified_at": "2026-09-22"
+    },
+    {
+      "id": "d2l-ui-inventory",
+      "title": "Observed MSU D2L UI inventory and Codex pack",
+      "aliases": [
+        "codex pack",
+        "ui inventory",
+        "screen labels",
+        "simulator brief"
+      ],
+      "file": "../d2l-capture/README-START-HERE.md",
+      "evidence": "institution-verified (read-only capture 2026-09-22)",
+      "institution_verified_at": "2026-09-22"
+    },
+    {
+      "id": "gradescope-brightspace",
+      "title": "Gradescope LTI 1.3 handshake and grade posting (instructor side)",
+      "aliases": [
+        "gradescope",
+        "post grades to brightspace",
+        "sync brightspace roster",
+        "gradescope link missing",
+        "gradescope grades not in d2l"
+      ],
+      "file": "gradescope-brightspace.md",
+      "evidence": "official-docs; MSU deployment observed 2026-09-22; tour tours/gradescope-lti-handshake.tour.json",
+      "institution_verified_at": null
+    }
+  ]
+}

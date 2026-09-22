@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "institution": "Michigan State University (observed from page branding and help links)",
+  "brightspace_origin": "https://d2l.msu.edu",
+  "sandbox_course": {
+    "name": "Same Playground",
+    "org_unit_id": "2747167",
+    "home_url": "https://d2l.msu.edu/d2l/home/2747167",
+    "observed_at": "2026-09-22"
+  },
+  "content_experience": "Classic Content observed; the 'A new Content Experience is available' opt-in prompt appears on the Content page with the new experience reported as off. Prompt left untouched.",
+  "navigation_labels": {
+    "navbar": [
+      "Course Home",
+      "Content",
+      "Course Tools",
+      "Assessments",
+      "Communication",
+      "Help",
+      "Course Admin",
+      "More"
+    ],
+    "course_tools_menu": [
+      "Attendance",
+      "Calendar",
+      "Checklist",
+      "SPLS Tasks",
+      "Course Builder",
+      "Glossary",
+      "Instructional Design Wizard",
+      "Manage Files",
+      "Insights Portal",
+      "Library Guide"
+    ],
+    "assessments_menu": [
+      "Assignments",
+      "Grades",
+      "Quizzes",
+      "Rubrics",
+      "Self Assessments",
+      "Competencies",
+      "Surveys",
+      "Class Progress",
+      "Awards"
+    ],
+    "communication_menu": [
+      "Classlist",
+      "Discussions",
+      "Email",
+      "Groups",
+      "Announcements",
+      "Instant Messages",
+      "ePortfolio",
+      "FAQ",
+      "Create a MSU Guest Account",
+      "Batch Enroll",
+      "Zoom Meetings"
+    ],
+    "more_menu": [
+      "Ally Course Accessibility Report LTI 1.3"
+    ],
+    "grades_tool_tabs": [
+      "Enter Grades",
+      "Manage Grades",
+      "Schemes",
+      "Setup Wizard"
+    ],
+    "grades_tool_right_side": [
+      "Settings",
+      "Help"
+    ],
+    "grades_landing_page_for_unconfigured_course": "Setup Wizard (URL /d2l/lms/grades/admin/settings/wizard_options.d2l?ou=<ou>)",
+    "grades_entry_url": "/d2l/lms/grades/index.d2l?ou=<ou> (from Assessments menu); a guessed /admin/manage/main.d2l path returned Page Not Found"
+  },
+  "institutional_time_zone": null,
+  "role_name": "Role Switch widget and Classlist show the current role label as 'OrgUnit Admin' inside this course only; scope beyond this course not established",
+  "reported_capabilities": [
+    "User reports permission to create a sandbox course",
+    "User reports access to educators' courses for support edits"
+  ],
+  "observed_capabilities_by_course": [
+    {
+      "course": "Same Playground (2747167)",
+      "observed_at": "2026-09-22",
+      "observed": [
+        "Course Admin page lists: Availability Date Defaults, Course Offering Information, Homepages, Navigation & Themes, Widgets, Calendar, Content, Course Builder, Course Design Accelerator, External Learning Tools, Forms, FAQ, Import/Export/Copy Components, Instructional Design Wizard, Learning Activity Library, Links, Manage Dates, Manage Files, Attendance, Class Progress, Classlist, Groups, Assignments, Awards, Checklists, Competencies, Grades, Quick Eval, Quizzes, Rubrics, Self Assessments, Standards, Surveys, Announcements, Discussions, Intelligent Agents, Course Reset, Insights Portal, Sharing Groups, Learning Repository, Manage Repositories, Publish, Search",
+        "Classlist shows Add Participants, Enrollment, Unenroll controls and an Edit Accommodations route was not yet inspected",
+        "Grades tool shows all four tabs plus Settings; Setup Wizard reachable",
+        "Homepage widgets: Announcements, Updates, Content Browser, Role Switch, Need Help?, Calendar, Library Resources, MSU Toolbox (Grade Submission note: only Course Admins, Course Editors and Course Assistants can submit grades to registrar), Course Overview"
+      ]
+    }
+  ],
+  "sandbox_gradebook_defaults_observed": {
+    "observed_at": "2026-09-22",
+    "grading_system": "Points",
+    "final_grade_to_release": "Release the Calculated Final Grade; Do not automatically release final grade",
+    "grade_calculations": "Drop ungraded items; Automatically keep final grades updated; Do not apply automatic zeros to missing submissions",
+    "default_grade_scheme": "Percentage",
+    "managing_view": "Display 2 decimal places for grade item values",
+    "student_view": "Display points grade values; Display grade scheme symbols; Display grade scheme colors; Display 2 decimal places; Display 15 characters for Text items; Do not display the final grade calculation to users"
+  },
+  "approved_demo_learner_available": "Classlist shows 'Student, Demo' (username DemoStudent_2747167, role 'Demo Student'). Whether MSU treats it as approved for grade-entry testing: not yet confirmed by user",
+  "grade_scheme_policy": "MSU Gradebook Tips page says other schemes such as a 4.0 grading scale can be added via Schemes; no mandated MSU scheme found on that page (checked 2026-09-22)",
+  "institutional_help_url": "http://help.d2l.msu.edu (navbar Help link); gradebook tips at https://help.d2l.msu.edu/msu-docs/d2l-grades-at-msu/d2l-gradebook-tips",
+  "escalation_route": "MSU IT Service Desk: local (517) 432-6200, toll free (844) 678-6200; D2L Contact Form and D2L Help Site links on course homepage Need Help? widget",
+  "extension_constraint": "Only institution-approved extensions",
+  "preferred_tour_surface": "Claude in Chrome side panel plus a temporary page-local overlay (red outline and note card drawn by the browser assistant's JavaScript tool; verified by screenshot 2026-09-22; disappears on navigation; alters no saved content)",
+  "verified_at": "2026-09-22",
+  "role_catalog_observed_in_course": [
+    "Affiliate",
+    "Assessment Grader",
+    "Content Contributor",
+    "Content Editor",
+    "Course Advisor",
+    "Course Assistant",
+    "Course Ed w/o Delete",
+    "Course Editor",
+    "Guests",
+    "Member",
+    "Past Course Administrator",
+    "Section Assistant",
+    "Student"
+  ],
+  "role_catalog_note": "Role Switch widget options on the sandbox homepage (2026-09-22). Current role label: -- My Role (OrgUnit Admin) --. Role Switch is a view-as tool; Impersonate (Classlist learner menu) is separate.",
+  "observed_ui_behaviours": [
+    "New Item form: switching to the Restrictions tab validates and SAVES the item (URL becomes item_rests_edit with objectId); Cancel afterwards does not undo it. Name validation rejects / \" * < > + = | , %.",
+    "Grades tool lands on Setup Wizard while no grade items exist; lands on Enter Grades once an item exists.",
+    "Settings > Calculation Options grading-system change asks two confirmations, then toast Saved successfully.",
+    "Wizard label 'Drop ungraded items' equals Settings label 'Exclude ungraded items'; wizard 'Display final grade calculation to users' equals Settings 'Display how final grade was calculated to users'.",
+    "Release All lives at Enter Grades > Final Calculated Grade chevron > Enter Grades > title chevron menu (View Event Log, Recalculate All, Transfer All, Clear All, Add Feedback for All, Release All, Unrelease All).",
+    "Quiz Special Access sets an absolute New Time Limit in minutes; the 1.5x multiplier and Extra time minutes are in Classlist > Edit Accommodations.",
+    "Selectbox grade items are disabled until a course-level grade scheme exists.",
+    "Assignment and quiz editors are the new activity editor (right-hand collapsible panels); Cancel prompts 'Discard changes?'"
+  ],
+  "capture_pack": "d2l-capture folder (raw screen captures, behaviour rules, calc test cases, Codex brief) produced 2026-09-22; no screenshots could be saved from the browser extension, layout is described in text.",
+  "lti_tools_observed": "External Learning Tools > LTI Advantage (2026-09-22): 17 enabled LTI 1.3 links incl. Gradescope 1.3 - Course Level (deployment Gradescope LTI 1.3, modified 9/21/2026), Ally, Kaltura MediaSpace, MATLAB Grader, McGraw Hill Connect, Macmillan, Pearson, ALEKS, Packback, Perusall, SPLS Tasks, Top Hat, Zoom. Gradescope is not yet linked in the sandbox."
+}

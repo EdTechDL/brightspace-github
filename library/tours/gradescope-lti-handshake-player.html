@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightspace Tour Player</title>
+<style>
+  :root { --d2l-blue: #006fbf; --d2l-ink: #202122; --d2l-line: #cdd5dc; --red: #c92323; --bg: #f1f3f5; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--d2l-ink); font: 14px/1.45 "Lato", "Segoe UI", system-ui, Helvetica, Arial, sans-serif; }
+  header.top { background: #fff; border-bottom: 1px solid var(--d2l-line); padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+  header.top h1 { font-size: 17px; margin: 0; font-weight: 700; }
+  .sim-badge { background: #fff3cd; color: #5c4400; border: 1px solid #e0c46b; border-radius: 4px; padding: 3px 8px; font-size: 12px; font-weight: 700; }
+  .meta { font-size: 12px; color: #555; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; padding: 16px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; } }
+  /* Screen (simulated D2L page) */
+  #screenWrap { background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; overflow: hidden; }
+  #screen { position: relative; min-height: 560px; padding-bottom: 90px; }
+  .d2l-nav { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--d2l-line); font-size: 14px; white-space: nowrap; overflow: hidden; }
+  .d2l-nav .brand { font-size: 16px; font-weight: 400; margin-right: 8px; }
+  .d2l-nav span.caret::after { content: " \25BE"; font-size: 11px; }
+  .d2l-nav .user { margin-left: auto; font-size: 12px; color: #555; }
+  .tooltabs { display: flex; align-items: center; gap: 22px; padding: 10px 24px 0; border-bottom: 1px solid var(--d2l-line); font-size: 13px; }
+  .tooltabs .tab { padding: 6px 2px 10px; border-bottom: 3px solid transparent; cursor: default; }
+  .tooltabs .tab.active { color: var(--d2l-blue); border-bottom-color: var(--d2l-blue); font-weight: 700; }
+  .tooltabs .right { margin-left: auto; display: flex; gap: 18px; padding-bottom: 10px; }
+  .tooltabs .right .util { color: var(--d2l-blue); font-weight: 700; }
+  .tooltabs .right .util::before { content: "\2699 "; }
+  .tooltabs .right .util.help::before { content: "\2753 "; }
+  .body { padding: 18px 24px; }
+  .body h1 { font-size: 26px; font-weight: 400; margin: 6px 0 14px; }
+  .body h2 { font-size: 20px; font-weight: 400; margin: 18px 0 8px; }
+  .body .lbl { font-size: 11px; font-weight: 700; color: #444; margin: 12px 0 4px; }
+  .body p { margin: 6px 0; }
+  .kv { margin: 4px 0 14px; }
+  .kv .k { font-size: 11px; font-weight: 700; color: #444; margin-top: 12px; }
+  .kv .v { white-space: pre-line; }
+  .btnrow { display: flex; gap: 10px; margin: 10px 0 14px; position: relative; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 9px 18px; border-radius: 6px; background: #e3e9ef; color: var(--d2l-ink); font-weight: 700; font-size: 13px; border: 1px solid #d3dbe3; cursor: default; }
+  .btn.primary { background: var(--d2l-blue); color: #fff; border-color: var(--d2l-blue); }
+  .btn.caret::after { content: " \25BE"; font-size: 11px; }
+  .note { color: var(--red); font-size: 12px; font-weight: 700; margin-top: 6px; }
+  .note + ul { margin: 4px 0 14px 18px; padding: 0; }
+  .link { color: var(--d2l-blue); font-weight: 700; font-size: 13px; margin: 14px 0 8px; }
+  .link::before { content: "\270E "; }
+  table.grid { width: 100%; border-collapse: collapse; border: 1px solid var(--d2l-line); font-size: 13px; }
+  table.grid th { background: #f9fbfd; font-weight: 700; font-size: 12px; padding: 10px 8px; border-bottom: 1px solid var(--d2l-line); text-align: center; }
+  table.grid th:first-child, table.grid td.name { text-align: left; }
+  table.grid td { padding: 12px 8px; border-bottom: 1px solid #e6ebf0; text-align: center; }
+  table.grid td.name { color: var(--d2l-blue); font-weight: 700; }
+  table.grid td.name .rowlabel { display: inline-block; padding: 1px 2px; }
+  table.grid td.name .rowlabel::after { content: " \25BE"; color: #333; font-weight: 400; font-size: 11px; }
+  .cb, .rd { display: inline-block; width: 18px; height: 18px; border: 1px solid #8e99a3; border-radius: 4px; vertical-align: middle; margin-right: 8px; background: #fff; }
+  .rd { border-radius: 50%; }
+  .cb.on { background: #fff; border-color: var(--d2l-blue); position: relative; }
+  .cb.on::after { content: "\2713"; color: var(--d2l-blue); position: absolute; left: 3px; top: -3px; font-weight: 700; }
+  .rd.on { border: 5px solid #fff; box-shadow: 0 0 0 1px #8e99a3; background: #333; }
+  .choice { display: flex; align-items: center; margin: 8px 0; }
+  .choice .txt { padding: 1px 3px; }
+  .choice .help::after { content: "\2753"; margin-left: 8px; font-size: 11px; color: #555; }
+  .desc { margin: 4px 0 12px 28px; white-space: pre-line; color: #333; font-size: 13px; }
+  .field { margin: 10px 0; }
+  .field input { width: 60px; padding: 6px 8px; border: 1px solid #8e99a3; border-radius: 4px; font: inherit; }
+  .field.wide input { width: 320px; }
+  .linklist a { display: block; color: var(--d2l-blue); font-weight: 700; margin: 6px 0; font-size: 13px; }
+  .tabs { display: flex; gap: 20px; border-bottom: 1px solid var(--d2l-line); font-size: 12px; margin-bottom: 14px; }
+  .tabs .tab { padding: 8px 2px; border-bottom: 3px solid transparent; }
+  .tabs .tab.active { border-bottom-color: var(--d2l-blue); font-weight: 700; }
+  .menu { position: absolute; top: 44px; background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.15); min-width: 180px; z-index: 5; padding: 4px 0; }
+  .menu .mi { padding: 9px 14px; font-size: 13px; border-bottom: 1px solid #eef1f4; }
+  .menu .mi:last-child { border-bottom: 0; }
+  .dialog-back { position: absolute; inset: 0; background: rgba(255,255,255,.65); z-index: 8; }
+  .dialog { position: absolute; left: 50%; top: 60px; transform: translateX(-50%); width: 400px; max-width: 92%; background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,.2); padding: 16px 20px; z-index: 9; }
+  .dialog h3 { margin: 0 0 8px; font-size: 15px; }
+  .dialog .dtext { white-space: pre-line; font-size: 13px; margin-bottom: 14px; }
+  .toast { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); background: #fff; border-left: 4px solid var(--d2l-blue); box-shadow: 0 4px 14px rgba(0,0,0,.2); padding: 12px 20px; min-width: 300px; z-index: 9; }
+  .empty { color: #777; font-style: italic; }
+  /* Overlay */
+  .ov-box { position: absolute; border: 3px solid var(--red); border-radius: 5px; box-shadow: 0 0 0 3px rgba(201,35,35,.2); pointer-events: none; z-index: 20; transition: box-shadow .2s; }
+  .ov-box.flash { box-shadow: 0 0 0 10px rgba(201,35,35,.35); background: rgba(201,35,35,.15); }
+  .ov-card { position: absolute; width: 420px; max-width: calc(100% - 24px); background: #fff; border: 2px solid var(--red); border-radius: 7px; padding: 10px 13px 9px; font-size: 13px; line-height: 1.45; box-shadow: 0 6px 18px rgba(0,0,0,.28); z-index: 21; pointer-events: none; }
+  .ov-card .ct { font-weight: 700; color: var(--red); margin-bottom: 4px; }
+  .ov-card .act { margin-top: 8px; padding-top: 6px; border-top: 1px dashed #e3b3b3; font-weight: 700; }
+  .ov-card .cnt { color: #777; font-weight: 400; font-size: 12px; float: right; }
+  .ov-card .kw { font-weight: 700; color: #333; }
+  /* Side panel */
+  aside { background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; padding: 14px; display: flex; flex-direction: column; gap: 12px; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .controls button { font: inherit; font-weight: 700; padding: 8px 12px; border-radius: 6px; border: 1px solid #d3dbe3; background: #e3e9ef; cursor: pointer; }
+  .controls button.primary { background: var(--red); color: #fff; border-color: var(--red); }
+  .controls button:disabled { opacity: .5; cursor: default; }
+  .progress { height: 6px; background: #e3e9ef; border-radius: 3px; overflow: hidden; }
+  .progress i { display: block; height: 100%; background: var(--red); width: 0; transition: width .3s; }
+  .stepinfo { font-size: 13px; }
+  .stepinfo .sec { color: #555; font-size: 12px; }
+  .speed { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .speed input { flex: 1; }
+  .timer { font-size: 12px; color: #555; }
+  .transcript { border-top: 1px solid var(--d2l-line); padding-top: 10px; font-size: 12px; }
+  .transcript h2 { font-size: 13px; margin: 0 0 6px; }
+  .transcript .sech { font-weight: 700; margin: 8px 0 2px; color: #333; }
+  .transcript .ti { padding: 5px 6px; border-radius: 4px; cursor: pointer; }
+  .transcript .ti:hover { background: #f1f3f5; }
+  .transcript .ti.cur { background: #fdecec; border-left: 3px solid var(--red); }
+  .fileload { font-size: 12px; color: #555; }
+  .fileload input { font-size: 12px; }
+  .cardtext { white-space: pre-line; font-size: 12px; background: #fafafa; border: 1px solid #e6ebf0; border-radius: 4px; padding: 8px; max-height: 220px; overflow: auto; }
+  details.help { font-size: 12px; color: #444; }
+  kbd { background: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 0 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 id="tourTitle">Brightspace Tour Player</h1>
+  <span class="sim-badge">PRACTICE SIMULATION, not D2L</span>
+  <span class="meta" id="tourMeta"></span>
+</header>
+<main>
+  <div id="screenWrap"><div id="screen"></div></div>
+  <aside>
+    <div class="controls">
+      <button id="btnPlay" class="primary">&#9654; Play</button>
+      <button id="btnBack">&#9664; Back</button>
+      <button id="btnNext">Next &#9654;</button>
+      <button id="btnRestart">Restart</button>
+    </div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="stepinfo"><div class="sec" id="secName"></div><div id="stepCount"></div></div>
+    <div class="speed"><span>Seconds per step</span><input type="range" id="speed" min="4" max="40" value="14"><b id="speedVal">14</b></div>
+    <div class="timer" id="timer"></div>
+    <div class="cardtext" id="cardText"></div>
+    <details class="help"><summary>Keyboard and notes</summary>
+      <p><kbd>Space</kbd> play / pause. <kbd>&rarr;</kbd> next, <kbd>&larr;</kbd> back, <kbd>R</kbd> restart.</p>
+      <p>Screens are rebuilt from what was seen in the sandbox on the recorded date. Nothing here talks to D2L, calculates grades, or checks permissions. Verify any step in the real course before telling an educator it works.</p>
+    </details>
+    <div class="fileload">Load another tour file (.json): <input type="file" id="fileIn" accept=".json,application/json"></div>
+    <div class="transcript"><h2>Transcript</h2><div id="transcript"></div></div>
+  </aside>
+</main>
+<script>
+const EMBEDDED_TOUR = {"schema_version": 1, "tour_id": "gradescope-lti-handshake-msu", "title": "Gradescope and Brightspace handshake (MSU, inferred)", "recorded": "2026-09-22", "environment": {"institution": "Michigan State University", "origin": "https://d2l.msu.edu and https://www.gradescope.com", "course": "Same Playground (sandbox, org unit 2747167); Gradescope side not yet created", "ui": "Classic Content; Gradescope LTI 1.3 deployment 'Gradescope 1.3 - Course Level' observed in External Learning Tools", "role_label_in_course": "OrgUnit Admin (course scope only)"}, "evidence": "MIXED. Step 1 observed live (LTI Advantage Links page, 2026-09-22). Steps 2 to 11 official-docs (guides.gradescope.com LTI 1.3 instructor and troubleshooting articles, checked 2026-09-22). Steps 12 and 13 proposed (expected D2L result, not yet seen). Nothing in this tour was performed in the sandbox. Do not treat it as verified.", "limitations": ["Gradescope-side screens are documentation-based mocks; layout, sidebar order and dialog titles are not observed.", "Whether LTI 1.3 auto-creates the D2L grade item is unconfirmed.", "The MSU Content module button label for adding existing activities was not captured in a populated module.", "Institutions can rename the Sync Brightspace Roster button and the navbar link."], "screens": {"d2l-lti-advantage-links": {"blocks": [{"type": "h1", "text": "LTI Advantage Links - External Learning Tools"}, {"type": "tabs", "items": ["LTI Advantage", "Manage Tool Links (Legacy)"], "active": "LTI Advantage"}, {"type": "buttons", "items": [{"label": "New Link", "primary": true}]}, {"type": "text", "text": "Filter: All | Enabled | Disabled.  17 items in the list."}, {"type": "table", "columns": ["Link Name", "Deployment", "Last Modified Date", "Status", "Type"], "rows": [["Ally Course Accessibility Report", "Ally Course Accessibility Report LTI 1.3", "5/23/2023", "Enabled", "Basic Launch"], ["Gradescope 1.3 - Course Level", "Gradescope LTI 1.3", "9/21/2026", "Enabled", "Basic Launch"], ["Top Hat LTI 1.3 Basic Launch", "Top Hat LTI 1.3", "1/7/2026", "Enabled", "Basic Launch"], ["Zoom Meetings LTI 1.3", "Zoom LTI 1.3 Deployment", "6/20/2024", "Enabled", "Basic Launch"]]}]}, "d2l-content-module": {"blocks": [{"type": "text", "text": "[Classic Content, module view. Observed button labels in this MSU sandbox were not captured for a populated module; the guide says \"Add Existing Activities\", Classic Content usually shows \"Existing Activities\".]"}, {"type": "h1", "text": "Week 1"}, {"type": "buttons", "items": [{"label": "Upload / Create", "primary": true, "caret": true}, {"label": "Existing Activities", "caret": true}]}, {"type": "text", "text": "Add dates and restrictions..."}]}, "d2l-content-existing-menu": {"extends": "d2l-content-module", "add": [{"type": "menu", "anchor": "Existing Activities", "items": ["Assignments", "Checklist", "Discussions", "External Learning Tools", "Quizzes", "Surveys", "Gradescope 1.3 assignment"]}]}, "d2l-gradescope-link-modal": {"extends": "d2l-content-module", "add": [{"type": "dialog", "title": "Gradescope (link assignment)", "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]\nChoose: Create a new assignment, or Link with an existing assignment.", "buttons": ["Link Assignment", "Cancel"]}]}, "gs-first-launch-dialog": {"blocks": [{"type": "text", "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"}, {"type": "h1", "text": "Gradescope"}, {"type": "dialog", "title": "Course linking options", "text": "Link this Brightspace course to a new Gradescope course, or to an existing Gradescope course you already teach.\n\nA Gradescope account is created automatically under your school email if you do not have one.", "buttons": ["Link Course", "Cancel"]}]}, "gs-course-settings": {"blocks": [{"type": "text", "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"}, {"type": "h1", "text": "Course Settings"}, {"type": "field", "label": "Course title", "value": "Same Playground", "wide": true}, {"type": "field", "label": "Description", "value": "", "wide": true}, {"type": "label", "text": "Rubric types"}, {"type": "radios", "options": ["Negative scoring", "Positive scoring"], "selected": "Negative scoring"}, {"type": "label", "text": "Score bounds"}, {"type": "checkbox", "label": "Enable score bounds"}, {"type": "buttons", "items": [{"label": "Update Course", "primary": true}]}]}, "gs-roster": {"blocks": [{"type": "text", "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"}, {"type": "h1", "text": "Roster"}, {"type": "tabs", "items": ["Dashboard", "Assignments", "Roster", "Extensions", "Course Settings"], "active": "Roster"}, {"type": "buttons", "items": [{"label": "Sync Brightspace Roster", "primary": true}, {"label": "Add Students or Staff"}, {"label": "Download Roster"}]}, {"type": "table", "columns": ["Name", "Email", "Role", "Submissions"], "rows": [["Demo Student", "DemoStudent_2747167@d2l.msu.edu", "Student", "0"]]}]}, "gs-roster-sync-dialog": {"extends": "gs-roster", "add": [{"type": "dialog", "title": "Sync roster", "text": "All names, emails, and IDs will be auto-synced from Brightspace. Students are matched on email.\n\n[ ] Let new users know that they were added to the course", "buttons": ["Sync Roster", "Cancel"]}]}, "gs-assignments": {"blocks": [{"type": "text", "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"}, {"type": "h1", "text": "Assignments"}, {"type": "tabs", "items": ["Dashboard", "Assignments", "Roster", "Extensions", "Course Settings"], "active": "Assignments"}, {"type": "buttons", "items": [{"label": "Create Assignment", "primary": true}]}, {"type": "table", "columns": ["Name", "Released", "Due", "Submissions", "% Graded", "Published"], "rows": [["Project", "Sep 22", "Sep 29", "1", "100%", "No"]]}]}, "gs-review-grades": {"blocks": [{"type": "text", "text": "[Documentation-based mock: labels from guides.gradescope.com, layout not observed]"}, {"type": "h1", "text": "Review Grades: Project"}, {"type": "tabs", "items": ["Outline", "Manage Submissions", "Grade Submissions", "Review Grades", "Regrade Requests", "Settings"], "active": "Review Grades"}, {"type": "buttons", "items": [{"label": "Post Grades to Brightspace", "primary": true}, {"label": "Publish Grades"}, {"label": "Compose Email to Students"}, {"label": "Download Grades"}]}, {"type": "table", "columns": ["Name", "Email", "Total Score", "Max Points", "Graded", "Viewed"], "rows": [["Demo Student", "DemoStudent_2747167@d2l.msu.edu", "90.0", "100.0", "Yes", "No"]]}]}, "gs-post-grades-dialog": {"extends": "gs-review-grades", "add": [{"type": "dialog", "title": "Post Grades to Brightspace", "text": "Only grades for fully graded submissions (checkmark in the Graded column) will be posted to the linked Brightspace grade item.", "buttons": ["Post Grades", "Cancel"]}]}, "d2l-manage-grades-linked": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Manage Grades", "right": ["Settings", "Help"]}, {"type": "buttons", "items": [{"label": "New", "primary": true, "caret": true}, {"label": "More Actions", "caret": true}]}, {"type": "link", "text": "Bulk Edit"}, {"type": "table", "checkbox": true, "columns": ["Grade Item", "Type", "Association", "Max. Points", "Weight"], "rows": [["Project", "Numeric", "Gradescope", "100", "60"], ["Final Calculated Grade", "", "", "100", "100"], ["Final Adjusted Grade", "", "", "", ""]]}]}, "d2l-enter-grades-linked": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Enter Grades", "right": ["Settings", "Help"]}, {"type": "buttons", "items": [{"label": "Import", "primary": true}, {"label": "Export"}, {"label": "Switch to Spreadsheet View"}, {"label": "More Actions", "caret": true}]}, {"type": "table", "checkbox": true, "columns": ["Learner", "Project", "Final Calculated Grade"], "rows": [["Student, Demo", "90 / 100, 90 %", "- / -, -%"]]}]}, "troubleshooting-card": {"blocks": [{"type": "h1", "text": "Gradescope and Brightspace: what breaks"}, {"type": "kv", "items": [["Post Grades to Brightspace button missing", "Launch the assignment from the Brightspace link first, then return to Review Grades."], ["Scores post wrong or not at all", "The Brightspace grade item must have the same total points as the Gradescope assignment."], ["TA cannot sync roster, create assignments or post grades", "Their Brightspace role must be an instructor role in the Classlist; then resync the roster."], ["Students missing after sync", "Brightspace accounts without an email do not sync; students are also added when they open a Gradescope link."], ["Embedded window blank", "Safari Prevent cross-site tracking or Chrome incognito blocks third-party cookies; open in a new tab or allow cookies."]]}]}}, "steps": [{"id": "gs-01-deployment", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "d2l-lti-advantage-links", "target": "Gradescope 1.3 - Course Level", "title": "Deployment exists at MSU (observed)", "card": "WHAT: Course Admin > External Learning Tools > LTI Advantage tab lists every LTI 1.3 link this course can use. \"Gradescope 1.3 - Course Level\" is Enabled (deployment \"Gradescope LTI 1.3\", last modified 9/21/2026).\nWHY: support checks this first. If the row is missing or Disabled, nothing downstream can work and the ticket goes to the D2L admins, not the instructor.\nTICKET: \"I don't see Gradescope anywhere in my course.\" Deployment present means the instructor has not added the link yet (navbar or Content), not that Gradescope is off.\nNEXT: the instructor adds a link where students will click it: in a Content module.", "action": "look", "actionLabel": "Read only. Observed live on 2026-09-22.", "next": "d2l-content-module", "evidence": "live"}, {"id": "gs-02-existing-activities", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "d2l-content-module", "target": "Existing Activities", "title": "Add the Gradescope link in Content (documentation)", "card": "WHAT: inside a module, the Existing Activities menu (guide wording: Add Existing Activities) lists tools that can be dropped in as a topic, including External Learning Tools and the Gradescope 1.3 assignment picker.\nWHY: this is the student-facing entry point. Launching through it is also what creates the Gradescope side of the link.\nTICKET: \"Students say the Gradescope link is not in Content.\" Check the module, its visibility, and whether the topic was ever added.\nNEXT: a menu opens listing tool types.\nEVIDENCE: label from the guide; the exact MSU button text in a populated module was not captured.", "action": "click", "actionLabel": "Click Existing Activities", "next": "d2l-content-existing-menu", "evidence": "official-docs"}, {"id": "gs-03-pick-gradescope", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "d2l-content-existing-menu", "target": "menu:Gradescope 1.3 assignment", "title": "Choose the Gradescope 1.3 assignment picker", "card": "WHAT: the Gradescope entry opens a small window from Gradescope, not from D2L.\nWHY: from here on, dialogs are drawn by Gradescope inside D2L. Cookie settings that block third-party content break this step (Safari cross-site tracking, incognito).\nTICKET: \"The window is blank when I click Gradescope.\" Browser cookie settings, or a role that Gradescope does not treat as instructor.\nNEXT: a modal asking to create a new assignment or link an existing one.", "action": "click", "actionLabel": "Click Gradescope 1.3 assignment", "next": "d2l-gradescope-link-modal", "evidence": "official-docs"}, {"id": "gs-04-link-assignment", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "d2l-gradescope-link-modal", "target": "dialog:Link Assignment", "title": "Create new or link existing, then Link Assignment", "card": "WHAT: the modal offers Create a new assignment or Link with an existing assignment. Link Assignment inserts a topic into the module.\nWHY: one Gradescope assignment maps to one Brightspace link and one grade item. Linking twice makes duplicates.\nTICKET: \"There are two Project columns in my gradebook.\" The instructor linked the same assignment from two modules.\nNEXT: the first time this course launches Gradescope, a course-linking dialog appears.", "action": "click", "actionLabel": "Click Link Assignment", "next": "gs-first-launch-dialog", "evidence": "official-docs"}, {"id": "gs-05-link-course", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "gs-first-launch-dialog", "target": "dialog:Link Course", "title": "First launch: link the course", "card": "WHAT: Gradescope asks whether this Brightspace course should become a new Gradescope course or attach to an existing one. Link Course confirms. A Gradescope account is created automatically under the instructor's school email if none exists.\nWHY: this is the handshake. After it, Gradescope knows which D2L course to sync rosters from and post grades to.\nTICKET: \"I have three Gradescope courses for one D2L course.\" The guide says not to link in that case; students could enrol in any of them.\nNEXT: Gradescope Course Settings.", "action": "click", "actionLabel": "Click Link Course", "next": "gs-course-settings", "evidence": "official-docs"}, {"id": "gs-06-update-course", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "gs-course-settings", "target": "Update Course", "title": "Course Settings, then Update Course", "card": "WHAT: title, description, rubric types (negative or positive scoring) and score bounds. Update Course saves and lands on the course.\nWHY: rubric type decides whether graders subtract from full marks or add up points; changing it later is possible but confusing mid-term.\nTICKET: \"My rubric takes points away and I wanted it to add.\" Course Settings > rubric type.\nNEXT: the Roster page.", "action": "click", "actionLabel": "Click Update Course", "next": "gs-roster", "evidence": "official-docs"}, {"id": "gs-07-sync-roster", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "gs-roster", "target": "Sync Brightspace Roster", "title": "Roster > Sync Brightspace Roster", "card": "WHAT: pulls names, emails and IDs from the linked D2L course. Matching is on email. Students are also added automatically the first time they open a Gradescope link from D2L.\nWHY: no roster, no grade posting. Re-sync after every add or drop; dropped students keep their submissions and grades.\nTICKET: \"A student is in D2L but not on my Gradescope roster.\" Re-sync; if still missing, the D2L account may have no email.\nNEXT: a sync dialog with a notification checkbox.", "action": "click", "actionLabel": "Click Sync Brightspace Roster", "next": "gs-roster-sync-dialog", "evidence": "official-docs"}, {"id": "gs-08-sync-confirm", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "gs-roster-sync-dialog", "target": "dialog:Sync Roster", "title": "Confirm the sync", "card": "WHAT: untick \"Let new users know that they were added to the course\" to avoid emailing everyone, then Sync Roster. The first time, Gradescope may bounce to a Brightspace login and an authorize step (Continue); run the sync again after that.\nWHY: the authorize step is the one instructors abandon, then report that sync does nothing.\nTICKET: \"Sync Roster does nothing.\" Ask whether a Brightspace login page appeared and whether they clicked Continue.\nNEXT: the Assignments page.", "action": "click", "actionLabel": "Click Sync Roster", "next": "gs-assignments", "evidence": "official-docs"}, {"id": "gs-09-finalize-link", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "gs-assignments", "target": "Create Assignment", "title": "Create the assignment, then finalize the link from D2L", "card": "WHAT: Create Assignment sets type and settings. Under LTI 1.3 the assignment name comes from the Brightspace link and is read-only in Gradescope. Then the instructor clicks the assignment link in Brightspace once, which finalizes the pairing.\nWHY: the guide is explicit: you cannot post grades until that link has been selected in Brightspace.\nTICKET: \"Post Grades to Brightspace is missing.\" Launch the assignment from the Brightspace link, then return to Review Grades.\nNEXT: after grading, Review Grades.", "action": "click", "actionLabel": "Click Create Assignment (then open the link once from D2L)", "next": "gs-review-grades", "evidence": "official-docs"}, {"id": "gs-10-post-grades", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "gs-review-grades", "target": "Post Grades to Brightspace", "title": "Review Grades > Post Grades to Brightspace", "card": "WHAT: sends the total score of every fully graded submission (checkmark in the Graded column) to the linked D2L grade item. Publish Grades is different: it shows feedback to students inside Gradescope. Compose Email to Students notifies them.\nWHY: three buttons, three outcomes. Most \"students can't see their grade\" tickets are one of these not clicked.\nTICKET: \"I posted grades but students see nothing in D2L.\" Posted to D2L means the grade item has values; the D2L item or final grade may still be hidden or unreleased on the D2L side.\nNEXT: a confirmation dialog.", "action": "click", "actionLabel": "Click Post Grades to Brightspace", "next": "gs-post-grades-dialog", "evidence": "official-docs"}, {"id": "gs-11-confirm-post", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "gs-post-grades-dialog", "target": "dialog:Post Grades", "title": "Confirm Post Grades", "card": "WHAT: confirms the post. Max points must match: the D2L grade item total must equal the Gradescope assignment total or scores post wrong.\nWHY: D2L stores points, not percentages; a 100-point Gradescope exam posted into a 50-point item shows 90/50 or fails.\nTICKET: \"Everyone has more than 100 percent after posting.\" Compare Max. Points on the D2L item with the Gradescope total.\nNEXT: Manage Grades in D2L shows the linked item.", "action": "click", "actionLabel": "Click Post Grades", "next": "d2l-manage-grades-linked", "evidence": "official-docs"}, {"id": "gs-12-d2l-item", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "d2l-manage-grades-linked", "target": "Project", "title": "Verify in D2L: Manage Grades", "card": "WHAT: the linked item appears with an Association to the external tool and Max. Points equal to the Gradescope total. Whether LTI 1.3 creates the item automatically or the instructor must create it first is UNCONFIRMED in the guides; check it in the sandbox before telling anyone.\nWHY: this row is your proof that the handshake completed.\nTICKET: \"Gradescope says posted but the column is empty.\" Check Association, Max. Points, and whether the right item was linked.\nNEXT: Enter Grades to see learner values.", "action": "look", "actionLabel": "Read only. Verify Association and Max. Points.", "next": "d2l-enter-grades-linked", "evidence": "proposed"}, {"id": "gs-13-d2l-scores", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "d2l-enter-grades-linked", "target": "Student, Demo", "title": "Verify in D2L: Enter Grades", "card": "WHAT: posted scores appear per learner. Release and visibility follow the normal D2L rules: the item can be hidden, the final grade unreleased.\nWHY: Gradescope's job ends at the item; visibility is a D2L ticket.\nTICKET: \"Grades are in D2L but the student cannot see them.\" Normal gradebook visibility diagnosis (gradebook-diagnosis.md).\nNEXT: troubleshooting summary.", "action": "look", "actionLabel": "Read only.", "next": "troubleshooting-card", "evidence": "proposed"}, {"id": "gs-14-troubleshooting", "section": "Gradescope LTI 1.3 handshake (inferred from documentation; MSU deployment observed)", "screen": "troubleshooting-card", "target": "Gradescope and Brightspace: what breaks", "title": "Five recurring causes (from the troubleshooting guide)", "card": "CHECK before replying to a Gradescope ticket: link finalized from D2L, roster synced, points match, role is instructor, cookies allowed.\nEVIDENCE: steps 2 to 11 come from guides.gradescope.com (checked 2026-09-22) and were not performed in the sandbox; step 1 was observed. Perform the handshake in a sandbox before promising any of it to an educator.\nNEXT: replace this tour with an observed one after a live run.", "action": "look", "actionLabel": "End of tour.", "next": null, "evidence": "official-docs"}]};
+let TOUR = null, idx = 0, playing = false, timerId = null, tickId = null, remaining = 0;
+const $ = s => document.querySelector(s);
+
+function resolveScreen(id, depth = 0) {
+  const s = TOUR.screens[id];
+  if (!s) return { blocks: [{ type: 'text', text: 'Screen "' + id + '" is not defined in this tour file.' }] };
+  if (!s.extends) return { blocks: JSON.parse(JSON.stringify(s.blocks || [])) };
+  if (depth > 10) return { blocks: [] };
+  const base = resolveScreen(s.extends, depth + 1);
+  let blocks = base.blocks;
+  if (s.patch) for (const key in s.patch) {
+    const [type, n] = key.split(':');
+    let count = 0;
+    for (const b of blocks) if (b.type === type) { if (count === Number(n || 0)) Object.assign(b, s.patch[key]); count++; }
+  }
+  if (s.add) blocks = blocks.concat(JSON.parse(JSON.stringify(s.add)));
+  return { blocks };
+}
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function tgt(e, label) { e.dataset.t = label; return e; }
+
+function renderScreen(id) {
+  const scr = resolveScreen(id);
+  const root = $('#screen'); root.innerHTML = '';
+  const nav = el('div', 'd2l-nav');
+  nav.append(el('span', 'brand', 'Same Playground'));
+  for (const item of ['Course Home', 'Content', 'Course Tools', 'Assessments', 'Communication', 'Help', 'Course Admin', 'More']) {
+    const s = el('span', ['Course Tools', 'Assessments', 'Communication', 'More'].includes(item) ? 'caret' : '', item); tgt(s, item); nav.append(s);
+  }
+  nav.append(el('span', 'user', 'Sandbox user'));
+  root.append(nav);
+  let body = null; let lastBtnRow = null; let dialogPending = [];
+  const ensureBody = () => { if (!body) { body = el('div', 'body'); root.append(body); } return body; };
+  for (const b of scr.blocks) {
+    switch (b.type) {
+      case 'tooltabs': {
+        const t = el('div', 'tooltabs');
+        for (const it of b.items) t.append(tgt(el('span', 'tab' + (it === b.active ? ' active' : ''), it), it));
+        if (b.right) { const r = el('div', 'right'); for (const u of b.right) r.append(tgt(el('span', 'util' + (u === 'Help' ? ' help' : ''), u), u)); t.append(r); }
+        root.append(t); break; }
+      case 'h1': ensureBody().append(tgt(el('h1', '', b.text), b.text)); break;
+      case 'h2': ensureBody().append(tgt(el('h2', '', b.text), b.text)); break;
+      case 'label': ensureBody().append(el('div', 'lbl', b.text)); break;
+      case 'text': ensureBody().append(el('p', '', b.text)); break;
+      case 'kv': { const k = el('div', 'kv'); for (const [kk, vv] of b.items) { k.append(el('div', 'k', kk)); k.append(el('div', 'v', vv)); } ensureBody().append(k); break; }
+      case 'buttons': { const r = el('div', 'btnrow'); for (const it of b.items) { const bt = el('span', 'btn' + (it.primary ? ' primary' : '') + (it.caret ? ' caret' : ''), it.label); tgt(bt, it.label); r.append(bt); } ensureBody().append(r); lastBtnRow = r; break; }
+      case 'note': { const bd = ensureBody(); bd.append(el('div', 'note', 'Note')); const ul = el('ul'); ul.append(el('li', '', b.text)); bd.append(ul); break; }
+      case 'link': ensureBody().append(tgt(el('div', 'link', b.text), b.text)); break;
+      case 'table': {
+        const t = el('table', 'grid'); const thead = el('thead'); const tr = el('tr');
+        if (b.checkbox) tr.append(el('th', '', ''));
+        for (const c of b.columns) tr.append(el('th', '', c)); thead.append(tr); t.append(thead);
+        const tb = el('tbody');
+        if (!b.rows.length) { const r = el('tr'); const td = el('td', 'empty', 'There are no grade items or categories.'); td.colSpan = b.columns.length + 1; r.append(td); tb.append(r); }
+        for (const row of b.rows) { const r = el('tr'); if (b.checkbox) { const td = el('td'); td.append(el('span', 'cb' + (row.checked ? ' on' : ''))); r.append(td); } const cells = Array.isArray(row) ? row : row.cells; cells.forEach((c, i) => { const td = el('td', i === 0 ? 'name' : ''); if (i === 0) { const sp = el('span', 'rowlabel', c); tgt(sp, c); td.append(sp); } else td.textContent = c; r.append(td); }); tb.append(r); }
+        t.append(tb); ensureBody().append(t); break; }
+      case 'tabs': { const t = el('div', 'tabs'); for (const it of b.items) t.append(tgt(el('span', 'tab' + (it === b.active ? ' active' : ''), it), it)); ensureBody().append(t); break; }
+      case 'radios': { const bd = ensureBody(); for (const o of b.options) { const c = el('div', 'choice'); c.append(el('span', 'rd' + (o === b.selected ? ' on' : ''))); c.append(tgt(el('span', 'txt', o), o)); c.append(el('span', 'help')); bd.append(c); if (b.descriptions && b.descriptions[o]) bd.append(el('div', 'desc', b.descriptions[o])); } break; }
+      case 'checkbox': { const c = el('div', 'choice'); c.append(el('span', 'cb' + (b.checked ? ' on' : ''))); c.append(tgt(el('span', 'txt', b.label), b.label)); c.append(el('span', 'help')); ensureBody().append(c); break; }
+      case 'field': { const f = el('div', 'field' + (b.wide ? ' wide' : '')); f.append(el('div', 'lbl', b.label)); const inp = el('input'); inp.value = b.value || ''; inp.readOnly = true; tgt(inp, b.label); f.append(inp); ensureBody().append(f); break; }
+      case 'linklist': { const l = el('div', 'linklist'); for (const it of b.items) l.append(tgt(el('a', '', it), it)); ensureBody().append(l); break; }
+      case 'menu': { if (!lastBtnRow) break; const anchor = [...lastBtnRow.children].find(x => x.dataset.t === b.anchor); const m = el('div', 'menu'); m.style.left = (anchor ? anchor.offsetLeft : 0) + 'px'; for (const it of b.items) m.append(tgt(el('div', 'mi', it), 'menu:' + it)); lastBtnRow.append(m); break; }
+      case 'dialog': dialogPending.push(b); break;
+      case 'toast': { const t = el('div', 'toast', b.text); root.append(t); break; }
+    }
+  }
+  for (const d of dialogPending) {
+    root.append(el('div', 'dialog-back'));
+    const dg = el('div', 'dialog'); dg.append(el('h3', '', d.title || 'Confirmation')); dg.append(el('div', 'dtext', d.text || ''));
+    const r = el('div', 'btnrow'); d.buttons.forEach((lab, i) => r.append(tgt(el('span', 'btn' + (i === 0 ? ' primary' : ''), lab), 'dialog:' + lab))); dg.append(r); root.append(dg);
+  }
+}
+
+function findTarget(label) {
+  const root = $('#screen');
+  let e = root.querySelector('[data-t="' + CSS.escape(label) + '"]');
+  if (!e && !label.includes(':')) e = root.querySelector('[data-t="menu:' + CSS.escape(label) + '"]') || root.querySelector('[data-t="dialog:' + CSS.escape(label) + '"]');
+  return e;
+}
+
+function fmtCard(text) {
+  return text.split('\n').map(line => line.replace(/^(WHAT|WHY NOW|WHY|TICKET|NEXT|CAUTION|CHECK|RESULT[^:]*|WORKFLOW SAVED AS|NEXT SECTION):/, '<span class="kw">$1:</span>')).join('<br>');
+}
+
+function drawOverlay(step) {
+  const root = $('#screen');
+  root.querySelectorAll('.ov-box,.ov-card').forEach(n => n.remove());
+  const t = findTarget(step.target);
+  const rr = root.getBoundingClientRect();
+  let box = null;
+  if (t) {
+    const r = t.getBoundingClientRect(); const pad = 4;
+    box = el('div', 'ov-box'); box.id = 'ovBox';
+    Object.assign(box.style, { left: (r.left - rr.left - pad) + 'px', top: (r.top - rr.top - pad) + 'px', width: (r.width + 2 * pad) + 'px', height: (r.height + 2 * pad) + 'px' });
+    root.append(box);
+  }
+  const card = el('div', 'ov-card');
+  card.innerHTML = '<div class="ct"><span class="cnt" id="cardCnt"></span>' + esc(step.title || step.target) + '</div>' + fmtCard(esc(step.card)) + '<div class="act">Action: ' + esc(step.actionLabel || step.action) + (t ? '' : ' <span style="color:#a00">(target "' + esc(step.target) + '" not found on this screen)</span>') + '</div>';
+  root.append(card);
+  const cw = card.offsetWidth, ch = card.offsetHeight;
+  if (t) {
+    const r = t.getBoundingClientRect();
+    let left = r.left - rr.left; if (left + cw > root.clientWidth - 12) left = Math.max(12, root.clientWidth - cw - 12);
+    let top = r.bottom - rr.top + 12;
+    if (r.right - rr.left + cw + 40 < root.clientWidth && !t.closest('.dialog')) { left = r.right - rr.left + 24; top = Math.max(8, r.top - rr.top - 6); }
+    const dlg = t.closest('.dialog');
+    if (dlg) { const dr = dlg.getBoundingClientRect(); if (dr.right - rr.left + cw + 24 < root.clientWidth) { left = dr.right - rr.left + 16; top = dr.top - rr.top; } else { top = dr.bottom - rr.top + 12; } }
+    card.style.left = left + 'px'; card.style.top = top + 'px';
+    const need = top + ch + 20; if (need > root.offsetHeight) root.style.minHeight = need + 'px';
+    if (t.scrollIntoView) t.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  } else { card.style.left = '24px'; card.style.top = '120px'; }
+}
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+function show(i) {
+  idx = Math.max(0, Math.min(i, TOUR.steps.length - 1));
+  const step = TOUR.steps[idx];
+  $('#screen').style.minHeight = '';
+  renderScreen(step.screen);
+  drawOverlay(step);
+  $('#prog').style.width = ((idx + 1) / TOUR.steps.length * 100) + '%';
+  $('#secName').textContent = step.section || '';
+  $('#stepCount').textContent = 'Step ' + (idx + 1) + ' of ' + TOUR.steps.length + ': ' + (step.title || step.target);
+  $('#cardText').textContent = step.card + '\n\nAction: ' + (step.actionLabel || step.action);
+  document.querySelectorAll('.transcript .ti').forEach((n, k) => n.classList.toggle('cur', k === idx));
+  const cur = document.querySelector('.transcript .ti.cur'); if (cur) cur.scrollIntoView({ block: 'nearest' });
+  $('#btnBack').disabled = idx === 0; $('#btnNext').disabled = idx === TOUR.steps.length - 1;
+  if (playing) armTimer();
+}
+function armTimer() {
+  clearTimeout(timerId); clearInterval(tickId);
+  remaining = Number($('#speed').value);
+  const upd = () => { $('#timer').textContent = playing ? 'Next step in ' + remaining + 's' : ''; const c = $('#cardCnt'); if (c) c.textContent = playing ? remaining + 's' : ''; };
+  upd();
+  tickId = setInterval(() => { remaining--; upd(); }, 1000);
+  timerId = setTimeout(() => {
+    clearInterval(tickId);
+    const b = $('#ovBox'); if (b) b.classList.add('flash');
+    setTimeout(() => { if (idx < TOUR.steps.length - 1) show(idx + 1); else setPlaying(false); }, 700);
+  }, remaining * 1000);
+}
+function setPlaying(p) {
+  playing = p; $('#btnPlay').innerHTML = p ? '&#10074;&#10074; Pause' : '&#9654; Play';
+  if (p) armTimer(); else { clearTimeout(timerId); clearInterval(tickId); $('#timer').textContent = 'Paused'; const c = $('#cardCnt'); if (c) c.textContent = ''; }
+}
+function buildTranscript() {
+  const t = $('#transcript'); t.innerHTML = ''; let lastSec = null;
+  TOUR.steps.forEach((s, i) => {
+    if (s.section !== lastSec) { t.append(el('div', 'sech', s.section || 'Steps')); lastSec = s.section; }
+    const d = el('div', 'ti', (i + 1) + '. ' + (s.title || s.target)); d.onclick = () => { setPlaying(false); show(i); }; t.append(d);
+  });
+}
+function loadTour(t) {
+  TOUR = t; $('#tourTitle').textContent = t.title || 'Brightspace Tour Player'; document.title = (t.title || 'Tour') + ' (simulation)';
+  const env = t.environment || {};
+  $('#tourMeta').textContent = [t.tour_id, 'recorded ' + (t.recorded || '?'), env.institution, env.course].filter(Boolean).join(' | ');
+  buildTranscript(); setPlaying(false); show(0);
+}
+$('#btnPlay').onclick = () => { if (!playing && idx === TOUR.steps.length - 1) show(0); setPlaying(!playing); };
+$('#btnBack').onclick = () => { setPlaying(false); show(idx - 1); };
+$('#btnNext').onclick = () => { const p = playing; show(idx + 1); if (!p) setPlaying(false); };
+$('#btnRestart').onclick = () => { setPlaying(false); show(0); };
+$('#speed').oninput = e => { $('#speedVal').textContent = e.target.value; if (playing) armTimer(); };
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.code === 'Space') { e.preventDefault(); $('#btnPlay').click(); }
+  else if (e.key === 'ArrowRight') $('#btnNext').click();
+  else if (e.key === 'ArrowLeft') $('#btnBack').click();
+  else if (e.key.toLowerCase() === 'r') $('#btnRestart').click();
+});
+$('#fileIn').onchange = e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { try { loadTour(JSON.parse(rd.result)); } catch (err) { alert('Could not read that tour file: ' + err.message); } }; rd.readAsText(f); };
+window.addEventListener('resize', () => { if (TOUR) drawOverlay(TOUR.steps[idx]); });
+if (EMBEDDED_TOUR) loadTour(EMBEDDED_TOUR); else $('#screen').innerHTML = '<div class="body"><p>No tour embedded. Use "Load another tour file" in the side panel.</p></div>';
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightspace Tour Player</title>
+<style>
+  :root { --d2l-blue: #006fbf; --d2l-ink: #202122; --d2l-line: #cdd5dc; --red: #c92323; --bg: #f1f3f5; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--d2l-ink); font: 14px/1.45 "Lato", "Segoe UI", system-ui, Helvetica, Arial, sans-serif; }
+  header.top { background: #fff; border-bottom: 1px solid var(--d2l-line); padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+  header.top h1 { font-size: 17px; margin: 0; font-weight: 700; }
+  .sim-badge { background: #fff3cd; color: #5c4400; border: 1px solid #e0c46b; border-radius: 4px; padding: 3px 8px; font-size: 12px; font-weight: 700; }
+  .meta { font-size: 12px; color: #555; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; padding: 16px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; } }
+  /* Screen (simulated D2L page) */
+  #screenWrap { background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; overflow: hidden; }
+  #screen { position: relative; min-height: 560px; padding-bottom: 90px; }
+  .d2l-nav { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--d2l-line); font-size: 14px; white-space: nowrap; overflow: hidden; }
+  .d2l-nav .brand { font-size: 16px; font-weight: 400; margin-right: 8px; }
+  .d2l-nav span.caret::after { content: " \25BE"; font-size: 11px; }
+  .d2l-nav .user { margin-left: auto; font-size: 12px; color: #555; }
+  .tooltabs { display: flex; align-items: center; gap: 22px; padding: 10px 24px 0; border-bottom: 1px solid var(--d2l-line); font-size: 13px; }
+  .tooltabs .tab { padding: 6px 2px 10px; border-bottom: 3px solid transparent; cursor: default; }
+  .tooltabs .tab.active { color: var(--d2l-blue); border-bottom-color: var(--d2l-blue); font-weight: 700; }
+  .tooltabs .right { margin-left: auto; display: flex; gap: 18px; padding-bottom: 10px; }
+  .tooltabs .right .util { color: var(--d2l-blue); font-weight: 700; }
+  .tooltabs .right .util::before { content: "\2699 "; }
+  .tooltabs .right .util.help::before { content: "\2753 "; }
+  .body { padding: 18px 24px; }
+  .body h1 { font-size: 26px; font-weight: 400; margin: 6px 0 14px; }
+  .body h2 { font-size: 20px; font-weight: 400; margin: 18px 0 8px; }
+  .body .lbl { font-size: 11px; font-weight: 700; color: #444; margin: 12px 0 4px; }
+  .body p { margin: 6px 0; }
+  .kv { margin: 4px 0 14px; }
+  .kv .k { font-size: 11px; font-weight: 700; color: #444; margin-top: 12px; }
+  .kv .v { white-space: pre-line; }
+  .btnrow { display: flex; gap: 10px; margin: 10px 0 14px; position: relative; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 9px 18px; border-radius: 6px; background: #e3e9ef; color: var(--d2l-ink); font-weight: 700; font-size: 13px; border: 1px solid #d3dbe3; cursor: default; }
+  .btn.primary { background: var(--d2l-blue); color: #fff; border-color: var(--d2l-blue); }
+  .btn.caret::after { content: " \25BE"; font-size: 11px; }
+  .note { color: var(--red); font-size: 12px; font-weight: 700; margin-top: 6px; }
+  .note + ul { margin: 4px 0 14px 18px; padding: 0; }
+  .link { color: var(--d2l-blue); font-weight: 700; font-size: 13px; margin: 14px 0 8px; }
+  .link::before { content: "\270E "; }
+  table.grid { width: 100%; border-collapse: collapse; border: 1px solid var(--d2l-line); font-size: 13px; }
+  table.grid th { background: #f9fbfd; font-weight: 700; font-size: 12px; padding: 10px 8px; border-bottom: 1px solid var(--d2l-line); text-align: center; }
+  table.grid th:first-child, table.grid td.name { text-align: left; }
+  table.grid td { padding: 12px 8px; border-bottom: 1px solid #e6ebf0; text-align: center; }
+  table.grid td.name { color: var(--d2l-blue); font-weight: 700; }
+  table.grid td.name .rowlabel { display: inline-block; padding: 1px 2px; }
+  table.grid td.name .rowlabel::after { content: " \25BE"; color: #333; font-weight: 400; font-size: 11px; }
+  .cb, .rd { display: inline-block; width: 18px; height: 18px; border: 1px solid #8e99a3; border-radius: 4px; vertical-align: middle; margin-right: 8px; background: #fff; }
+  .rd { border-radius: 50%; }
+  .cb.on { background: #fff; border-color: var(--d2l-blue); position: relative; }
+  .cb.on::after { content: "\2713"; color: var(--d2l-blue); position: absolute; left: 3px; top: -3px; font-weight: 700; }
+  .rd.on { border: 5px solid #fff; box-shadow: 0 0 0 1px #8e99a3; background: #333; }
+  .choice { display: flex; align-items: center; margin: 8px 0; }
+  .choice .txt { padding: 1px 3px; }
+  .choice .help::after { content: "\2753"; margin-left: 8px; font-size: 11px; color: #555; }
+  .desc { margin: 4px 0 12px 28px; white-space: pre-line; color: #333; font-size: 13px; }
+  .field { margin: 10px 0; }
+  .field input { width: 60px; padding: 6px 8px; border: 1px solid #8e99a3; border-radius: 4px; font: inherit; }
+  .field.wide input { width: 320px; }
+  .linklist a { display: block; color: var(--d2l-blue); font-weight: 700; margin: 6px 0; font-size: 13px; }
+  .tabs { display: flex; gap: 20px; border-bottom: 1px solid var(--d2l-line); font-size: 12px; margin-bottom: 14px; }
+  .tabs .tab { padding: 8px 2px; border-bottom: 3px solid transparent; }
+  .tabs .tab.active { border-bottom-color: var(--d2l-blue); font-weight: 700; }
+  .menu { position: absolute; top: 44px; background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.15); min-width: 180px; z-index: 5; padding: 4px 0; }
+  .menu .mi { padding: 9px 14px; font-size: 13px; border-bottom: 1px solid #eef1f4; }
+  .menu .mi:last-child { border-bottom: 0; }
+  .dialog-back { position: absolute; inset: 0; background: rgba(255,255,255,.65); z-index: 8; }
+  .dialog { position: absolute; left: 50%; top: 60px; transform: translateX(-50%); width: 400px; max-width: 92%; background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,.2); padding: 16px 20px; z-index: 9; }
+  .dialog h3 { margin: 0 0 8px; font-size: 15px; }
+  .dialog .dtext { white-space: pre-line; font-size: 13px; margin-bottom: 14px; }
+  .toast { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); background: #fff; border-left: 4px solid var(--d2l-blue); box-shadow: 0 4px 14px rgba(0,0,0,.2); padding: 12px 20px; min-width: 300px; z-index: 9; }
+  .empty { color: #777; font-style: italic; }
+  /* Overlay */
+  .ov-box { position: absolute; border: 3px solid var(--red); border-radius: 5px; box-shadow: 0 0 0 3px rgba(201,35,35,.2); pointer-events: none; z-index: 20; transition: box-shadow .2s; }
+  .ov-box.flash { box-shadow: 0 0 0 10px rgba(201,35,35,.35); background: rgba(201,35,35,.15); }
+  .ov-card { position: absolute; width: 420px; max-width: calc(100% - 24px); background: #fff; border: 2px solid var(--red); border-radius: 7px; padding: 10px 13px 9px; font-size: 13px; line-height: 1.45; box-shadow: 0 6px 18px rgba(0,0,0,.28); z-index: 21; pointer-events: none; }
+  .ov-card .ct { font-weight: 700; color: var(--red); margin-bottom: 4px; }
+  .ov-card .act { margin-top: 8px; padding-top: 6px; border-top: 1px dashed #e3b3b3; font-weight: 700; }
+  .ov-card .cnt { color: #777; font-weight: 400; font-size: 12px; float: right; }
+  .ov-card .kw { font-weight: 700; color: #333; }
+  /* Side panel */
+  aside { background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; padding: 14px; display: flex; flex-direction: column; gap: 12px; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .controls button { font: inherit; font-weight: 700; padding: 8px 12px; border-radius: 6px; border: 1px solid #d3dbe3; background: #e3e9ef; cursor: pointer; }
+  .controls button.primary { background: var(--red); color: #fff; border-color: var(--red); }
+  .controls button:disabled { opacity: .5; cursor: default; }
+  .progress { height: 6px; background: #e3e9ef; border-radius: 3px; overflow: hidden; }
+  .progress i { display: block; height: 100%; background: var(--red); width: 0; transition: width .3s; }
+  .stepinfo { font-size: 13px; }
+  .stepinfo .sec { color: #555; font-size: 12px; }
+  .speed { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .speed input { flex: 1; }
+  .timer { font-size: 12px; color: #555; }
+  .transcript { border-top: 1px solid var(--d2l-line); padding-top: 10px; font-size: 12px; }
+  .transcript h2 { font-size: 13px; margin: 0 0 6px; }
+  .transcript .sech { font-weight: 700; margin: 8px 0 2px; color: #333; }
+  .transcript .ti { padding: 5px 6px; border-radius: 4px; cursor: pointer; }
+  .transcript .ti:hover { background: #f1f3f5; }
+  .transcript .ti.cur { background: #fdecec; border-left: 3px solid var(--red); }
+  .fileload { font-size: 12px; color: #555; }
+  .fileload input { font-size: 12px; }
+  .cardtext { white-space: pre-line; font-size: 12px; background: #fafafa; border: 1px solid #e6ebf0; border-radius: 4px; padding: 8px; max-height: 220px; overflow: auto; }
+  details.help { font-size: 12px; color: #444; }
+  kbd { background: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 0 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 id="tourTitle">Brightspace Tour Player</h1>
+  <span class="sim-badge">PRACTICE SIMULATION, not D2L</span>
+  <span class="meta" id="tourMeta"></span>
+</header>
+<main>
+  <div id="screenWrap"><div id="screen"></div></div>
+  <aside>
+    <div class="controls">
+      <button id="btnPlay" class="primary">&#9654; Play</button>
+      <button id="btnBack">&#9664; Back</button>
+      <button id="btnNext">Next &#9654;</button>
+      <button id="btnRestart">Restart</button>
+    </div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="stepinfo"><div class="sec" id="secName"></div><div id="stepCount"></div></div>
+    <div class="speed"><span>Seconds per step</span><input type="range" id="speed" min="4" max="40" value="14"><b id="speedVal">14</b></div>
+    <div class="timer" id="timer"></div>
+    <div class="cardtext" id="cardText"></div>
+    <details class="help"><summary>Keyboard and notes</summary>
+      <p><kbd>Space</kbd> play / pause. <kbd>&rarr;</kbd> next, <kbd>&larr;</kbd> back, <kbd>R</kbd> restart.</p>
+      <p>Screens are rebuilt from what was seen in the sandbox on the recorded date. Nothing here talks to D2L, calculates grades, or checks permissions. Verify any step in the real course before telling an educator it works.</p>
+    </details>
+    <div class="fileload">Load another tour file (.json): <input type="file" id="fileIn" accept=".json,application/json"></div>
+    <div class="transcript"><h2>Transcript</h2><div id="transcript"></div></div>
+  </aside>
+</main>
+<script>
+const EMBEDDED_TOUR = /*__TOUR_JSON__*/ null;
+let TOUR = null, idx = 0, playing = false, timerId = null, tickId = null, remaining = 0;
+const $ = s => document.querySelector(s);
+
+function resolveScreen(id, depth = 0) {
+  const s = TOUR.screens[id];
+  if (!s) return { blocks: [{ type: 'text', text: 'Screen "' + id + '" is not defined in this tour file.' }] };
+  if (!s.extends) return { blocks: JSON.parse(JSON.stringify(s.blocks || [])) };
+  if (depth > 10) return { blocks: [] };
+  const base = resolveScreen(s.extends, depth + 1);
+  let blocks = base.blocks;
+  if (s.patch) for (const key in s.patch) {
+    const [type, n] = key.split(':');
+    let count = 0;
+    for (const b of blocks) if (b.type === type) { if (count === Number(n || 0)) Object.assign(b, s.patch[key]); count++; }
+  }
+  if (s.add) blocks = blocks.concat(JSON.parse(JSON.stringify(s.add)));
+  return { blocks };
+}
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function tgt(e, label) { e.dataset.t = label; return e; }
+
+function renderScreen(id) {
+  const scr = resolveScreen(id);
+  const root = $('#screen'); root.innerHTML = '';
+  const nav = el('div', 'd2l-nav');
+  nav.append(el('span', 'brand', 'Same Playground'));
+  for (const item of ['Course Home', 'Content', 'Course Tools', 'Assessments', 'Communication', 'Help', 'Course Admin', 'More']) {
+    const s = el('span', ['Course Tools', 'Assessments', 'Communication', 'More'].includes(item) ? 'caret' : '', item); tgt(s, item); nav.append(s);
+  }
+  nav.append(el('span', 'user', 'Sandbox user'));
+  root.append(nav);
+  let body = null; let lastBtnRow = null; let dialogPending = [];
+  const ensureBody = () => { if (!body) { body = el('div', 'body'); root.append(body); } return body; };
+  for (const b of scr.blocks) {
+    switch (b.type) {
+      case 'tooltabs': {
+        const t = el('div', 'tooltabs');
+        for (const it of b.items) t.append(tgt(el('span', 'tab' + (it === b.active ? ' active' : ''), it), it));
+        if (b.right) { const r = el('div', 'right'); for (const u of b.right) r.append(tgt(el('span', 'util' + (u === 'Help' ? ' help' : ''), u), u)); t.append(r); }
+        root.append(t); break; }
+      case 'h1': ensureBody().append(tgt(el('h1', '', b.text), b.text)); break;
+      case 'h2': ensureBody().append(tgt(el('h2', '', b.text), b.text)); break;
+      case 'label': ensureBody().append(el('div', 'lbl', b.text)); break;
+      case 'text': ensureBody().append(el('p', '', b.text)); break;
+      case 'kv': { const k = el('div', 'kv'); for (const [kk, vv] of b.items) { k.append(el('div', 'k', kk)); k.append(el('div', 'v', vv)); } ensureBody().append(k); break; }
+      case 'buttons': { const r = el('div', 'btnrow'); for (const it of b.items) { const bt = el('span', 'btn' + (it.primary ? ' primary' : '') + (it.caret ? ' caret' : ''), it.label); tgt(bt, it.label); r.append(bt); } ensureBody().append(r); lastBtnRow = r; break; }
+      case 'note': { const bd = ensureBody(); bd.append(el('div', 'note', 'Note')); const ul = el('ul'); ul.append(el('li', '', b.text)); bd.append(ul); break; }
+      case 'link': ensureBody().append(tgt(el('div', 'link', b.text), b.text)); break;
+      case 'table': {
+        const t = el('table', 'grid'); const thead = el('thead'); const tr = el('tr');
+        if (b.checkbox) tr.append(el('th', '', ''));
+        for (const c of b.columns) tr.append(el('th', '', c)); thead.append(tr); t.append(thead);
+        const tb = el('tbody');
+        if (!b.rows.length) { const r = el('tr'); const td = el('td', 'empty', 'There are no grade items or categories.'); td.colSpan = b.columns.length + 1; r.append(td); tb.append(r); }
+        for (const row of b.rows) { const r = el('tr'); if (b.checkbox) { const td = el('td'); td.append(el('span', 'cb' + (row.checked ? ' on' : ''))); r.append(td); } const cells = Array.isArray(row) ? row : row.cells; cells.forEach((c, i) => { const td = el('td', i === 0 ? 'name' : ''); if (i === 0) { const sp = el('span', 'rowlabel', c); tgt(sp, c); td.append(sp); } else td.textContent = c; r.append(td); }); tb.append(r); }
+        t.append(tb); ensureBody().append(t); break; }
+      case 'tabs': { const t = el('div', 'tabs'); for (const it of b.items) t.append(tgt(el('span', 'tab' + (it === b.active ? ' active' : ''), it), it)); ensureBody().append(t); break; }
+      case 'radios': { const bd = ensureBody(); for (const o of b.options) { const c = el('div', 'choice'); c.append(el('span', 'rd' + (o === b.selected ? ' on' : ''))); c.append(tgt(el('span', 'txt', o), o)); c.append(el('span', 'help')); bd.append(c); if (b.descriptions && b.descriptions[o]) bd.append(el('div', 'desc', b.descriptions[o])); } break; }
+      case 'checkbox': { const c = el('div', 'choice'); c.append(el('span', 'cb' + (b.checked ? ' on' : ''))); c.append(tgt(el('span', 'txt', b.label), b.label)); c.append(el('span', 'help')); ensureBody().append(c); break; }
+      case 'field': { const f = el('div', 'field' + (b.wide ? ' wide' : '')); f.append(el('div', 'lbl', b.label)); const inp = el('input'); inp.value = b.value || ''; inp.readOnly = true; tgt(inp, b.label); f.append(inp); ensureBody().append(f); break; }
+      case 'linklist': { const l = el('div', 'linklist'); for (const it of b.items) l.append(tgt(el('a', '', it), it)); ensureBody().append(l); break; }
+      case 'menu': { if (!lastBtnRow) break; const anchor = [...lastBtnRow.children].find(x => x.dataset.t === b.anchor); const m = el('div', 'menu'); m.style.left = (anchor ? anchor.offsetLeft : 0) + 'px'; for (const it of b.items) m.append(tgt(el('div', 'mi', it), 'menu:' + it)); lastBtnRow.append(m); break; }
+      case 'dialog': dialogPending.push(b); break;
+      case 'toast': { const t = el('div', 'toast', b.text); root.append(t); break; }
+    }
+  }
+  for (const d of dialogPending) {
+    root.append(el('div', 'dialog-back'));
+    const dg = el('div', 'dialog'); dg.append(el('h3', '', d.title || 'Confirmation')); dg.append(el('div', 'dtext', d.text || ''));
+    const r = el('div', 'btnrow'); d.buttons.forEach((lab, i) => r.append(tgt(el('span', 'btn' + (i === 0 ? ' primary' : ''), lab), 'dialog:' + lab))); dg.append(r); root.append(dg);
+  }
+}
+
+function findTarget(label) {
+  const root = $('#screen');
+  let e = root.querySelector('[data-t="' + CSS.escape(label) + '"]');
+  if (!e && !label.includes(':')) e = root.querySelector('[data-t="menu:' + CSS.escape(label) + '"]') || root.querySelector('[data-t="dialog:' + CSS.escape(label) + '"]');
+  return e;
+}
+
+function fmtCard(text) {
+  return text.split('\n').map(line => line.replace(/^(WHAT|WHY NOW|WHY|TICKET|NEXT|CAUTION|CHECK|RESULT[^:]*|WORKFLOW SAVED AS|NEXT SECTION):/, '<span class="kw">$1:</span>')).join('<br>');
+}
+
+function drawOverlay(step) {
+  const root = $('#screen');
+  root.querySelectorAll('.ov-box,.ov-card').forEach(n => n.remove());
+  const t = findTarget(step.target);
+  const rr = root.getBoundingClientRect();
+  let box = null;
+  if (t) {
+    const r = t.getBoundingClientRect(); const pad = 4;
+    box = el('div', 'ov-box'); box.id = 'ovBox';
+    Object.assign(box.style, { left: (r.left - rr.left - pad) + 'px', top: (r.top - rr.top - pad) + 'px', width: (r.width + 2 * pad) + 'px', height: (r.height + 2 * pad) + 'px' });
+    root.append(box);
+  }
+  const card = el('div', 'ov-card');
+  card.innerHTML = '<div class="ct"><span class="cnt" id="cardCnt"></span>' + esc(step.title || step.target) + '</div>' + fmtCard(esc(step.card)) + '<div class="act">Action: ' + esc(step.actionLabel || step.action) + (t ? '' : ' <span style="color:#a00">(target "' + esc(step.target) + '" not found on this screen)</span>') + '</div>';
+  root.append(card);
+  const cw = card.offsetWidth, ch = card.offsetHeight;
+  if (t) {
+    const r = t.getBoundingClientRect();
+    let left = r.left - rr.left; if (left + cw > root.clientWidth - 12) left = Math.max(12, root.clientWidth - cw - 12);
+    let top = r.bottom - rr.top + 12;
+    if (r.right - rr.left + cw + 40 < root.clientWidth && !t.closest('.dialog')) { left = r.right - rr.left + 24; top = Math.max(8, r.top - rr.top - 6); }
+    const dlg = t.closest('.dialog');
+    if (dlg) { const dr = dlg.getBoundingClientRect(); if (dr.right - rr.left + cw + 24 < root.clientWidth) { left = dr.right - rr.left + 16; top = dr.top - rr.top; } else { top = dr.bottom - rr.top + 12; } }
+    card.style.left = left + 'px'; card.style.top = top + 'px';
+    const need = top + ch + 20; if (need > root.offsetHeight) root.style.minHeight = need + 'px';
+    if (t.scrollIntoView) t.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  } else { card.style.left = '24px'; card.style.top = '120px'; }
+}
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+function show(i) {
+  idx = Math.max(0, Math.min(i, TOUR.steps.length - 1));
+  const step = TOUR.steps[idx];
+  $('#screen').style.minHeight = '';
+  renderScreen(step.screen);
+  drawOverlay(step);
+  $('#prog').style.width = ((idx + 1) / TOUR.steps.length * 100) + '%';
+  $('#secName').textContent = step.section || '';
+  $('#stepCount').textContent = 'Step ' + (idx + 1) + ' of ' + TOUR.steps.length + ': ' + (step.title || step.target);
+  $('#cardText').textContent = step.card + '\n\nAction: ' + (step.actionLabel || step.action);
+  document.querySelectorAll('.transcript .ti').forEach((n, k) => n.classList.toggle('cur', k === idx));
+  const cur = document.querySelector('.transcript .ti.cur'); if (cur) cur.scrollIntoView({ block: 'nearest' });
+  $('#btnBack').disabled = idx === 0; $('#btnNext').disabled = idx === TOUR.steps.length - 1;
+  if (playing) armTimer();
+}
+function armTimer() {
+  clearTimeout(timerId); clearInterval(tickId);
+  remaining = Number($('#speed').value);
+  const upd = () => { $('#timer').textContent = playing ? 'Next step in ' + remaining + 's' : ''; const c = $('#cardCnt'); if (c) c.textContent = playing ? remaining + 's' : ''; };
+  upd();
+  tickId = setInterval(() => { remaining--; upd(); }, 1000);
+  timerId = setTimeout(() => {
+    clearInterval(tickId);
+    const b = $('#ovBox'); if (b) b.classList.add('flash');
+    setTimeout(() => { if (idx < TOUR.steps.length - 1) show(idx + 1); else setPlaying(false); }, 700);
+  }, remaining * 1000);
+}
+function setPlaying(p) {
+  playing = p; $('#btnPlay').innerHTML = p ? '&#10074;&#10074; Pause' : '&#9654; Play';
+  if (p) armTimer(); else { clearTimeout(timerId); clearInterval(tickId); $('#timer').textContent = 'Paused'; const c = $('#cardCnt'); if (c) c.textContent = ''; }
+}
+function buildTranscript() {
+  const t = $('#transcript'); t.innerHTML = ''; let lastSec = null;
+  TOUR.steps.forEach((s, i) => {
+    if (s.section !== lastSec) { t.append(el('div', 'sech', s.section || 'Steps')); lastSec = s.section; }
+    const d = el('div', 'ti', (i + 1) + '. ' + (s.title || s.target)); d.onclick = () => { setPlaying(false); show(i); }; t.append(d);
+  });
+}
+function loadTour(t) {
+  TOUR = t; $('#tourTitle').textContent = t.title || 'Brightspace Tour Player'; document.title = (t.title || 'Tour') + ' (simulation)';
+  const env = t.environment || {};
+  $('#tourMeta').textContent = [t.tour_id, 'recorded ' + (t.recorded || '?'), env.institution, env.course].filter(Boolean).join(' | ');
+  buildTranscript(); setPlaying(false); show(0);
+}
+$('#btnPlay').onclick = () => { if (!playing && idx === TOUR.steps.length - 1) show(0); setPlaying(!playing); };
+$('#btnBack').onclick = () => { setPlaying(false); show(idx - 1); };
+$('#btnNext').onclick = () => { const p = playing; show(idx + 1); if (!p) setPlaying(false); };
+$('#btnRestart').onclick = () => { setPlaying(false); show(0); };
+$('#speed').oninput = e => { $('#speedVal').textContent = e.target.value; if (playing) armTimer(); };
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.code === 'Space') { e.preventDefault(); $('#btnPlay').click(); }
+  else if (e.key === 'ArrowRight') $('#btnNext').click();
+  else if (e.key === 'ArrowLeft') $('#btnBack').click();
+  else if (e.key.toLowerCase() === 'r') $('#btnRestart').click();
+});
+$('#fileIn').onchange = e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { try { loadTour(JSON.parse(rd.result)); } catch (err) { alert('Could not read that tour file: ' + err.message); } }; rd.readAsText(f); };
+window.addEventListener('resize', () => { if (TOUR) drawOverlay(TOUR.steps[idx]); });
+if (EMBEDDED_TOUR) loadTour(EMBEDDED_TOUR); else $('#screen').innerHTML = '<div class="body"><p>No tour embedded. Use "Load another tour file" in the side panel.</p></div>';
+</script>
+</body>
+</html>

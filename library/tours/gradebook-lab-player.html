@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightspace Tour Player</title>
+<style>
+  :root { --d2l-blue: #006fbf; --d2l-ink: #202122; --d2l-line: #cdd5dc; --red: #c92323; --bg: #f1f3f5; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--d2l-ink); font: 14px/1.45 "Lato", "Segoe UI", system-ui, Helvetica, Arial, sans-serif; }
+  header.top { background: #fff; border-bottom: 1px solid var(--d2l-line); padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+  header.top h1 { font-size: 17px; margin: 0; font-weight: 700; }
+  .sim-badge { background: #fff3cd; color: #5c4400; border: 1px solid #e0c46b; border-radius: 4px; padding: 3px 8px; font-size: 12px; font-weight: 700; }
+  .meta { font-size: 12px; color: #555; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; padding: 16px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; } }
+  /* Screen (simulated D2L page) */
+  #screenWrap { background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; overflow: hidden; }
+  #screen { position: relative; min-height: 560px; padding-bottom: 90px; }
+  .d2l-nav { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--d2l-line); font-size: 14px; white-space: nowrap; overflow: hidden; }
+  .d2l-nav .brand { font-size: 16px; font-weight: 400; margin-right: 8px; }
+  .d2l-nav span.caret::after { content: " \25BE"; font-size: 11px; }
+  .d2l-nav .user { margin-left: auto; font-size: 12px; color: #555; }
+  .tooltabs { display: flex; align-items: center; gap: 22px; padding: 10px 24px 0; border-bottom: 1px solid var(--d2l-line); font-size: 13px; }
+  .tooltabs .tab { padding: 6px 2px 10px; border-bottom: 3px solid transparent; cursor: default; }
+  .tooltabs .tab.active { color: var(--d2l-blue); border-bottom-color: var(--d2l-blue); font-weight: 700; }
+  .tooltabs .right { margin-left: auto; display: flex; gap: 18px; padding-bottom: 10px; }
+  .tooltabs .right .util { color: var(--d2l-blue); font-weight: 700; }
+  .tooltabs .right .util::before { content: "\2699 "; }
+  .tooltabs .right .util.help::before { content: "\2753 "; }
+  .body { padding: 18px 24px; }
+  .body h1 { font-size: 26px; font-weight: 400; margin: 6px 0 14px; }
+  .body h2 { font-size: 20px; font-weight: 400; margin: 18px 0 8px; }
+  .body .lbl { font-size: 11px; font-weight: 700; color: #444; margin: 12px 0 4px; }
+  .body p { margin: 6px 0; }
+  .kv { margin: 4px 0 14px; }
+  .kv .k { font-size: 11px; font-weight: 700; color: #444; margin-top: 12px; }
+  .kv .v { white-space: pre-line; }
+  .btnrow { display: flex; gap: 10px; margin: 10px 0 14px; position: relative; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 9px 18px; border-radius: 6px; background: #e3e9ef; color: var(--d2l-ink); font-weight: 700; font-size: 13px; border: 1px solid #d3dbe3; cursor: default; }
+  .btn.primary { background: var(--d2l-blue); color: #fff; border-color: var(--d2l-blue); }
+  .btn.caret::after { content: " \25BE"; font-size: 11px; }
+  .note { color: var(--red); font-size: 12px; font-weight: 700; margin-top: 6px; }
+  .note + ul { margin: 4px 0 14px 18px; padding: 0; }
+  .link { color: var(--d2l-blue); font-weight: 700; font-size: 13px; margin: 14px 0 8px; }
+  .link::before { content: "\270E "; }
+  table.grid { width: 100%; border-collapse: collapse; border: 1px solid var(--d2l-line); font-size: 13px; }
+  table.grid th { background: #f9fbfd; font-weight: 700; font-size: 12px; padding: 10px 8px; border-bottom: 1px solid var(--d2l-line); text-align: center; }
+  table.grid th:first-child, table.grid td.name { text-align: left; }
+  table.grid td { padding: 12px 8px; border-bottom: 1px solid #e6ebf0; text-align: center; }
+  table.grid td.name { color: var(--d2l-blue); font-weight: 700; }
+  table.grid td.name .rowlabel { display: inline-block; padding: 1px 2px; }
+  table.grid td.name .rowlabel::after { content: " \25BE"; color: #333; font-weight: 400; font-size: 11px; }
+  .cb, .rd { display: inline-block; width: 18px; height: 18px; border: 1px solid #8e99a3; border-radius: 4px; vertical-align: middle; margin-right: 8px; background: #fff; }
+  .rd { border-radius: 50%; }
+  .cb.on { background: #fff; border-color: var(--d2l-blue); position: relative; }
+  .cb.on::after { content: "\2713"; color: var(--d2l-blue); position: absolute; left: 3px; top: -3px; font-weight: 700; }
+  .rd.on { border: 5px solid #fff; box-shadow: 0 0 0 1px #8e99a3; background: #333; }
+  .choice { display: flex; align-items: center; margin: 8px 0; }
+  .choice .txt { padding: 1px 3px; }
+  .choice .help::after { content: "\2753"; margin-left: 8px; font-size: 11px; color: #555; }
+  .desc { margin: 4px 0 12px 28px; white-space: pre-line; color: #333; font-size: 13px; }
+  .field { margin: 10px 0; }
+  .field input { width: 60px; padding: 6px 8px; border: 1px solid #8e99a3; border-radius: 4px; font: inherit; }
+  .field.wide input { width: 320px; }
+  .linklist a { display: block; color: var(--d2l-blue); font-weight: 700; margin: 6px 0; font-size: 13px; }
+  .tabs { display: flex; gap: 20px; border-bottom: 1px solid var(--d2l-line); font-size: 12px; margin-bottom: 14px; }
+  .tabs .tab { padding: 8px 2px; border-bottom: 3px solid transparent; }
+  .tabs .tab.active { border-bottom-color: var(--d2l-blue); font-weight: 700; }
+  .menu { position: absolute; top: 44px; background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.15); min-width: 180px; z-index: 5; padding: 4px 0; }
+  .menu .mi { padding: 9px 14px; font-size: 13px; border-bottom: 1px solid #eef1f4; }
+  .menu .mi:last-child { border-bottom: 0; }
+  .dialog-back { position: absolute; inset: 0; background: rgba(255,255,255,.65); z-index: 8; }
+  .dialog { position: absolute; left: 50%; top: 60px; transform: translateX(-50%); width: 400px; max-width: 92%; background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,.2); padding: 16px 20px; z-index: 9; }
+  .dialog h3 { margin: 0 0 8px; font-size: 15px; }
+  .dialog .dtext { white-space: pre-line; font-size: 13px; margin-bottom: 14px; }
+  .toast { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); background: #fff; border-left: 4px solid var(--d2l-blue); box-shadow: 0 4px 14px rgba(0,0,0,.2); padding: 12px 20px; min-width: 300px; z-index: 9; }
+  .empty { color: #777; font-style: italic; }
+  /* Overlay */
+  .ov-box { position: absolute; border: 3px solid var(--red); border-radius: 5px; box-shadow: 0 0 0 3px rgba(201,35,35,.2); pointer-events: none; z-index: 20; transition: box-shadow .2s; }
+  .ov-box.flash { box-shadow: 0 0 0 10px rgba(201,35,35,.35); background: rgba(201,35,35,.15); }
+  .ov-card { position: absolute; width: 420px; max-width: calc(100% - 24px); background: #fff; border: 2px solid var(--red); border-radius: 7px; padding: 10px 13px 9px; font-size: 13px; line-height: 1.45; box-shadow: 0 6px 18px rgba(0,0,0,.28); z-index: 21; pointer-events: none; }
+  .ov-card .ct { font-weight: 700; color: var(--red); margin-bottom: 4px; }
+  .ov-card .act { margin-top: 8px; padding-top: 6px; border-top: 1px dashed #e3b3b3; font-weight: 700; }
+  .ov-card .cnt { color: #777; font-weight: 400; font-size: 12px; float: right; }
+  .ov-card .kw { font-weight: 700; color: #333; }
+  /* Side panel */
+  aside { background: #fff; border: 1px solid var(--d2l-line); border-radius: 6px; padding: 14px; display: flex; flex-direction: column; gap: 12px; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .controls button { font: inherit; font-weight: 700; padding: 8px 12px; border-radius: 6px; border: 1px solid #d3dbe3; background: #e3e9ef; cursor: pointer; }
+  .controls button.primary { background: var(--red); color: #fff; border-color: var(--red); }
+  .controls button:disabled { opacity: .5; cursor: default; }
+  .progress { height: 6px; background: #e3e9ef; border-radius: 3px; overflow: hidden; }
+  .progress i { display: block; height: 100%; background: var(--red); width: 0; transition: width .3s; }
+  .stepinfo { font-size: 13px; }
+  .stepinfo .sec { color: #555; font-size: 12px; }
+  .speed { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .speed input { flex: 1; }
+  .timer { font-size: 12px; color: #555; }
+  .transcript { border-top: 1px solid var(--d2l-line); padding-top: 10px; font-size: 12px; }
+  .transcript h2 { font-size: 13px; margin: 0 0 6px; }
+  .transcript .sech { font-weight: 700; margin: 8px 0 2px; color: #333; }
+  .transcript .ti { padding: 5px 6px; border-radius: 4px; cursor: pointer; }
+  .transcript .ti:hover { background: #f1f3f5; }
+  .transcript .ti.cur { background: #fdecec; border-left: 3px solid var(--red); }
+  .fileload { font-size: 12px; color: #555; }
+  .fileload input { font-size: 12px; }
+  .cardtext { white-space: pre-line; font-size: 12px; background: #fafafa; border: 1px solid #e6ebf0; border-radius: 4px; padding: 8px; max-height: 220px; overflow: auto; }
+  details.help { font-size: 12px; color: #444; }
+  kbd { background: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 0 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 id="tourTitle">Brightspace Tour Player</h1>
+  <span class="sim-badge">PRACTICE SIMULATION, not D2L</span>
+  <span class="meta" id="tourMeta"></span>
+</header>
+<main>
+  <div id="screenWrap"><div id="screen"></div></div>
+  <aside>
+    <div class="controls">
+      <button id="btnPlay" class="primary">&#9654; Play</button>
+      <button id="btnBack">&#9664; Back</button>
+      <button id="btnNext">Next &#9654;</button>
+      <button id="btnRestart">Restart</button>
+    </div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="stepinfo"><div class="sec" id="secName"></div><div id="stepCount"></div></div>
+    <div class="speed"><span>Seconds per step</span><input type="range" id="speed" min="4" max="40" value="14"><b id="speedVal">14</b></div>
+    <div class="timer" id="timer"></div>
+    <div class="cardtext" id="cardText"></div>
+    <details class="help"><summary>Keyboard and notes</summary>
+      <p><kbd>Space</kbd> play / pause. <kbd>&rarr;</kbd> next, <kbd>&larr;</kbd> back, <kbd>R</kbd> restart.</p>
+      <p>Screens are rebuilt from what was seen in the sandbox on the recorded date. Nothing here talks to D2L, calculates grades, or checks permissions. Verify any step in the real course before telling an educator it works.</p>
+    </details>
+    <div class="fileload">Load another tour file (.json): <input type="file" id="fileIn" accept=".json,application/json"></div>
+    <div class="transcript"><h2>Transcript</h2><div id="transcript"></div></div>
+  </aside>
+</main>
+<script>
+const EMBEDDED_TOUR = {"schema_version": 1, "tour_id": "gradebook-lab-msu", "title": "Brightspace gradebook lab (MSU sandbox)", "recorded": "2026-09-22", "environment": {"institution": "Michigan State University", "origin": "https://d2l.msu.edu", "course": "Same Playground (sandbox, org unit 2747167)", "ui": "Classic Grades tool (Enter Grades / Manage Grades / Schemes / Setup Wizard); Classic Content", "role_label_in_course": "OrgUnit Admin (as shown in Role Switch and Classlist for this course only)"}, "evidence": "institution-verified: every step below was performed live in the named sandbox on the recorded date and the saved state was checked on screen. Cards were written during that session. The player is a simulation; it proves nothing about D2L behaviour on its own.", "limitations": ["Screens are simplified rebuilds of what was visible; spacing, icons and secondary controls are approximate.", "The simulation does not calculate grades or enforce permissions.", "Steps involving a learner account are marked pending until an approved demo learner is confirmed.", "Label difference recorded: Setup Wizard says 'Drop ungraded items'; Settings > Calculation Options says 'Exclude ungraded items' for the same setting."], "screens": {"grades-wizard-landing": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "h1", "text": "Grades Setup Wizard"}, {"type": "text", "text": "Welcome to the Grades Setup Wizard!"}, {"type": "h2", "text": "Current Grade Book Settings"}, {"type": "kv", "items": [["Grading System", "Points"], ["Final Grade To Release", "Release the Calculated Final Grade\nDo not automatically release final grade"], ["Grade Calculations", "Drop ungraded items\nAutomatically keep final grades updated\nDo not apply automatic zeros to missing submissions"], ["Default Grade Scheme", "Percentage"]]}, {"type": "buttons", "items": [{"label": "Start", "primary": true}]}]}, "manage-grades-quizzes": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Manage Grades", "right": ["Settings", "Help"]}, {"type": "buttons", "items": [{"label": "New", "primary": true, "caret": true}, {"label": "More Actions", "caret": true}]}, {"type": "note", "text": "'Final Calculated Grade' sums to 40%, not 100%. Verify the total weight of all top level categories and items is 100%."}, {"type": "link", "text": "Bulk Edit"}, {"type": "table", "checkbox": true, "columns": ["Grade Item", "Type", "Association", "Max. Points", "Weight"], "rows": [["Quizzes", "", "", "0", "40"], ["Final Calculated Grade", "", "", "0", "40"], ["Final Adjusted Grade", "", "", "", ""]]}]}, "manage-grades-menu": {"extends": "manage-grades-quizzes", "add": [{"type": "menu", "anchor": "More Actions", "items": ["Reorder", "View Event Log", "Make Visible to Users", "Hide from Users", "Delete"]}]}, "delete-items": {"blocks": [{"type": "h1", "text": "Delete Grade Items and Categories"}, {"type": "table", "checkbox": true, "columns": ["Name", "Type"], "rows": [["Quizzes", ""]]}, {"type": "buttons", "items": [{"label": "Delete", "primary": true}, {"label": "Cancel"}]}]}, "delete-confirm": {"extends": "delete-items", "add": [{"type": "dialog", "title": "Confirmation", "text": "Are you sure you want to delete the (1) selected grade items and/or categories?\n\nDeleting items includes deleting all associated grades, removal from calculations, and removal from other tool associations. Consider hiding the items instead. If deleting, be sure that these are the intended grade items and that there are no associated grades that are needed.", "buttons": ["Delete", "Cancel"]}]}, "manage-grades-empty": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Manage Grades", "right": ["Settings", "Help"]}, {"type": "buttons", "items": [{"label": "New", "primary": true, "caret": true}, {"label": "More Actions", "caret": true}]}, {"type": "note", "text": "'Final Calculated Grade' sums to 0%, not 100%. Verify the total weight of all top level categories and items is 100%."}, {"type": "link", "text": "Bulk Edit"}, {"type": "table", "checkbox": true, "columns": ["Grade Item", "Type", "Association", "Max. Points", "Weight"], "rows": [["Final Calculated Grade", "", "", "0", "0"], ["Final Adjusted Grade", "", "", "", ""]]}]}, "settings-personal": {"blocks": [{"type": "h1", "text": "Personal Display Options"}, {"type": "tabs", "items": ["Personal Display Options", "Org Unit Display Options", "Calculation Options"], "active": "Personal Display Options"}, {"type": "h2", "text": "Managing View Display Options"}, {"type": "label", "text": "User Details"}, {"type": "checkbox", "label": "Username"}, {"type": "checkbox", "label": "Org Defined ID"}, {"type": "label", "text": "Grade Details"}, {"type": "checkbox", "label": "Points grade"}, {"type": "checkbox", "label": "Weighted grade", "checked": true}, {"type": "checkbox", "label": "Grade scheme symbol", "checked": true}, {"type": "checkbox", "label": "Grade scheme color", "checked": true}, {"type": "field", "label": "Number of characters to display for text items", "value": "50"}, {"type": "buttons", "items": [{"label": "Save", "primary": true}, {"label": "Close"}]}]}, "settings-calc": {"blocks": [{"type": "h1", "text": "Calculation Options"}, {"type": "tabs", "items": ["Personal Display Options", "Org Unit Display Options", "Calculation Options"], "active": "Calculation Options"}, {"type": "h2", "text": "Grading System"}, {"type": "radios", "options": ["Weighted", "Points", "Formula"], "selected": "Weighted", "descriptions": {"Weighted": "Example: Assignments Category (20% of final grade); Assignment 1 Item (50% of Assignments); Assignment 2 Item (50% of Assignments); Final Exam Item (80% of final grade). Final Grade: /100%", "Points": "Example: Assignments Category (40 points); Assignment 1 Item (20 points); Assignment 2 Item (20 points); Final Exam Item (200 points). Final Grade: /240 points", "Formula": "Final grade is determined by a custom defined formula. Grade items and categories use the Points system"}}, {"type": "h2", "text": "Final Grade Released"}, {"type": "radios", "options": ["Calculated Final Grade", "Adjusted Final Grade"], "selected": "Calculated Final Grade"}, {"type": "checkbox", "label": "Automatically release final grade"}, {"type": "h2", "text": "Grade Calculations"}, {"type": "label", "text": "Ungraded Items"}, {"type": "radios", "options": ["Exclude ungraded items", "Treat ungraded items as 0"], "selected": "Exclude ungraded items"}, {"type": "label", "text": "Automatic Zero for Missing Submissions"}, {"type": "checkbox", "label": "Automatically apply a grade of zero (0) to missing submissions once an assessment becomes overdue"}, {"type": "label", "text": "Auto Update"}, {"type": "checkbox", "label": "Automatically keep final grades updated", "checked": true}, {"type": "buttons", "items": [{"label": "Save", "primary": true}, {"label": "Close"}]}]}, "settings-calc-points": {"extends": "settings-calc", "patch": {"radios:0": {"selected": "Points"}}}, "settings-calc-confirm": {"extends": "settings-calc-points", "add": [{"type": "dialog", "title": "Confirmation", "text": "You are about to save changes. Are you sure you want to continue?", "buttons": ["Yes", "No"]}]}, "settings-calc-confirm2": {"extends": "settings-calc-points", "add": [{"type": "dialog", "title": "Confirmation", "text": "Are you sure you want to change the Grading System for the org unit?", "buttons": ["Yes", "No"]}]}, "settings-calc-saved": {"extends": "settings-calc-points", "add": [{"type": "toast", "text": "Saved successfully"}]}, "wizard-1": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "label", "text": "Step 1 of 7"}, {"type": "h1", "text": "Step 1: Choose Grading System"}, {"type": "label", "text": "Grading System"}, {"type": "radios", "options": ["Weighted", "Points", "Formula"], "selected": "Points", "descriptions": {"Weighted": "Example:\nAssignments Category (20% of final grade)\n- Assignment 1 Item (50% of Assignments)\n- Assignment 2 Item (50% of Assignments)\nFinal Exam Item (80% of final grade)\n\nFinal Grade: /100%", "Points": "Example:\nAssignments Category (40 points)\n- Assignment 1 Item (20 points)\n- Assignment 2 Item (20 points)\nFinal Exam Item (200 points)\n\nFinal Grade: /240 points", "Formula": "Final grade is determined by a custom defined formula\nGrade items and categories use the Points system"}}, {"type": "buttons", "items": [{"label": "Continue", "primary": true}, {"label": "Cancel"}]}]}, "wizard-2": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "label", "text": "Step 2 of 7"}, {"type": "h1", "text": "Step 2: Final Grade Released"}, {"type": "label", "text": "Release"}, {"type": "radios", "options": ["Calculated Final Grade", "Adjusted Final Grade"], "selected": "Calculated Final Grade", "descriptions": {"Calculated Final Grade": "The grade that is achieved by users based on the grading formula set up in the grade book. It cannot be adjusted without editing grade item scores.", "Adjusted Final Grade": "Allows you to modify or adjust users' grades before releasing them."}}, {"type": "checkbox", "label": "Automatically release final grade"}, {"type": "text", "text": "When enabled, the system automatically marks users' final grades as released once created. You may still alter the release status after being automatically released."}, {"type": "buttons", "items": [{"label": "Continue", "primary": true}, {"label": "Go Back"}, {"label": "Cancel"}]}]}, "wizard-3": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "label", "text": "Step 3 of 7"}, {"type": "h1", "text": "Step 3: Grade Calculations"}, {"type": "label", "text": "Ungraded Items"}, {"type": "radios", "options": ["Drop ungraded items", "Treat ungraded items as 0"], "selected": "Drop ungraded items"}, {"type": "label", "text": "Automatic Zero for Missing Submissions"}, {"type": "checkbox", "label": "Automatically apply a grade of zero (0) to missing submissions once an assessment becomes overdue"}, {"type": "text", "text": "Changes to this setting only take effect on assessments with future due dates"}, {"type": "label", "text": "Auto Update"}, {"type": "checkbox", "label": "Automatically keep final grade updated", "checked": true}, {"type": "buttons", "items": [{"label": "Continue", "primary": true}, {"label": "Go Back"}, {"label": "Cancel"}]}]}, "wizard-4": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "label", "text": "Step 4 of 7"}, {"type": "h1", "text": "Step 4: Choose Default Grade Scheme"}, {"type": "table", "columns": ["Scheme Name", "Default Scheme", "Preview"], "rows": [["Organization Schemes", "", ""], ["Percentage", "(selected)", ""]]}, {"type": "buttons", "items": [{"label": "Continue", "primary": true}, {"label": "Go Back"}, {"label": "Cancel"}]}]}, "wizard-5": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "label", "text": "Step 5 of 7"}, {"type": "h1", "text": "Step 5: Managing View Display Options"}, {"type": "field", "label": "Number of decimal places to display", "value": "2"}, {"type": "buttons", "items": [{"label": "Continue", "primary": true}, {"label": "Go Back"}, {"label": "Cancel"}]}]}, "wizard-6": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "label", "text": "Step 6 of 7"}, {"type": "h1", "text": "Step 6: Student View Display Options"}, {"type": "label", "text": "Grade Details"}, {"type": "checkbox", "label": "Points grade", "checked": true}, {"type": "checkbox", "label": "Weighted grade", "checked": true}, {"type": "checkbox", "label": "Grade scheme symbol", "checked": true}, {"type": "checkbox", "label": "Grade scheme color", "checked": true}, {"type": "field", "label": "Number of decimal places to display", "value": "2"}, {"type": "field", "label": "Number of characters to display for Text items", "value": "15"}, {"type": "label", "text": "Final Grade Calculation"}, {"type": "checkbox", "label": "Display final grade calculation to users"}, {"type": "buttons", "items": [{"label": "Continue", "primary": true}, {"label": "Go Back"}, {"label": "Cancel"}]}]}, "wizard-7": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "label", "text": "Step 7 of 7"}, {"type": "h1", "text": "Step 7: Grades Setup Summary"}, {"type": "kv", "items": [["Grading System", "Weighted"], ["Final Grade To Release", "Release the Calculated Final Grade\nDo not automatically release final grade"], ["Grade Calculations", "Drop ungraded items\nAutomatically keep final grades updated\nDo not apply automatic zeros to missing submissions"], ["Default Grade Scheme", "Percentage"], ["Managing View Display Options", "Display 2 decimal places for grade item values"], ["Student View Display Options", "Display points grade values\nDisplay weighted grade values\nDisplay grade scheme symbols\nDisplay grade scheme colors\nDisplay 2 decimal places for grade item values\nDisplay 15 characters for Text type grade item values\nDo not display the final grade calculation to users"]]}, {"type": "buttons", "items": [{"label": "Finish", "primary": true}, {"label": "Go Back"}, {"label": "Cancel"}]}]}, "grade-options": {"blocks": [{"type": "tooltabs", "items": ["Enter Grades", "Manage Grades", "Schemes", "Setup Wizard"], "active": "Setup Wizard", "right": ["Settings", "Help"]}, {"type": "text", "text": "You are now ready to create grade items and categories"}, {"type": "h1", "text": "Grade Options"}, {"type": "linklist", "items": ["Create a New Grade Category", "Create a New Grade Item", "Import Grades", "Create a New Grade Scheme", "Manage Grade Items and Categories", "Enter Grades"]}, {"type": "toast", "text": "Saved successfully"}]}}, "steps": [{"id": "orient-manage-vs-enter", "section": "A. Orientation: the four Grades tabs", "screen": "grades-wizard-landing", "target": "Manage Grades", "title": "Manage Grades tab (structure)", "card": "WHAT: the structure tab: categories, items, maximum points, weights. Nothing here is a learner score.\nEnter Grades, to its left, is the spreadsheet of learner scores. Schemes holds the letter or symbol scale. Setup Wizard sets the calculation policy.\nWHY: most gradebook tickets start with knowing which of these two tabs the educator was on.\nTICKET: \"I changed the assignment to be out of 50 but Sarah still shows 40/100.\" Max points is fixed in Manage Grades; her score is fixed in Enter Grades.\nNEXT: nothing to click yet; the wizard landing page is where a brand-new course opens.", "action": "look", "actionLabel": "Read only. No click.", "next": "manage-grades-quizzes", "evidence": "live"}, {"id": "undo-more-actions", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "manage-grades-quizzes", "target": "More Actions", "title": "More Actions (Manage Grades tab)", "card": "WHAT: bulk operations on the gradebook structure. On MSU's instance the menu holds Reorder, View Event Log, Make Visible to Users, Hide from Users, Delete.\nWHY NOW: deleting a category or item lives here, not in the row menu. (Import and Export are under Enter Grades, not here.)\nTICKET: \"I can't find where to delete a grade item.\" Answer: Manage Grades > More Actions > Delete.\nNEXT: the dropdown opens under the button.", "action": "click", "actionLabel": "Click More Actions", "next": "manage-grades-menu", "evidence": "live"}, {"id": "undo-delete-menu", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "manage-grades-menu", "target": "Delete", "title": "Delete (menu item)", "card": "WHAT: opens the Delete Grade Items and Categories page, where you pick what to remove.\nWHY: deletion is a bulk action across the whole structure, so it sits under More Actions rather than on a single row.\nTICKET: \"How do I remove a category I created by mistake?\" Same route. If it already holds scores, stop and confirm with the educator first.\nNEXT: a page with a checkbox beside each item and category.", "action": "click", "actionLabel": "Click Delete", "next": "delete-items", "evidence": "live"}, {"id": "undo-tick-quizzes", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "delete-items", "target": "Quizzes", "title": "Delete Grade Items and Categories", "card": "WHAT: the Delete page lists every category and item you are allowed to remove. Tick a row, then press Delete.\nCAUTION: deleting an item erases every learner score stored in it. In a real course, export grades first (Enter Grades > Export).\nTICKET: \"I deleted a column by mistake, can you restore it?\" Answer: no undo in D2L; restore from an export or re-enter.\nNEXT: a confirmation prompt, then back to Manage Grades.", "action": "click", "actionLabel": "Tick Quizzes, then click Delete", "next": "delete-confirm", "evidence": "live"}, {"id": "undo-confirm-delete", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "delete-confirm", "target": "dialog:Delete", "title": "Confirmation dialog", "card": "WHAT: D2L's own warning. Deleting removes every stored score in the item, drops it from calculations, and unlinks any assignment or quiz that pointed to it.\nWHY: this text is the answer to the \"can you restore my column\" ticket. There is no undo. D2L itself suggests hiding instead.\nTICKET: \"Students lost their quiz marks after I tidied the gradebook.\" Ask what was deleted; the scores went with it.\nNEXT: Manage Grades reloads; the red note now says the final grade sums to 0%.", "action": "click", "actionLabel": "Click Delete in the dialog", "next": "manage-grades-empty", "evidence": "live"}, {"id": "undo-settings-gear", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "manage-grades-empty", "target": "Settings", "title": "Settings gear (Grades tool, top right)", "card": "WHAT: the gradebook policy page. Three tabs: Personal Display Options (your view only), Org Unit Display Options (what students see), Calculation Options (Points / Weighted / Formula, ungraded handling, final grade type).\nWHY: the same choices as the Setup Wizard, editable any time without re-running the wizard.\nTICKET: \"Students see letters but I want them to see points.\" That is Org Unit Display Options.\nNEXT: the Settings page opens on Personal Display Options.", "action": "click", "actionLabel": "Click Settings", "next": "settings-personal", "evidence": "live"}, {"id": "undo-calc-tab", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "settings-personal", "target": "Calculation Options", "title": "Calculation Options tab", "card": "WHAT: the math policy for the whole gradebook: Grading System (Points / Weighted / Formula), Final Grade Released (Calculated / Adjusted), Ungraded Items (exclude / treat as 0), automatic zeros, Auto Update.\nWHY: this is where a course was set up wrong and where you fix it. Changing Points to Weighted keeps the items but adds weight fields you must fill.\nTICKET: \"My final grade column shows out of 240 instead of a percent.\" Usually Points selected when Weighted was intended, or the reverse.\nNEXT: a form of radio buttons with Save at the bottom.", "action": "click", "actionLabel": "Click Calculation Options", "next": "settings-calc", "evidence": "live"}, {"id": "undo-points", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "settings-calc", "target": "Points", "title": "Grading System: Points (radio button)", "card": "WHAT: Points = every item adds its raw points; the final grade is earned / possible (example: /240 points).\nWeighted = each category or item is a % of the final; items still need max points.\nFormula = Points plus a custom rule (advanced; later lesson).\nWHY: switching back to Points so the lesson restarts from the original state.\nTICKET: \"I want quizzes to be 40% no matter how many points they have.\" That is Weighted.\nNEXT: Save at the bottom, then two confirmations.", "action": "click", "actionLabel": "Select Points, then click Save", "next": "settings-calc-confirm", "evidence": "live"}, {"id": "undo-confirm-save", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "settings-calc-confirm", "target": "dialog:Yes", "title": "Confirmation 1 of 2", "card": "WHAT: the first of two confirmations. The second asks: \"Are you sure you want to change the Grading System for the org unit?\"\nWHY: changing the system recalculates every learner's final grade and changes what the Weight column means.\nTICKET: \"I switched to Weighted and now everyone's final grade looks wrong.\" Weights must be assigned after the switch; look for the red note on Manage Grades.\nNEXT: the second confirmation.", "action": "click", "actionLabel": "Click Yes", "next": "settings-calc-confirm2", "evidence": "live"}, {"id": "undo-confirm-save-2", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "settings-calc-confirm2", "target": "dialog:Yes", "title": "Confirmation 2 of 2", "card": "WHAT: D2L double-checks a grading system change because it affects the org unit (this course) as a whole.\nWHY: this is the point of no return for the recalculation. Nothing is saved until this Yes.\nTICKET: \"I clicked Save on Calculation Options but nothing changed.\" They closed one of the confirmations with No or the X.\nNEXT: a green \"Saved successfully\" toast.", "action": "click", "actionLabel": "Click Yes", "next": "settings-calc-saved", "evidence": "live"}, {"id": "undo-verify", "section": "B. Undo a mistake: delete a category, reset the grading system", "screen": "settings-calc-saved", "target": "Points", "title": "Verify the saved state", "card": "CHECK: Points is selected after the save. A toast is not proof on its own; reopen the page (or the Setup Wizard summary) to confirm the setting stuck.\nRESULT in the sandbox: Grading System = Points, no categories, Final Calculated Grade weight 0.\nWORKFLOW SAVED AS: delete a category (More Actions > Delete) and change grading system (Settings > Calculation Options), both institution-verified on 2026-09-22.\nNEXT SECTION: the Setup Wizard, one screen at a time.", "action": "look", "actionLabel": "Read only. End of section B.", "next": null, "evidence": "live"}, {"id": "wiz-start", "screen": "grades-wizard-landing", "target": "Start", "title": "Setup Wizard: Start button", "card": "WHAT: the Setup Wizard walks through 7 screens of gradebook policy and ends with a summary. Above it, Current Grade Book Settings shows what is in force now (Points, calculated final grade, drop ungraded, Percentage scheme).\nWHY: run it once for a new course; afterwards use the Settings gear for single changes.\nTICKET: \"Where do I choose weighted grading?\" Either here (Step 1) or Settings > Calculation Options.\nNEXT: Step 1 of 7: Choose Grading System.", "action": "click", "actionLabel": "Click Start", "next": "wizard-1", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-1-weighted", "screen": "wizard-1", "target": "Weighted", "title": "Step 1 of 7: Grading System = Weighted", "card": "WHAT: Weighted means every top-level category or item is a percentage of the final grade, and they must add up to 100%. Inside a category, item weights are percentages of that category.\nPoints (currently selected) means raw points add up; the final is earned / possible.\nFormula is Points plus a custom expression; leave for a later lesson.\nWHY: the lab uses Weighted so we can see how a 10-point quiz can still be worth 20% of the course.\nTICKET: \"Weights add up but the note says not 100%.\" Only top-level rows count toward 100; items inside a category count toward the category.\nNEXT: Continue goes to Step 2: Final Grade Released.", "action": "click", "actionLabel": "Select Weighted, then click Continue", "next": "wizard-2", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-2-calculated", "screen": "wizard-2", "target": "Calculated Final Grade", "title": "Step 2 of 7: Final Grade Released", "card": "WHAT: which final-grade column students will eventually see. Calculated = D2L computes it from the items and keeps it current. Adjusted = a column the instructor types or copies into, then edits by hand (rounding, curving).\nYou can release only one of the two.\nWHY: keep Calculated for the lab; Adjusted comes in the calculated-vs-adjusted section later.\nTICKET: \"I bumped a student to 90 but they still see 89.4.\" The course releases Calculated, and the edit went into Adjusted (or the reverse).\nBELOW: Automatically release final grade. Leave it off; releasing is a deliberate step we practise later.\nNEXT: Step 3: Grade Calculations.", "action": "click", "actionLabel": "Keep Calculated Final Grade, click Continue", "next": "wizard-3", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-3-drop-ungraded", "screen": "wizard-3", "target": "Drop ungraded items", "title": "Step 3 of 7: Grade Calculations", "card": "WHAT: how a blank cell counts. Drop ungraded items = a blank is left out of the denominator, so the running total reflects only graded work. Treat ungraded items as 0 = a blank counts as zero, so the running total looks like a final grade all term.\nBelow: Automatically apply a grade of zero to missing submissions once overdue (present on MSU, off by default, future due dates only). Auto Update = recalculate the final grade every time a score changes.\nWHY: keep Drop ungraded for the lab so we can show both behaviours with the same data.\nTICKET: \"Everyone's grade dropped 30% overnight.\" Someone switched to Treat as 0 with blanks still in the book. MSU's tip: enter earned zeros instead.\nNEXT: Step 4: Default Grade Scheme.", "action": "click", "actionLabel": "Keep Drop ungraded items, click Continue", "next": "wizard-4", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-4-scheme", "screen": "wizard-4", "target": "Percentage", "title": "Step 4 of 7: Default Grade Scheme", "card": "WHAT: a grade scheme maps a percentage to a symbol (letter, 4.0 value, Pass). It changes how a grade is displayed, never how it is calculated.\nOnly the organization scheme Percentage exists in this course. Course schemes are made on the Schemes tab (we build a 4.0-style one later).\nWHY: the default scheme applies to every item and to the final grade unless an item overrides it.\nTICKET: \"Students see 3.5 on one quiz and 87% on another.\" One item has its own scheme; check Manage Grades > item > Display Options.\nNEXT: Step 5: Managing View Display Options.", "action": "click", "actionLabel": "Keep Percentage, click Continue", "next": "wizard-5", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-5-decimals", "screen": "wizard-5", "target": "Number of decimal places to display", "title": "Step 5 of 7: Managing View Display Options", "card": "WHAT: Step 5 has one setting: decimals shown to YOU in Enter Grades (default 2). It does not round the stored value.\nWHY: leave at 2. Rounding disputes usually come from the student-facing decimals on the next screen, not this one.\nTICKET: \"The gradebook shows 89.5 but the student sees 90.\" Compare the managing-view decimals (here) with the student-view decimals (Step 6).\nNEXT: Step 6: Student View Display Options.", "action": "click", "actionLabel": "Keep 2, click Continue", "next": "wizard-6", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-6-student-view", "screen": "wizard-6", "target": "Display final grade calculation to users", "title": "Step 6 of 7: Student View Display Options", "card": "WHAT: what students see on each grade: Points grade (8/10), Weighted grade (16/20 of the course), Grade scheme symbol (letter or 4.0), Grade scheme color. Plus decimals, text length, and this checkbox.\nThis checkbox shows students a small calculator icon with the breakdown of their final grade. It is NOT the same as releasing the final grade; MSU's tips page makes the same distinction.\nWHY: leave it off for now; we switch it on in the visibility section.\nTICKET: \"Students can see the calculation but not the final grade\" or the reverse: two separate settings.\nNEXT: Step 7: summary, then Finish.", "action": "click", "actionLabel": "Leave unchecked, click Continue", "next": "wizard-7", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-7-finish", "screen": "wizard-7", "target": "Finish", "title": "Step 7 of 7: Summary and Finish", "card": "WHAT: the summary lists every choice; nothing is saved until Finish.\nCHECK before clicking: Weighted; Release the Calculated Final Grade; Do not automatically release; Drop ungraded items; Automatically keep final grades updated; Percentage scheme.\nTICKET: \"I ran the wizard but my settings did not change.\" They pressed Cancel or closed the tab on step 7.\nNEXT: a Grade Options page with links to create a category, an item, a scheme, or enter grades.", "action": "click", "actionLabel": "Click Finish", "next": "grade-options", "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}, {"id": "wiz-done", "screen": "grade-options", "target": "Create a New Grade Category", "title": "Grade Options (wizard finished)", "card": "CHECK: the toast says Saved successfully and the Grade Options links appear. The same links exist as New > Category / New > Item on Manage Grades.\nRESULT in the sandbox: Weighted, Calculated, not auto-released, Drop ungraded, auto-update on, Percentage. Verified on the wizard summary screen.\nNEXT SECTION: build the structure: Quizzes category (40%), Q1 and Q2 (10 points each, evenly weighted), Project item (100 points, 60%).", "action": "look", "actionLabel": "Read only. End of section C.", "next": null, "section": "C. Setup Wizard: the seven policy screens", "evidence": "live"}]};
+let TOUR = null, idx = 0, playing = false, timerId = null, tickId = null, remaining = 0;
+const $ = s => document.querySelector(s);
+
+function resolveScreen(id, depth = 0) {
+  const s = TOUR.screens[id];
+  if (!s) return { blocks: [{ type: 'text', text: 'Screen "' + id + '" is not defined in this tour file.' }] };
+  if (!s.extends) return { blocks: JSON.parse(JSON.stringify(s.blocks || [])) };
+  if (depth > 10) return { blocks: [] };
+  const base = resolveScreen(s.extends, depth + 1);
+  let blocks = base.blocks;
+  if (s.patch) for (const key in s.patch) {
+    const [type, n] = key.split(':');
+    let count = 0;
+    for (const b of blocks) if (b.type === type) { if (count === Number(n || 0)) Object.assign(b, s.patch[key]); count++; }
+  }
+  if (s.add) blocks = blocks.concat(JSON.parse(JSON.stringify(s.add)));
+  return { blocks };
+}
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function tgt(e, label) { e.dataset.t = label; return e; }
+
+function renderScreen(id) {
+  const scr = resolveScreen(id);
+  const root = $('#screen'); root.innerHTML = '';
+  const nav = el('div', 'd2l-nav');
+  nav.append(el('span', 'brand', 'Same Playground'));
+  for (const item of ['Course Home', 'Content', 'Course Tools', 'Assessments', 'Communication', 'Help', 'Course Admin', 'More']) {
+    const s = el('span', ['Course Tools', 'Assessments', 'Communication', 'More'].includes(item) ? 'caret' : '', item); tgt(s, item); nav.append(s);
+  }
+  nav.append(el('span', 'user', 'Sandbox user'));
+  root.append(nav);
+  let body = null; let lastBtnRow = null; let dialogPending = [];
+  const ensureBody = () => { if (!body) { body = el('div', 'body'); root.append(body); } return body; };
+  for (const b of scr.blocks) {
+    switch (b.type) {
+      case 'tooltabs': {
+        const t = el('div', 'tooltabs');
+        for (const it of b.items) t.append(tgt(el('span', 'tab' + (it === b.active ? ' active' : ''), it), it));
+        if (b.right) { const r = el('div', 'right'); for (const u of b.right) r.append(tgt(el('span', 'util' + (u === 'Help' ? ' help' : ''), u), u)); t.append(r); }
+        root.append(t); break; }
+      case 'h1': ensureBody().append(tgt(el('h1', '', b.text), b.text)); break;
+      case 'h2': ensureBody().append(tgt(el('h2', '', b.text), b.text)); break;
+      case 'label': ensureBody().append(el('div', 'lbl', b.text)); break;
+      case 'text': ensureBody().append(el('p', '', b.text)); break;
+      case 'kv': { const k = el('div', 'kv'); for (const [kk, vv] of b.items) { k.append(el('div', 'k', kk)); k.append(el('div', 'v', vv)); } ensureBody().append(k); break; }
+      case 'buttons': { const r = el('div', 'btnrow'); for (const it of b.items) { const bt = el('span', 'btn' + (it.primary ? ' primary' : '') + (it.caret ? ' caret' : ''), it.label); tgt(bt, it.label); r.append(bt); } ensureBody().append(r); lastBtnRow = r; break; }
+      case 'note': { const bd = ensureBody(); bd.append(el('div', 'note', 'Note')); const ul = el('ul'); ul.append(el('li', '', b.text)); bd.append(ul); break; }
+      case 'link': ensureBody().append(tgt(el('div', 'link', b.text), b.text)); break;
+      case 'table': {
+        const t = el('table', 'grid'); const thead = el('thead'); const tr = el('tr');
+        if (b.checkbox) tr.append(el('th', '', ''));
+        for (const c of b.columns) tr.append(el('th', '', c)); thead.append(tr); t.append(thead);
+        const tb = el('tbody');
+        if (!b.rows.length) { const r = el('tr'); const td = el('td', 'empty', 'There are no grade items or categories.'); td.colSpan = b.columns.length + 1; r.append(td); tb.append(r); }
+        for (const row of b.rows) { const r = el('tr'); if (b.checkbox) { const td = el('td'); td.append(el('span', 'cb' + (row.checked ? ' on' : ''))); r.append(td); } const cells = Array.isArray(row) ? row : row.cells; cells.forEach((c, i) => { const td = el('td', i === 0 ? 'name' : ''); if (i === 0) { const sp = el('span', 'rowlabel', c); tgt(sp, c); td.append(sp); } else td.textContent = c; r.append(td); }); tb.append(r); }
+        t.append(tb); ensureBody().append(t); break; }
+      case 'tabs': { const t = el('div', 'tabs'); for (const it of b.items) t.append(tgt(el('span', 'tab' + (it === b.active ? ' active' : ''), it), it)); ensureBody().append(t); break; }
+      case 'radios': { const bd = ensureBody(); for (const o of b.options) { const c = el('div', 'choice'); c.append(el('span', 'rd' + (o === b.selected ? ' on' : ''))); c.append(tgt(el('span', 'txt', o), o)); c.append(el('span', 'help')); bd.append(c); if (b.descriptions && b.descriptions[o]) bd.append(el('div', 'desc', b.descriptions[o])); } break; }
+      case 'checkbox': { const c = el('div', 'choice'); c.append(el('span', 'cb' + (b.checked ? ' on' : ''))); c.append(tgt(el('span', 'txt', b.label), b.label)); c.append(el('span', 'help')); ensureBody().append(c); break; }
+      case 'field': { const f = el('div', 'field' + (b.wide ? ' wide' : '')); f.append(el('div', 'lbl', b.label)); const inp = el('input'); inp.value = b.value || ''; inp.readOnly = true; tgt(inp, b.label); f.append(inp); ensureBody().append(f); break; }
+      case 'linklist': { const l = el('div', 'linklist'); for (const it of b.items) l.append(tgt(el('a', '', it), it)); ensureBody().append(l); break; }
+      case 'menu': { if (!lastBtnRow) break; const anchor = [...lastBtnRow.children].find(x => x.dataset.t === b.anchor); const m = el('div', 'menu'); m.style.left = (anchor ? anchor.offsetLeft : 0) + 'px'; for (const it of b.items) m.append(tgt(el('div', 'mi', it), 'menu:' + it)); lastBtnRow.append(m); break; }
+      case 'dialog': dialogPending.push(b); break;
+      case 'toast': { const t = el('div', 'toast', b.text); root.append(t); break; }
+    }
+  }
+  for (const d of dialogPending) {
+    root.append(el('div', 'dialog-back'));
+    const dg = el('div', 'dialog'); dg.append(el('h3', '', d.title || 'Confirmation')); dg.append(el('div', 'dtext', d.text || ''));
+    const r = el('div', 'btnrow'); d.buttons.forEach((lab, i) => r.append(tgt(el('span', 'btn' + (i === 0 ? ' primary' : ''), lab), 'dialog:' + lab))); dg.append(r); root.append(dg);
+  }
+}
+
+function findTarget(label) {
+  const root = $('#screen');
+  let e = root.querySelector('[data-t="' + CSS.escape(label) + '"]');
+  if (!e && !label.includes(':')) e = root.querySelector('[data-t="menu:' + CSS.escape(label) + '"]') || root.querySelector('[data-t="dialog:' + CSS.escape(label) + '"]');
+  return e;
+}
+
+function fmtCard(text) {
+  return text.split('\n').map(line => line.replace(/^(WHAT|WHY NOW|WHY|TICKET|NEXT|CAUTION|CHECK|RESULT[^:]*|WORKFLOW SAVED AS|NEXT SECTION):/, '<span class="kw">$1:</span>')).join('<br>');
+}
+
+function drawOverlay(step) {
+  const root = $('#screen');
+  root.querySelectorAll('.ov-box,.ov-card').forEach(n => n.remove());
+  const t = findTarget(step.target);
+  const rr = root.getBoundingClientRect();
+  let box = null;
+  if (t) {
+    const r = t.getBoundingClientRect(); const pad = 4;
+    box = el('div', 'ov-box'); box.id = 'ovBox';
+    Object.assign(box.style, { left: (r.left - rr.left - pad) + 'px', top: (r.top - rr.top - pad) + 'px', width: (r.width + 2 * pad) + 'px', height: (r.height + 2 * pad) + 'px' });
+    root.append(box);
+  }
+  const card = el('div', 'ov-card');
+  card.innerHTML = '<div class="ct"><span class="cnt" id="cardCnt"></span>' + esc(step.title || step.target) + '</div>' + fmtCard(esc(step.card)) + '<div class="act">Action: ' + esc(step.actionLabel || step.action) + (t ? '' : ' <span style="color:#a00">(target "' + esc(step.target) + '" not found on this screen)</span>') + '</div>';
+  root.append(card);
+  const cw = card.offsetWidth, ch = card.offsetHeight;
+  if (t) {
+    const r = t.getBoundingClientRect();
+    let left = r.left - rr.left; if (left + cw > root.clientWidth - 12) left = Math.max(12, root.clientWidth - cw - 12);
+    let top = r.bottom - rr.top + 12;
+    if (r.right - rr.left + cw + 40 < root.clientWidth && !t.closest('.dialog')) { left = r.right - rr.left + 24; top = Math.max(8, r.top - rr.top - 6); }
+    const dlg = t.closest('.dialog');
+    if (dlg) { const dr = dlg.getBoundingClientRect(); if (dr.right - rr.left + cw + 24 < root.clientWidth) { left = dr.right - rr.left + 16; top = dr.top - rr.top; } else { top = dr.bottom - rr.top + 12; } }
+    card.style.left = left + 'px'; card.style.top = top + 'px';
+    const need = top + ch + 20; if (need > root.offsetHeight) root.style.minHeight = need + 'px';
+    if (t.scrollIntoView) t.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  } else { card.style.left = '24px'; card.style.top = '120px'; }
+}
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+function show(i) {
+  idx = Math.max(0, Math.min(i, TOUR.steps.length - 1));
+  const step = TOUR.steps[idx];
+  $('#screen').style.minHeight = '';
+  renderScreen(step.screen);
+  drawOverlay(step);
+  $('#prog').style.width = ((idx + 1) / TOUR.steps.length * 100) + '%';
+  $('#secName').textContent = step.section || '';
+  $('#stepCount').textContent = 'Step ' + (idx + 1) + ' of ' + TOUR.steps.length + ': ' + (step.title || step.target);
+  $('#cardText').textContent = step.card + '\n\nAction: ' + (step.actionLabel || step.action);
+  document.querySelectorAll('.transcript .ti').forEach((n, k) => n.classList.toggle('cur', k === idx));
+  const cur = document.querySelector('.transcript .ti.cur'); if (cur) cur.scrollIntoView({ block: 'nearest' });
+  $('#btnBack').disabled = idx === 0; $('#btnNext').disabled = idx === TOUR.steps.length - 1;
+  if (playing) armTimer();
+}
+function armTimer() {
+  clearTimeout(timerId); clearInterval(tickId);
+  remaining = Number($('#speed').value);
+  const upd = () => { $('#timer').textContent = playing ? 'Next step in ' + remaining + 's' : ''; const c = $('#cardCnt'); if (c) c.textContent = playing ? remaining + 's' : ''; };
+  upd();
+  tickId = setInterval(() => { remaining--; upd(); }, 1000);
+  timerId = setTimeout(() => {
+    clearInterval(tickId);
+    const b = $('#ovBox'); if (b) b.classList.add('flash');
+    setTimeout(() => { if (idx < TOUR.steps.length - 1) show(idx + 1); else setPlaying(false); }, 700);
+  }, remaining * 1000);
+}
+function setPlaying(p) {
+  playing = p; $('#btnPlay').innerHTML = p ? '&#10074;&#10074; Pause' : '&#9654; Play';
+  if (p) armTimer(); else { clearTimeout(timerId); clearInterval(tickId); $('#timer').textContent = 'Paused'; const c = $('#cardCnt'); if (c) c.textContent = ''; }
+}
+function buildTranscript() {
+  const t = $('#transcript'); t.innerHTML = ''; let lastSec = null;
+  TOUR.steps.forEach((s, i) => {
+    if (s.section !== lastSec) { t.append(el('div', 'sech', s.section || 'Steps')); lastSec = s.section; }
+    const d = el('div', 'ti', (i + 1) + '. ' + (s.title || s.target)); d.onclick = () => { setPlaying(false); show(i); }; t.append(d);
+  });
+}
+function loadTour(t) {
+  TOUR = t; $('#tourTitle').textContent = t.title || 'Brightspace Tour Player'; document.title = (t.title || 'Tour') + ' (simulation)';
+  const env = t.environment || {};
+  $('#tourMeta').textContent = [t.tour_id, 'recorded ' + (t.recorded || '?'), env.institution, env.course].filter(Boolean).join(' | ');
+  buildTranscript(); setPlaying(false); show(0);
+}
+$('#btnPlay').onclick = () => { if (!playing && idx === TOUR.steps.length - 1) show(0); setPlaying(!playing); };
+$('#btnBack').onclick = () => { setPlaying(false); show(idx - 1); };
+$('#btnNext').onclick = () => { const p = playing; show(idx + 1); if (!p) setPlaying(false); };
+$('#btnRestart').onclick = () => { setPlaying(false); show(0); };
+$('#speed').oninput = e => { $('#speedVal').textContent = e.target.value; if (playing) armTimer(); };
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.code === 'Space') { e.preventDefault(); $('#btnPlay').click(); }
+  else if (e.key === 'ArrowRight') $('#btnNext').click();
+  else if (e.key === 'ArrowLeft') $('#btnBack').click();
+  else if (e.key.toLowerCase() === 'r') $('#btnRestart').click();
+});
+$('#fileIn').onchange = e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { try { loadTour(JSON.parse(rd.result)); } catch (err) { alert('Could not read that tour file: ' + err.message); } }; rd.readAsText(f); };
+window.addEventListener('resize', () => { if (TOUR) drawOverlay(TOUR.steps[idx]); });
+if (EMBEDDED_TOUR) loadTour(EMBEDDED_TOUR); else $('#screen').innerHTML = '<div class="body"><p>No tour embedded. Use "Load another tour file" in the side panel.</p></div>';
+</script>
+</body>
+</html>
