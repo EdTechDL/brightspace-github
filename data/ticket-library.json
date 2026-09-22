@@ -1,0 +1,590 @@
+[
+  {
+    "id": "grades-final-not-visible",
+    "title": "Assessment grades are visible, but the course total is missing",
+    "keywords": [
+      "final grade",
+      "overall grade",
+      "cannot see total",
+      "release",
+      "publish"
+    ],
+    "symptom": "Faculty can see an overall total, while learners see individual assessment marks but no final grade.",
+    "check": [
+      "In Grades → Settings → Calculation Options, identify whether Calculated or Adjusted Final Grade is selected for release.",
+      "In Enter Grades, inspect the selected final column for the affected learner: distinguish an existing unreleased value from an empty value.",
+      "Open the final column’s menu → Enter Grades and inspect Released. Identify whether the intended scope is one learner or the whole class."
+    ],
+    "distinction": "Calculating a total, publishing assessment feedback, displaying the calculation breakdown, and releasing the final grade are separate operations.",
+    "verify": "After the authorized release, confirm the selected value in an approved learner view. The local release-final tour rehearses this distinction with synthetic records.",
+    "tourId": "release-final",
+    "screenId": "grades-final-grades",
+    "tool": "Grades",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34125-enter-grades-in-the-grades-tool",
+    "coverage": "working"
+  },
+  {
+    "id": "grades-syllabus-weights",
+    "title": "The final percentage does not match the syllabus",
+    "keywords": [
+      "weighted",
+      "points",
+      "weight",
+      "category",
+      "syllabus",
+      "wrong total"
+    ],
+    "symptom": "The entered assessment scores appear correct, but the faculty member’s manual total differs from Brightspace.",
+    "check": [
+      "Compare the syllabus calculation with Grades → Settings → Calculation Options: Points, Weighted, or Formula.",
+      "In Manage Grades, separate top-level course weights from item weights inside each category; inspect category placement and maximum points.",
+      "Recalculate one anonymized example independently, including blanks and exemptions, before changing the structure."
+    ],
+    "distinction": "A 50% item inside a category worth 40% contributes 20% of the course. Maximum points determine contribution in Points, but explicit weights determine it in Weighted.",
+    "verify": "Explain the difference numerically. The sample’s scores produce 82% in Weighted and 86.67% in Points; matching one is meaningful only after confirming the intended policy.",
+    "tourId": "grade-setup",
+    "screenId": "grades-settings-calculation",
+    "tool": "Grades",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3521-grading-systems-types",
+    "coverage": "working"
+  },
+  {
+    "id": "grades-blank-zero",
+    "title": "A running grade suddenly fell, or missing work is being ignored",
+    "keywords": [
+      "blank",
+      "zero",
+      "ungraded",
+      "missing work",
+      "running grade",
+      "average dropped"
+    ],
+    "symptom": "Learners report a much lower total after a setting change, or a higher total despite missing required work.",
+    "check": [
+      "Inspect the actual affected cells: blank, recorded 0, and Exempt have different meanings.",
+      "Review Grades → Settings → Calculation Options → Grade Calculations; compare Exclude ungraded items with Treat ungraded items as 0.",
+      "Separate future/ungraded assessments from overdue required work, then check whether automatic overdue zeros are enabled and supported."
+    ],
+    "distinction": "The blank-handling policy changes the calculation. Automatic zero grading records zeros for supported overdue work; a manually recorded zero remains included under either blank policy.",
+    "verify": "With the sample’s Quiz 2 blank, the two policies produce 86% and 70%. Validate the real result against the intended missing-work policy, not the higher-looking total.",
+    "tourId": "blank-zero",
+    "screenId": "grades-wizard-step-3",
+    "tool": "Grades",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "coverage": "working"
+  },
+  {
+    "id": "grades-score-versus-maximum",
+    "title": "An assessment is out of the wrong number of points",
+    "keywords": [
+      "maximum points",
+      "out of 50",
+      "out of 100",
+      "denominator",
+      "score",
+      "grade out of"
+    ],
+    "symptom": "An educator intended a 50-point assessment, but the grade column is out of 100 and the percentage looks wrong.",
+    "check": [
+      "Identify the exact grade item and any associated activity; similarly named columns may not be the same assessment.",
+      "Compare the item’s Maximum Points with the intended assessment scale and inspect one learner’s existing earned score.",
+      "Determine whether the maximum was configured incorrectly or scores were entered on a different scale; assess the effect on other learners before proposing a correction."
+    ],
+    "distinction": "Changing a maximum changes the denominator for the whole item. Changing an earned score changes one learner’s result; neither automatically expresses the educator’s intended rescaling.",
+    "verify": "After a scoped correction, verify both the earned/possible display and one independently calculated percentage. The captured numeric-item form shows fields, not verified rescaling behavior.",
+    "screenId": "grades-new-item-numeric",
+    "tool": "Grades",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3553-manage-grades-in-the-grades-tool",
+    "coverage": "captured-reference"
+  },
+  {
+    "id": "grades-adjusted-stale",
+    "title": "The instructor changed a final grade, but the learner sees another value",
+    "keywords": [
+      "adjusted",
+      "calculated",
+      "manual final",
+      "rounded final",
+      "changed final"
+    ],
+    "symptom": "The educator entered an adjusted result, but learners still see the calculated result or an older adjusted value.",
+    "check": [
+      "Compare the Calculated and Adjusted Final Grade values for the same learner in Enter Grades.",
+      "Check Final Grade Released in Calculation Options and the learner’s release flag.",
+      "Establish whether an adjusted value was transferred before later assessment changes; it requires separate maintenance."
+    ],
+    "distinction": "Adjusted is an independently maintained final value. Recalculating assessment totals does not automatically update that manual value, and only the selected final type is released.",
+    "verify": "Confirm the intended final type, its exact value, and learner visibility together. Do not alter assessment scores merely to make the calculated column imitate an intentional adjustment.",
+    "tourId": "release-final",
+    "screenId": "grades-settings-calculation",
+    "tool": "Grades",
+    "source": "https://help.d2l.msu.edu/msu-docs/d2l-grades-at-msu/d2l-gradebook-tips",
+    "coverage": "working"
+  },
+  {
+    "id": "grades-extra-credit-cap",
+    "title": "Extra credit appears in its column but does not increase the total as expected",
+    "keywords": [
+      "bonus",
+      "extra credit",
+      "can exceed",
+      "100 percent",
+      "cap"
+    ],
+    "symptom": "Bonus credit is recorded, but the category or final total stops increasing or is capped at 100%.",
+    "check": [
+      "Establish whether this is a bonus item or an above-maximum score on an ordinary item.",
+      "Inspect the item’s Bonus and Can Exceed settings, then the containing category’s cap and the final grade’s cap.",
+      "For Weighted, trace the bonus weight through its category weight; an uncategorized bonus uses its own course-level weight."
+    ],
+    "distinction": "Bonus adds earned credit without expanding the normal denominator. Can Exceed controls a cap; enabling it only on the item does not remove category or final caps.",
+    "verify": "Work through one numerical example at each level. Confirm that the resulting total follows the approved extra-credit policy. There is no dedicated working tour for this case.",
+    "tool": "Grades",
+    "source": "https://help.d2l.msu.edu/msu-docs/d2l-grades-at-msu/d2l-gradebook-extra-credit",
+    "coverage": "documentation"
+  },
+  {
+    "id": "grades-drop-lowest",
+    "title": "Dropping the lowest quiz does not produce the expected result",
+    "keywords": [
+      "drop lowest",
+      "drop highest",
+      "lowest quiz",
+      "category drop",
+      "excluded quiz"
+    ],
+    "symptom": "The educator expects the lowest quiz to be ignored, but the category total or an interim calculation disagrees.",
+    "check": [
+      "Confirm all intended quizzes belong to the same category and inspect its distribution and drop count.",
+      "Check eligible non-bonus items, maximum points, weights, exemptions, and remaining items; exemptions are removed before the drop rule.",
+      "Identify whether the disputed value is Final Calculated Grade or a separate interim Calculated item, whose handling can depend on administrator configuration."
+    ],
+    "distinction": "Category dropping is not the same as excluding an assessment for everyone or exempting one learner. Different calculation contexts may not use the same drop behavior.",
+    "verify": "Reproduce the selected dropped item and the remaining denominator for one learner. Keep partial or unequal-item examples outside the simulator’s documented subset.",
+    "tool": "Grades",
+    "source": "https://community.d2l.com/brightspace/kb/articles/6122-drop-the-lowest-grade",
+    "coverage": "documentation"
+  },
+  {
+    "id": "grades-deleted-column",
+    "title": "A grade column was deleted during cleanup",
+    "keywords": [
+      "deleted grade",
+      "restore grade",
+      "missing column",
+      "event log",
+      "deleted category"
+    ],
+    "symptom": "A faculty member removed a column or category and now cannot find the expected grade structure.",
+    "check": [
+      "Determine whether a category, an individual item, or a larger gradebook operation was removed; deleting a category leaves its items standalone.",
+      "Inspect Grades → Manage Grades → More Actions → View Event Log for the affected item and an available Restore action.",
+      "Check item type and Manage Grades permission; Formula and Calculated grade items are excluded from the documented restoration option."
+    ],
+    "distinction": "There is a documented restore route for eligible deleted items. “No undo exists” is not a correct general answer, and an empty category is not the same as its contained score columns.",
+    "verify": "Verify the recovered item, relevant learner scores, and resulting calculation. The menu was captured; the local restoration form is a teaching model rather than a captured restoration test.",
+    "screenId": "grades-manage-more-actions-menu",
+    "tool": "Grades",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5190-delete-grade-items-or-categories",
+    "coverage": "captured-reference"
+  },
+  {
+    "id": "grades-letter-disagrees",
+    "title": "The percentage and letter or 4.0 grade appear inconsistent",
+    "keywords": [
+      "grade scheme",
+      "letter grade",
+      "4.0",
+      "rounding",
+      "threshold",
+      "percentage display"
+    ],
+    "symptom": "A displayed percentage seems to qualify for one grade label, but the learner receives a different symbol.",
+    "check": [
+      "Inspect the applicable scheme under Grades → Schemes and compare its Start % boundaries with the approved grading scale.",
+      "Check whether the individual item or final grade uses a different scheme from the course default.",
+      "Distinguish the stored percentage from displayed decimals; for Selectbox items, also inspect the scheme’s Assigned Value %."
+    ],
+    "distinction": "Numeric items use scheme ranges to display achievement. Selectbox choices can supply an assigned numeric percentage, so schemes are not universally display-only.",
+    "verify": "Check a value immediately below and above the disputed threshold against the intended scale. Do not introduce a rounding policy simply to make the label match a rounded display.",
+    "screenId": "grades-new-scheme",
+    "tool": "Grades",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34122-create-grading-schemes-using-the-grades-tool",
+    "coverage": "captured-reference"
+  },
+  {
+    "id": "assignment-grade-association",
+    "title": "An assignment created a duplicate grade column or writes to the wrong one",
+    "keywords": [
+      "duplicate column",
+      "link grade item",
+      "grade association",
+      "not in grade book",
+      "wrong column"
+    ],
+    "symptom": "Faculty see two similarly named columns, or an assignment result appears in an unexpected grade item.",
+    "check": [
+      "In Manage Grades, compare the columns and their Association rather than relying on names alone.",
+      "In the assignment editor, inspect In Grade Book → Edit or Link to Existing and identify the linked numeric item.",
+      "Compare maximum points and existing scores before deciding which association or duplicate needs correction."
+    ],
+    "distinction": "The assignment activity and its grade item are separate objects connected by an association. Renaming either does not prove they are linked correctly.",
+    "verify": "Verify the chosen association and a published evaluation’s destination without deleting existing scored columns as a shortcut. This simulator stores links but does not reproduce grading synchronization.",
+    "screenId": "assignment-edit-or-link-dialog",
+    "tool": "Assignments",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3519-create-a-grading-system",
+    "coverage": "captured-reference"
+  },
+  {
+    "id": "assignment-feedback-draft",
+    "title": "The assignment has been marked, but learners cannot see the feedback",
+    "keywords": [
+      "assignment feedback",
+      "save draft",
+      "publish feedback",
+      "marked but invisible",
+      "evaluation"
+    ],
+    "symptom": "The evaluator sees a score and comments, while the learner sees no assignment result.",
+    "check": [
+      "Open the affected learner’s evaluation and inspect whether the work is saved as draft or published.",
+      "Confirm the result is for the correct learner and submission, then inspect the associated grade item’s visibility separately.",
+      "Establish whether publication is intended for this learner now or for the class together before choosing the publication scope."
+    ],
+    "distinction": "Saving evaluation work and publishing it are different states. Releasing the course final grade does not publish an assignment’s draft feedback.",
+    "verify": "Confirm the published score and feedback in the learner’s assignment view and, where associated, the correct grade column. Evaluation and publication are documentation-only here.",
+    "tool": "Assignments",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "coverage": "documentation"
+  },
+  {
+    "id": "assignment-due-end",
+    "title": "The assignment accepts work after the deadline, or closes too early",
+    "keywords": [
+      "due date",
+      "end date",
+      "late submission",
+      "overdue",
+      "assignment closed"
+    ],
+    "symptom": "The assignment remains submittable after its due date, or learners lose submission access earlier than intended.",
+    "check": [
+      "Compare Due Date with Start Date and End Date under Availability Dates & Conditions.",
+      "Inspect visibility and the access/submission restriction chosen for each availability boundary.",
+      "Check any special-access dates for the affected learner."
+    ],
+    "distinction": "The due date marks a deadline; availability boundaries and their selected restrictions determine access or submission behavior.",
+    "verify": "Check the intended learner’s actual submission availability. The working tour demonstrates the simplified overdue-but-open case without uploading files.",
+    "tourId": "assignment-dates",
+    "screenId": "assignment-new",
+    "tool": "Assignments",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4992-create-an-assignment",
+    "coverage": "working"
+  },
+  {
+    "id": "assignment-one-extension",
+    "title": "One learner needs an assignment extension",
+    "keywords": [
+      "assignment extension",
+      "special access",
+      "one student",
+      "individual deadline"
+    ],
+    "symptom": "Faculty need different submission dates for one learner while retaining the normal class schedule.",
+    "check": [
+      "Confirm the normal due/end dates and the requested individual extension.",
+      "Open Availability Dates & Conditions → Manage Special Access and inspect its access mode.",
+      "Review that learner’s selected dates and ensure the end date permits the intended submission period."
+    ],
+    "distinction": "An individual exception differs from changing the assignment’s normal dates. The option restricting access to only selected users has a different purpose.",
+    "verify": "Verify the exception for the learner and the unchanged class schedule. The special-access controls were captured; this case has no dedicated working tour.",
+    "screenId": "assignment-special-access-user-dialog",
+    "tool": "Assignments",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4992-create-an-assignment",
+    "coverage": "captured-reference"
+  },
+  {
+    "id": "quiz-one-extra-time",
+    "title": "One learner needs extra time on one quiz",
+    "keywords": [
+      "quiz special access",
+      "one quiz",
+      "extra time",
+      "45 minutes",
+      "quiz extension"
+    ],
+    "symptom": "The requested timing change applies to a particular quiz rather than every quiz in the course.",
+    "check": [
+      "Confirm the quiz, base time limit, affected learner, requested total duration, and whether an attempt has already started.",
+      "Inspect the quiz’s Availability Dates & Conditions → Manage Special Access and its individual time override.",
+      "Check Classlist accommodations as well, so the saved quiz exception does not produce an unintended duration."
+    ],
+    "distinction": "Quiz Special Access is assessment-specific; Classlist accommodations apply across the course. A New Time Limit is a total minute value, not an extra-minute increment.",
+    "verify": "The practice case keeps the standard limit at 30 and gives the chosen learner 45. Verify a real learner through an approved method; Quiz Preview is insufficient for individual timing.",
+    "tourId": "quiz-special",
+    "screenId": "quiz-add-special-access-dialog",
+    "tool": "Quizzes",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5012-create-and-configure-a-quiz",
+    "coverage": "working"
+  },
+  {
+    "id": "quiz-course-accommodation",
+    "title": "The learner needs a timing allowance across all course quizzes",
+    "keywords": [
+      "accommodation",
+      "all quizzes",
+      "time multiplier",
+      "extra minutes",
+      "1.5 time"
+    ],
+    "symptom": "An approved requirement calls for the same timing rule throughout this course.",
+    "check": [
+      "Establish whether the requirement is a multiplier or a fixed number of extra minutes; these differ on quizzes of different lengths.",
+      "Inspect Classlist → learner menu → Edit Accommodations → Quizzes → Timing.",
+      "Review existing quiz-specific exceptions before assuming every quiz is using the course allowance."
+    ],
+    "distinction": "A 1.5 multiplier gives 45/90 minutes on 30/60-minute quizzes; a fixed extra 15 gives 45/75. The accommodation belongs to this course.",
+    "verify": "Verify the effective duration and which setting supplied it. The local tour clears an old quiz override and demonstrates 30 + 15 = 45 minutes.",
+    "tourId": "course-accommodation",
+    "screenId": "classlist-edit-accommodations",
+    "tool": "Classlist",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "coverage": "working"
+  },
+  {
+    "id": "quiz-visible-cannot-start",
+    "title": "The quiz is visible, but the learner cannot start another attempt",
+    "keywords": [
+      "cannot start quiz",
+      "start quiz disabled",
+      "attempts used",
+      "quiz password",
+      "in progress"
+    ],
+    "symptom": "The learner can find the quiz but has no usable Start Quiz option.",
+    "check": [
+      "Check the learner’s allowed, completed, and in-progress attempts before adding another attempt or resetting anything.",
+      "Compare current availability and special-access dates with the time of the reported failure.",
+      "Inspect password requirements and any retake-incorrect-questions rule; pending evaluation or no incorrect questions can affect a retake."
+    ],
+    "distinction": "Quiz visibility does not establish eligibility to begin an attempt. An attempt problem is different from hidden content.",
+    "verify": "Confirm the permitted attempt becomes available without discarding existing attempt evidence. Attempt delivery, passwords, and retake behavior are not modeled in the local app.",
+    "screenId": "quiz-new",
+    "tool": "Quizzes",
+    "source": "https://community.d2l.com/brightspace/kb/articles/33420-troubleshoot-issues-with-quizzes",
+    "coverage": "captured-reference"
+  },
+  {
+    "id": "quiz-result-not-in-grades",
+    "title": "A completed quiz has a score, but the gradebook is blank",
+    "keywords": [
+      "quiz score missing",
+      "quiz synchronization",
+      "export to grades",
+      "auto publish",
+      "quiz gradebook"
+    ],
+    "symptom": "The instructor sees a quiz attempt score while the expected Grades column contains no result.",
+    "check": [
+      "Identify the linked numeric grade item and check that the learner’s attempt was submitted and evaluated.",
+      "Inspect the attempt’s publication state and the quiz’s Evaluation & Feedback options for publishing and updating the gradebook.",
+      "Check the gradebook column and learner visibility separately from the attempt-results display."
+    ],
+    "distinction": "Attempt evaluation, publication, gradebook synchronization, and the learner’s results display are related but distinct. A visible attempt score does not prove all four occurred.",
+    "verify": "Verify the published result reaches the intended grade item and is visible where requested. The capture shows configuration controls; synchronization needs checking in real Brightspace.",
+    "screenId": "quiz-new",
+    "tool": "Quizzes",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "coverage": "captured-reference"
+  },
+  {
+    "id": "content-module-hidden",
+    "title": "Learners cannot find a module that staff can see",
+    "keywords": [
+      "hidden module",
+      "missing content",
+      "week missing",
+      "visible to staff",
+      "content visibility"
+    ],
+    "symptom": "The course opens, but a week or module is absent for learners.",
+    "check": [
+      "Confirm course access before narrowing the issue to a particular module or topic.",
+      "Inspect the affected module’s visibility and availability dates, then check the intended topic separately.",
+      "If the problem is learner-specific, inspect applicable release conditions and enrollment rather than changing shared visibility immediately."
+    ],
+    "distinction": "Course access, module visibility, topic visibility, and conditional release are different layers. Seeing content as staff is not a learner-access test.",
+    "verify": "The working tour reveals the sample Week 1 module and checks the local learner view. Real topics and release conditions require a separate approved learner check.",
+    "tourId": "content-hidden",
+    "screenId": "content-classic-with-prompt",
+    "tool": "Content",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3382-hide-content-topics-modules-and-downloads",
+    "coverage": "working"
+  },
+  {
+    "id": "content-links-after-copy",
+    "title": "Copied course content contains broken or unavailable links",
+    "keywords": [
+      "course copy",
+      "broken link",
+      "not authorized",
+      "unavailable quicklink",
+      "old course",
+      "missing file"
+    ],
+    "symptom": "A copied page opens, but its document, activity link, or embedded resource fails.",
+    "check": [
+      "Record the exact error and identify whether the failing link is the topic itself or a link inside its body.",
+      "Locate the intended destination in the new course and inspect availability; an Unavailable Quicklink can indicate dates rather than a broken link.",
+      "Compare the destination URL with the intended course/resource. Use the current Content experience’s Edit link or editor Quicklink controls to repair a confirmed wrong destination."
+    ],
+    "distinction": "A copied page is not proof that every referenced destination was copied or is available. Do not replace links blindly when access dates explain the error.",
+    "verify": "Open the repaired resource through the original learner-facing page and verify the correct destination. Course copying and link repair are documentation-only in this app.",
+    "tool": "Content",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5009-fix-broken-links-in-content",
+    "coverage": "documentation"
+  },
+  {
+    "id": "content-experience-mismatch",
+    "title": "The Content screen does not match the faculty help guide",
+    "keywords": [
+      "classic content",
+      "new content",
+      "lessons",
+      "different layout",
+      "missing content button"
+    ],
+    "symptom": "An educator cannot find controls shown in instructions written for another Content layout.",
+    "check": [
+      "Identify whether the course uses Classic Content or New Content Experience before supplying navigation steps.",
+      "Compare the specific missing control with the relevant experience; do not treat every layout difference as a permission failure.",
+      "If an experience change is requested, establish whether the institution enables it and permits that role to switch the course."
+    ],
+    "distinction": "The Content experience changes navigation and presentation for the course, including learners; it is not just a personal cosmetic preference.",
+    "verify": "The working tour demonstrates capability versus course choice using a simplified configuration model. Confirm the actual institutional switching controls before recommending a real change.",
+    "tourId": "content-config",
+    "screenId": "content-classic-with-prompt",
+    "tool": "Content",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5314-content-experiences",
+    "coverage": "working"
+  },
+  {
+    "id": "content-release-condition",
+    "title": "One learner cannot access content despite its visible status",
+    "keywords": [
+      "release condition",
+      "prerequisite",
+      "conditional content",
+      "exempt unlock",
+      "one learner missing"
+    ],
+    "symptom": "Shared visibility is enabled, but access differs between learners.",
+    "check": [
+      "Inspect the release conditions attached to the affected content or activity and identify the exact required event or grade.",
+      "Check the affected learner’s recorded completion/score for the referenced object, including whether the reference points to the intended activity.",
+      "If the learner is exempt, verify how that exemption interacts with the particular condition rather than assuming it supplies a qualifying grade."
+    ],
+    "distinction": "Visible status does not establish that a learner has satisfied a release condition. An exemption removes grading responsibility; it does not automatically supply prerequisite achievement.",
+    "verify": "Confirm the required condition and permitted access using an appropriate learner account. The local app does not implement a release-condition engine.",
+    "tool": "Content",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3536-how-grade-exemptions-affect-calculations",
+    "coverage": "documentation"
+  },
+  {
+    "id": "classlist-missing-person",
+    "title": "A person can sign in but is missing from this course",
+    "keywords": [
+      "missing enrollment",
+      "classlist",
+      "cannot see course",
+      "existing user",
+      "roster",
+      "add participant"
+    ],
+    "symptom": "A staff member or learner has a working account but does not appear in the expected course roster.",
+    "check": [
+      "Confirm the correct course offering and existing account identity; check Classlist filters before concluding membership is absent.",
+      "Inspect the course enrollment and assigned role; an account existing elsewhere does not establish membership here.",
+      "Determine whether enrollment is managed manually or by an institutional system, and check your permission to enroll into the requested role."
+    ],
+    "distinction": "Account creation and course enrollment solve different problems. Duplicating an existing account can leave the original access problem unresolved.",
+    "verify": "Verify the expected person and role in Classlist, then actual course access. The local account/enrollment tour uses fictional data and does not reproduce roster synchronization.",
+    "tourId": "enroll-user",
+    "screenId": "classlist",
+    "tool": "Classlist",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "coverage": "working"
+  },
+  {
+    "id": "classlist-staff-cannot-edit",
+    "title": "A staff member can enter the course but cannot edit",
+    "keywords": [
+      "permissions",
+      "cannot edit",
+      "teaching assistant",
+      "instructor role",
+      "staff access"
+    ],
+    "symptom": "The person can view course material but lacks the specific editing action faculty expect.",
+    "check": [
+      "Identify the exact blocked action and the person’s role in this course; compare with a correctly authorized colleague.",
+      "Separate changing one course enrollment from changing the permissions of the role definition.",
+      "Ask the administrator to inspect the relevant role scope, dependencies, and interactions when the course enrollment alone does not explain access."
+    ],
+    "distinction": "Changing a role definition can affect everyone using it; assigning a different role to one enrollment has a narrower scope.",
+    "verify": "Confirm the intended action works for the affected person without granting unrelated capabilities. The working role tour exposes only five local practice permissions, not the institutional permission matrix.",
+    "tourId": "role-permissions",
+    "screenId": "classlist",
+    "tool": "Classlist",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4452-managing-roles-and-permissions",
+    "coverage": "working"
+  },
+  {
+    "id": "course-unavailable",
+    "title": "The course is active, but learners still cannot open it",
+    "keywords": [
+      "course inactive",
+      "activate course",
+      "course start date",
+      "course end date",
+      "course unavailable"
+    ],
+    "symptom": "Faculty can enter the course, but enrolled learners report it is unavailable or cannot be opened.",
+    "check": [
+      "Inspect Course Admin → Course Offering Information → Course is active.",
+      "Compare course Start Date and End Date with the intended access window; an active course can still be outside that window.",
+      "Confirm the affected learner’s enrollment and account status; if the active checkbox is unavailable, establish the required permission with the administrator."
+    ],
+    "distinction": "Active status and course availability dates both matter. Faculty access is not evidence that learners can enter.",
+    "verify": "Confirm an approved learner can enter during the intended period. The content-access tour models status and dates locally; it does not recreate every staff access exception.",
+    "tourId": "content-hidden",
+    "screenId": "course-admin",
+    "tool": "Course Offering Information",
+    "source": "https://community.d2l.com/brightspace/kb/articles/22383-activate-your-course",
+    "coverage": "working"
+  },
+  {
+    "id": "course-rollover-dates",
+    "title": "Copied assessments still use last term’s dates",
+    "keywords": [
+      "rollover",
+      "copied dates",
+      "manage dates",
+      "bulk offset",
+      "new semester",
+      "bulk edit"
+    ],
+    "symptom": "A copied course has the right activities but outdated due and availability dates.",
+    "check": [
+      "In Course Admin → Manage Dates, filter and inspect the affected objects and the date fields that need changing.",
+      "Choose between setting selected dates with Bulk Edit Dates and shifting a schedule with Bulk Offset Dates.",
+      "Review the intended interval and selected objects before saving, then inspect exceptions whose dates should not move uniformly."
+    ],
+    "distinction": "Setting every selected deadline to one date differs from offsetting a schedule. Updating due dates alone may leave old start/end restrictions.",
+    "verify": "Check representative activities near the beginning and end of the term and confirm their learner availability. Manage Dates was captured, but bulk date changes are reference-only here.",
+    "screenId": "manage-dates",
+    "tool": "Manage Dates",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3428-bulk-edit-dates-in-manage-dates",
+    "coverage": "captured-reference"
+  }
+]

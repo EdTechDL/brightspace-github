@@ -1,0 +1,340 @@
+[
+  {
+    "id": "grade-setup",
+    "title": "Set up a weighted gradebook",
+    "tags": [
+      "gradebook",
+      "weighted",
+      "weights",
+      "setup",
+      "categories"
+    ],
+    "steps": [
+      {
+        "route": "grades",
+        "tab": "calculation",
+        "target": "grading-system",
+        "title": "Choose the grading system",
+        "body": "The grading system determines what makes an assessment important. Weighted uses assigned percentages; a 10-point quiz can carry more course weight than a 100-point project. Points uses earned points divided by possible points, so maximum points determine contribution. Formula supports custom rules and is outside this practice model.\n\nFor this example, use Weighted and keep automatic final-grade updates enabled. On a ticket such as “the total disagrees with my syllabus,” establish the intended system before adjusting individual scores."
+      },
+      {
+        "route": "grades",
+        "tab": "calculation",
+        "target": "blank-policy",
+        "title": "Decide how blanks behave",
+        "body": "Exclude ungraded items produces a running total from work that has a score. Treat ungraded items as 0 includes unfinished assessments in the denominator. A recorded zero counts under both choices. The Setup Wizard calls exclusion Drop ungraded items.\n\nUse Exclude for this exercise. “Everyone’s average suddenly fell” can come from changing this setting while many cells are blank. Automatic zeros for overdue missing submissions are a separate feature; they are not what this radio button controls."
+      },
+      {
+        "route": "grades",
+        "tab": "manage",
+        "target": "manage-categories",
+        "title": "Inspect the category weights",
+        "body": "There are two levels of weighting: Quizzes contributes 40% of the course; Quiz 1 and Quiz 2 each contribute 50% of that category. Each quiz therefore accounts for 20% of the course. Project sits outside the category and supplies the remaining 60%.\n\nOpen the names to inspect those values. Keep both quizzes out of 10 and Project out of 100. For a “weights do not total 100%” ticket, distinguish the course-level total from the separate total inside each category."
+      },
+      {
+        "route": "grades",
+        "tab": "enter",
+        "target": "grade-table",
+        "title": "Check a real calculation",
+        "body": "Enter Grades holds learner scores; Manage Grades defines the assessments and their contribution. For Demo Learner, use Quiz 1 = 8/10, Quiz 2 = 6/10, and Project = 90/100, with no exemptions.\n\nThe quiz average is 70%, contributing 28 percentage points. The project contributes 54, producing 82%. The same scores in Points produce 104/120 = 86.67%. This difference is expected: changing the grading system changes the meaning of the total. These are calculations in the local practice model."
+      }
+    ]
+  },
+  {
+    "id": "blank-zero",
+    "title": "Why is the final grade wrong?",
+    "tags": [
+      "wrong",
+      "calculation",
+      "zero",
+      "blank",
+      "missing",
+      "exempt",
+      "total"
+    ],
+    "steps": [
+      {
+        "route": "grades",
+        "tab": "enter",
+        "target": "grade-table",
+        "title": "Compare blank, zero, and exempt",
+        "body": "Blank, zero, and exempt represent different situations. Blank means no score has been entered; zero is an assessed result; exempt removes the assessment from this learner’s calculation. An exemption still removes it when ungraded items are treated as zero.\n\nFor the example, retain Quiz 1 = 8 and Project = 90, clear Quiz 2, and leave Exempt unchecked. Save the scores. We will compare the two blank-handling policies without changing what the learner earned."
+      },
+      {
+        "route": "grades",
+        "tab": "calculation",
+        "target": "blank-policy",
+        "title": "Inspect the blank policy",
+        "body": "With the original weighted setup and Quiz 2 blank, Exclude ungraded items gives 86%: Quiz 1 supplies the quiz category’s current result. Treat ungraded items as 0 gives 70% because the second quiz now counts as zero.\n\nSave each choice and compare the calculated total in Enter Grades. Finish with Treat ungraded items as 0 for the next steps. If Quiz 2 instead contains a recorded zero, switching back to exclusion will not remove it; that explains many unexpectedly low running totals."
+      },
+      {
+        "route": "grades",
+        "tab": "manage",
+        "target": "manage-items",
+        "title": "Check contributions and exclusions",
+        "body": "Manage Grades is where to investigate contribution, not learner performance. Inspect Quiz 2: maximum 10 points, weight 50%, category Quizzes. A misplaced category or incorrect maximum can change the result even when the entered score is correct.\n\nHidden from learners affects visibility; the item still counts. To exclude an item for everyone, Weighted uses weight 0, while Points provides Exclude from Final Grade Calculation. For one excused learner, use an exemption. These choices solve different support requests."
+      },
+      {
+        "route": "grades",
+        "tab": "enter",
+        "target": "recalculate",
+        "title": "Check whether totals are updating",
+        "body": "A correct score can coexist with a stale final total. Settings → Calculation Options → Auto Update controls whether final grades recalculate automatically. With it disabled, the simulator’s Recalculate button refreshes the stored values.\n\nAfter the preceding example, a fresh calculation should be 70%. If it differs, inspect the grading system, weights, blanks, and exemptions before overriding the final. An Adjusted Final Grade is separate: recalculating the calculated column does not replace an instructor’s manually maintained adjusted value."
+      }
+    ]
+  },
+  {
+    "id": "release-final",
+    "title": "A learner cannot see a final grade",
+    "tags": [
+      "release",
+      "released",
+      "final",
+      "student cannot see",
+      "publish",
+      "visible grade"
+    ],
+    "steps": [
+      {
+        "route": "grades",
+        "tab": "calculation",
+        "target": "final-type",
+        "title": "Which final is being released?",
+        "body": "Final Grade Released chooses which overall grade learners receive. Calculated comes from assessment scores and calculation settings. Adjusted is a separate value the instructor can transfer or enter manually; later score changes do not automatically maintain it. Only the selected type is displayed.\n\nFor “I changed the final to 90, but the student still sees 89.4,” check whether the edit went into Adjusted while Calculated remains selected. Use Calculated here, with automatic release off, to practise an individual release."
+      },
+      {
+        "route": "grades",
+        "tab": "finals",
+        "target": "release-controls",
+        "title": "Release through the Final Grades page",
+        "body": "The route is Enter Grades → View Actions for Final Calculated Grade → Enter Grades. On Final Grades, Released controls visibility for each learner. Select Demo Learner’s box and Save to publish the chosen final in this practice course.\n\nThe Final Grades title menu offers Release All and Unrelease All; their staged selections need saving. A total can be calculated and visible to staff while remaining unreleased to learners. Publishing assignment feedback is another operation and does not establish that the overall final has been released."
+      },
+      {
+        "route": "preview",
+        "target": "learner-grades",
+        "title": "Verify the learner’s view",
+        "body": "In Demo Learner’s simulated view, Final grade should now show the selected calculated value. Not released points to the release flag; No final value means the selected column has no value. An empty Adjusted column is a common cause when the course is configured to release Adjusted.\n\nThe option to display how the final was calculated is independent of releasing the final itself. This view tests our local model. A real ticket needs verification for the affected learner using an institution-approved method."
+      }
+    ]
+  },
+  {
+    "id": "content-hidden",
+    "title": "A learner cannot see course content",
+    "tags": [
+      "content",
+      "hidden",
+      "module",
+      "visibility",
+      "lesson",
+      "access"
+    ],
+    "steps": [
+      {
+        "route": "course-offering",
+        "target": "course-availability",
+        "title": "Check the course first",
+        "body": "Course availability is the first layer of a content-access problem. A staff member seeing a course does not establish that learners can enter it. Course Admin → Course Offering Information contains the active status and course dates.\n\nFor this practice case, keep Course is active enabled and remove course date restrictions, then save. That isolates the module-level problem in the next step. On a real ticket, compare the requested access period with the configured dates rather than removing restrictions as a general fix."
+      },
+      {
+        "route": "content",
+        "target": "content-list",
+        "title": "Check the module’s visibility",
+        "body": "Week 1 · Foundations starts hidden in the sample course. Its Edit module form controls Visible to learners and the module’s start/end dates. Enable visibility and remove its practice date restrictions, then save.\n\nThis demonstrates a second access layer: an available course can contain unavailable material. In real Brightspace, distinguish a module from its individual topics and inspect release conditions where applicable. The local form models module visibility and dates; it cannot establish whether a learner has met an activity-dependent condition."
+      },
+      {
+        "route": "preview",
+        "target": "learner-content",
+        "title": "Verify what is available",
+        "body": "Week 1 · Foundations should appear under Content for Demo Learner after the course and module changes. If Course access is not Open, resolve that earlier access layer first; changing the module cannot compensate for a blocked course.\n\nFor a real “one student cannot see it” ticket, compare that learner’s enrollment, applicable conditions, and access dates with someone who can. If nobody can see it, shared visibility and availability are useful starting checks. The result here verifies only the local simulator’s modeled rules."
+      }
+    ]
+  },
+  {
+    "id": "assignment-dates",
+    "title": "An assignment is overdue or unavailable",
+    "tags": [
+      "assignment",
+      "submission",
+      "due",
+      "end date",
+      "late",
+      "overdue"
+    ],
+    "steps": [
+      {
+        "route": "assignments",
+        "target": "assignment-list",
+        "title": "Open the assignment’s settings",
+        "body": "An assignment’s Due Date marks the deadline. Its End Date controls the submission cutoff in this model. Those dates can differ, allowing work to remain submittable after it becomes overdue.\n\nOpen Project submission → Edit assignment. Set Due Date to yesterday and leave End Date empty under Availability Dates & Conditions, then Save and Close. This creates the useful support case “the assignment is overdue, but students can still submit.” That behavior can be intentional; a due date alone does not close submissions."
+      },
+      {
+        "route": "assignments",
+        "target": "assignment-list",
+        "title": "Check availability separately",
+        "body": "Visibility, availability, and deadlines answer different questions: can the learner find the assignment, when can they access or submit, and when is the work due? In Project submission, enable Visible to learners and clear Start Date and End Date while retaining yesterday’s due date.\n\nBrightspace offers additional availability visibility options and release conditions beyond this condensed form. For one learner’s extension, inspect Manage Special Access rather than changing the whole class’s normal dates. A saved date override can explain why two learners see different availability."
+      },
+      {
+        "route": "preview",
+        "target": "learner-assignments",
+        "title": "Check the learner result",
+        "body": "Demo Learner should see Project submission as Overdue · submission window open. A Closed result suggests an end-date restriction; Not started suggests a future start. A missing assignment calls for a visibility or course-access check before investigating the deadline.\n\nThis preview also applies the sample learner’s special-access date overrides, so compare those if the result differs from the normal settings. The simulator has no upload service: confirming its status label is not proof that an actual D2L learner can submit successfully."
+      }
+    ]
+  },
+  {
+    "id": "quiz-special",
+    "title": "Give one learner extra quiz time",
+    "tags": [
+      "quiz",
+      "extra time",
+      "special access",
+      "one quiz",
+      "extension"
+    ],
+    "steps": [
+      {
+        "route": "quizzes",
+        "target": "quiz-list",
+        "title": "Choose the specific quiz",
+        "body": "Special Access applies to one quiz and selected learners. Keep Quiz 1’s base Time Limit at 30 minutes. In Manage Special Access → Add Users to Special Access, set Demo Learner’s New Time Limit to 45 minutes and save.\n\nThis is a total duration, not “15 extra minutes” or a 1.5 multiplier. The standard quiz remains 30 minutes for others. For a ticket, establish whether the request concerns this quiz alone or all course quizzes before choosing between Special Access and Classlist accommodations."
+      },
+      {
+        "route": "classlist",
+        "target": "classlist-table",
+        "title": "Check course accommodations",
+        "body": "Classlist → Demo Learner → Edit Accommodations shows the course-wide allowance. Modify Time Limit supports either Multiplier of original quiz time or Extra time in minutes. Inspect the existing choice without changing it during this example.\n\nThe quiz-specific 45-minute limit takes priority in the simulator, rather than accumulating another course allowance on top. This distinction matters when an educator reports that a student’s time differs from the accommodation they entered: inspect both the quiz exception and the course setting."
+      },
+      {
+        "route": "preview",
+        "target": "learner-quizzes",
+        "title": "Compare effective time",
+        "body": "Demo Learner’s Quiz 1 should show 45 minutes with Quiz special access as the source, while the standard quiz time remains 30. This verifies which setting wins in the local timing model; no attempt or timer is running.\n\nReal Brightspace Quiz Preview does not apply individual accommodations or special access. A preview showing 30 minutes therefore does not prove the accommodation failed. Verify the affected learner through an approved learner-specific method and confirm which quiz and attempt the ticket concerns."
+      }
+    ]
+  },
+  {
+    "id": "course-accommodation",
+    "title": "Set extra time across course quizzes",
+    "tags": [
+      "accommodation",
+      "all quizzes",
+      "course extra time",
+      "classlist"
+    ],
+    "steps": [
+      {
+        "route": "classlist",
+        "target": "classlist-table",
+        "title": "Find the learner in Classlist",
+        "body": "Classlist accommodations apply across quizzes in this course. Under Demo Learner → Edit Accommodations → Quizzes → Timing, enable Modify Time Limit, choose Extra time, and enter 15 minutes.\n\nA fixed allowance and a multiplier behave differently: 15 extra minutes gives 45 minutes on a 30-minute quiz and 75 on a 60-minute quiz. A 1.5 multiplier gives 45 and 90 respectively. Match the actual accommodation requirement; neither choice should be inferred merely from “give the student extra time.”"
+      },
+      {
+        "route": "quizzes",
+        "target": "quiz-list",
+        "title": "Inspect quiz exceptions",
+        "body": "Quiz-specific exceptions can override the course accommodation. Keep Quiz 1’s standard limit at 30 minutes, then inspect Manage Special Access → Add Users to Special Access. Clear Demo Learner’s New Time Limit and save so this exercise uses the course allowance.\n\nLeaving an old 45-minute quiz override would hide whether the new 15-minute accommodation worked, because both happen to produce 45 here. The source of a result matters as much as the number. Other special-access settings are outside this condensed timing form."
+      },
+      {
+        "route": "preview",
+        "target": "learner-quizzes",
+        "title": "Verify the calculated duration",
+        "body": "Quiz 1 should now show 45 minutes with Course accommodation · extra minutes as its source: 30 base minutes plus 15. This is a different setting from the quiz override, despite the identical result in the previous exercise.\n\nIf the source still says Quiz special access, a saved quiz override remains. If it says Base time, check Modify Time Limit and the selected accommodation method. This local calculation does not verify a real learner’s attempt, and the accommodation applies only within this course."
+      }
+    ]
+  },
+  {
+    "id": "enroll-user",
+    "title": "Create an account and enroll it",
+    "tags": [
+      "user",
+      "account",
+      "enroll",
+      "roster",
+      "staff",
+      "student missing"
+    ],
+    "steps": [
+      {
+        "route": "admin-users",
+        "target": "new-user",
+        "title": "Create the organization account",
+        "body": "An organization account and a course enrollment are separate records. An active account can exist without access to a particular course; creating another account would not fix that missing enrollment.\n\nUse New User to create a fictional Sam Practice with username sam.practice, Org Defined ID PRACTICE-004, and sam@example.invalid, or reuse that sample account if present. Keep it active. The next step assigns course membership. These organization-level screens are general training models, not captured MSU administration, and no login or email is created."
+      },
+      {
+        "route": "admin-users",
+        "target": "users-table",
+        "title": "Open Enrollments for that user",
+        "body": "Users → Sam Practice → Enrollments assigns a role separately for each course. Select Learner for Faculty Support Practice and Apply, leaving other course memberships unchanged.\n\nThe account identifies the person; this enrollment determines their role in the selected course. Someone can be an Instructor in one course and a Learner in another. For “I can log in but cannot see my course,” verify the correct account, course membership, role, and course availability before treating it as a password problem."
+      },
+      {
+        "route": "classlist",
+        "target": "classlist-table",
+        "title": "Confirm the course membership",
+        "body": "Sam Practice should appear in this course’s Classlist as Learner with an Active account. Users confirms the organization account; Classlist confirms membership in the selected course. Neither view alone establishes every effective permission.\n\nIf the learner is missing, inspect the saved enrollment and course selection. If present but unable to enter, investigate account status and course availability. Real enrollment may come from an institutional student system, so this local exercise demonstrates the relationship without establishing that manual account or roster changes are the appropriate production fix."
+      }
+    ]
+  },
+  {
+    "id": "role-permissions",
+    "title": "Understand roles and permissions",
+    "tags": [
+      "permission",
+      "role",
+      "instructor",
+      "admin",
+      "cannot edit"
+    ],
+    "steps": [
+      {
+        "route": "admin-users",
+        "target": "users-table",
+        "title": "Inspect the affected enrollment",
+        "body": "Begin with the person’s enrollment in the affected course: Users → Practice Instructor → Enrollments. The sample assigns Instructor in Faculty Support Practice, but a different course could assign another role.\n\nChanging that enrollment chooses which permission set this person receives there. Editing the role definition changes what the role allows wherever it is used. That distinction prevents a one-person access ticket from becoming a change affecting many staff. These organization-admin screens model selected concepts; their institutional layout was not captured."
+      },
+      {
+        "route": "admin-roles",
+        "target": "roles-list",
+        "title": "Copy a role for practice",
+        "body": "Create / Copy Role can copy Instructor into a separate role named Support Practice. Copying preserves the modeled starting permissions while allowing an independent change; it does not automatically assign anyone to the new role.\n\nThis is useful for examining “staff should manage content but not edit grades.” The next step removes one permission from the copy. For an actual institution, review existing role definitions, dependencies, and assignment scope before deciding whether a new role is needed. This simulator exposes only a small permission subset."
+      },
+      {
+        "route": "admin-roles",
+        "target": "roles-list",
+        "title": "Understand the scope of a role edit",
+        "body": "In Support Practice → Edit Permissions, remove Edit grades and Save and Close. Every sample enrollment using that role would then lose the modeled grade-editing permission; the change is not restricted to whichever course happens to be selected.\n\nAn unassigned role affects nobody yet. Check a user’s access evaluates the permissions of their assigned role, including the modeled assignment-folder dependency. Your operator buttons remain available for practice, so their presence is not evidence that a real user has permission to perform the corresponding D2L action."
+      }
+    ]
+  },
+  {
+    "id": "content-config",
+    "title": "Understand the content experience settings",
+    "tags": [
+      "config",
+      "configuration",
+      "lessons",
+      "new content",
+      "classic content",
+      "org unit"
+    ],
+    "steps": [
+      {
+        "route": "admin-config",
+        "target": "org-content-config",
+        "title": "Enable the option at organization level",
+        "body": "d2l.Tools.Content.IsLessonsEnabled allows the New Content Experience at organization level. It is a capability switch, distinct from the choice of experience for a particular course. Enable Allow New Content Experience in the organization and save to permit the next step.\n\nFor “we enabled Lessons but this course still looks the same,” inspect the course choice and any inherited default rather than repeatedly toggling the organization setting. This page is a two-variable teaching model; the full institutional configuration and permission dependencies are not reproduced."
+      },
+      {
+        "route": "admin-config",
+        "target": "course-content-config",
+        "title": "Choose the experience for this course",
+        "body": "Value for this course controls whether this course uses New Content Experience or Classic Content. Select ON — New Content Experience and save. No override — inherit default delegates that choice to the organization’s default; OFF explicitly selects Classic.\n\nThis explains why changing a default may not change a course that already has an override. Effective practice experience should now say New. The setting is modeled as d2l.Tools.Content.UseLessonsExperience; changing it here affects only the local course data, not the institution."
+      },
+      {
+        "route": "content",
+        "target": "content-experience",
+        "title": "Check the course result",
+        "body": "The Content label should now read New Content Experience · simplified lessons layout. That confirms the combination of organizational capability and this course’s effective choice in the local model. A course can use the experience even if it currently has no learning materials.\n\nOn a real ticket, different layouts may explain why an educator cannot find a control shown in a guide. Establish which Content experience their course uses before supplying navigation steps. This sample reproduces the configuration distinction, not every feature or permission of either experience."
+      }
+    ]
+  }
+]

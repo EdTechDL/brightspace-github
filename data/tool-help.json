@@ -1,0 +1,524 @@
+{
+  "Availability Date Defaults": {
+    "what": "Sets the default before-start and after-end availability behavior for new assignments and discussions.",
+    "steps": [
+      "For an early-access ticket, distinguish hiding an activity from showing its title while restricting access or submissions.",
+      "Availability Date Defaults sets the starting choices for new assignments and discussions; adjust the existing activity itself when fixing a current ticket.",
+      "Check both its start/end dates and the behavior attached to each date; a date alone does not explain what learners can see."
+    ],
+    "result": "New activities use the selected defaults; an existing activity still needs its own dates and availability checked.",
+    "ticket": "“I want students to see the assignment title before they can submit.”",
+    "source": "https://help.d2l.msu.edu/msu-docs/d2l-new-content-experience-faq",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab. The linked institutional guide documents this exact entry; available choices depend on the tool."
+  },
+  "Course Offering Information": {
+    "what": "Holds course-level details such as the course name, active status, and access dates.",
+    "steps": [
+      "Course is active and the course start/end dates control course-level access; these are separate from an assignment or quiz’s dates.",
+      "For an enrolled learner who cannot open the course, check those settings in Course Offering Information, then confirm their enrollment and role.",
+      "Save the intended course settings and verify access for the affected role; instructor access does not establish learner access."
+    ],
+    "result": "An enrolled learner can access the course when its status, dates, and role permissions allow it.",
+    "ticket": "“My students are enrolled but cannot open the course.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34147-manage-courses-and-course-templates-with-the-courses-tool",
+    "scope": "The real destination was not captured; this lab offers a simplified practice form for course details, status, and dates."
+  },
+  "Homepages": {
+    "what": "Chooses the page learners reach when they open Course Home and the layout used there.",
+    "steps": [
+      "Identify the active homepage and whether it is widget-based, a tool page, or an external URL; that determines what Course Home displays.",
+      "For a missing Announcements panel, edit the active widget-based homepage and check whether that widget is present.",
+      "To replace the landing page, select the approved choice under Active Homepage and Apply; an enforced institutional homepage may prevent this."
+    ],
+    "result": "Course Home displays the selected homepage; an institution-enforced homepage may prevent changing it.",
+    "ticket": "“The course home page is missing our usual announcements panel.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5396-set-up-your-course-homepage",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Navigation & Themes": {
+    "what": "Controls the course navigation links and their visual theme.",
+    "steps": [
+      "A navbar controls the links learners see; a theme controls its appearance, while tool availability is managed separately.",
+      "For a missing Discussions link, edit an editable navbar and use Add Links, or create a course navbar when the inherited one cannot be edited.",
+      "Select the saved navbar under Active Navbar and Apply, then check access with the intended role."
+    ],
+    "result": "The selected navbar exposes the chosen links; removing a link does not disable its tool.",
+    "ticket": "“How do I put Discussions on the course navigation bar?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/1700-customize-your-course-navbar",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Widgets": {
+    "what": "Creates and manages the content blocks that can appear on a widget-based homepage.",
+    "steps": [
+      "A widget is one block within a homepage, such as a welcome message; changing a widget and choosing the active homepage are different tasks.",
+      "Use Create Widget for a custom welcome panel, configure its name and content, then add it to the active widget-based homepage.",
+      "If the panel is missing, check the active homepage, widget placement, and any restrictions before recreating it."
+    ],
+    "result": "The widget appears after it is added to the active homepage, not merely after it is created.",
+    "ticket": "“I need a welcome message box on my course home page.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5322-create-a-custom-widget",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Calendar": {
+    "what": "Shows course events and dates so learners can see what is coming up.",
+    "steps": [
+      "Create Event is appropriate for an office-hour session or class event; an assessment’s deadline should be maintained in the assessment.",
+      "For an event, set its title, When, and any recurrence or group restrictions, then Create.",
+      "For a wrong assessment date on the calendar, inspect the linked assessment’s dates before adding a second calendar entry."
+    ],
+    "result": "The new event appears on the calendar; assessment deadlines should still be checked in the assessment itself.",
+    "ticket": "“How can I add next week’s office hours to the course calendar?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3601-manage-course-events-with-the-calendar-tool",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Content": {
+    "what": "Organizes course learning materials and activity links into modules and topics.",
+    "steps": [
+      "In Classic Content, modules organize topics; a file in Manage Files needs a Content topic or another learner-facing link to be findable.",
+      "For a reading, use the module’s Upload/Create > Upload Files; use Existing Activities when linking an assignment or quiz that already exists.",
+      "For missing material, inspect the topic and parent module’s visibility, dates, and release conditions, then test the actual linked resource."
+    ],
+    "result": "Learners can find the material in Content when its visibility, dates, and release conditions permit access.",
+    "ticket": "“I uploaded the reading, but students cannot find it in the course.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3364-add-and-organize-learning-materials-in-the-classic-content-experience",
+    "scope": "The capture shows Classic Content with a New Content Experience prompt; this lab models a limited Content workflow, and other experiences have different controls."
+  },
+  "Course Builder": {
+    "what": "Provides a visual course outline where you can arrange modules, learning objects, and placeholders.",
+    "steps": [
+      "Use the visual outline to arrange modules and learning objects; placeholders let you plan work before the actual resource exists.",
+      "For a weekly outline, add the modules and placeholders, then replace each placeholder with the required content or activity.",
+      "Review the resulting Content structure and activity settings; an organized outline does not finish assessment configuration."
+    ],
+    "result": "The course structure is organized, but a placeholder still needs content before it becomes usable learning material.",
+    "ticket": "“I want to plan the weekly course structure before adding all the readings.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34715-about-course-builder",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Course Design Accelerator": {
+    "what": "Offers a course-design entry point for supported course-building tasks when enabled by the institution.",
+    "steps": [
+      "Use this course-design entry point only for the workflows your institution enables; official documentation confirms its role-based availability.",
+      "For a new-course request, inspect the available design choices and continue in the linked setup tools; exact current controls require your local screen."
+    ],
+    "result": "You reach the supported design workflow; the exact options must be checked on your institution’s screen.",
+    "ticket": "“I see Course Design Accelerator but do not know whether to use it to start my course.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4461-accelerator-permissions",
+    "scope": "This destination was not captured and is not interactive here; official permissions documentation confirms the tool, but its exact current screen sequence is not verified."
+  },
+  "External Learning Tools": {
+    "what": "Connects a course to external learning services through Learning Tools Interoperability, often called LTI.",
+    "steps": [
+      "Separate a launch failure from a grade-return failure: they may involve different provider settings even when they affect the same activity.",
+      "Identify the provider, course link, and approved deployment; confirm that the deployment is shared to this course.",
+      "Check the failing stage with the institution’s integration administrator; course links cannot repair missing organization-level registration or provider credentials."
+    ],
+    "result": "The support ticket identifies the correct link or deployment to repair without guessing at provider credentials.",
+    "ticket": "“The publisher homework link opens an error instead of the activity.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/23662-tool-registration-deployment-and-links",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab. Provider registration, deployment, external launches, and grade return require the real institution and provider services."
+  },
+  "Forms": {
+    "what": "Creates ePortfolio form templates that learners complete as structured reflection or evidence artifacts.",
+    "steps": [
+      "These are ePortfolio form templates: the learner’s completed response becomes an artifact, such as a placement reflection.",
+      "Create or adjust the template fields, then make the template available through Content and specify how the resulting artifact should be shared or submitted.",
+      "If you need anonymous course feedback rather than an ePortfolio artifact, use Surveys instead."
+    ],
+    "result": "Learners create their own completed ePortfolio form artifacts from the template.",
+    "ticket": "“I need a structured reflection form that students can keep in their ePortfolio.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/16773-about-form-templates",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Frequently Asked Questions": {
+    "what": "Publishes reusable answers to common course questions, organized into categories.",
+    "steps": [
+      "Categories organize reusable answers, such as submission rules or course logistics; questions must be placed in the appropriate category.",
+      "Use New Category if needed, then New Question to enter the question and answer; verify that learners can reach FAQ."
+    ],
+    "result": "The saved answer is available in its category to learners who can access FAQ.",
+    "ticket": "“Where can I put answers to questions students ask every week?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3653-create-faq-questions-and-categories",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Glossary": {
+    "what": "Provides a course dictionary of important terms and definitions.",
+    "steps": [
+      "Use New Term for a course-specific definition and optionally connect it to a relevant Content topic.",
+      "For a terminology request, maintain the authoritative definition here and check that learners have a route to the glossary."
+    ],
+    "result": "Learners can look up the saved definition in the course glossary.",
+    "ticket": "“How do I give students one place to look up the course terminology?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34427-manage-the-glossary",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Import / Export / Copy Components": {
+    "what": "Moves supported course materials into or out of a course, including copying from another course offering.",
+    "steps": [
+      "Start in the destination course; Copy Components from another Org Unit brings material from an accessible source course into this one.",
+      "Select the source and components deliberately: repeating a copy can create duplicates, and linked activities may need their associated components.",
+      "After copying, review dates, visibility, external links, and assessment associations before releasing the course."
+    ],
+    "result": "Selected components appear in the destination; repeated copies can create duplicates and copied dates need review.",
+    "ticket": "“I need last term’s content and assessments in my new course shell.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/16788-import-export-or-copy-course-components",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Instructional Design Wizard": {
+    "what": "Helps plan a course blueprint that can be developed further in Course Builder.",
+    "steps": [
+      "Treat the wizard as course planning: its blueprint can be developed in Course Builder.",
+      "Review the proposed modules and activities, then populate their placeholders and configure the actual assessments; the exact wizard sequence requires the local screen."
+    ],
+    "result": "The plan supplies a course structure that still needs completed learning materials and assessment settings.",
+    "ticket": "“I have learning goals but need help turning them into a course outline.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34715-about-course-builder",
+    "scope": "The official Course Builder guide describes this relationship; the wizard’s exact screens were not captured and are not interactive here."
+  },
+  "Learning Activity Library": {
+    "what": "Provides teaching-activity ideas and descriptions to support course planning.",
+    "steps": [
+      "Use the library to select a teaching approach that fits a learning goal, such as reflection, discussion, or application.",
+      "Translate the idea into an actual activity in Content, Discussions, or Assignments; this is a planning resource, distinct from the Learning Repository’s reusable objects."
+    ],
+    "result": "You have an activity design to implement; browsing this library does not by itself assign work to learners.",
+    "ticket": "“I need ideas for an activity that helps students apply this week’s concepts.”",
+    "source": "https://community.d2l.com/brightspace/discussion/7524/using-the-learning-activity-library-in-site-resources-under-course-administration",
+    "scope": "This legacy destination was not captured and is not interactive here; the linked D2L Community discussion supplies context, not a verified current click-by-click guide."
+  },
+  "Links": {
+    "what": "Organizes useful course web links into categories.",
+    "steps": [
+      "Categories organize reusable web resources, such as library guides; a link title should explain the destination to learners.",
+      "Use New Link with the appropriate category, title, and URL, then test the destination and any sign-in requirement."
+    ],
+    "result": "The link is available in its category; learners still need access to any external site it opens.",
+    "ticket": "“Where should I collect the websites my students need for this course?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3399-create-and-delete-a-link-or-link-category",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Manage Dates": {
+    "what": "Reviews and updates dates across supported course items from one place.",
+    "steps": [
+      "Bulk Edit Dates assigns specific new dates; Bulk Offset Dates shifts existing dates forward or backward by a chosen number of days.",
+      "After a course copy, select only the intended items and date types so you do not unintentionally shift exceptions or unrelated events.",
+      "Inspect representative activities afterward, including the difference between due dates and dates that restrict access."
+    ],
+    "result": "The selected supported dates change together, reducing the work needed after copying a course.",
+    "ticket": "“All of last term’s due dates copied over; how can I move them?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3428-bulk-edit-dates-in-manage-dates",
+    "scope": "An empty Manage Dates screen was captured; selecting items and bulk date changes were not observed and are not interactive here."
+  },
+  "Manage Files": {
+    "what": "Stores and organizes the files used by the course’s pages and learning materials.",
+    "steps": [
+      "This is the course’s file storage; Content supplies the learner-facing structure and links to those files.",
+      "For a broken reading, confirm that the expected file exists and that the Content topic points to the correct path.",
+      "Upload or repair the intended resource, then test the topic; renaming, moving, or deleting files can break existing links."
+    ],
+    "result": "The file is stored in the course and has a working learner-facing link when you add it to Content.",
+    "ticket": "“My reading file exists in the course, but there is no link for students to open it.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3328-about-manage-files",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Attendance": {
+    "what": "Records attendance for named course sessions using a register and an attendance-status scheme.",
+    "steps": [
+      "A register groups the sessions you track; its attendance scheme defines statuses and their percentage values.",
+      "For weekly labs, create a register and sessions, then record each learner’s status per session.",
+      "If a percentage looks wrong, check the scheme: a status with no assigned percentage is treated differently from an absence worth zero."
+    ],
+    "result": "The register shows session attendance and calculates attendance percentages from the chosen scheme.",
+    "ticket": "“How can I record who attended each weekly lab?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3609-about-attendance",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Class Progress": {
+    "what": "Shows learner activity and progress indicators that help you investigate participation questions.",
+    "steps": [
+      "Start with the named learner and the relevant indicator, such as Content, Assignments, or Quizzes, instead of assuming low activity means missing work.",
+      "Compare progress indicators with the underlying submission or attempt; access data is evidence of activity, not proof of comprehension.",
+      "Use the result to narrow the ticket to visibility, participation, submission, or evaluation."
+    ],
+    "result": "You have activity evidence to guide support, while recognizing that an access record alone does not prove understanding.",
+    "ticket": "“Can I check whether a student opened the reading or submitted the assignment?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3314-about-class-progress",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Classlist": {
+    "what": "Lists course participants and provides permitted participant-management and accommodation actions.",
+    "steps": [
+      "Edit Accommodations applies to a learner across course quizzes; quiz Special Access is for an exception on a particular quiz.",
+      "Under Modify Time Limit, Multiplier of original quiz time scales every affected quiz, while Extra time adds a fixed number of minutes.",
+      "For a 1.5-times accommodation, enter that multiplier and save; inspect any quiz-specific Special Access before predicting the learner’s final time."
+    ],
+    "result": "The course accommodation supplies the learner’s quiz-time adjustment; inspect quiz-specific Special Access for any separate override.",
+    "ticket": "“This student needs one and a half times the usual time on all course quizzes.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34423-manage-classlist-accomodations",
+    "scope": "The Classlist and accommodation controls were captured; saving accommodations and the resulting timing are simplified practice behavior here."
+  },
+  "Groups": {
+    "what": "Organizes learners into course groups for collaboration, restricted activities, or group submissions.",
+    "steps": [
+      "A category defines a set of groups; Enrollment Type determines whether membership is assigned, automatic, or chosen through self-enrollment.",
+      "For project teams, configure the group count or size, then verify actual membership before connecting group assignments or discussions.",
+      "If a learner cannot see team work, check both their group membership and the activity’s group/category restrictions."
+    ],
+    "result": "Learners belong to the intended course groups, which can then be used by supported activities.",
+    "ticket": "“I need teams of four for the group project.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3483-create-and-manage-categories-and-groups",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Assignments": {
+    "what": "Collects learner work and provides submission, evaluation, feedback, and grade settings.",
+    "steps": [
+      "The due date marks the deadline; start/end dates and their availability behavior determine when learners can view or submit.",
+      "For one learner’s extension, use the assignment’s Special Access and select that learner instead of moving the whole class’s deadline.",
+      "Check the exception’s due/access dates, assignment visibility, submission type, and grade association, then save the intended settings."
+    ],
+    "result": "Learners can submit under the configured rules; a due date and an availability end date have different effects.",
+    "ticket": "“One student needs extra time to submit this assignment.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3608-create-an-assignment",
+    "scope": "Assignment creation and Special Access controls were captured; submission, evaluation, and saved Special Access outcomes were not observed, and the lab models only selected settings."
+  },
+  "Awards": {
+    "what": "Recognizes learner achievements with badges or certificates issued manually or through conditions.",
+    "steps": [
+      "Awards may be issued manually or automatically through release conditions; determine which process the badge or certificate uses.",
+      "For a missing badge, inspect its exact criteria and the learner’s recorded completion or score, not just their claim to have finished.",
+      "Check the learner’s award record and any issuing conditions before manually issuing a duplicate."
+    ],
+    "result": "Eligible learners receive the selected award when the configured issuing process completes.",
+    "ticket": "“A student finished orientation but did not receive the completion badge.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3473-create-and-manage-awards",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Checklists": {
+    "what": "Gives learners a list of course tasks they can mark complete themselves.",
+    "steps": [
+      "Checklists are learner-maintained task lists; checking an item is different from submitting an assignment or earning a grade.",
+      "Create the checklist and a category, then add tasks such as reading a chapter or preparing for a lab, with dates or links where useful.",
+      "Place the checklist in Content so it sits alongside the week’s actual learning activities."
+    ],
+    "result": "Learners can track their own completion; a checked box is not a graded assessment result.",
+    "ticket": "“Can I give students a tick-off list of everything they should do each week?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3630-about-checklist",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Competencies": {
+    "what": "Tracks achievement through a structure of competencies, learning objectives, and associated activities.",
+    "steps": [
+      "A competency structure connects competencies to learning objectives and activities with achievement criteria.",
+      "For an incomplete competency, trace which objective is unmet and inspect its linked activity results and evaluation criteria.",
+      "Keep this workflow distinct from the newer Learning Outcomes tool, which this course labels Standards."
+    ],
+    "result": "You can explain which required objective or activity is preventing competency achievement.",
+    "ticket": "“The student passed the activity, but the course competency is still incomplete.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3631-about-competencies",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab. This competency structure is distinct from the newer Learning Outcomes tool that may be labeled Standards."
+  },
+  "Grades": {
+    "what": "Organizes grade items, records scores, calculates totals, and controls which results learners see.",
+    "steps": [
+      "Manage Grades controls structure: categories, maximum points, and weights; Enter Grades holds learner scores.",
+      "Settings > Calculation Options controls the math and final-grade type; Org Unit Display Options controls learner-facing display.",
+      "For a missing final mark, inspect release status from Enter Grades > Final Calculated Grade > Enter Grades; an entered score is not automatically a released final grade."
+    ],
+    "result": "Scores and final totals follow the grade book’s calculation and visibility settings.",
+    "ticket": "“I entered the marks, but students cannot see their final grade.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3305-about-grades",
+    "scope": "Many grade-book screens and several saved changes were captured; the lab implements selected workflows and calculations with synthetic data."
+  },
+  "Quick Eval": {
+    "what": "Collects supported submissions awaiting evaluation into one work list.",
+    "steps": [
+      "Use the work list to find supported assignment, quiz, and discussion work awaiting evaluation; filter by course or activity to narrow a ticket.",
+      "Saving draft feedback leaves evaluation unfinished for learners; publish when feedback is ready to be released.",
+      "If expected work is missing, check the original activity and course availability as well as the Quick Eval filters."
+    ],
+    "result": "Published evaluations leave the pending work list; draft feedback may still require attention.",
+    "ticket": "“Where can I see all the work I still need to grade?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4842-about-quick-eval",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Quizzes": {
+    "what": "Creates question-based assessments and controls attempts, timing, availability, and result release.",
+    "steps": [
+      "A quiz timer limits attempt duration; availability dates determine the access window, so changing only one may not solve a timing ticket.",
+      "For one quiz’s exception, use Special Access; a New Time Limit is an absolute duration, while Classlist accommodations can use a multiplier.",
+      "Check the affected learner, access dates, attempts, and timing behavior together before saving the exception."
+    ],
+    "result": "The quiz uses its configured questions and attempt rules, with any applicable learner-specific exceptions.",
+    "ticket": "“One learner needs more time on this quiz without changing everyone else’s timer.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5012-create-and-configure-a-quiz",
+    "scope": "Quiz creation, timer, and Special Access controls were captured; real question delivery, learner attempts, and saved exception outcomes were not observed."
+  },
+  "Rubrics": {
+    "what": "Defines assessment criteria and achievement levels so evaluation and feedback are consistent.",
+    "steps": [
+      "Analytic rubrics assess several criteria; Holistic rubrics give a single overall judgment, and the scoring choice determines whether and how points are assigned.",
+      "Build criteria and level descriptions that explain the report’s expectations, then check rubric status and learner visibility.",
+      "Attach the intended rubric to the assessment; a rubric that exists in the tool is not necessarily attached to the activity being graded."
+    ],
+    "result": "The assessment can use the rubric to show expectations and record criterion-based feedback.",
+    "ticket": "“I want the same marking criteria available when I grade every report.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/5795-create-a-rubric-using-the-rubrics-tool",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Self Assessments": {
+    "what": "Provides ungraded practice questions with immediate feedback for learner reflection.",
+    "steps": [
+      "Use this for formative practice with immediate answer feedback, rather than a scored quiz or an opinion survey.",
+      "Create the assessment and its questions, and write feedback that explains mistakes; the feedback is central to its learning value.",
+      "Make it available in the course and check the practice experience without expecting a numerical grade-book result."
+    ],
+    "result": "Learners can check their understanding without creating a numerical grade-book assessment.",
+    "ticket": "“Can students practise these questions without the result counting toward their grade?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/27609-create-a-self-assessment",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Standards": {
+    "what": "Manages the course’s learning outcomes under the institution’s chosen label, here Standards.",
+    "steps": [
+      "Standards is this institution’s label for Learning Outcomes; other sites may call the same tool Outcomes, Expectations, or Objectives.",
+      "Add or import the approved outcomes, then align them to the relevant content, assessment activities, or rubric criteria.",
+      "For an achievement question, check both the alignment and the evaluated evidence; merely listing an outcome does not establish learner achievement."
+    ],
+    "result": "The course can connect learning activities and achievement evidence to its stated expectations.",
+    "ticket": "“How do I show which learning standard this assignment assesses?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2736-add-or-import-standards",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab. Institutions can rename Learning Outcomes, and available outcome workflows depend on configuration."
+  },
+  "Surveys": {
+    "what": "Collects learner opinions or feedback without requiring correct answers.",
+    "steps": [
+      "Use Surveys for opinions or feedback; questions do not need correct answers and can include rating scales.",
+      "For anonymous mid-course feedback, decide on anonymity before collecting responses, then configure questions, availability, and access.",
+      "Review response statistics under the configured anonymity rules rather than expecting quiz-style scores."
+    ],
+    "result": "Learners can submit feedback under the configured survey settings.",
+    "ticket": "“I want anonymous feedback about how the course is going.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3674-set-up-surveys",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Announcements": {
+    "what": "Publishes course notices that can appear in the course announcement area.",
+    "steps": [
+      "Headline and Content provide the notice; dates and release conditions determine which learners can see it and when.",
+      "For a missing announcement, check whether it was published, its visibility window, and its conditions before posting another copy.",
+      "For a room-change message, publish with the intended visibility and verify it in the course; email or push notification delivery also depends on notification settings."
+    ],
+    "result": "Eligible learners can read the published notice when its visibility conditions permit it.",
+    "ticket": "“How can I tell the whole class that tomorrow’s room has changed?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3444-create-an-announcement",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Discussions": {
+    "what": "Hosts course conversations in topics organized within forums.",
+    "steps": [
+      "Forums organize topics, while learners post inside topics; restrictions at either level can affect participation.",
+      "For a cannot-post ticket, inspect topic availability and posting rules, then check forum visibility and any group or release restrictions.",
+      "Confirm the learner belongs to the intended audience and that the topic is open for participation during the required period."
+    ],
+    "result": "The intended learners can use the discussion when both its forum and topic settings allow access.",
+    "ticket": "“Students can see the discussion heading but cannot post a reply.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3451-manage-discussion-forums-and-topics",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Intelligent Agents": {
+    "what": "Runs rule-based checks that can trigger actions such as messages when learners meet specified criteria.",
+    "steps": [
+      "Agents check criteria when they run; they do not continuously monitor learners, and first-time-only actions differ from actions on every qualifying run.",
+      "For an inactivity reminder, configure the matching criteria and recipients, then use Practice Run to inspect who would qualify.",
+      "After reviewing matches, enable or schedule the intended action and use View History to investigate unexpected or missing messages."
+    ],
+    "result": "The agent checks criteria when it runs and takes the configured action for matching users.",
+    "ticket": "“Can the course send a reminder to students who have not logged in recently?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34627-create-and-manage-intelligent-agents",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Course Reset": {
+    "what": "Permanently removes course materials and learner activity data to return a course to an empty shell.",
+    "steps": [
+      "Reset is for deliberately emptying an approved course shell: it removes learning materials and learner activity data while retaining enrollments.",
+      "Review the selected course and deletion summary, including optional groups, homepage, navbar, or widget items, and preserve anything required first.",
+      "Proceed only when the intended outcome is a permanent reset; it is not a routine way to clear one mistaken grade item."
+    ],
+    "result": "A completed reset removes the selected course data and cannot be undone; course enrollments are retained.",
+    "ticket": "“This disposable practice course needs to be emptied for another training session.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4326-about-course-reset",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Insights Portal": {
+    "what": "Opens the analytics dashboards and reporting tools available under the institution’s license and your permissions.",
+    "steps": [
+      "The portal exposes licensed dashboards within your role’s scope; course-level access does not imply permission to see organization-wide data.",
+      "For an engagement comparison, choose the relevant dashboard and inspect its course filters, reporting period, and refresh information.",
+      "Use drill-down details where permitted and confirm what the indicator measures before interpreting low engagement as non-participation."
+    ],
+    "result": "You see analytics within your authorized scope, rather than a live audit of every learner action.",
+    "ticket": "“Where can I compare learner engagement across the courses I support?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4543-about-insights-dashboards",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Sharing Groups": {
+    "what": "Defines reusable ePortfolio sharing audiences and permissions.",
+    "steps": [
+      "These define ePortfolio audiences and their permissions, such as who can view or comment on a reflection; they are separate from course project groups.",
+      "Check the group’s membership, permissions, and sharing behavior, then use it for the intended ePortfolio artifacts.",
+      "For a reviewer who cannot see an item, inspect both the sharing group and the item’s actual sharing settings."
+    ],
+    "result": "The selected ePortfolio audience receives the configured access; this does not create assignment teams.",
+    "ticket": "“How can learners share portfolio reflections with the same review group each time?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/4766-about-eportfolio",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Tools": {
+    "what": "Controls whether supported tools are enabled for the course.",
+    "steps": [
+      "Tool status controls availability in this course; navbar links and role permissions are separate checks when a tool seems missing.",
+      "Locate the tool and inspect its status; enabling or disabling it saves automatically.",
+      "After a change, inspect related links and release conditions, because disabling a tool can affect activities that depend on it."
+    ],
+    "result": "The tool’s course availability changes, while removing a navigation link alone would not disable it.",
+    "ticket": "“The tool exists in Brightspace, but it seems to be disabled in this course.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/23413-about-course-administration",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Manage Repositories": {
+    "what": "Manages the learning repositories and repository-level settings available to your role.",
+    "steps": [
+      "Repository-level settings govern the shared collection; an individual object’s visibility and the user’s permissions can also affect access.",
+      "For missing search results, inspect the intended repository’s access and search settings before republishing the resource.",
+      "Change only the relevant repository configuration and verify the result for the intended audience."
+    ],
+    "result": "The repository uses the selected settings, while individual learning objects may also have their own access choices.",
+    "ticket": "“Our shared teaching resources are not appearing in repository searches.”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/16500-manage-local-repositories",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Publish": {
+    "what": "Adds supported learning objects to a learning repository for reuse.",
+    "steps": [
+      "Publishing places a supported learning object in a selected repository for reuse; it is not a full course backup.",
+      "Choose the object and repository, then supply useful metadata and inspect the visibility and version choices.",
+      "Verify that the intended audience can find the published object and that the material does not depend on unsupported course-specific links."
+    ],
+    "result": "The object becomes available for authorized reuse; this is not a complete backup of all course behavior.",
+    "ticket": "“How can I share this learning resource with instructors in other courses?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3678-publish-add-objects-to-brightspace-learning-repository",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  },
+  "Search": {
+    "what": "Finds learning objects in the repositories you are allowed to search.",
+    "steps": [
+      "Search finds objects in accessible repositories; inspect a result’s contents and suitability before using Retrieve.",
+      "Dynamic Link to Newest Version follows updates; Locked Link to This Version fixes the linked version; Copy as Content creates a course copy.",
+      "Choose according to the course’s update needs and the object’s supported options; some object types offer import rather than these linking choices."
+    ],
+    "result": "The course receives a link or copy according to your choice; supported reuse options depend on the object type.",
+    "ticket": "“Can I reuse a colleague’s resource and choose whether future updates appear in my course?”",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3361-retrieve-learning-objects",
+    "scope": "Real-screen steps are documented; this destination was not captured and is not interactive in this lab."
+  }
+}

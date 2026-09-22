@@ -1,0 +1,10 @@
+{
+  "name": "brightspace-support-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Independent Brightspace support reference with local walkthroughs and sample course data",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/calculations.cjs && node tests/references.cjs && node tests/build.cjs"
+  }
+}
