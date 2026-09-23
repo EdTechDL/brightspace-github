@@ -47,6 +47,25 @@ const linkLabels=courseAdmin.controls.filter(c=>c.kind==='link').map(c=>c.label)
 assert.ok(linkLabels.length>40,'expected the full Course Admin directory');
 const deadEnds=linkLabels.filter(l=>!practice.has(l)&&!dests[l]);
 assert.deepEqual(deadEnds,[],'Course Admin dead ends: '+deadEnds.join(', '));
+// The help registry is the teaching content; a malformed card is worse than a visible gap.
+const helpDir=root+'/data/help';
+const HELP={};
+for(const file of fs.readdirSync(helpDir).filter(f=>f.endsWith('.json'))){
+ const cards=JSON.parse(fs.readFileSync(helpDir+'/'+file));
+ for(const [id,card] of Object.entries(cards)){
+  assert.ok(!HELP[id],'duplicate help id '+id);
+  HELP[id]=card;
+  assert.ok(/^[a-z0-9.-]+$/.test(id),'help id must be a slug: '+id);
+  assert.ok(card.title&&card.title.length>2,id+' missing title');
+  for(const field of ['where','what','when','verify'])assert.ok(card[field]&&card[field].length>10,id+' missing '+field);
+  assert.ok(Array.isArray(card.howTo)&&card.howTo.length,id+' needs howTo steps');
+  assert.ok(['captured','documented','simulated'].includes(card.evidence),id+' needs an evidence level');
+  if(card.source)assert.ok(/^https?:\/\//.test(card.source),id+' source must be a url');
+  for(const o of card.options||[])assert.ok(o.label&&o.effect,id+' option needs label and effect');
+ }}
+for(const [id,card] of Object.entries(HELP))
+ for(const r of card.related||[])assert.ok(HELP[r],id+' points at unknown related card '+r);
+const helpCount=Object.keys(HELP).length;
 const bads=[{}, {...tour,schema_version:9},{...tour,steps:[{screen:'missing',target:'x',card:'x'}]}, {...tour,screens:{x:{extends:'x'}},steps:[{screen:'x',target:'x',card:'x'}]},{...tour,screens:{x:{blocks:[{type:'script'}]}},steps:[{screen:'x',target:'x',card:'x'}]}];
 for(const t of bads)assert.throws(()=>ctx.validateReplayTour(t));
 assert.ok(!ctx.renderReplayBlocks([{type:'text',text:'<script>alert(1)</script>'}]).includes('<script>'));
@@ -55,4 +74,4 @@ for(const t of tickets){if(t.tourId)assert.ok(flows.some(f=>f.id===t.tourId),t.i
 vm.runInContext('const TICKETS='+JSON.stringify(tickets)+';'+fs.readFileSync(root+'/src/support.js','utf8').split("document.addEventListener")[0],ctx);
 assert.equal(ctx.searchSupport('student cannot see final grade')[0].id,'grades-final-not-visible');
 assert.ok(ctx.searchSupport('extra time for one quiz').some(t=>t.tourId==='quiz-special'));
-console.log((tour.steps.length+gsTour.steps.length)+' replay targets across '+2+' tours, '+noteCount+' researched tool notes, '+linkLabels.length+' Course Admin links with destinations, '+gsInventory.screens.length+' Gradescope screens, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');
+console.log((tour.steps.length+gsTour.steps.length)+' replay targets across '+2+' tours, '+noteCount+' researched tool notes, '+linkLabels.length+' Course Admin links with destinations, '+helpCount+' help cards, '+gsInventory.screens.length+' Gradescope screens, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');

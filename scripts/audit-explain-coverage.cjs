@@ -12,6 +12,7 @@ const STRICT = !process.argv.includes('--report-only');
 
 // Classifies every visible control under root.
 //   taught        = explanationFor() returned a real teaching card
+//   gap           = the authoring-gap card: reachable, but no teaching content written yet
 //   capture-note  = only the capture metadata fallback ("Read the recorded control...")
 //   none          = nothing happens when clicked in Explain mode
 const CLASSIFY = `(root)=>{
@@ -22,7 +23,8 @@ const CLASSIFY = `(root)=>{
     const r=el.getBoundingClientRect(); if(!(r.width>0&&r.height>0))continue;
     let ctx=null; try{ctx=explanationFor(el)}catch(e){}
     let cls='none';
-    if(ctx){const s=ctx.info?.steps?.[0]||''; cls=s.startsWith('Read the recorded control')?'capture-note':'taught';}
+    if(ctx){const s=ctx.info?.steps?.[0]||'';
+      cls=ctx.gap?'gap':s.startsWith('Read the recorded control')?'capture-note':'taught';}
     const kind=el.tagName==='INPUT'?('input:'+(el.type||'text')):el.tagName.toLowerCase();
     const label=(el.dataset.label||el.getAttribute('aria-label')||el.closest('label')?.textContent||el.textContent||el.name||'').replace(/\\s+/g,' ').trim().slice(0,80);
     out.push({kind,label,name:el.name||'',action:el.dataset.action||'',helpId:el.dataset.help||'',disabled:!!el.disabled,cls});
@@ -69,14 +71,17 @@ const CLASSIFY = `(root)=>{
   }
   await browser.close();
 
-  let total = 0, taught = 0, failing = [];
+  let total = 0, taught = 0, failing = [], byClass = { taught: 0, gap: 0, 'capture-note': 0, none: 0 };
   for (const [k, items] of Object.entries(results)) {
     const t = items.filter(i => i.cls === 'taught').length;
     total += items.length; taught += t;
+    for (const i of items) byClass[i.cls] = (byClass[i.cls] || 0) + 1;
     console.log(`${k.padEnd(60)} ${String(t).padStart(4)}/${String(items.length).padEnd(4)} taught`);
     for (const i of items) if (i.cls !== 'taught') failing.push({ view: k, ...i });
   }
   fs.writeFileSync('coverage-report.json', JSON.stringify({ total, taught, failing, results }, null, 1));
-  console.log(`\nTOTAL ${taught}/${total} controls taught (${(100 * taught / total).toFixed(1)}%). Untaught: ${failing.length}. Details in coverage-report.json`);
+  console.log(`\nTOTAL ${taught}/${total} controls taught (${(100 * taught / total).toFixed(1)}%). Untaught: ${failing.length}.`);
+  console.log(`  taught ${byClass.taught} | authoring gap ${byClass.gap} | capture-note ${byClass['capture-note']} | dead click ${byClass.none}`);
+  console.log('Details in coverage-report.json');
   if (STRICT && failing.length) process.exit(1);
 })();

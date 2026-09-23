@@ -38,7 +38,51 @@ const FIELD_HELP={
 let clickContext=null;
 function clearClickExplanation(){document.getElementById('click-explanation')?.remove();document.querySelectorAll('.explain-target').forEach(e=>e.classList.remove('explain-target'));clickContext=null;}
 function helpBody(info){return `<p><b>Purpose</b><br>${h(info.what)}</p><b>Workflow</b><ol>${info.steps.map(s=>`<li>${h(s)}</li>`).join('')}</ol><p><b>Key distinction</b><br>${h(info.result)}</p><p><b>Typical ticket</b><br>“${h(info.ticket.replace(/^[“"]|[”"]$/g,''))}”</p>${info.scope?`<p class="small muted">${h(info.scope)}</p>`:''}${info.source?`<a class="small" href="${h(info.source)}" target="_blank" rel="noopener">Read the supporting documentation ↗</a>`:''}`;}
-function explanationFor(el){const name=el.name||'',text=(el.dataset.label||el.getAttribute('aria-label')||el.closest('label')?.textContent||el.textContent||'').replace(/[⚙▾]/g,'').trim();const title=el.dataset.tab?({enter:'Enter Grades',manage:'Manage Grades',personal:'Personal Display Options',display:'Org Unit Display Options',calculation:'Calculation Options',wizard:'Setup Wizard',schemes:'Schemes',finals:'Final Grades'})[el.dataset.tab]:text;
+// A label's own text, without the explanatory paragraph a D2L radio carries beside it (bug B1).
+function controlLabel(el){
+ if(el.dataset.label)return el.dataset.label;
+ const aria=el.getAttribute('aria-label');if(aria)return aria;
+ const lab=el.closest('label');
+ if(lab){const c=lab.cloneNode(true);c.querySelectorAll('.help,small,.muted,input,select,textarea').forEach(n=>n.remove());
+  const t=c.textContent.replace(/[⚙▾→]/g,'').replace(/\s+/g,' ').trim();if(t)return t;}
+ return (el.textContent||el.name||'').replace(/[⚙▾→]/g,'').replace(/\s+/g,' ').trim();
+}
+// Registry cards are the teaching format; everything below is a migration source.
+function helpIdFor(el){
+ if(el.dataset.help)return el.dataset.help;
+ const label=controlLabel(el);
+ const scope=view.route==='library'?view.captureId:view.route+(el.dataset.tab||view.tab?'.'+(el.dataset.tab||view.tab):'');
+ return [scope,'other',helpSlug(label)].join('.');
+}
+function list(items,cls=''){return items&&items.length?`<ul class="${cls}">${items.map(x=>`<li>${h(x)}</li>`).join('')}</ul>`:'';}
+function registryCard(card,id){
+ const opts=card.options&&card.options.length?`<dl class="help-options">${card.options.map(o=>`<dt>${h(o.label)}</dt><dd>${h(o.effect)}</dd>`).join('')}</dl>`:'';
+ const more=[card.gotchas&&card.gotchas.length?`<h3>Watch out</h3>${list(card.gotchas)}`:'',
+  card.tickets&&card.tickets.length?`<h3>Tickets this answers</h3>${list(card.tickets)}`:'',
+  card.related&&card.related.length?`<h3>Related settings</h3><div class="help-related">${card.related.map(r=>`<button type="button" class="tag" data-action="help-jump" data-help-id="${h(r)}">${h((HELP[r]&&HELP[r].title)||r)}</button>`).join('')}</div>`:'',
+  card.msu?`<h3>At MSU</h3><p>${h(card.msu)}</p>`:''].filter(Boolean).join('');
+ return `<p class="help-where">${h(card.where||'')}</p><p>${h(card.what||'')}</p>${opts}`
+  +(card.when?`<h3>When to use it</h3><p>${h(card.when)}</p>`:'')
+  +(card.learnerSees?`<h3>The learner sees</h3><p>${h(card.learnerSees)}</p>`:'')
+  +(card.howTo&&card.howTo.length?`<h3>How to</h3><ol>${card.howTo.map(x=>`<li>${h(x)}</li>`).join('')}</ol>`:'')
+  +(card.verify?`<h3>Verify it worked</h3><p>${h(card.verify)}</p>`:'')
+  +(more?`<details class="accordion help-more"><summary>More</summary><div>${more}</div></details>`:'')
+  +`<p class="small muted">${h(card.evidence||'simulated')} · ${/^https?:\/\//.test(card.source||'')?`<a href="${h(card.source)}" target="_blank" rel="noopener noreferrer">source</a>`:h(card.source||'no source recorded')} · <code>${h(id)}</code></p>`;
+}
+// Nothing is ever a dead click: an unwritten control says so, and the audit counts it as untaught.
+function authoringGap(id,label){
+ return {title:label||'Not written yet',gap:true,html:`<div class="callout warn"><b>Not written yet</b><p>This control does not have a teaching card yet. It is listed as a gap so it shows up in the coverage audit rather than failing silently.</p></div><p class="small muted">Help id <code>${h(id)}</code></p>`};
+}
+function explanationFor(el){
+ const id=helpIdFor(el);
+ if(HELP[id])return {title:HELP[id].title||id,html:registryCard(HELP[id],id),helpId:id};
+ const group=id.split('.').slice(0,-1).join('.');
+ if(HELP[group])return {title:HELP[group].title||group,html:registryCard(HELP[group],group),helpId:group};
+ const legacy=legacyExplanationFor(el);
+ if(legacy)return {...legacy,helpId:id};
+ return {...authoringGap(id,(el.dataset.label||el.textContent||'').trim().slice(0,60)),helpId:id};
+}
+function legacyExplanationFor(el){const name=el.name||'',text=controlLabel(el);const title=el.dataset.tab?({enter:'Enter Grades',manage:'Manage Grades',personal:'Personal Display Options',display:'Org Unit Display Options',calculation:'Calculation Options',wizard:'Setup Wizard',schemes:'Schemes',finals:'Final Grades'})[el.dataset.tab]:text;
  if(name.startsWith('minutes:'))return {title:'New Time Limit · special access',info:simpleHelp('This is the full duration for this learner on this quiz, in minutes. It replaces the applicable base or accommodated duration.',['For a 30-minute quiz with a 50% allowance, enter 45, not 15 or 1.5.','Leave this field blank in the simulator to remove the override and use the course accommodation.'],'A 45-minute override remains 45 minutes even if the learner also has a course multiplier.','The student’s extra time was applied twice, or the wrong time is showing.')};
  if(FIELD_HELP[name.split(':')[0]])return {title:text||name,info:FIELD_HELP[name.split(':')[0]]};
  if(TOOL_HELP[title]||PAGE_HELP[title])return {title,info:TOOL_HELP[title]||PAGE_HELP[title]};
@@ -51,12 +95,14 @@ function explanationFor(el){const name=el.name||'',text=(el.dataset.label||el.ge
  if(control)return {title:text,info:simpleHelp(control.notes,['Read the recorded control and its notes on this reference screen.','Use an available recorded transition to follow the next captured screen.'],'This reference does not save live course changes. Uncaptured behavior is not assumed.','“Where is this control, and what was observed when it was opened?”','')};
  return null;
 }
-function showClickExplanation(context){clearClickExplanation();if(!state.explainClicks||activeWalkthrough()||!context)return;clickContext=context;const dialog=document.getElementById('dialog'),box=document.createElement('section');box.id='click-explanation';box.className='walkthrough-box click-explanation';box.setAttribute('aria-label','Explanation of '+context.title);box.innerHTML=`<div class="walkthrough-box-heading"><span>EXPLAIN CLICKS</span>${action('×','close-explanation','aria-label="Close explanation"','quiet')}</div><h2>${h(context.title)}</h2><div class="click-explanation-body">${helpBody(context.info)}</div>`;
+function showClickExplanation(context){clearClickExplanation();if(!state.explainClicks||!context)return;clickContext=context;const dialog=document.getElementById('dialog'),box=document.createElement('section');box.id='click-explanation';box.className='walkthrough-box click-explanation';box.setAttribute('aria-label','Explanation of '+context.title);box.innerHTML=`<div class="walkthrough-box-heading"><span>EXPLAIN CLICKS</span>${action('×','close-explanation','aria-label="Close explanation"','quiet')}</div><h2>${h(context.title)}</h2><div class="click-explanation-body">${context.html||helpBody(context.info)}</div>`;
  if(dialog.open){box.classList.add('in-dialog');dialog.append(box);box.scrollIntoView({block:'nearest'});return;}
- document.body.append(box);let target=context.element?.isConnected?context.element:null;if(!target&&context.label)target=[...document.querySelectorAll('[data-label],.tabs button,.navitem')].find(e=>(e.dataset.label||e.textContent).replace(/[⚙▾]/g,'').trim()===context.label);target??=document.querySelector('#main h1,#main h2');context.target=target;if(target)target.classList.add('explain-target');positionWalkthroughBox(box,target?.closest('.dropdown')?.querySelector('.menu')||target);
+ document.body.append(box);let target=context.element?.isConnected?context.element:null;if(!target&&context.label)target=[...document.querySelectorAll('[data-label],.tabs button,.navitem')].find(e=>(e.dataset.label||e.textContent).replace(/[⚙▾]/g,'').trim()===context.label);target??=document.querySelector('#main h1,#main h2');context.target=target;if(target)target.classList.add('explain-target');positionWalkthroughBox(box,target?.closest('.dropdown')?.querySelector('.menu')||target,true);
 }
-document.addEventListener('click',e=>{const a=e.target.closest('[data-action]')?.dataset.action;if(a==='toggle-explanations'){state.explainClicks=!state.explainClicks;persist();clearClickExplanation();const b=e.target.closest('button');b.textContent='Explain clicks: '+(state.explainClicks?'On':'Off');b.setAttribute('aria-pressed',!!state.explainClicks);toast(state.explainClicks?'Explain clicks is on. Click a course tool or grade setting for a plain-language explanation.':'Explain clicks is off.');return;}if(a==='close-explanation'){clearClickExplanation();return;}});
-document.addEventListener('click',e=>{if(e.target.closest('#click-explanation,#walkthrough-box,.training-launcher'))return;if(!state.explainClicks||activeWalkthrough())return;const el=e.target.closest('button,input,select,summary,a');if(!el)return;const context=explanationFor(el);clearClickExplanation();if(context)setTimeout(()=>showClickExplanation({...context,element:el,label:context.title}),0);},true);
+document.addEventListener('click',e=>{const a=e.target.closest('[data-action]')?.dataset.action;if(a==='toggle-explanations'){state.explainClicks=!state.explainClicks;persist();clearClickExplanation();const b=e.target.closest('button');b.textContent='Explain clicks: '+(state.explainClicks?'On':'Off');b.setAttribute('aria-pressed',!!state.explainClicks);toast(state.explainClicks?'Explain clicks is on. Click anything to learn what it does.':'Explain clicks is off.');return;}if(a==='close-explanation'){clearClickExplanation();return;}if(a==='help-jump'){const id=e.target.closest('[data-help-id]').dataset.helpId;const card=HELP[id];const target=document.querySelector(`[data-help="${CSS.escape(id)}"]`);clearClickExplanation();setTimeout(()=>showClickExplanation(card?{title:card.title||id,html:registryCard(card,id),helpId:id,element:target}:{...authoringGap(id,id),element:target}),0);return;}});
+document.addEventListener('click',e=>{if(e.target.closest('#click-explanation,#walkthrough-box,.training-launcher'))return;if(!state.explainClicks)return;
+ // During a walkthrough the current step already explains its own target; other controls stay explorable.
+ const walk=activeWalkthrough();if(walk&&controlLabel(e.target.closest('button,input,select,summary,a')||e.target)===walk.target)return;const el=e.target.closest('button,input,select,summary,a');if(!el)return;const context=explanationFor(el);clearClickExplanation();if(context)setTimeout(()=>showClickExplanation({...context,element:el,label:context.title}),0);},true);
 const originalHighlight=highlight;
 highlight=function(scroll){originalHighlight(scroll);if(activeWalkthrough())clearClickExplanation();};
 window.addEventListener('resize',()=>{const box=document.getElementById('click-explanation');if(box&&!box.classList.contains('in-dialog'))positionWalkthroughBox(box,clickContext?.target);});

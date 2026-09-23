@@ -1,4 +1,4 @@
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Script } from 'node:vm';
@@ -16,6 +16,18 @@ const sha = (process.env.VERCEL_GIT_COMMIT_SHA || (() => {
 })()).trim().slice(0, 7) || 'unknown';
 const BUILD_STAMP = { sha, built: new Date().toISOString().slice(0, 10) };
 
+// Help cards are split by tool; the build merges them into one registry keyed by help id.
+const helpDir = resolve(root, 'data/help');
+const helpFiles = readdirSync(helpDir).filter(f => f.endsWith('.json')).sort();
+const HELP = {};
+for (const file of helpFiles) {
+  const cards = JSON.parse(read(`data/help/${file}`));
+  for (const [id, card] of Object.entries(cards)) {
+    if (HELP[id]) throw new Error(`Duplicate help id ${id} in ${file}.`);
+    HELP[id] = card;
+  }
+}
+
 const prelude = [
   ['CAPTURE', 'data/capture/d2l-ui-inventory.json'],
   ['PACK_CASES', 'data/capture/calc-test-cases.json'],
@@ -24,7 +36,8 @@ const prelude = [
   ['TOUR_GS', 'data/capture/gradescope-lti-handshake.tour.json'],
   ['TOOL_NOTES', 'data/tool-notes.json']
 ].map(([key, path]) => `const ${key}=${json(path)};`).join('\n')
-  + `\nconst BUILD_STAMP=${JSON.stringify(BUILD_STAMP)};`;
+  + `\nconst BUILD_STAMP=${JSON.stringify(BUILD_STAMP)};`
+  + `\nconst HELP=${JSON.stringify(HELP).replace(/</g, '\\u003c')};`;
 
 // These extensions are ordered deliberately: later definitions replace prototype views.
 const extensions = ['capture.js', 'grade-ui.js', 'experience.js']

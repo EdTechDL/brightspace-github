@@ -15,10 +15,12 @@ function updateWalkthroughOverlay(scroll=false){const active=activeWalkthrough()
  const target=walkthroughTarget(active);document.querySelectorAll('.tour-target').forEach(e=>e.classList.remove('tour-target'));document.getElementById('tour-popover').hidden=true;if(target)target.classList.add('tour-target');const status=box.querySelector('#walkthrough-target-status');status.textContent=target?'':'Target not found on this screen: '+active.target;if(document.getElementById('dialog').open){box.hidden=true;return;}box.hidden=false;
  if(scroll&&target)target.scrollIntoView({block:'start',behavior:'instant'});positionWalkthroughBox(box,target);
 }
-function positionWalkthroughBox(box,target){
+// tight: anchor to the control itself. Anchoring to its form puts the card at the page corner on
+// full-page settings forms, far from the control the learner clicked (bug B3).
+function positionWalkthroughBox(box,target,tight){
  const gap=16,w=Math.min(390,innerWidth-24),body=box.querySelector('.walkthrough-explanation,.click-explanation-body');box.style.width=w+'px';box.style.maxHeight='calc(100vh - 24px)';if(body)body.style.maxHeight='';
  let height=box.offsetHeight,left=innerWidth-w-gap,top=innerHeight-height-gap;
- if(target){const r=(target.closest('form')||target).getBoundingClientRect(),right=innerWidth-r.right-gap*2,leftSpace=r.left-gap*2,above=r.top-gap*2,below=innerHeight-r.bottom-gap*2;
+ if(target){const r=(tight?target:(target.closest('form')||target)).getBoundingClientRect(),right=innerWidth-r.right-gap*2,leftSpace=r.left-gap*2,above=r.top-gap*2,below=innerHeight-r.bottom-gap*2;
   if(right>=w){left=r.right+gap;top=Math.max(gap,Math.min(r.top,innerHeight-height-gap));}
   else if(leftSpace>=w){left=r.left-w-gap;top=Math.max(gap,Math.min(r.top,innerHeight-height-gap));}
   else {let useBelow=below>=height||below>=above,space=Math.max(0,useBelow?below:above);if(space<height&&body&&space>190){const overhead=height-body.offsetHeight;body.style.maxHeight=Math.max(75,space-overhead)+'px';height=box.offsetHeight;}if(space>=height-2){left=Math.max(gap,Math.min(r.left,innerWidth-w-gap));top=useBelow?r.bottom+gap:r.top-height-gap;}}

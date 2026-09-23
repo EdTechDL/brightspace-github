@@ -1,0 +1,730 @@
+{
+  "grades.calculation.other.weighted": {
+    "title": "Grading System: Weighted",
+    "where": "Grades > Settings > Calculation Options > Grading System",
+    "what": "Each category and item carries a percentage of the final grade, and those percentages add up to 100. A 25% exam counts for a quarter of the course no matter how many points it is marked out of.",
+    "when": "The syllabus is written in percentages: 'Homework 30%, Midterm 30%, Final 40%'. This is the most common choice at MSU.",
+    "options": [
+      {
+        "label": "Weighted",
+        "effect": "Percentages decide the final grade. Points out of are only used within a category."
+      },
+      {
+        "label": "Points",
+        "effect": "Points decide everything. Any weights you typed are ignored."
+      },
+      {
+        "label": "Formula",
+        "effect": "A custom expression decides the final grade."
+      }
+    ],
+    "learnerSees": "In their grades, each category shows its own subtotal and the weight it carries.",
+    "howTo": [
+      "Open Grades, then Settings.",
+      "Choose the Calculation Options tab.",
+      "Select Weighted under Grading System.",
+      "Click Save, and confirm the two prompts D2L raises."
+    ],
+    "verify": "Open Manage Grades: the Weight column should be editable and the category weights should total 100.",
+    "gotchas": [
+      "Weights that do not total 100 still calculate, but not the way the professor expects. Manage Grades warns about this.",
+      "Switching system after grading is entered changes every final grade in the course. Warn the professor before they confirm.",
+      "A category's items are weighted relative to each other inside the category, not against the whole course."
+    ],
+    "tickets": [
+      "\"My students' final grades are all wrong after I set up weights.\"",
+      "\"The syllabus says the midterm is 30% but D2L shows something else.\""
+    ],
+    "related": [
+      "grades.calculation.other.points",
+      "grades.calculation.other.exclude-ungraded-items",
+      "grades.calculation.other.treat-ungraded-items-as-0"
+    ],
+    "msu": "Observed in the Same Playground sandbox on 2026-09-22.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3521-grading-systems-types",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.points": {
+    "title": "Grading System: Points",
+    "where": "Grades > Settings > Calculation Options > Grading System",
+    "what": "The final grade is earned points divided by total possible points. A 200-point final naturally counts twice as much as a 100-point midterm, with no percentages involved.",
+    "when": "The syllabus is written in points: 'the course is out of 1000 points'.",
+    "options": [
+      {
+        "label": "Points",
+        "effect": "Point totals alone decide the final grade."
+      },
+      {
+        "label": "Weighted",
+        "effect": "Percentages decide it instead, and point totals only matter within a category."
+      }
+    ],
+    "learnerSees": "Their final grade as points earned out of points possible.",
+    "howTo": [
+      "Open Grades, then Settings.",
+      "Choose the Calculation Options tab.",
+      "Select Points under Grading System.",
+      "Click Save and confirm."
+    ],
+    "verify": "In Manage Grades the Weight column is no longer in play; check that Max. Points on each item matches the syllabus.",
+    "gotchas": [
+      "Weight values entered earlier are ignored, not deleted. Switching back to Weighted brings them back and can surprise people.",
+      "To make an item count more, raise its Max. Points. There is no weight to adjust."
+    ],
+    "tickets": [
+      "\"I set weights but they are not doing anything.\"",
+      "\"How do I make the final exam worth more?\""
+    ],
+    "related": [
+      "grades.calculation.other.weighted"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3521-grading-systems-types",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.formula-reference-only": {
+    "title": "Grading System: Formula",
+    "where": "Grades > Settings > Calculation Options > Grading System",
+    "what": "The final grade comes from a custom expression the professor writes, which can do things weights and points cannot, such as 'drop the lowest two quizzes, but only if the final exam is above 60'.",
+    "when": "Rarely. Escalate rather than improvise: a wrong formula silently produces wrong grades for the whole class.",
+    "learnerSees": "A final grade with no visible explanation of how it was reached, which generates its own tickets.",
+    "howTo": [
+      "Treat this as an escalation. Record what the professor wants in plain language and pass it to a senior colleague or the D2L administrators."
+    ],
+    "verify": "This simulator does not evaluate formulas, so do not practise the outcome here. Confirm any real formula against a test learner in a sandbox course.",
+    "gotchas": [
+      "Formula evaluation is outside this simulator's model, so the practice gradebook will not reproduce it.",
+      "Formula errors do not always announce themselves; they can just produce plausible wrong numbers."
+    ],
+    "tickets": [
+      "\"Can D2L drop the lowest quiz only if they passed the final?\""
+    ],
+    "related": [
+      "grades.calculation.other.weighted",
+      "grades.calculation.other.points"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3521-grading-systems-types",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.exclude-ungraded-items": {
+    "title": "Ungraded items: Exclude from the final grade",
+    "where": "Grades > Settings > Calculation Options > Ungraded Items",
+    "what": "Work that has not been marked yet is left out of the calculation entirely. The final grade reflects only what has actually been graded so far.",
+    "when": "Almost always during a running term. It is what a professor means by 'their grade so far'.",
+    "options": [
+      {
+        "label": "Exclude ungraded items",
+        "effect": "A learner graded 90% on one of ten items shows 90%."
+      },
+      {
+        "label": "Treat ungraded items as 0",
+        "effect": "The same learner shows 9%, because the nine unmarked items count as zeros."
+      }
+    ],
+    "learnerSees": "A grade that rises and falls as work is marked, rather than starting near zero and climbing all term.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Under Ungraded Items choose Exclude.",
+      "Click Save and confirm."
+    ],
+    "verify": "Pick a learner with one graded item and check their Final Calculated Grade matches that item alone.",
+    "gotchas": [
+      "At the end of term the professor usually wants the opposite, so missing work counts as zero. Flipping this setting at the wrong moment is a common cause of panic emails.",
+      "This is a course-wide setting. To zero out one learner's single item, enter a 0 on that item instead."
+    ],
+    "tickets": [
+      "\"My students all think they are failing.\"",
+      "\"Why does the gradebook say 9% when they got 90% on the only assignment?\""
+    ],
+    "related": [
+      "grades.calculation.other.treat-ungraded-items-as-0",
+      "grades.calculation.other.automatically-apply-a-grade-of-zero-0-to-missing-submissions"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.treat-ungraded-items-as-0": {
+    "title": "Ungraded items: Treat as 0",
+    "where": "Grades > Settings > Calculation Options > Ungraded Items",
+    "what": "Anything not yet marked counts as a zero in the final grade.",
+    "when": "At the end of term, when unmarked work really is missing work and should pull the grade down.",
+    "learnerSees": "Their grade drops for every item left unmarked, including work the professor simply has not got to yet.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Under Ungraded Items choose Treat as 0.",
+      "Click Save and confirm."
+    ],
+    "verify": "Check one learner with unmarked work: their Final Calculated Grade should now be lower than before.",
+    "gotchas": [
+      "Turning this on mid-term makes the whole class appear to be failing, which is one of the most common panic tickets.",
+      "It does not distinguish 'not submitted' from 'submitted but not marked yet'."
+    ],
+    "tickets": [
+      "\"Everyone's grade suddenly dropped and nothing changed.\""
+    ],
+    "related": [
+      "grades.calculation.other.exclude-ungraded-items"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.automatically-keep-final-grades-updated": {
+    "title": "Automatically keep final grades updated",
+    "where": "Grades > Settings > Calculation Options > Final Grade Released",
+    "what": "Recalculates the final grade whenever any grade changes, instead of waiting for someone to press Recalculate.",
+    "when": "Leave it on in most courses. It is the reason a final grade moves as soon as a score is entered.",
+    "learnerSees": "Nothing directly, but a released final grade stays current rather than going stale.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Tick Automatically keep final grades updated.",
+      "Click Save."
+    ],
+    "verify": "Change one learner's score and confirm their Final Calculated Grade moves without any further action.",
+    "gotchas": [
+      "With this off, the professor sees stale finals and assumes the gradebook is broken.",
+      "It updates the calculated grade, not the adjusted one. An adjusted final stays where it was put."
+    ],
+    "tickets": [
+      "\"I changed a score but the final grade did not move.\""
+    ],
+    "related": [
+      "grades.enter.other.recalculate",
+      "grades.calculation.other.adjusted-final-grade"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.calculated-final-grade": {
+    "title": "Final Grade Released: Calculated Final Grade",
+    "where": "Grades > Settings > Calculation Options > Final Grade Released",
+    "what": "The grade learners see is the one D2L works out from their scores. Nobody can nudge it.",
+    "when": "The default, and right for most courses.",
+    "options": [
+      {
+        "label": "Calculated Final Grade",
+        "effect": "Learners see the computed number."
+      },
+      {
+        "label": "Adjusted Final Grade",
+        "effect": "Learners see a number the professor can overwrite by hand."
+      }
+    ],
+    "learnerSees": "The calculated grade, once it is released.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Under Final Grade Released choose Calculated Final Grade.",
+      "Click Save."
+    ],
+    "verify": "In Enter Grades, the Final Calculated Grade column is the one that matters; the adjusted column is ignored for release.",
+    "gotchas": [
+      "Releasing is separate from choosing. Picking this does not by itself show anyone their grade."
+    ],
+    "tickets": [
+      "\"I typed a final grade in but the student sees a different number.\""
+    ],
+    "related": [
+      "grades.calculation.other.adjusted-final-grade",
+      "grades.finals.other.release-final-calculated-grade-to-demo-learner"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.adjusted-final-grade": {
+    "title": "Final Grade Released: Adjusted Final Grade",
+    "where": "Grades > Settings > Calculation Options > Final Grade Released",
+    "what": "Learners see a final grade the professor can type over, letting them round up, apply a curve, or honour an arrangement the gradebook cannot express.",
+    "when": "The professor wants the last word on the final grade.",
+    "learnerSees": "The adjusted number, once released, not the calculated one.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Under Final Grade Released choose Adjusted Final Grade.",
+      "Click Save.",
+      "In Enter Grades, use Transfer calculated to adjusted to seed the column, then edit individual learners."
+    ],
+    "verify": "Change an adjusted value for one learner and confirm the learner view shows the adjusted number.",
+    "gotchas": [
+      "The adjusted grade does not recalculate. Once set it stays put even if scores change afterwards, which is exactly the point and exactly the trap.",
+      "An empty adjusted column means the learner sees nothing, even though their calculated grade looks fine."
+    ],
+    "tickets": [
+      "\"I curved the final grades but students still see the old number.\"",
+      "\"The student's grade did not change after I fixed their quiz score.\""
+    ],
+    "related": [
+      "grades.calculation.other.calculated-final-grade",
+      "grades.enter.other.transfer-calculated-adjusted"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.automatically-release-final-grade": {
+    "title": "Automatically release final grade",
+    "where": "Grades > Settings > Calculation Options > Final Grade Released",
+    "what": "Releases each learner's final grade as soon as it is calculated, instead of the professor releasing grades deliberately.",
+    "when": "Courses where the running total should always be visible. Many professors prefer it off so nobody sees a partial grade.",
+    "learnerSees": "Their final grade at all times, including early in the term when it is based on very little.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Tick Automatically release final grade.",
+      "Click Save."
+    ],
+    "verify": "Open the learner view and confirm the final grade appears without any release step.",
+    "gotchas": [
+      "Combined with Treat ungraded items as 0, this shows every learner a failing grade from week one."
+    ],
+    "tickets": [
+      "\"Students can see their final grade and I did not want that yet.\""
+    ],
+    "related": [
+      "grades.finals.other.release-final-calculated-grade-to-demo-learner",
+      "grades.calculation.other.treat-ungraded-items-as-0"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.automatically-apply-a-grade-of-zero-0-to-missing-submissions": {
+    "title": "Automatically apply a grade of zero to missing submissions",
+    "where": "Grades > Settings > Calculation Options",
+    "what": "Puts an actual 0 in the gradebook when a learner misses a due date, rather than leaving the cell blank.",
+    "when": "The professor wants missing work to count against learners immediately and visibly.",
+    "learnerSees": "A real 0 on the item, not an empty cell, so they can tell they missed something.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Tick the automatic zero option.",
+      "Click Save."
+    ],
+    "verify": "Check a learner who missed a due date: the item should hold 0 rather than a blank.",
+    "gotchas": [
+      "This writes a real grade. Removing it later means clearing those zeros by hand.",
+      "Different from Treat ungraded items as 0, which changes the calculation without writing anything into the gradebook."
+    ],
+    "tickets": [
+      "\"Can D2L put in zeros automatically when students do not submit?\""
+    ],
+    "related": [
+      "grades.calculation.other.treat-ungraded-items-as-0"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.calculation.other.allow-calculated-final-grade-to-exceed-100-lab-control": {
+    "title": "Allow the calculated final grade to exceed 100%",
+    "where": "Grades > Settings > Calculation Options",
+    "what": "Lets the final grade go above 100% when bonus items or generous scores push it there. With it off, the final is capped at 100%.",
+    "when": "The course has bonus work and the professor wants extra credit to actually show.",
+    "learnerSees": "A final above 100% where earned, instead of a capped 100%.",
+    "howTo": [
+      "Open Grades, then Settings, then Calculation Options.",
+      "Tick the option to allow the final grade to exceed 100%.",
+      "Click Save."
+    ],
+    "verify": "Give a learner a bonus item and confirm their final rises above 100% instead of stopping there.",
+    "gotchas": [
+      "With this off, bonus points can silently do nothing for a learner already at 100%, which looks like the bonus item is broken."
+    ],
+    "tickets": [
+      "\"I added extra credit and nobody's grade went up.\""
+    ],
+    "related": [
+      "grades.calculation.other.weighted"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.enter.other.import": {
+    "title": "Import grades",
+    "where": "Grades > Enter Grades > Import",
+    "what": "Brings grades in from a CSV, which is how a professor moves marks from a spreadsheet into D2L in bulk.",
+    "when": "Marking happened outside D2L, or a publisher tool produced a spreadsheet of scores.",
+    "learnerSees": "Nothing until the imported grades are released as usual.",
+    "howTo": [
+      "Export first to get a file with the right columns and learner identifiers.",
+      "Fill in the scores in that exported file, leaving the identifier columns untouched.",
+      "Open Grades > Enter Grades > Import and upload it.",
+      "Read the preview carefully before confirming."
+    ],
+    "verify": "Spot-check two or three learners against the spreadsheet before telling the professor it worked.",
+    "gotchas": [
+      "Matching is on Org Defined ID or username, not on the learner's name. A file built by hand usually fails here.",
+      "Import is not modelled in this simulator; practise the reasoning, not the upload."
+    ],
+    "tickets": [
+      "\"My grade import says it cannot find the students.\"",
+      "\"How do I get my spreadsheet of marks into D2L?\""
+    ],
+    "related": [
+      "grades.enter.other.export",
+      "grades.personal.other.org-defined-id"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "documented"
+  },
+  "grades.enter.other.export": {
+    "title": "Export grades",
+    "where": "Grades > Enter Grades > Export",
+    "what": "Downloads the gradebook as a CSV or Excel file, choosing which identifiers and which items to include.",
+    "when": "The professor wants grades outside D2L, or needs a correctly formatted file to import back later.",
+    "learnerSees": "Nothing. Export changes no data.",
+    "howTo": [
+      "Open Grades > Enter Grades > Export.",
+      "Choose the identifier the professor needs, usually Org Defined ID.",
+      "Tick the grade items to include.",
+      "Export to CSV or Excel."
+    ],
+    "verify": "Open the file and confirm the learner count matches the Classlist total.",
+    "gotchas": [
+      "Always start an import from an export. Hand-built files are the usual cause of failed imports.",
+      "The export reflects current visibility settings, so hidden items may not appear."
+    ],
+    "tickets": [
+      "\"I need to send final grades to the registrar.\""
+    ],
+    "related": [
+      "grades.enter.other.import"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "documented"
+  },
+  "grades.enter.other.recalculate": {
+    "title": "Recalculate final grades",
+    "where": "Grades > Enter Grades",
+    "what": "Forces D2L to work the final grades out again from current scores.",
+    "when": "A score changed but the final did not move, usually because automatic updating is switched off.",
+    "learnerSees": "An updated final grade, if theirs is released.",
+    "howTo": [
+      "Open Grades > Enter Grades.",
+      "Click Recalculate.",
+      "Check the learner whose grade looked stale."
+    ],
+    "verify": "Compare the Final Calculated Grade against the individual item scores for one learner.",
+    "gotchas": [
+      "Recalculating does not touch adjusted final grades. If the course releases the adjusted grade, this will not change what learners see."
+    ],
+    "tickets": [
+      "\"The final grade column is out of date.\""
+    ],
+    "related": [
+      "grades.calculation.other.automatically-keep-final-grades-updated",
+      "grades.enter.other.transfer-calculated-adjusted"
+    ],
+    "evidence": "simulated"
+  },
+  "grades.enter.other.transfer-calculated-adjusted": {
+    "title": "Transfer calculated to adjusted",
+    "where": "Grades > Enter Grades",
+    "what": "Copies every learner's calculated final into the adjusted column, giving the professor a starting point to edit by hand.",
+    "when": "The course releases the adjusted final grade and the professor is about to curve or round.",
+    "learnerSees": "Nothing until the adjusted grades are released.",
+    "howTo": [
+      "Set Final Grade Released to Adjusted Final Grade first.",
+      "Open Grades > Enter Grades.",
+      "Click Transfer calculated to adjusted.",
+      "Edit the individual learners who need it, then save."
+    ],
+    "verify": "Check that the adjusted column is populated and matches the calculated column before any edits.",
+    "gotchas": [
+      "Running this again overwrites hand-made adjustments. Do it once, then edit.",
+      "Adjusted grades never update themselves afterwards."
+    ],
+    "tickets": [
+      "\"I want to round everyone up by two points.\""
+    ],
+    "related": [
+      "grades.calculation.other.adjusted-final-grade"
+    ],
+    "evidence": "simulated"
+  },
+  "grades.enter.other.released": {
+    "title": "Released",
+    "where": "Grades > Enter Grades > Final Calculated Grade column",
+    "what": "Ticking Released lets that learner see their final grade. It does not change the number at all.",
+    "when": "The professor is ready for learners to see where they stand.",
+    "learnerSees": "Their final grade appears. Until this is ticked, they see their individual item scores but no final.",
+    "howTo": [
+      "Open Grades > Enter Grades.",
+      "Open View Actions for Final Calculated Grade, then Enter Grades.",
+      "Tick Released for the learners concerned, or use Final Grades > Release All.",
+      "Click Save."
+    ],
+    "verify": "Open the learner view and confirm the final grade is visible.",
+    "gotchas": [
+      "This is the single most common cause of 'the student cannot see their grade'. Check it before anything else.",
+      "Releasing is per learner, so a partially released class is normal and easy to miss."
+    ],
+    "tickets": [
+      "\"My student sees assignment scores but no final grade.\"",
+      "\"Only some of my students can see their final grade.\""
+    ],
+    "related": [
+      "grades.finals.other.release-final-calculated-grade-to-demo-learner",
+      "grades.calculation.other.automatically-release-final-grade"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.enter.other.switch-to-spreadsheet-view": {
+    "title": "Switch to Spreadsheet View",
+    "where": "Grades > Enter Grades",
+    "what": "Swaps the grid for an editable spreadsheet-style view so the professor can type many grades quickly without opening each item.",
+    "when": "Entering marks for a whole class in one sitting.",
+    "learnerSees": "Nothing. It is a view for the professor only.",
+    "howTo": [
+      "Open Grades > Enter Grades.",
+      "Click Switch to Spreadsheet View.",
+      "Type the grades, then Save."
+    ],
+    "verify": "Switch back to the standard view and confirm the entered grades are there.",
+    "gotchas": [
+      "Unsaved edits are lost when switching views. Save first.",
+      "Not modelled in this simulator; the button is here so the layout matches the real page."
+    ],
+    "tickets": [
+      "\"Is there a faster way to type in all these grades?\""
+    ],
+    "evidence": "captured"
+  },
+  "grades.enter.other.open-learner-view": {
+    "title": "Open learner view",
+    "where": "Grades > Enter Grades",
+    "what": "Shows the gradebook as a learner sees it, which is how you confirm a visibility or release problem rather than guessing at it.",
+    "when": "Any ticket of the form 'my student cannot see X'. Check this before changing any setting.",
+    "learnerSees": "This is the learner's view.",
+    "howTo": [
+      "Open Grades > Enter Grades.",
+      "Click Open learner view.",
+      "Compare what is visible against what the professor expects."
+    ],
+    "verify": "If the item is missing here, the cause is release, item visibility, or a date restriction.",
+    "gotchas": [
+      "In real D2L, Preview does not apply special access or accommodations, so it is not a reliable way to test those. Impersonation is."
+    ],
+    "tickets": [
+      "\"The student says the grade is not there but I can see it.\""
+    ],
+    "related": [
+      "grades.enter.other.released"
+    ],
+    "evidence": "simulated"
+  },
+  "grades.manage.other.bulk-edit": {
+    "title": "Bulk Edit",
+    "where": "Grades > Manage Grades > Bulk Edit",
+    "what": "Edits the properties of many grade items at once, such as names, max points, weights and short names, on a single page.",
+    "when": "Setting up a gradebook, or fixing weights across a whole course after a syllabus change.",
+    "learnerSees": "Whatever the edits change, such as renamed items or different point totals.",
+    "howTo": [
+      "Open Grades > Manage Grades.",
+      "Click Bulk Edit.",
+      "Change the fields you need across all items.",
+      "Click Save."
+    ],
+    "verify": "Return to Manage Grades and confirm the weights total 100 if the course is weighted.",
+    "gotchas": [
+      "Changing Max. Points after grades are entered rescales what those grades mean; the stored score does not move with it."
+    ],
+    "tickets": [
+      "\"I need to change the points on all my quizzes.\""
+    ],
+    "related": [
+      "grades.calculation.other.weighted"
+    ],
+    "evidence": "captured"
+  },
+  "grades.manage.other.final-calculated-grade": {
+    "title": "Final Calculated Grade",
+    "where": "Grades > Manage Grades",
+    "what": "The course total D2L works out from every grade item according to the grading system. It is a row in Manage Grades, not an item anyone marks.",
+    "when": "Checking how the course total is built, or where its display and release settings live.",
+    "learnerSees": "This grade only once it is released to them.",
+    "howTo": [
+      "Open Grades > Manage Grades.",
+      "Click Final Calculated Grade to see its properties and restrictions."
+    ],
+    "verify": "Its value for a learner should match a hand calculation from their item scores.",
+    "gotchas": [
+      "Hiding this row hides the final grade from learners even when it is released."
+    ],
+    "tickets": [
+      "\"Where does the course total come from?\""
+    ],
+    "related": [
+      "grades.finals.other.final-adjusted-grade",
+      "grades.enter.other.released"
+    ],
+    "evidence": "captured"
+  },
+  "grades.finals.other.final-adjusted-grade": {
+    "title": "Final Adjusted Grade",
+    "where": "Grades > Manage Grades",
+    "what": "A final grade the professor can type over, sitting beside the calculated one. It only reaches learners if the course is set to release the adjusted grade.",
+    "when": "Curving, rounding, or honouring an arrangement the gradebook cannot express.",
+    "learnerSees": "This number instead of the calculated one, when the course releases adjusted grades and the learner's is released.",
+    "howTo": [
+      "Set Final Grade Released to Adjusted Final Grade in Calculation Options.",
+      "Use Transfer calculated to adjusted to seed the column.",
+      "Edit the learners who need it and save."
+    ],
+    "verify": "Check one edited learner in the learner view and confirm they see the adjusted number.",
+    "gotchas": [
+      "It never recalculates. A later score fix will not reach it."
+    ],
+    "tickets": [
+      "\"I curved the grades but the students see the old numbers.\""
+    ],
+    "related": [
+      "grades.calculation.other.adjusted-final-grade",
+      "grades.enter.other.transfer-calculated-adjusted"
+    ],
+    "evidence": "captured"
+  },
+  "grades.display.other.display-how-final-grade-was-calculated-to-users": {
+    "title": "Display how the final grade was calculated to users",
+    "where": "Grades > Settings > Org Unit Display Options",
+    "what": "Lets learners open a breakdown showing how their final grade was reached, item by item.",
+    "when": "The professor wants to cut down on 'how did you get this number' emails.",
+    "learnerSees": "A link in their grades that expands the calculation.",
+    "howTo": [
+      "Open Grades, then Settings, then Org Unit Display Options.",
+      "Tick the option to display how the final grade was calculated.",
+      "Click Save."
+    ],
+    "verify": "Open the learner view and confirm the breakdown is reachable.",
+    "gotchas": [
+      "It exposes weights and drops. If the professor is quietly dropping a low score, they may not want this on."
+    ],
+    "tickets": [
+      "\"Students keep asking me how their grade was worked out.\""
+    ],
+    "related": [
+      "grades.calculation.other.weighted"
+    ],
+    "evidence": "captured"
+  },
+  "grades.schemes.other.new-scheme": {
+    "title": "New Scheme",
+    "where": "Grades > Schemes > New Scheme",
+    "what": "Creates a grade scheme: the ranges that turn a percentage into a letter or label, such as 93 and above being an A.",
+    "when": "The course reports letter grades, or the professor wants a custom set of bands.",
+    "learnerSees": "The letter or label instead of, or alongside, the percentage, depending on the display options.",
+    "howTo": [
+      "Open Grades, then the Schemes tab.",
+      "Click New Scheme and name it.",
+      "Add each range with its start percentage, symbol and assigned value.",
+      "Save, then set it on the items or as the course default."
+    ],
+    "verify": "Check a learner at a boundary percentage falls in the band the professor expects.",
+    "gotchas": [
+      "Ranges must not leave gaps, or a learner can land between bands.",
+      "A scheme has to be attached to an item or set as default before it does anything."
+    ],
+    "tickets": [
+      "\"I want letter grades instead of percentages.\""
+    ],
+    "related": [
+      "grades.schemes.other.default-scheme-percentage",
+      "grades.personal.other.grade-scheme-symbol"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34122-create-grading-schemes-using-the-grades-tool",
+    "evidence": "captured"
+  },
+  "grades.schemes.other.default-scheme-percentage": {
+    "title": "Default Scheme",
+    "where": "Grades > Schemes",
+    "what": "The scheme applied to any grade item that does not choose its own, and to the final grade.",
+    "when": "Setting a course up so every item reports the same way without setting each one individually.",
+    "learnerSees": "Their grades expressed through this scheme.",
+    "howTo": [
+      "Open Grades, then the Schemes tab.",
+      "Choose the scheme from the Default Scheme list.",
+      "Click Save default scheme."
+    ],
+    "verify": "Open a grade item that has no scheme of its own and confirm it now reports through this one.",
+    "gotchas": [
+      "Changing the default re-labels existing grades immediately across the course."
+    ],
+    "tickets": [
+      "\"All my quizzes are showing percentages, not letters.\""
+    ],
+    "related": [
+      "grades.schemes.other.new-scheme"
+    ],
+    "evidence": "captured"
+  },
+  "grades.finals.other.release-final-calculated-grade-to-demo-learner": {
+    "title": "Release Final Calculated Grade to a learner",
+    "where": "Grades > Final Grades",
+    "what": "Releases one named learner's final grade so they can see it. Releasing is per learner, which is why a class can end up half able to see their grade and half not.",
+    "when": "A single learner asks why they cannot see a final grade everyone else can see.",
+    "learnerSees": "Their final grade appears in Grades. Until then they see item scores but no course total.",
+    "howTo": [
+      "Open Grades, then the Final Grades tab.",
+      "Find the learner.",
+      "Tick Release for that learner, or use Final Grades > Release All for the whole class.",
+      "Click Save."
+    ],
+    "verify": "Open the learner view for that learner and confirm the final grade is now visible.",
+    "gotchas": [
+      "Release does not change the number, only who can see it.",
+      "Release All covers current enrolments. A learner added later starts unreleased."
+    ],
+    "tickets": [
+      "\"One student says they cannot see their final grade but everyone else can.\""
+    ],
+    "related": [
+      "grades.enter.other.released",
+      "grades.calculation.other.automatically-release-final-grade"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book",
+    "evidence": "captured"
+  },
+  "grades.personal.other.grade-scheme-symbol": {
+    "title": "Show the grade scheme symbol",
+    "where": "Grades > Settings > Personal Display Options",
+    "what": "Adds the scheme's label, such as A- or Satisfactory, to what is shown in the gradebook alongside or instead of the raw number.",
+    "when": "The course reports letter grades and the professor wants to see them while marking.",
+    "learnerSees": "Nothing from this setting. Personal Display Options change the professor's own view only; the learner's view is governed by Org Unit Display Options.",
+    "howTo": [
+      "Open Grades, then Settings, then Personal Display Options.",
+      "Tick Grade scheme symbol.",
+      "Click Save."
+    ],
+    "verify": "Return to Enter Grades and confirm the letter appears next to the scores.",
+    "gotchas": [
+      "Professors often change this expecting learners to see the difference. Point them at Org Unit Display Options instead.",
+      "Nothing shows unless a scheme is attached to the item or set as the course default."
+    ],
+    "tickets": [
+      "\"I turned on letter grades but my students still see percentages.\""
+    ],
+    "related": [
+      "grades.schemes.other.new-scheme",
+      "grades.schemes.other.default-scheme-percentage"
+    ],
+    "evidence": "captured"
+  },
+  "grades.personal.other.org-defined-id": {
+    "title": "Show Org Defined ID",
+    "where": "Grades > Settings > Personal Display Options > User Details",
+    "what": "Adds the institutional student identifier as a column in the professor's gradebook view.",
+    "when": "Reconciling grades against a spreadsheet or the registrar, where names are ambiguous and IDs are not.",
+    "learnerSees": "Nothing. This is a professor-side display setting.",
+    "howTo": [
+      "Open Grades, then Settings, then Personal Display Options.",
+      "Tick Org Defined ID under User Details.",
+      "Click Save."
+    ],
+    "verify": "Enter Grades should now show the ID column beside learner names.",
+    "gotchas": [
+      "Org Defined ID is what grade imports match on, so this is worth turning on before diagnosing a failed import.",
+      "Two learners can share a name; they do not share an Org Defined ID."
+    ],
+    "tickets": [
+      "\"My grade import matched the wrong students.\"",
+      "\"I have two students with the same name.\""
+    ],
+    "related": [
+      "grades.enter.other.import",
+      "grades.enter.other.export"
+    ],
+    "evidence": "captured"
+  }
+}
