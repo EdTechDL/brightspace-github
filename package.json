@@ -5,6 +5,7 @@
   "description": "Independent Brightspace support reference with local walkthroughs and sample course data",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node tests/calculations.cjs && node tests/references.cjs && node tests/build.cjs"
+    "test": "node tests/calculations.cjs && node tests/references.cjs && node tests/build.cjs",
+    "audit:explain": "node scripts/audit-explain-coverage.cjs"
   }
 }

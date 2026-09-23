@@ -39,6 +39,14 @@ for(const [screenId,notes] of Object.entries(toolNotes.notes)){
   assert.ok(n.what&&n.what.length>40,n.label+' needs a real description');
   assert.ok(!(screen.unobserved||[]).includes(n.what),n.label+' must not overwrite an observed gap');
  }}
+// Every Course Admin link must reach a practice route or a captured screen.
+const courseAdmin=inventory.screens.find(s=>s.id==='course-admin');
+const dests=Object.fromEntries((courseAdmin.transitions||[]).filter(t=>t.result_screen_id).map(t=>[t.control,t.result_screen_id]));
+const practice=new Set(['Assignments','Grades','Quizzes','Classlist','Content','Course Offering Information']);
+const linkLabels=courseAdmin.controls.filter(c=>c.kind==='link').map(c=>c.label);
+assert.ok(linkLabels.length>40,'expected the full Course Admin directory');
+const deadEnds=linkLabels.filter(l=>!practice.has(l)&&!dests[l]);
+assert.deepEqual(deadEnds,[],'Course Admin dead ends: '+deadEnds.join(', '));
 const bads=[{}, {...tour,schema_version:9},{...tour,steps:[{screen:'missing',target:'x',card:'x'}]}, {...tour,screens:{x:{extends:'x'}},steps:[{screen:'x',target:'x',card:'x'}]},{...tour,screens:{x:{blocks:[{type:'script'}]}},steps:[{screen:'x',target:'x',card:'x'}]}];
 for(const t of bads)assert.throws(()=>ctx.validateReplayTour(t));
 assert.ok(!ctx.renderReplayBlocks([{type:'text',text:'<script>alert(1)</script>'}]).includes('<script>'));
@@ -47,4 +55,4 @@ for(const t of tickets){if(t.tourId)assert.ok(flows.some(f=>f.id===t.tourId),t.i
 vm.runInContext('const TICKETS='+JSON.stringify(tickets)+';'+fs.readFileSync(root+'/src/support.js','utf8').split("document.addEventListener")[0],ctx);
 assert.equal(ctx.searchSupport('student cannot see final grade')[0].id,'grades-final-not-visible');
 assert.ok(ctx.searchSupport('extra time for one quiz').some(t=>t.tourId==='quiz-special'));
-console.log((tour.steps.length+gsTour.steps.length)+' replay targets across '+2+' tours, '+noteCount+' researched tool notes, '+gsInventory.screens.length+' Gradescope screens, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');
+console.log((tour.steps.length+gsTour.steps.length)+' replay targets across '+2+' tours, '+noteCount+' researched tool notes, '+linkLabels.length+' Course Admin links with destinations, '+gsInventory.screens.length+' Gradescope screens, 5 invalid tour cases, escaped text, '+tickets.length+' ticket references, and 2 ticket search examples passed.');

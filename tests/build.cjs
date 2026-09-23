@@ -19,5 +19,6 @@ for (const key of ['CAPTURE', 'PACK_CASES', 'CAPTURE_TOUR', 'TOOL_HELP', 'TICKET
 assert.ok(/<form class="gate-card" id="gate-form">/.test(html), 'Missing access gate form');
 assert.ok(/<div id="app" hidden>/.test(html), 'App should start hidden behind the gate');
 assert.ok(script.includes("const PASSWORD = 'amarah'"), 'Missing gate password');
+assert.ok(/const BUILD_STAMP=\{"sha":"([0-9a-f]{7}|unknown)"/.test(script), 'Missing build stamp');
 
 console.log('Standalone HTML build, embedded JSON, access gate, and script syntax checks passed.');

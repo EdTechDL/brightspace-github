@@ -2,11 +2,20 @@ import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Script } from 'node:vm';
+import { execFileSync } from 'node:child_process';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => readFileSync(resolve(root, name), 'utf8');
 // Inline JSON must not terminate a script tag when future reference text contains HTML.
 const json = name => JSON.stringify(JSON.parse(read(name))).replace(/</g, '\\u003c');
+// A visible build stamp so anyone can tell which commit a deployment is serving.
+// Vercel supplies the sha as an env var; git is the fallback for local builds.
+const sha = (process.env.VERCEL_GIT_COMMIT_SHA || (() => {
+  try { return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }).toString(); }
+  catch { return 'unknown'; }
+})()).trim().slice(0, 7) || 'unknown';
+const BUILD_STAMP = { sha, built: new Date().toISOString().slice(0, 10) };
+
 const prelude = [
   ['CAPTURE', 'data/capture/d2l-ui-inventory.json'],
   ['PACK_CASES', 'data/capture/calc-test-cases.json'],
@@ -14,7 +23,8 @@ const prelude = [
   ['CAPTURE_GS', 'data/capture/gradescope-ui-inventory.json'],
   ['TOUR_GS', 'data/capture/gradescope-lti-handshake.tour.json'],
   ['TOOL_NOTES', 'data/tool-notes.json']
-].map(([key, path]) => `const ${key}=${json(path)};`).join('\n');
+].map(([key, path]) => `const ${key}=${json(path)};`).join('\n')
+  + `\nconst BUILD_STAMP=${JSON.stringify(BUILD_STAMP)};`;
 
 // These extensions are ordered deliberately: later definitions replace prototype views.
 const extensions = ['capture.js', 'grade-ui.js', 'experience.js']

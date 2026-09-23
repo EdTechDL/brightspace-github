@@ -7,3 +7,4 @@ node_modules/
 .DS_Store
 *.log
 brightspace-learning-notebook-*.json
+coverage-report.json
