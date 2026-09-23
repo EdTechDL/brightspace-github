@@ -18,7 +18,8 @@ const BUILD_STAMP = { sha, built: new Date().toISOString().slice(0, 10) };
 
 // Help cards are split by tool; the build merges them into one registry keyed by help id.
 const helpDir = resolve(root, 'data/help');
-const helpFiles = readdirSync(helpDir).filter(f => f.endsWith('.json')).sort();
+const helpFiles = readdirSync(helpDir).filter(f => f.endsWith('.json') && !f.startsWith('_')).sort();
+const HELP_ALIASES = JSON.parse(read('data/help/_aliases.json'));
 const HELP = {};
 for (const file of helpFiles) {
   const cards = JSON.parse(read(`data/help/${file}`));
@@ -37,7 +38,8 @@ const prelude = [
   ['TOOL_NOTES', 'data/tool-notes.json']
 ].map(([key, path]) => `const ${key}=${json(path)};`).join('\n')
   + `\nconst BUILD_STAMP=${JSON.stringify(BUILD_STAMP)};`
-  + `\nconst HELP=${JSON.stringify(HELP).replace(/</g, '\\u003c')};`;
+  + `\nconst HELP=${JSON.stringify(HELP).replace(/</g, '\\u003c')};`
+  + `\nconst HELP_ALIASES=${JSON.stringify(HELP_ALIASES)};`;
 
 // These extensions are ordered deliberately: later definitions replace prototype views.
 const extensions = ['capture.js', 'grade-ui.js', 'experience.js']

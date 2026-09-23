@@ -726,5 +726,189 @@
       "grades.enter.other.export"
     ],
     "evidence": "captured"
+  },
+  "grades.wizard.other.start": {
+    "title": "Start the Grades Setup Wizard",
+    "where": "Grades > Setup Wizard",
+    "what": "Walks a professor through the gradebook decisions in order: grading system, release, ungraded items, decimals and default scheme. It sets the same options as the Settings tabs, just in a guided sequence.",
+    "when": "A brand new course, or a professor who does not know which settings matter.",
+    "learnerSees": "Nothing directly, but the choices made here decide what appears in their grades.",
+    "howTo": [
+      "Open Grades, then Setup Wizard.",
+      "Click Start.",
+      "Work through each step, reading the summary at the end before finishing."
+    ],
+    "verify": "The final step shows a summary of every choice. Check it against the syllabus before the professor commits.",
+    "gotchas": [
+      "Re-running the wizard on a live course rewrites settings that already have grades behind them, which moves every final grade.",
+      "It does not create grade items; it only configures how they add up."
+    ],
+    "tickets": [
+      "\"I am setting up a new course, where do I start with grades?\""
+    ],
+    "related": [
+      "grades.calculation.other.weighted",
+      "grades.calculation.other.exclude-ungraded-items"
+    ],
+    "evidence": "captured"
+  },
+  "grades.manage.other.view-event-log": {
+    "title": "View Event Log",
+    "where": "Grades > Manage Grades > More Actions > View Event Log",
+    "what": "A record of changes to the gradebook: who changed a grade, when, and in some cases the chance to restore a deleted grade item.",
+    "when": "A professor says a grade or column changed and they did not do it, or something was deleted by accident.",
+    "learnerSees": "Nothing. The log is staff-side only.",
+    "howTo": [
+      "Open Grades, then Manage Grades.",
+      "Click More Actions, then View Event Log.",
+      "Find the entry by date and item, and use Restore if it is offered."
+    ],
+    "verify": "After a restore, confirm the item is back in Manage Grades with its grades intact.",
+    "gotchas": [
+      "Restore is not offered for every item type, and not forever. Treat an accidental delete as urgent.",
+      "The log shows changes, not intentions: a grade changing may simply be a recalculation."
+    ],
+    "tickets": [
+      "\"I deleted a grade column by mistake, can I get it back?\"",
+      "\"A student's grade changed and I did not change it.\""
+    ],
+    "related": [
+      "grades.manage.other.bulk-edit"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34138-managing-event-logs-in-grade-book",
+    "evidence": "captured"
+  },
+  "grades.manage.other.edit-categories": {
+    "title": "Edit Categories",
+    "where": "Toolbar of Assignments, Quizzes and similar tools",
+    "what": "Manages the categories that group items inside a tool, for tidying a long list. These are not gradebook categories and carry no weight.",
+    "when": "A professor wants their quiz or assignment list organised into sections.",
+    "learnerSees": "Items grouped under headings in the tool's list.",
+    "howTo": [
+      "Click Edit Categories in the tool's toolbar.",
+      "Add, rename or remove categories.",
+      "Save, then set each item's category when editing it."
+    ],
+    "verify": "The list shows items grouped under their categories.",
+    "gotchas": [
+      "Easily confused with a Grades category, which does affect weighting. A tool category is presentation only."
+    ],
+    "tickets": [
+      "\"How do I group my quizzes by unit?\""
+    ],
+    "related": [
+      "common.new"
+    ],
+    "evidence": "captured"
+  },
+  "grades.personal.other.points-grade": {
+    "title": "Show the points grade (your view)",
+    "where": "Grades > Settings > Personal Display Options > Grade Details",
+    "what": "Shows raw points, such as 18/20, in the gradebook as you see it while marking.",
+    "when": "You are checking marks and want the underlying points rather than a percentage.",
+    "learnerSees": "Nothing. Personal Display Options change only your own view.",
+    "howTo": [
+      "Open Grades, then Settings, then Personal Display Options.",
+      "Tick Points grade.",
+      "Click Save."
+    ],
+    "verify": "Enter Grades should now show points beside or instead of percentages.",
+    "gotchas": [
+      "Professors routinely change this and expect learners to see the difference. The learner-facing equivalent is in Org Unit Display Options."
+    ],
+    "tickets": [
+      "\"I turned on points but my students still see percentages.\""
+    ],
+    "related": [
+      "grades.display.other.points-grade"
+    ],
+    "evidence": "captured"
+  },
+  "grades.display.other.points-grade": {
+    "title": "Show the points grade (learner view)",
+    "where": "Grades > Settings > Org Unit Display Options > Student View Display Options",
+    "what": "Shows learners their raw points, such as 18/20, in their own grades page.",
+    "when": "The professor wants learners to see points rather than, or as well as, a percentage.",
+    "learnerSees": "Points on each item, exactly as configured here.",
+    "howTo": [
+      "Open Grades, then Settings, then Org Unit Display Options.",
+      "Tick Points grade under the student view options.",
+      "Click Save."
+    ],
+    "verify": "Open the learner view and confirm points appear.",
+    "gotchas": [
+      "This is the setting professors actually want when they ask about what students see. Personal Display Options only changes their own view."
+    ],
+    "tickets": [
+      "\"My students cannot see how many points they got.\""
+    ],
+    "related": [
+      "grades.personal.other.points-grade",
+      "grades.display.other.weighted-grade"
+    ],
+    "evidence": "captured"
+  },
+  "grades.display.other.weighted-grade": {
+    "title": "Show the weighted grade (learner view)",
+    "where": "Grades > Settings > Org Unit Display Options > Student View Display Options",
+    "what": "Shows learners each item's contribution as a weighted percentage of the course, rather than only its own score.",
+    "when": "A weighted course where learners keep asking how much an item is really worth.",
+    "learnerSees": "The weighted contribution beside each item.",
+    "howTo": [
+      "Open Grades, then Settings, then Org Unit Display Options.",
+      "Tick Weighted grade under the student view options.",
+      "Click Save."
+    ],
+    "verify": "Open the learner view and confirm the weighted figures appear.",
+    "gotchas": [
+      "Only meaningful when the grading system is Weighted. In a Points course it will confuse more than it explains."
+    ],
+    "related": [
+      "grades.calculation.other.weighted",
+      "grades.display.other.points-grade"
+    ],
+    "evidence": "captured"
+  },
+  "grades.personal.other.grade-scheme-color": {
+    "title": "Show the grade scheme colour",
+    "where": "Grades > Settings > Personal Display Options",
+    "what": "Shades grades with the colour set on the scheme's ranges, so a gradebook can be scanned at a glance.",
+    "when": "Looking for learners in trouble across a large class.",
+    "learnerSees": "Nothing from this setting; it changes your own view only.",
+    "howTo": [
+      "Open Grades, then Settings, then Personal Display Options.",
+      "Tick Grade scheme color.",
+      "Click Save."
+    ],
+    "verify": "Grades should now carry the scheme's colours in Enter Grades.",
+    "gotchas": [
+      "Nothing happens unless the scheme's ranges actually have colours set.",
+      "Colour alone should never be the only signal; it fails for colour-blind users and in print."
+    ],
+    "related": [
+      "grades.schemes.other.new-scheme"
+    ],
+    "evidence": "captured"
+  },
+  "grades.personal.other.username": {
+    "title": "Show Username",
+    "where": "Grades > Settings > Personal Display Options > User Details",
+    "what": "Adds the learner's D2L username as a column in your gradebook view.",
+    "when": "Matching learners against another system, or telling apart two people with the same name.",
+    "learnerSees": "Nothing. This is a staff-side display setting.",
+    "howTo": [
+      "Open Grades, then Settings, then Personal Display Options.",
+      "Tick Username under User Details.",
+      "Click Save."
+    ],
+    "verify": "Enter Grades shows the username column.",
+    "gotchas": [
+      "Grade imports can match on username or Org Defined ID. Check which the file uses before importing."
+    ],
+    "related": [
+      "grades.personal.other.org-defined-id",
+      "grades.enter.other.import"
+    ],
+    "evidence": "captured"
   }
 }

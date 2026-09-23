@@ -1,0 +1,90 @@
+{
+  "sim.capture-note": {
+    "title": "Capture note",
+    "where": "Captured screen library, under a control",
+    "what": "Opens what was written down about this one control when the real MSU page was read: what it appeared to do, and anything the person capturing it could not confirm.",
+    "when": "Before you tell a professor how a control behaves. The note says whether the behaviour was seen or only assumed.",
+    "howTo": ["Click Capture note under any control.", "Read the note, then check the Not observed list at the bottom of the screen for what is still unknown."],
+    "verify": "If the note does not answer your question, the answer was never captured. Confirm it in a real course instead of guessing.",
+    "gotchas": ["A note describes one observation on one date. It is not documentation, and D2L changes between releases."],
+    "evidence": "simulated"
+  },
+  "sim.library.screen-library": {
+    "title": "Screen library selector",
+    "where": "Captured screen library, top left",
+    "what": "Switches between the two sets of captured screens: the Brightspace pages read from the MSU sandbox, and the Gradescope pages reconstructed from vendor documentation.",
+    "when": "Moving between a Brightspace question and a Gradescope one. The two have very different evidence behind them.",
+    "howTo": ["Choose a library from the list.", "Read the banner that appears: the Gradescope set is documentation-based and was never observed live."],
+    "verify": "The heading names the library you are in, and the Gradescope set always carries a Not observed warning.",
+    "gotchas": ["Anything in the Gradescope library is reconstructed from guides, so its layout and wording may not match what an instructor actually sees."],
+    "evidence": "simulated"
+  },
+  "sim.library.find": {
+    "title": "Find a screen or setting",
+    "where": "Captured screen library",
+    "what": "Searches every captured screen by title, route and control label, so you can find the page a setting lives on without knowing D2L's menu structure.",
+    "when": "A professor names a setting and you do not yet know where it lives. This is usually the fastest way in.",
+    "howTo": ["Type part of the setting name, such as Special Access or Calculation.", "Click Search screens.", "The first matching screen opens."],
+    "verify": "The match count beside Captured screen tells you how many screens matched.",
+    "gotchas": ["It searches recorded labels only. A control that was never captured cannot be found here."],
+    "evidence": "simulated"
+  },
+  "sim.library.search": {
+    "title": "Search screens",
+    "where": "Captured screen library",
+    "what": "Runs the search you typed and jumps to the first screen that matches.",
+    "when": "After typing in the find box.",
+    "howTo": ["Type a term in Find a screen or setting.", "Click Search screens."],
+    "verify": "The screen picker beside it narrows to the matches and its count updates.",
+    "evidence": "simulated"
+  },
+  "sim.library.screen-picker": {
+    "title": "Captured screen picker",
+    "where": "Captured screen library",
+    "what": "Lists every captured screen in the current library, narrowed by whatever you searched for. Choosing one opens it.",
+    "when": "Browsing what was captured, or moving between screens while working a ticket.",
+    "howTo": ["Open the list and choose a screen.", "The page below redraws with that screen's controls, notes and gaps."],
+    "verify": "The blue callout under the picker names the screen and the route it sits on in real D2L.",
+    "gotchas": ["The list only holds screens that were actually captured. A missing page means nobody opened it, not that D2L lacks it."],
+    "evidence": "simulated"
+  },
+  "sim.library.highlight": {
+    "title": "Highlight a captured control",
+    "where": "Captured screen library",
+    "what": "Outlines one control in red and scrolls to it, which is how you point someone at an exact setting on a busy page.",
+    "when": "Walking a colleague through where something is, or finding a control on a screen with dozens of them.",
+    "howTo": ["Choose a control from the list.", "The page scrolls to it and draws a red outline around it."],
+    "verify": "The red outline appears on exactly one control.",
+    "gotchas": ["Controls with the same label are listed separately with their group, so pick the one in the right section."],
+    "evidence": "simulated"
+  },
+  "sim.library.replay": {
+    "title": "Replay recorded tour",
+    "where": "Captured screen library",
+    "what": "Opens the step-by-step replay of a recorded walkthrough, where each step outlines the control that was clicked and explains why.",
+    "when": "Learning a whole task end to end rather than one setting.",
+    "howTo": ["Click Replay recorded tour.", "Choose a tour, then step through with Next or press Play."],
+    "verify": "Each step names its evidence level, so you can tell an observed step from a documented one.",
+    "gotchas": ["A tour is a recording, not a live course. Nothing you do in it changes the practice gradebook."],
+    "evidence": "simulated"
+  },
+  "sim.library.page-text": {
+    "title": "Recorded page text",
+    "where": "Captured screen library, below the controls",
+    "what": "The raw text read off the real page, before it was broken into the control list above.",
+    "when": "Checking exact wording, or looking for something the control list may have dropped.",
+    "howTo": ["Expand Recorded page text and read it as the page appeared."],
+    "verify": "If wording here disagrees with a control label above, trust this: it is closer to the source.",
+    "evidence": "simulated"
+  },
+  "sim.library.notes": {
+    "title": "Notes and transitions without a captured destination",
+    "where": "Captured screen library, below the controls",
+    "what": "Lists controls that were seen but never followed, with whatever was noted about where they would have led.",
+    "when": "Working out whether a dead end in this simulator reflects D2L or just the limits of the capture.",
+    "howTo": ["Expand the section and look for the control you were trying to follow."],
+    "verify": "If the control is listed here, its destination was never captured, so this app cannot show it.",
+    "gotchas": ["Some of these were deliberately not followed because clicking them in the real sandbox would have changed something."],
+    "evidence": "simulated"
+  }
+}

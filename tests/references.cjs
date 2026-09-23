@@ -50,7 +50,7 @@ assert.deepEqual(deadEnds,[],'Course Admin dead ends: '+deadEnds.join(', '));
 // The help registry is the teaching content; a malformed card is worse than a visible gap.
 const helpDir=root+'/data/help';
 const HELP={};
-for(const file of fs.readdirSync(helpDir).filter(f=>f.endsWith('.json'))){
+for(const file of fs.readdirSync(helpDir).filter(f=>f.endsWith('.json')&&!f.startsWith('_'))){
  const cards=JSON.parse(fs.readFileSync(helpDir+'/'+file));
  for(const [id,card] of Object.entries(cards)){
   assert.ok(!HELP[id],'duplicate help id '+id);
@@ -66,6 +66,15 @@ for(const file of fs.readdirSync(helpDir).filter(f=>f.endsWith('.json'))){
 for(const [id,card] of Object.entries(HELP))
  for(const r of card.related||[])assert.ok(HELP[r],id+' points at unknown related card '+r);
 const helpCount=Object.keys(HELP).length;
+// An alias must point at a scope that actually has cards, or captured screens silently lose them.
+const aliases=JSON.parse(fs.readFileSync(helpDir+'/_aliases.json'));
+const screenIds=new Set(inventory.screens.map(s=>s.id));
+const scopes=new Set(Object.keys(HELP).map(id=>id.split('.').slice(0,2).join('.')));
+for(const [screen,scope] of Object.entries(aliases)){
+ if(screen==='_comment')continue;
+ assert.ok(screenIds.has(screen),'alias for unknown screen '+screen);
+ assert.ok(scopes.has(scope),'alias '+screen+' points at scope '+scope+' which has no cards');
+}
 const bads=[{}, {...tour,schema_version:9},{...tour,steps:[{screen:'missing',target:'x',card:'x'}]}, {...tour,screens:{x:{extends:'x'}},steps:[{screen:'x',target:'x',card:'x'}]},{...tour,screens:{x:{blocks:[{type:'script'}]}},steps:[{screen:'x',target:'x',card:'x'}]}];
 for(const t of bads)assert.throws(()=>ctx.validateReplayTour(t));
 assert.ok(!ctx.renderReplayBlocks([{type:'text',text:'<script>alert(1)</script>'}]).includes('<script>'));

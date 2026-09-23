@@ -70,14 +70,47 @@ function registryCard(card,id){
   +`<p class="small muted">${h(card.evidence||'simulated')} · ${/^https?:\/\//.test(card.source||'')?`<a href="${h(card.source)}" target="_blank" rel="noopener noreferrer">source</a>`:h(card.source||'no source recorded')} · <code>${h(id)}</code></p>`;
 }
 // Nothing is ever a dead click: an unwritten control says so, and the audit counts it as untaught.
+function capturedEvidence(label){
+ if(view.route!=='library')return null;
+ const screen=activeLibrary().data.screens.find(s=>s.id===view.captureId);
+ if(!screen)return null;
+ const control=(screen.controls||[]).find(c=>c.label===label);
+ return {screen,control};
+}
+// A control with no card still shows everything the capture recorded about it, clearly marked as
+// evidence rather than teaching, so the reader gets the observation instead of an empty box.
 function authoringGap(id,label){
- return {title:label||'Not written yet',gap:true,html:`<div class="callout warn"><b>Not written yet</b><p>This control does not have a teaching card yet. It is listed as a gap so it shows up in the coverage audit rather than failing silently.</p></div><p class="small muted">Help id <code>${h(id)}</code></p>`};
+ const ev=capturedEvidence(label);
+ const bits=[];
+ if(ev&&ev.control){const c=ev.control;
+  bits.push(`<p class="help-where">${h(ev.screen.title)}${c.group?' · '+h(c.group):''}</p>`);
+  if(c.notes)bits.push(`<p>${h(c.notes)}</p>`);
+  bits.push(`<dl class="help-options"><dt>Control type</dt><dd>${h(c.kind||'not recorded')}</dd>`
+   +`<dt>State when observed</dt><dd>${h(c.state||'not recorded')}</dd>`
+   +`<dt>Read-only in the capture</dt><dd>${c.read_only===false?'no':'yes'}</dd></dl>`);
+  const t=(ev.screen.transitions||[]).find(x=>x.control===c.label||x.control==='menu:'+c.label||x.control==='dialog:'+c.label);
+  if(t)bits.push(`<h3>What happens next</h3><p>${h(t.result_screen_id?'Opens the captured screen '+t.result_screen_id+'.':t.description||'Not recorded.')}</p>`);
+  if((ev.screen.unobserved||[]).length)bits.push(`<h3>Not observed on this screen</h3><ul>${ev.screen.unobserved.map(u=>`<li>${h(u)}</li>`).join('')}</ul>`);
+ } else if(ev){
+  bits.push(`<p class="help-where">${h(ev.screen.title)}</p><p>This element is part of the simulator, not the captured Brightspace page.</p>`);
+ }
+ const known=bits.length?`<div class="callout"><b>What the capture recorded</b></div>${bits.join('')}`
+  :`<p>Nothing has been recorded about this control yet.</p>`;
+ return {title:label||'No teaching card yet',gap:true,
+  html:`<div class="callout warn"><b>No teaching card yet</b><p>This control has not been written up. What the capture observed is below; it is evidence, not instruction, and the coverage audit still counts this as untaught.</p></div>${known}<p class="small muted">Help id <code>${h(id)}</code></p>`};
 }
 function explanationFor(el){
  const id=helpIdFor(el);
  if(HELP[id])return {title:HELP[id].title||id,html:registryCard(HELP[id],id),helpId:id};
  const group=id.split('.').slice(0,-1).join('.');
  if(HELP[group])return {title:HELP[group].title||group,html:registryCard(HELP[group],group),helpId:group};
+ // A captured screen and its practice page are the same real control, so they share one card.
+ const scope=HELP_ALIASES[id.split('.')[0]];
+ if(scope){const aliased=scope+'.other.'+id.split('.').pop();
+  if(HELP[aliased])return {title:HELP[aliased].title||aliased,html:registryCard(HELP[aliased],aliased),helpId:aliased};}
+ // Controls that mean the same thing on every page are taught once under common.*.
+ const common='common.'+helpSlug(controlLabel(el));
+ if(HELP[common])return {title:HELP[common].title||common,html:registryCard(HELP[common],common),helpId:common};
  const legacy=legacyExplanationFor(el);
  if(legacy)return {...legacy,helpId:id};
  return {...authoringGap(id,(el.dataset.label||el.textContent||'').trim().slice(0,60)),helpId:id};

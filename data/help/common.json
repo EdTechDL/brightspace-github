@@ -1,0 +1,154 @@
+{
+  "common.save": {
+    "title": "Save",
+    "where": "Most Brightspace forms",
+    "what": "Writes your changes and keeps you on the page so you can carry on editing.",
+    "when": "Part way through a long form, or when you want to check the effect of a change before leaving.",
+    "learnerSees": "Whatever the setting changes, as soon as it is saved. Saving is not the same as making something visible to learners.",
+    "howTo": ["Make the change.", "Click Save.", "Look for the confirmation before navigating away."],
+    "verify": "Reload the page: a saved change survives the reload.",
+    "gotchas": ["Brightspace does not always warn before you leave a page with unsaved edits.", "Saving a grade setting can recalculate the whole gradebook, so expect final grades to move."],
+    "evidence": "captured"
+  },
+  "common.save-and-close": {
+    "title": "Save and Close",
+    "where": "Brightspace editors and dialogs",
+    "what": "Writes your changes and returns you to the list you came from.",
+    "when": "You are finished with this item.",
+    "howTo": ["Make the change.", "Click Save and Close.", "Confirm the item shows your change in the list."],
+    "verify": "The list you return to should show the edited item with its new values.",
+    "gotchas": ["In the activity editors this is the step that actually creates the item. Closing any other way can discard it."],
+    "evidence": "captured"
+  },
+  "common.cancel": {
+    "title": "Cancel",
+    "where": "Brightspace forms and dialogs",
+    "what": "Leaves without saving. Anything typed since the last save is discarded.",
+    "when": "You opened something by mistake, or want to abandon a change.",
+    "howTo": ["Click Cancel.", "Confirm the discard prompt if one appears."],
+    "verify": "Reopen the item and check your change is not there.",
+    "gotchas": ["Cancel does not undo anything already saved, only the edits since.", "Some editors ask 'Discard changes?' and some simply leave."],
+    "evidence": "captured"
+  },
+  "common.close": {
+    "title": "Close",
+    "where": "Brightspace dialogs",
+    "what": "Shuts the dialog. Whether your edits survive depends on whether you saved first.",
+    "when": "Finished reading, or done saving.",
+    "howTo": ["Save first if you made changes.", "Click Close."],
+    "verify": "Reopen the dialog and confirm what you expected was kept.",
+    "gotchas": ["Closing is not saving. This catches people out on dialogs that have both."],
+    "evidence": "captured"
+  },
+  "common.close-dialog": {
+    "title": "Close dialog",
+    "where": "Brightspace dialogs",
+    "what": "Shuts the dialog without taking any further action.",
+    "when": "Done with the dialog.",
+    "howTo": ["Save first if you made changes, then close."],
+    "verify": "Reopen and confirm the state is what you expect.",
+    "gotchas": ["Closing is not saving."],
+    "evidence": "simulated"
+  },
+  "common.help": {
+    "title": "Help",
+    "where": "Top right of most Brightspace tools",
+    "what": "Opens D2L's own documentation for the tool you are in, which is the vendor's wording rather than MSU's.",
+    "when": "You want the official description of a setting, or a link to send a professor.",
+    "howTo": ["Click Help on the tool's page.", "Read the article for the tool you are actually in."],
+    "verify": "Check the article matches your Brightspace version; D2L changes tools between releases.",
+    "gotchas": ["D2L documentation describes the product generally. MSU may have turned options off or renamed them, so confirm against the course before quoting it."],
+    "evidence": "captured"
+  },
+  "common.more-actions": {
+    "title": "More Actions",
+    "where": "Toolbar of most Brightspace tools",
+    "what": "A dropdown holding the actions that did not fit on the toolbar. In the gradebook this is where the event log, import and export, and bulk operations live.",
+    "when": "You cannot find an action on the page. It is usually here before it is anywhere else.",
+    "howTo": ["Click More Actions.", "Read the whole menu before choosing; its contents differ by tool."],
+    "verify": "The menu contents depend on your role, so an action a professor describes may not appear for you.",
+    "gotchas": ["Menu contents vary by tool and permission, so instructions that name a More Actions item may not match what the professor sees.", "In this simulator most of these menu items are reference only."],
+    "tickets": ["\"I cannot find the option to restore a deleted grade column.\""],
+    "evidence": "captured"
+  },
+  "common.edit": {
+    "title": "Edit",
+    "where": "Row menus and item lists throughout Brightspace",
+    "what": "Opens the item for changes, usually in the editor the item was created in.",
+    "when": "Changing an existing assignment, quiz, grade item or module.",
+    "howTo": ["Open the chevron menu beside the item's name.", "Choose Edit.", "Change what you need and Save and Close."],
+    "verify": "The list shows the updated values afterwards.",
+    "gotchas": ["Editing an item that already has submissions or grades can change what those grades mean, particularly if points change."],
+    "evidence": "captured"
+  },
+  "common.apply": {
+    "title": "Apply",
+    "where": "Beside a filter or view selector",
+    "what": "Applies the filter or view you chose. The list does not change until you click it.",
+    "when": "After choosing a value in a view or filter list.",
+    "howTo": ["Choose the view or filter.", "Click Apply.", "Check the list has narrowed."],
+    "verify": "The list reflects the filter; if it did not change, Apply was not clicked.",
+    "gotchas": ["Filters persist as you move around a tool, which makes items look missing later. Clear the filter before concluding something is gone."],
+    "tickets": ["\"My quiz has disappeared from the list.\""],
+    "evidence": "captured"
+  },
+  "common.print": {
+    "title": "Print",
+    "where": "Top right of several Brightspace tools",
+    "what": "Produces a printable version of what is on screen, respecting the filters and columns currently applied.",
+    "when": "A professor needs a paper or PDF copy, often of the classlist or a grade export.",
+    "howTo": ["Set up the view you want first.", "Click Print."],
+    "verify": "Check the print view includes the rows and columns expected; hidden columns stay hidden.",
+    "evidence": "captured"
+  },
+  "common.export": {
+    "title": "Export",
+    "where": "Toolbars across Brightspace",
+    "what": "Downloads what is on screen as a file, typically CSV or Excel.",
+    "when": "Work needs to continue outside D2L, or you need a correctly formatted file to import back.",
+    "howTo": ["Choose what to include, including the identifier column.", "Export and open the file to check it."],
+    "verify": "Row count should match the number of learners you expect.",
+    "gotchas": ["Always start an import from an export. Files built by hand usually fail to match learners."],
+    "evidence": "captured"
+  },
+  "common.new": {
+    "title": "New",
+    "where": "Toolbar of most Brightspace tools",
+    "what": "Creates a new item in this tool. In the gradebook it opens a menu, because there are several kinds of thing you can create.",
+    "when": "Adding an item, category or scheme.",
+    "howTo": ["Click New.", "Choose the kind of item if a menu appears.", "Fill the form and Save."],
+    "verify": "The new item appears in the list.",
+    "gotchas": ["In Grades, choosing Item versus Category matters: a category groups items and carries the weight, an item holds the marks."],
+    "evidence": "captured"
+  },
+  "common.name": {
+    "title": "Name",
+    "where": "Tables and forms across Brightspace",
+    "what": "The item or person's name. In a list it is usually both a link and the anchor for a chevron menu of actions.",
+    "when": "Opening an item, or reaching the actions available for one row.",
+    "howTo": ["Click the name to open it.", "Click the chevron beside it for the row's actions."],
+    "verify": "The chevron menu is where per-row actions live; the plain name usually just opens the item.",
+    "gotchas": ["Two learners can share a name. Match on Org Defined ID when it matters."],
+    "evidence": "captured"
+  },
+  "common.overview": {
+    "title": "Overview",
+    "where": "First entry in the Content table of contents, and the first tab of several reports",
+    "what": "A summary page: in Content, the course overview a professor can write for learners; in a report, the headline figures before the detail.",
+    "when": "Getting your bearings in a tool you do not know.",
+    "howTo": ["Open Overview and read it before drilling into the detail."],
+    "verify": "In Content, an empty Overview is normal and not a fault.",
+    "evidence": "captured"
+  },
+  "common.show-search-options": {
+    "title": "Show Search Options",
+    "where": "Beside a search box in Brightspace",
+    "what": "Expands the search into a filtered search, letting you narrow by role, enrolment status, group or section rather than just matching text.",
+    "when": "A plain search returns too much, or you need to find learners by something other than their name.",
+    "howTo": ["Click Show Search Options.", "Set the filters you need.", "Search again."],
+    "verify": "The result count should fall once filters apply.",
+    "gotchas": ["Filters set here can persist and make people look missing from the list later."],
+    "tickets": ["\"A student is not showing in my classlist.\""],
+    "evidence": "captured"
+  }
+}
