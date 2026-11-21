@@ -1,3 +1,5 @@
+// Click explanations are the main way to learn here, so they start on once for every browser.
+if(state.explainDefaultOn!==true){state.explainClicks=true;state.explainDefaultOn=true;persist();}
 /* Optional, local click explanations. No network requests or AI calls. */
 const HELP_SOURCE='https://community.d2l.com/brightspace/kb/articles/3539-set-up-your-grade-book';
 const simpleHelp=(what,steps,result,ticket,source=HELP_SOURCE)=>({what,steps,result,ticket,source});
