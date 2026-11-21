@@ -1,0 +1,3317 @@
+{
+  "quizzes-list.control.manage-quizzes": {
+    "title": "Manage Quizzes",
+    "where": "Course navigation > Quizzes",
+    "what": "The list of every quiz in the course, with each quiz’s actions menu for editing, previewing, grading and special access.",
+    "when": "Starting point for almost every quiz ticket.",
+    "howTo": [
+      "Find the quiz.",
+      "Open its menu for Edit, Preview, Grade or Statistics."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“Where do I go to change my quiz?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quizzes-list.control.question-library": {
+    "title": "Question Library",
+    "where": "Quizzes > Question Library",
+    "what": "A course bank of reusable questions and sections. Questions here can be pulled into many quizzes or drawn at random.",
+    "when": "Building question pools so each learner gets a different set of questions.",
+    "howTo": [
+      "Create sections by topic.",
+      "Add or import questions.",
+      "In a quiz, use Add Existing to pull them in, or a random section to draw from a pool."
+    ],
+    "verify": "The quiz shows the pulled questions or the random section.",
+    "gotchas": [
+      "Editing a question in the library can update every quiz that uses it. Check before changing a live question."
+    ],
+    "tickets": [
+      "“How do I give each student different questions?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quizzes-list.control.statistics": {
+    "title": "Quiz statistics",
+    "where": "Quizzes > Statistics",
+    "what": "Class averages, score distributions and per-question results for each quiz.",
+    "when": "Spotting a broken question (everyone got it wrong) or reviewing how a class did.",
+    "howTo": [
+      "Open Statistics.",
+      "Pick the quiz.",
+      "Switch between user, question and question detail views."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "A question that nearly everyone missed is often a wrong answer key rather than a hard question."
+    ],
+    "tickets": [
+      "“Is something wrong with question 7? Nobody got it.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quizzes-list.control.lockdown-browser": {
+    "title": "LockDown Browser",
+    "where": "Quizzes > LockDown Browser",
+    "what": "Settings for Respondus LockDown Browser, which locks the learner’s computer to the quiz while it is open.",
+    "when": "High-stakes exams that require a secure browser, where the institution licenses it.",
+    "howTo": [
+      "Open the LockDown Browser tab.",
+      "Choose the quiz and require LockDown Browser.",
+      "Save."
+    ],
+    "verify": "Learners are prompted to open the quiz in LockDown Browser.",
+    "gotchas": [
+      "Learners need the app installed first. Most failures are students on Chromebooks or tablets without it."
+    ],
+    "tickets": [
+      "“My students say the quiz won’t open.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/33420-troubleshoot-issues-with-quizzes",
+    "evidence": "documented"
+  },
+  "quizzes-list.control.new-quiz": {
+    "title": "New Quiz",
+    "where": "Course navigation > Quizzes",
+    "what": "Opens the quiz editor to build a new quiz.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click New Quiz.",
+      "Add a title and questions.",
+      "Set availability, timing and attempts.",
+      "Save and Close."
+    ],
+    "verify": "The quiz appears on the list.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quizzes-list.control.edit-categories": {
+    "title": "Edit quiz categories",
+    "where": "Course navigation > Quizzes",
+    "what": "Creates the headings that group quizzes on the list page.",
+    "when": "Organizing a course with many quizzes.",
+    "howTo": [
+      "Click Edit Categories.",
+      "Add or rename categories.",
+      "Assign quizzes to them in each quiz’s settings."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "These categories only organize the list. They do not affect grades."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quizzes-list.view.view": {
+    "title": "View quizzes by",
+    "where": "Course navigation > Quizzes",
+    "what": "Sorts the list by availability dates or by category.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Pick a view.",
+      "Click Apply."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.back-to-manage-quizzes": {
+    "title": "Back to Manage Quizzes",
+    "where": "Quizzes > New Quiz",
+    "what": "Returns to the Quizzes list.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Save first if you want to keep changes."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Leaving without saving asks whether to discard changes."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.left-column.quiz-title": {
+    "title": "Quiz title",
+    "where": "Quizzes > New Quiz",
+    "what": "The name learners see in Quizzes, the course calendar, the gradebook and notifications.",
+    "when": "Always. A clear title is the first thing a learner searches for.",
+    "howTo": [
+      "Replace Untitled with a specific name, such as “Unit 3 Quiz” or “Lab Report 2”.",
+      "Save. The new name appears everywhere the activity is listed."
+    ],
+    "verify": "The list page shows the new name after Save and Close.",
+    "gotchas": [
+      "Renaming does not rename a grade item created earlier under a different name in older workflows; check the gradebook if names drift."
+    ],
+    "tickets": [
+      "“Students can’t find the quiz I posted.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.left-column.grade-out-of": {
+    "title": "Grade Out Of",
+    "where": "Quizzes > New Quiz",
+    "what": "The quiz total, calculated from the point values of its questions. It updates as questions are added.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Add questions and set their points; the total follows."
+    ],
+    "verify": "The total matches the sum of question points.",
+    "gotchas": [
+      "A quiz worth 0 points will not affect any grade even if it is in the gradebook."
+    ],
+    "tickets": [
+      "“Why is my quiz out of 0?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.not-in-grade-book": {
+    "title": "Grade book link",
+    "where": "Quizzes > New Quiz",
+    "what": "Connects the quiz to a gradebook item so scores flow into Grades. Not in Grade Book means scores stay in Quizzes only.",
+    "when": "Any quiz that counts toward the final grade.",
+    "howTo": [
+      "Open the grade book menu.",
+      "Add to the grade book, or link to an existing grade item.",
+      "Save."
+    ],
+    "verify": "The quiz score appears in Grades after an attempt is published.",
+    "gotchas": [
+      "“Quiz grade missing from Grades” is usually this being left as Not in Grade Book, or results not being published."
+    ],
+    "tickets": [
+      "“My quiz scores aren’t showing in the gradebook.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quiz-new.left-column.due-date": {
+    "title": "Due Date",
+    "where": "Quizzes > New Quiz",
+    "what": "The deadline learners see. It marks work as late after this time but does not by itself stop attempts.",
+    "when": "Whenever the activity has a deadline that should appear in the calendar and on learner to-do lists.",
+    "howTo": [
+      "Pick a date and time.",
+      "Set the End Date under Availability Dates & Conditions if access should close.",
+      "Save."
+    ],
+    "verify": "The date shows on the list page and in the course calendar.",
+    "gotchas": [
+      "Due Date and End Date are different. Due marks late; End Date closes access. Most “students submitted after the deadline” tickets come from setting only one of them.",
+      "Times use the time zone shown on the page. Confirm it matches the instructor’s intent."
+    ],
+    "tickets": [
+      "“Why could a student still submit after the due date?”",
+      "“The deadline shows the wrong time.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.left-column.description": {
+    "title": "Description",
+    "where": "Quizzes > New Quiz",
+    "what": "Instructions learners see before starting: rules, allowed materials, time limit reminders.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Write the instructions.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.preview": {
+    "title": "Preview quiz",
+    "where": "Quizzes > New Quiz > Questions",
+    "what": "Shows the quiz as a learner would see it, without recording an attempt.",
+    "when": "Checking questions and layout before releasing the quiz.",
+    "howTo": [
+      "Click Preview.",
+      "Work through the questions.",
+      "Close the preview."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Preview does not apply special access or accommodations. Do not use it to verify extra time."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/35012",
+    "evidence": "documented"
+  },
+  "quiz-new.control.add-existing": {
+    "title": "Add existing questions",
+    "where": "Quizzes > New Quiz > Questions",
+    "what": "Pulls questions from the Question Library or another source into this quiz.",
+    "when": "Reusing a question bank.",
+    "howTo": [
+      "Click Add Existing.",
+      "Choose the source and select questions.",
+      "Add, then save."
+    ],
+    "verify": "The questions appear in the quiz list.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.create-new": {
+    "title": "Create a new question",
+    "where": "Quizzes > New Quiz > Questions",
+    "what": "Writes a new question directly in this quiz: multiple choice, true or false, written response, and more. Also adds sections.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Create New and pick a question type.",
+      "Write the question, answers and points.",
+      "Save the question, then save the quiz."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Written response questions need manual grading, so the quiz score stays incomplete until they are marked."
+    ],
+    "tickets": [
+      "“Why does the quiz show no score yet?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.availability-dates-conditions.start-date": {
+    "title": "Start Date",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions",
+    "what": "The quiz cannot be opened before this time. Depending on display settings, learners may still see it listed.",
+    "when": "Use with the Due Date to control exactly when work can happen.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Set the Start Date date and time.",
+      "Save."
+    ],
+    "verify": "Reopen the activity and check the saved date and time.",
+    "gotchas": [
+      "For one learner who needs different dates, use Special Access instead of moving the dates for the whole class."
+    ],
+    "tickets": [
+      "“My students can already see the quiz before it should open.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.availability-dates-conditions.end-date": {
+    "title": "End Date",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions",
+    "what": "Access closes at this time. After it, learners can no longer start the quiz, unless they have special access.",
+    "when": "Use with the Due Date to control exactly when work can happen.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Set the End Date date and time.",
+      "Save."
+    ],
+    "verify": "Reopen the activity and check the saved date and time.",
+    "gotchas": [
+      "For one learner who needs different dates, use Special Access instead of moving the dates for the whole class."
+    ],
+    "tickets": [
+      "“A student could not start the quiz in the evening.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.add-release-condition": {
+    "title": "Release conditions",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions",
+    "what": "Hides the quiz until a learner meets a condition, such as completing a content topic or scoring above a threshold on another activity.",
+    "when": "Sequencing work, such as unlocking a quiz only after the reading is viewed.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Choose Add Release Condition and pick the condition type.",
+      "Set the criteria and save."
+    ],
+    "verify": "Check as a test learner, or confirm the condition is listed under Release Conditions.",
+    "gotchas": [
+      "This is the most common cause of “my student cannot see it”. Always check release conditions before anything else.",
+      "Conditions combine. With several conditions, check whether all or any must be met."
+    ],
+    "tickets": [
+      "“One student can’t see the quiz but everyone else can.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.availability-dates-conditions-release-conditions.users-are-not-able-to-access-or-view-the-quiz-un": {
+    "title": "Release conditions",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions",
+    "what": "Hides the quiz until a learner meets a condition, such as completing a content topic or scoring above a threshold on another activity.",
+    "when": "Sequencing work, such as unlocking a quiz only after the reading is viewed.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Choose Add Release Condition and pick the condition type.",
+      "Set the criteria and save."
+    ],
+    "verify": "Check as a test learner, or confirm the condition is listed under Release Conditions.",
+    "gotchas": [
+      "This is the most common cause of “my student cannot see it”. Always check release conditions before anything else.",
+      "Conditions combine. With several conditions, check whether all or any must be met."
+    ],
+    "tickets": [
+      "“One student can’t see the quiz but everyone else can.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.manage-special-access": {
+    "title": "Manage Special Access",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions > Special Access",
+    "what": "Opens the exceptions list for this one quiz: different dates, a different time limit or more attempts for selected learners, without changing anything for the rest of the class.",
+    "when": "One learner needs an extension, a make-up window or extra time on this activity only.",
+    "howTo": [
+      "Click Manage Special Access.",
+      "Choose whether special access adds exceptions or restricts who can see the activity.",
+      "Add Users to Special Access, set their dates or limits, select the learner and save.",
+      "Save the quiz as well."
+    ],
+    "verify": "The learner appears in the special access list with the new dates or limits.",
+    "gotchas": [
+      "For extra time on every quiz in the course, use Classlist > Edit Accommodations instead.",
+      "Quiz Preview does not apply special access. Verify with the saved record, not a preview."
+    ],
+    "tickets": [
+      "“Can you give one student until Monday?”",
+      "“A student was sick and needs a make-up window.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.availability-dates-conditions-special-access.special-access-allows-quizzes-to-be-available-to": {
+    "title": "Manage Special Access",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions > Special Access",
+    "what": "Opens the exceptions list for this one quiz: different dates, a different time limit or more attempts for selected learners, without changing anything for the rest of the class.",
+    "when": "One learner needs an extension, a make-up window or extra time on this activity only.",
+    "howTo": [
+      "Click Manage Special Access.",
+      "Choose whether special access adds exceptions or restricts who can see the activity.",
+      "Add Users to Special Access, set their dates or limits, select the learner and save.",
+      "Save the quiz as well."
+    ],
+    "verify": "The learner appears in the special access list with the new dates or limits.",
+    "gotchas": [
+      "For extra time on every quiz in the course, use Classlist > Edit Accommodations instead.",
+      "Quiz Preview does not apply special access. Verify with the saved record, not a preview."
+    ],
+    "tickets": [
+      "“Can you give one student until Monday?”",
+      "“A student was sick and needs a make-up window.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.availability-dates-conditions.password": {
+    "title": "Quiz password",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions",
+    "what": "Learners must type this password to start the quiz. Often used for in-room exams where the instructor reads the password aloud.",
+    "when": "Supervised sittings.",
+    "howTo": [
+      "Enter a password.",
+      "Save.",
+      "Share it with learners at the start of the sitting."
+    ],
+    "verify": "Starting the quiz asks for the password.",
+    "gotchas": [
+      "A forgotten or mistyped password is a frequent “quiz won’t start” ticket. Check this field first."
+    ],
+    "tickets": [
+      "“The quiz is asking my students for a password.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.manage-ip-restrictions": {
+    "title": "IP restrictions",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions",
+    "what": "Limits the quiz to computers on specific network addresses, such as a testing lab.",
+    "when": "Lab-only exams.",
+    "howTo": [
+      "Click Manage IP Restrictions.",
+      "Add the allowed address ranges.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Learners on home or mobile networks will be blocked. Check this when only remote students report the quiz is unavailable."
+    ],
+    "tickets": [
+      "“Students at home can’t open the exam.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.availability-dates-conditions-session-restrictio.lock-each-attempt-to-a-single-login-session": {
+    "title": "Lock attempt to one session",
+    "where": "Quizzes > New Quiz > Availability Dates & Conditions",
+    "what": "An attempt can only continue in the browser session where it started.",
+    "when": "Reducing sharing of a quiz session.",
+    "howTo": [
+      "Check the box.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "If a learner’s browser crashes or they switch devices, they may be locked out mid-attempt and need help from the instructor."
+    ],
+    "tickets": [
+      "“My browser crashed and now I can’t get back into the quiz.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.timing-display.set-time-limit": {
+    "title": "Set time limit",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Gives the quiz a time limit. Use Timer Settings to choose when the clock starts and what happens when it runs out.",
+    "when": "Timed quizzes and exams.",
+    "howTo": [
+      "Check Set time limit.",
+      "Enter the minutes.",
+      "Open Timer Settings to choose the expiry behaviour.",
+      "Save."
+    ],
+    "verify": "The panel summary shows the time limit.",
+    "gotchas": [
+      "Learners with accommodations get their extra time from Classlist automatically. Do not create a second quiz for them."
+    ],
+    "tickets": [
+      "“How do I make the quiz 60 minutes?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.timing-display.time-limit": {
+    "title": "Time limit (minutes)",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "The number of minutes each learner gets for an attempt.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Enter the minutes.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Accommodation multipliers apply to this number, so a 1.5 multiplier on 40 minutes gives 60."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.timing-display.asynchronous": {
+    "title": "Asynchronous timer",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Each learner’s clock starts when they open the quiz, so everyone gets the full time limit whenever they start.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Check Set time limit.",
+      "Open Timer Settings and choose the asynchronous start.",
+      "Save."
+    ]
+  },
+  "quiz-new.timing-display.auto-submit-when-time-is-up": {
+    "title": "Auto-submit when time is up",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "When the time limit runs out the attempt is submitted automatically with the answers saved so far.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Answers are saved as learners move through the quiz. An answer typed but not saved in the last seconds may be lost."
+    ],
+    "tickets": [
+      "“The quiz submitted itself before I finished.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Open Timer Settings.",
+      "Under When the time limit expires, choose Automatically submit.",
+      "Save."
+    ]
+  },
+  "quiz-new.control.timer-settings": {
+    "title": "Timer settings",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Chooses when the clock starts and what happens when time runs out.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Timer Settings.",
+      "Choose asynchronous or synchronous start.",
+      "Choose the expiry behaviour.",
+      "OK, then save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.timing-display.paging": {
+    "title": "Paging",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "How many questions appear per page: all together, one per page, or a page per section.",
+    "when": "One question per page suits long quizzes and limits lost work if a connection drops.",
+    "howTo": [
+      "Pick a paging option.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "With one question per page, check whether learners may move back to earlier pages."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.timing-display-shuffle-quiz.shuffle-questions-and-sections-within-the-quiz-d": {
+    "title": "Shuffle questions",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Shows the questions in a different order for each learner.",
+    "when": "Reducing answer sharing.",
+    "howTo": [
+      "Check the box.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "It does not shuffle inside sub-sections. Set shuffling on each section too if needed."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.timing-display-display.allow-hints": {
+    "title": "Allow hints",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Shows the hints written on individual questions.",
+    "when": "Practice quizzes.",
+    "howTo": [
+      "Check the box.",
+      "Add hints to the questions.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.timing-display-display.hide-question-annotation-tools": {
+    "title": "Hide annotation tools",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Removes the highlighting and strike-through tools learners can use while answering.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Some learners rely on these tools as an accessibility aid. Check before hiding them."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Check Hide question annotation tools.",
+      "Save."
+    ]
+  },
+  "quiz-new.timing-display-display.hide-question-point-values": {
+    "title": "Hide point values",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Learners do not see how many points each question is worth while answering.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Check Hide question point values.",
+      "Save."
+    ]
+  },
+  "quiz-new.timing-display-display.disable-email-instant-messages-and-alerts-within": {
+    "title": "Disable messages during the quiz",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Blocks Brightspace email, instant messages and alerts while a learner has an attempt open.",
+    "when": "Exams where outside communication should be limited.",
+    "howTo": [
+      "Check the box.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "It only affects Brightspace. Learners can still use other apps and devices."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.manage-header-and-footer": {
+    "title": "Header and footer",
+    "where": "Quizzes > New Quiz > Timing & Display",
+    "what": "Adds text above or below the questions, such as a formula sheet or academic integrity statement.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Manage Header and Footer.",
+      "Write the text.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.control.manage-attempts": {
+    "title": "Attempts allowed",
+    "where": "Quizzes > New Quiz > Attempts & Completion",
+    "what": "How many times each learner may take the quiz, and which attempt counts: highest, lowest, average, first or last.",
+    "when": "Practice quizzes with retakes, or exams with one attempt.",
+    "howTo": [
+      "Click Manage Attempts.",
+      "Set the number of attempts.",
+      "Choose which attempt is kept as the grade.",
+      "Save."
+    ],
+    "verify": "The panel summary shows the attempt count.",
+    "gotchas": [
+      "To give one learner an extra attempt, use Special Access with Override attempts allowed, or reset their attempt in Grade. Do not raise attempts for the whole class."
+    ],
+    "tickets": [
+      "“A student’s internet died. Can they try again?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.attempts-completion-attempts.1-attempt-allowed": {
+    "title": "Attempts allowed",
+    "where": "Quizzes > New Quiz > Attempts & Completion",
+    "what": "How many times each learner may take the quiz, and which attempt counts: highest, lowest, average, first or last.",
+    "when": "Practice quizzes with retakes, or exams with one attempt.",
+    "howTo": [
+      "Click Manage Attempts.",
+      "Set the number of attempts.",
+      "Choose which attempt is kept as the grade.",
+      "Save."
+    ],
+    "verify": "The panel summary shows the attempt count.",
+    "gotchas": [
+      "To give one learner an extra attempt, use Special Access with Override attempts allowed, or reset their attempt in Grade. Do not raise attempts for the whole class."
+    ],
+    "tickets": [
+      "“A student’s internet died. Can they try again?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.attempts-completion.category": {
+    "title": "Category",
+    "where": "Quizzes > New Quiz",
+    "what": "Groups this quiz with others on the Quizzes list page, such as “Midterms” or “Weekly Labs”. This is a display category in Quizzes, separate from gradebook categories.",
+    "when": "Keeping a long list of activities tidy for instructors and learners.",
+    "howTo": [
+      "Pick an existing category, or create one with Edit Categories on the Quizzes page.",
+      "Save."
+    ],
+    "verify": "The quiz appears under that heading on the list page.",
+    "gotchas": [
+      "This does not change grade weighting. Weighting comes from the gradebook category in Grades."
+    ],
+    "tickets": [
+      "“Why doesn’t moving the quiz to a category change the weighting?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.attempts-completion.notification-email": {
+    "title": "Notification email",
+    "where": "Quizzes > New Quiz",
+    "what": "Sends an email to the addresses entered whenever a learner completes an attempt.",
+    "when": "An instructor or TA wants to know the moment work arrives.",
+    "howTo": [
+      "Enter one or more addresses separated by commas.",
+      "Save."
+    ],
+    "verify": "A test submission sends an email to the address.",
+    "gotchas": [
+      "For a large class this can mean hundreds of emails. Suggest it only for small classes or important deadlines."
+    ],
+    "tickets": [
+      "“I want an email when students finish the quiz.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.evaluation-feedback.auto-publish-attempt-results-immediately-upon-co": {
+    "title": "Auto-publish results",
+    "where": "Quizzes > New Quiz > Evaluation & Feedback",
+    "what": "Learners see their result as soon as they submit, and the score is published.",
+    "when": "Auto-graded quizzes where instant feedback helps.",
+    "howTo": [
+      "Check the box.",
+      "Choose what learners see under When published, display to learners.",
+      "Save."
+    ],
+    "verify": "A test attempt shows its result right after submission.",
+    "gotchas": [
+      "With written response questions the score shown is incomplete until those are marked."
+    ],
+    "tickets": [
+      "“Students can see their marks immediately. Can I stop that?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quiz-new.evaluation-feedback.synchronize-to-grade-book-on-publish": {
+    "title": "Sync to grade book on publish",
+    "where": "Quizzes > New Quiz > Evaluation & Feedback",
+    "what": "When results are published, the score is sent to the linked gradebook item.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Link the quiz to a grade item first; the option becomes available.",
+      "Check the box.",
+      "Save."
+    ],
+    "verify": "Published scores appear in Grades.",
+    "gotchas": [
+      "Greyed out means the quiz is not in the gradebook yet."
+    ],
+    "tickets": [
+      "“The quiz is graded but the mark is not in Grades.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quiz-new.evaluation-feedback-when-published-display-to-le.attempt-grade": {
+    "title": "What learners see after publishing",
+    "where": "Quizzes > New Quiz > Evaluation & Feedback",
+    "what": "Controls how much a learner sees after their attempt is published: the grade, and whether questions, their answers and correct answers are shown.",
+    "when": "Balancing feedback against keeping questions secure for later sittings.",
+    "howTo": [
+      "Choose whether the attempt grade shows.",
+      "Choose which questions are shown: none, incorrect only, or all.",
+      "Use Customize Quiz Results Displays for more control.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Showing correct answers while some learners have not yet written the quiz can leak the answers."
+    ],
+    "tickets": [
+      "“Students want to see which questions they got wrong.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quiz-new.evaluation-feedback-when-published-display-to-le.no-questions": {
+    "title": "What learners see after publishing",
+    "where": "Quizzes > New Quiz > Evaluation & Feedback",
+    "what": "Controls how much a learner sees after their attempt is published: the grade, and whether questions, their answers and correct answers are shown.",
+    "when": "Balancing feedback against keeping questions secure for later sittings.",
+    "howTo": [
+      "Choose whether the attempt grade shows.",
+      "Choose which questions are shown: none, incorrect only, or all.",
+      "Use Customize Quiz Results Displays for more control.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Showing correct answers while some learners have not yet written the quiz can leak the answers."
+    ],
+    "tickets": [
+      "“Students want to see which questions they got wrong.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quiz-new.control.customize-quiz-results-displays": {
+    "title": "Customize results displays",
+    "where": "Quizzes > New Quiz > Evaluation & Feedback",
+    "what": "Adds extra result views, for example showing correct answers only after the quiz end date.",
+    "when": "Releasing answers to everyone once the quiz has closed.",
+    "howTo": [
+      "Click Customize Quiz Results Displays.",
+      "Add a display with a release date or condition.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quiz-new.control.manage-learning-objectives": {
+    "title": "Learning objectives",
+    "where": "Quizzes > New Quiz > Evaluation & Feedback",
+    "what": "Aligns this quiz to course outcomes or standards so achievement can be reported against them.",
+    "when": "Programs that report on outcomes or competencies.",
+    "howTo": [
+      "Click Manage Learning Objectives.",
+      "Select the outcomes this activity assesses.",
+      "Save."
+    ],
+    "verify": "The outcomes are listed under Learning Objectives.",
+    "gotchas": [
+      "Alignment alone does not record achievement. Instructors still evaluate against the outcome."
+    ],
+    "tickets": [
+      "“How do I connect this to our program outcomes?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.evaluation-feedback-learning-objectives.no-learning-objectives": {
+    "title": "Learning objectives",
+    "where": "Quizzes > New Quiz > Evaluation & Feedback",
+    "what": "Aligns this quiz to course outcomes or standards so achievement can be reported against them.",
+    "when": "Programs that report on outcomes or competencies.",
+    "howTo": [
+      "Click Manage Learning Objectives.",
+      "Select the outcomes this activity assesses.",
+      "Save."
+    ],
+    "verify": "The outcomes are listed under Learning Objectives.",
+    "gotchas": [
+      "Alignment alone does not record achievement. Instructors still evaluate against the outcome."
+    ],
+    "tickets": [
+      "“How do I connect this to our program outcomes?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.bottom-bar.hidden": {
+    "title": "Visibility (Hidden switch)",
+    "where": "Quizzes > New Quiz > bottom bar",
+    "what": "Controls whether learners can see the quiz at all. Hidden activities do not appear for learners regardless of dates.",
+    "when": "Keeping a quiz out of sight while it is being built.",
+    "howTo": [
+      "Use the switch in the bottom bar.",
+      "Save."
+    ],
+    "verify": "The list page shows the quiz as hidden or visible.",
+    "gotchas": [
+      "A hidden quiz looks “broken” to learners. Check this switch early in any “students can’t see it” ticket."
+    ],
+    "tickets": [
+      "“None of my students can see the quiz.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-timing-dialog.quiz-start.asynchronous-timer-starts-when-the-learner-launc": {
+    "title": "Asynchronous start",
+    "where": "Quizzes > New Quiz > Timer Settings",
+    "what": "Each learner gets the full time limit from the moment they open the quiz.",
+    "when": "Quizzes learners can take any time within a window.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Select this option.",
+      "Click OK.",
+      "Save the quiz."
+    ]
+  },
+  "quiz-timing-dialog.quiz-start.synchronous-timer-starts-on-the-start-date": {
+    "title": "Synchronous start",
+    "where": "Quizzes > New Quiz > Timer Settings",
+    "what": "The clock starts for everyone at the quiz start date. A learner who joins late gets less time.",
+    "when": "Exams everyone writes at the same time.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Late joiners lose time. Explain this before an instructor chooses it."
+    ],
+    "tickets": [
+      "“A student started 10 minutes late and only got 50 minutes.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Make sure the quiz has a Start Date.",
+      "Select this option.",
+      "Click OK, then save the quiz."
+    ]
+  },
+  "quiz-timing-dialog.when-the-time-limit-expires.automatically-submit-the-quiz-attempt": {
+    "title": "Automatically submit",
+    "where": "Quizzes > Timer Settings > When the time limit expires",
+    "what": "The attempt is submitted as soon as time runs out.",
+    "when": "Strict timed exams.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“The quiz submitted itself before I finished.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Select this option.",
+      "Click OK or Save.",
+      "Save the quiz."
+    ]
+  },
+  "quiz-timing-dialog.when-the-time-limit-expires.flag-as-exceeded-time-limit-and-allow-the-learne": {
+    "title": "Flag and allow to continue",
+    "where": "Quizzes > Timer Settings > When the time limit expires",
+    "what": "Learners can keep working after time runs out, but the attempt is flagged as exceeding the time limit so the instructor can decide what to do.",
+    "when": "Low-stakes quizzes, or when a hard cut-off would be unfair.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Flagged answers still count unless the instructor adjusts the grade."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Select this option.",
+      "Click OK or Save.",
+      "After the quiz, review flagged attempts in Grade."
+    ]
+  },
+  "quiz-timing-dialog.when-the-time-limit-expires.do-nothing-the-time-limit-is-not-enforced": {
+    "title": "Do not enforce the limit",
+    "where": "Quizzes > Timer Settings > When the time limit expires",
+    "what": "The time limit is shown as a guide only. Nothing happens when it runs out.",
+    "when": "Practice quizzes.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Select this option.",
+      "Click OK or Save.",
+      "Save the quiz."
+    ]
+  },
+  "quiz-add-special-access-dialog.timing-when-the-time-limit-expires.automatically-submit-the-quiz-attempt": {
+    "title": "Automatically submit",
+    "where": "Quizzes > Timer Settings > When the time limit expires",
+    "what": "The attempt is submitted as soon as time runs out.",
+    "when": "Strict timed exams.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“The quiz submitted itself before I finished.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Select this option.",
+      "Click OK or Save.",
+      "Save the quiz."
+    ]
+  },
+  "quiz-add-special-access-dialog.timing-when-the-time-limit-expires.flag-as-exceeded-time-limit-and-allow-the-learne": {
+    "title": "Flag and allow to continue",
+    "where": "Quizzes > Timer Settings > When the time limit expires",
+    "what": "Learners can keep working after time runs out, but the attempt is flagged as exceeding the time limit so the instructor can decide what to do.",
+    "when": "Low-stakes quizzes, or when a hard cut-off would be unfair.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Flagged answers still count unless the instructor adjusts the grade."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Select this option.",
+      "Click OK or Save.",
+      "After the quiz, review flagged attempts in Grade."
+    ]
+  },
+  "quiz-add-special-access-dialog.timing-when-the-time-limit-expires.do-nothing-the-time-limit-is-not-enforced": {
+    "title": "Do not enforce the limit",
+    "where": "Quizzes > Timer Settings > When the time limit expires",
+    "what": "The time limit is shown as a guide only. Nothing happens when it runs out.",
+    "when": "Practice quizzes.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Select this option.",
+      "Click OK or Save.",
+      "Save the quiz."
+    ]
+  },
+  "quiz-timing-dialog.control.ok": {
+    "title": "Apply timer settings",
+    "where": "Quizzes > New Quiz > Timer Settings",
+    "what": "Keeps the timer choices. They are only stored when the quiz itself is saved.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click OK.",
+      "Save the quiz."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-special-access-dialog.dialog.allow-selected-users-special-access-to-this-quiz": {
+    "title": "Special access type",
+    "where": "Quizzes > New Quiz > Manage Special Access",
+    "what": "Chooses what special access does for this quiz.",
+    "options": [
+      {
+        "label": "Allow selected users special access",
+        "effect": "The quiz stays available to everyone; the selected learners get their own dates, time limit or attempts."
+      },
+      {
+        "label": "Allow only users with special access to see this quiz",
+        "effect": "Only the selected learners can see the quiz at all. Use it for make-up exams."
+      }
+    ],
+    "when": "Every special access request starts here.",
+    "howTo": [
+      "Pick the option.",
+      "Add users and their settings.",
+      "Save and Close, then save the quiz."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Restricting the quiz to special-access users hides it from the whole class. Choose this only when the quiz is meant for a few learners."
+    ],
+    "tickets": [
+      "“After I gave one student extra time, nobody else could see the quiz.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-special-access-dialog.dialog.allow-only-users-with-special-access-to-see-this": {
+    "title": "Special access type",
+    "where": "Quizzes > New Quiz > Manage Special Access",
+    "what": "Chooses what special access does for this quiz.",
+    "options": [
+      {
+        "label": "Allow selected users special access",
+        "effect": "The quiz stays available to everyone; the selected learners get their own dates, time limit or attempts."
+      },
+      {
+        "label": "Allow only users with special access to see this quiz",
+        "effect": "Only the selected learners can see the quiz at all. Use it for make-up exams."
+      }
+    ],
+    "when": "Every special access request starts here.",
+    "howTo": [
+      "Pick the option.",
+      "Add users and their settings.",
+      "Save and Close, then save the quiz."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Restricting the quiz to special-access users hides it from the whole class. Choose this only when the quiz is meant for a few learners."
+    ],
+    "tickets": [
+      "“After I gave one student extra time, nobody else could see the quiz.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-special-access-dialog.control.add-users-to-special-access": {
+    "title": "Add users to special access",
+    "where": "Quizzes > New Quiz > Manage Special Access",
+    "what": "Opens the form where you set the exception and pick the learners it applies to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Add Users to Special Access.",
+      "Set dates, time limit or attempts.",
+      "Select learners and save."
+    ],
+    "verify": "The learners appear in the special access list.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-due-date.has-due-date": {
+    "title": "Has Due Date (special access)",
+    "where": "Quizzes > Special Access > Properties",
+    "what": "Gives the selected learners their own due date for this activity. Everyone else keeps the normal due date.",
+    "when": "An extension for one learner or a small group.",
+    "howTo": [
+      "Check Has Due Date.",
+      "Pick the new date and time.",
+      "Select the learners and save, then save the activity."
+    ],
+    "verify": "The learner’s row in special access shows the new due date.",
+    "gotchas": [
+      "Move the End Date too if the extension goes past it, otherwise access still closes at the original end date."
+    ],
+    "tickets": [
+      "“Can you extend the due date for just one student?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-due-date.has-due-date-date": {
+    "title": "Has Due Date (special access)",
+    "where": "Quizzes > Special Access > Properties",
+    "what": "Gives the selected learners their own due date for this activity. Everyone else keeps the normal due date.",
+    "when": "An extension for one learner or a small group.",
+    "howTo": [
+      "Check Has Due Date.",
+      "Pick the new date and time.",
+      "Select the learners and save, then save the activity."
+    ],
+    "verify": "The learner’s row in special access shows the new due date.",
+    "gotchas": [
+      "Move the End Date too if the extension goes past it, otherwise access still closes at the original end date."
+    ],
+    "tickets": [
+      "“Can you extend the due date for just one student?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-due-date.has-due-date-time": {
+    "title": "Has Due Date (special access)",
+    "where": "Quizzes > Special Access > Properties",
+    "what": "Gives the selected learners their own due date for this activity. Everyone else keeps the normal due date.",
+    "when": "An extension for one learner or a small group.",
+    "howTo": [
+      "Check Has Due Date.",
+      "Pick the new date and time.",
+      "Select the learners and save, then save the activity."
+    ],
+    "verify": "The learner’s row in special access shows the new due date.",
+    "gotchas": [
+      "Move the End Date too if the extension goes past it, otherwise access still closes at the original end date."
+    ],
+    "tickets": [
+      "“Can you extend the due date for just one student?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-availability.has-start-date": {
+    "title": "Has Start Date (special access)",
+    "where": "Quizzes > Special Access > Properties > Availability",
+    "what": "Lets the selected learners open the activity from a different time, earlier or later than the class.",
+    "when": "Make-up sittings and early access for planned absences.",
+    "howTo": [
+      "Check Has Start Date.",
+      "Set the date and time.",
+      "Save."
+    ],
+    "verify": "The special access record lists the new start date.",
+    "tickets": [
+      "“A student will be away and needs to write it early.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-availability.has-start-date-date": {
+    "title": "Has Start Date (special access)",
+    "where": "Quizzes > Special Access > Properties > Availability",
+    "what": "Lets the selected learners open the activity from a different time, earlier or later than the class.",
+    "when": "Make-up sittings and early access for planned absences.",
+    "howTo": [
+      "Check Has Start Date.",
+      "Set the date and time.",
+      "Save."
+    ],
+    "verify": "The special access record lists the new start date.",
+    "tickets": [
+      "“A student will be away and needs to write it early.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-availability.has-start-date-time": {
+    "title": "Has Start Date (special access)",
+    "where": "Quizzes > Special Access > Properties > Availability",
+    "what": "Lets the selected learners open the activity from a different time, earlier or later than the class.",
+    "when": "Make-up sittings and early access for planned absences.",
+    "howTo": [
+      "Check Has Start Date.",
+      "Set the date and time.",
+      "Save."
+    ],
+    "verify": "The special access record lists the new start date.",
+    "tickets": [
+      "“A student will be away and needs to write it early.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-availability.has-end-date": {
+    "title": "Has End Date (special access)",
+    "where": "Quizzes > Special Access > Properties > Availability",
+    "what": "Keeps the activity open longer for the selected learners only.",
+    "when": "Late work allowed for one learner without reopening the activity for everyone.",
+    "howTo": [
+      "Check Has End Date.",
+      "Set the new date and time.",
+      "Save."
+    ],
+    "verify": "The learner can still open the activity after the class end date.",
+    "gotchas": [
+      "If the activity is hidden or blocked by a release condition, new dates alone will not make it reachable."
+    ],
+    "tickets": [
+      "“A student got an extension but still can’t submit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-availability.has-end-date-date": {
+    "title": "Has End Date (special access)",
+    "where": "Quizzes > Special Access > Properties > Availability",
+    "what": "Keeps the activity open longer for the selected learners only.",
+    "when": "Late work allowed for one learner without reopening the activity for everyone.",
+    "howTo": [
+      "Check Has End Date.",
+      "Set the new date and time.",
+      "Save."
+    ],
+    "verify": "The learner can still open the activity after the class end date.",
+    "gotchas": [
+      "If the activity is hidden or blocked by a release condition, new dates alone will not make it reachable."
+    ],
+    "tickets": [
+      "“A student got an extension but still can’t submit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.properties-availability.has-end-date-time": {
+    "title": "Has End Date (special access)",
+    "where": "Quizzes > Special Access > Properties > Availability",
+    "what": "Keeps the activity open longer for the selected learners only.",
+    "when": "Late work allowed for one learner without reopening the activity for everyone.",
+    "howTo": [
+      "Check Has End Date.",
+      "Set the new date and time.",
+      "Save."
+    ],
+    "verify": "The learner can still open the activity after the class end date.",
+    "gotchas": [
+      "If the activity is hidden or blocked by a release condition, new dates alone will not make it reachable."
+    ],
+    "tickets": [
+      "“A student got an extension but still can’t submit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.timing.override-time-limit": {
+    "title": "Override time limit",
+    "where": "Quizzes > Special Access > Timing",
+    "what": "Gives the selected learners a different time limit on this quiz only.",
+    "when": "Extra time on one quiz.",
+    "howTo": [
+      "Check Override time limit.",
+      "Choose Set time limit and enter the new total minutes.",
+      "Choose what happens when time expires.",
+      "Select learners and save."
+    ],
+    "verify": "The special access list shows the new limit for that learner.",
+    "gotchas": [
+      "Enter the new total, not the extra. For 50% more on a 30-minute quiz, enter 45.",
+      "For extra time on every quiz, use Classlist > Edit Accommodations instead, which uses a multiplier.",
+      "Preview does not apply special access."
+    ],
+    "tickets": [
+      "“Give Sam time and a half on the midterm only.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.timing.original-time-limit-no-time-limit": {
+    "title": "Override time limit",
+    "where": "Quizzes > Special Access > Timing",
+    "what": "Gives the selected learners a different time limit on this quiz only.",
+    "when": "Extra time on one quiz.",
+    "howTo": [
+      "Check Override time limit.",
+      "Choose Set time limit and enter the new total minutes.",
+      "Choose what happens when time expires.",
+      "Select learners and save."
+    ],
+    "verify": "The special access list shows the new limit for that learner.",
+    "gotchas": [
+      "Enter the new total, not the extra. For 50% more on a 30-minute quiz, enter 45.",
+      "For extra time on every quiz, use Classlist > Edit Accommodations instead, which uses a multiplier.",
+      "Preview does not apply special access."
+    ],
+    "tickets": [
+      "“Give Sam time and a half on the midterm only.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.timing.set-time-limit": {
+    "title": "New time limit",
+    "where": "Quizzes > Special Access > Timing",
+    "what": "The total minutes the selected learners get on this quiz.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Choose Set time limit.",
+      "Enter the total minutes.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "This replaces the quiz time limit for these learners. It is a total, not an addition."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.timing.new-time-limit": {
+    "title": "New time limit",
+    "where": "Quizzes > Special Access > Timing",
+    "what": "The total minutes the selected learners get on this quiz.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Choose Set time limit.",
+      "Enter the total minutes.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "This replaces the quiz time limit for these learners. It is a total, not an addition."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.timing.no-time-limit": {
+    "title": "No time limit",
+    "where": "Quizzes > Special Access > Timing",
+    "what": "Removes the time limit for the selected learners on this quiz.",
+    "when": "An accommodation that calls for untimed assessment.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented",
+    "howTo": [
+      "Check Override time limit.",
+      "Choose No time limit.",
+      "Select the learners and save, then save the quiz."
+    ]
+  },
+  "quiz-add-special-access-dialog.attempts.override-attempts-allowed": {
+    "title": "Override attempts allowed",
+    "where": "Quizzes > Special Access > Attempts",
+    "what": "Gives the selected learners a different number of attempts on this quiz.",
+    "when": "A learner whose attempt failed for a technical reason, or who is approved for a retake.",
+    "howTo": [
+      "Check Override attempts allowed.",
+      "Choose the number and click Apply.",
+      "Select learners and save."
+    ],
+    "verify": "The learner can start a new attempt.",
+    "gotchas": [
+      "If the learner only needs their broken attempt cleared, resetting that attempt may be simpler than adding attempts."
+    ],
+    "tickets": [
+      "“A student’s laptop died mid-quiz. Can they try again?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.attempts.attempts-allowed": {
+    "title": "Override attempts allowed",
+    "where": "Quizzes > Special Access > Attempts",
+    "what": "Gives the selected learners a different number of attempts on this quiz.",
+    "when": "A learner whose attempt failed for a technical reason, or who is approved for a retake.",
+    "howTo": [
+      "Check Override attempts allowed.",
+      "Choose the number and click Apply.",
+      "Select learners and save."
+    ],
+    "verify": "The learner can start a new attempt.",
+    "gotchas": [
+      "If the learner only needs their broken attempt cleared, resetting that attempt may be simpler than adding attempts."
+    ],
+    "tickets": [
+      "“A student’s laptop died mid-quiz. Can they try again?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.attempts.optional-advanced-attempt-conditions-will-appear": {
+    "title": "Override attempts allowed",
+    "where": "Quizzes > Special Access > Attempts",
+    "what": "Gives the selected learners a different number of attempts on this quiz.",
+    "when": "A learner whose attempt failed for a technical reason, or who is approved for a retake.",
+    "howTo": [
+      "Check Override attempts allowed.",
+      "Choose the number and click Apply.",
+      "Select learners and save."
+    ],
+    "verify": "The learner can start a new attempt.",
+    "gotchas": [
+      "If the learner only needs their broken attempt cleared, resetting that attempt may be simpler than adding attempts."
+    ],
+    "tickets": [
+      "“A student’s laptop died mid-quiz. Can they try again?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.users.search-for": {
+    "title": "Search for learners",
+    "where": "Quizzes > Special Access > Users",
+    "what": "Filters the learner list so you can find the right person in a large class.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Type part of a name or ID.",
+      "Press Enter or the search icon."
+    ],
+    "verify": "The table narrows to matching learners.",
+    "gotchas": [
+      "Confirm the exact learner with the instructor. Classes often have people with similar names."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.users.users-table": {
+    "title": "Learner list",
+    "where": "Quizzes > Special Access > Users",
+    "what": "Every learner who can receive special access. Check the box next to each learner the exception should apply to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Select one or more learners.",
+      "Save."
+    ],
+    "verify": "Only the selected learners show in the special access list.",
+    "gotchas": [
+      "The settings above apply to everyone selected in this one save. Add learners with different needs separately."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.users.learner": {
+    "title": "Learner list",
+    "where": "Quizzes > Special Access > Users",
+    "what": "Every learner who can receive special access. Check the box next to each learner the exception should apply to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Select one or more learners.",
+      "Save."
+    ],
+    "verify": "Only the selected learners show in the special access list.",
+    "gotchas": [
+      "The settings above apply to everyone selected in this one save. Add learners with different needs separately."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.users.demo-student-id-demostudent-ou-hash": {
+    "title": "Learner list",
+    "where": "Quizzes > Special Access > Users",
+    "what": "Every learner who can receive special access. Check the box next to each learner the exception should apply to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Select one or more learners.",
+      "Save."
+    ],
+    "verify": "Only the selected learners show in the special access list.",
+    "gotchas": [
+      "The settings above apply to everyone selected in this one save. Add learners with different needs separately."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "assignments-list.control.new-assignment": {
+    "title": "New Assignment",
+    "where": "Assignments",
+    "what": "Opens the editor to create a submission folder where learners hand in work.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click New Assignment.",
+      "Add a title, instructions and points.",
+      "Set dates and submission rules.",
+      "Save and Close."
+    ],
+    "verify": "The assignment appears on the list.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignments-list.control.edit-categories": {
+    "title": "Edit assignment categories",
+    "where": "Assignments",
+    "what": "Creates the headings that group assignments on the list page.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Edit Categories.",
+      "Add or rename categories."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "These only organize the list. Grade weighting lives in Grades."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignments-list.empty-state.click-new-assignment-to-start": {
+    "title": "No assignments yet",
+    "where": "Assignments",
+    "what": "This course has no assignments. Create one with New Assignment.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented",
+    "howTo": [
+      "Click New Assignment.",
+      "Fill in the title, instructions and dates.",
+      "Save and Close."
+    ]
+  },
+  "assignment-new.control.back-to-manage-assignments": {
+    "title": "Back to Manage Assignments",
+    "where": "Assignments > New Assignment",
+    "what": "Returns to the Assignments list.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Save first if you want to keep changes."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Leaving without saving asks whether to discard changes."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.left-column.assignment-title": {
+    "title": "Assignment title",
+    "where": "Assignments > New Assignment",
+    "what": "The name learners see in Assignments, the course calendar, the gradebook and notifications.",
+    "when": "Always. A clear title is the first thing a learner searches for.",
+    "howTo": [
+      "Replace Untitled with a specific name, such as “Unit 3 Quiz” or “Lab Report 2”.",
+      "Save. The new name appears everywhere the activity is listed."
+    ],
+    "verify": "The list page shows the new name after Save and Close.",
+    "gotchas": [
+      "Renaming does not rename a grade item created earlier under a different name in older workflows; check the gradebook if names drift."
+    ],
+    "tickets": [
+      "“Students can’t find the assignment I posted.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.left-column.grade-out-of": {
+    "title": "Grade Out Of",
+    "where": "Assignments > New Assignment",
+    "what": "The points the assignment is marked out of. Leaving it Ungraded means it collects work without a score.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Type the points.",
+      "Use the grade book menu to add it to Grades.",
+      "Save."
+    ],
+    "verify": "The grade book link appears once a number is entered.",
+    "gotchas": [
+      "Changing the points after marking changes what existing scores mean. Check with the instructor before editing."
+    ],
+    "tickets": [
+      "“I changed the assignment to be out of 50 but scores still show out of 100.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.control.in-grade-book": {
+    "title": "Grade book link",
+    "where": "Assignments > New Assignment",
+    "what": "Connects the assignment to a gradebook item so published marks flow to Grades.",
+    "when": "Any assignment that counts toward the final grade.",
+    "howTo": [
+      "Open the grade book menu.",
+      "Add to the grade book or link to an existing grade item.",
+      "Save."
+    ],
+    "verify": "Published marks appear in Grades.",
+    "gotchas": [
+      "Marks appear in Grades only after they are published from the assignment."
+    ],
+    "tickets": [
+      "“I marked everything but Grades is empty.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented"
+  },
+  "assignment-new.left-column.due-date": {
+    "title": "Due Date",
+    "where": "Assignments > New Assignment",
+    "what": "The deadline learners see. It marks work as late after this time but does not by itself stop submissions.",
+    "when": "Whenever the activity has a deadline that should appear in the calendar and on learner to-do lists.",
+    "howTo": [
+      "Pick a date and time.",
+      "Set the End Date under Availability Dates & Conditions if access should close.",
+      "Save."
+    ],
+    "verify": "The date shows on the list page and in the course calendar.",
+    "gotchas": [
+      "Due Date and End Date are different. Due marks late; End Date closes access. Most “students submitted after the deadline” tickets come from setting only one of them.",
+      "Times use the time zone shown on the page. Confirm it matches the instructor’s intent."
+    ],
+    "tickets": [
+      "“Why could a student still submit after the due date?”",
+      "“The deadline shows the wrong time.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-new.left-column.instructions": {
+    "title": "Instructions",
+    "where": "Assignments > New Assignment",
+    "what": "What learners see when they open the assignment: the task, requirements and any rubric expectations.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Write the instructions.",
+      "Attach files or links with the bar below if needed.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.control.icon-upload-file": {
+    "title": "Attachments for learners",
+    "where": "Assignments > New Assignment > Instructions",
+    "what": "Adds files, links, cloud files or an audio recording to the instructions, such as a template or rubric sheet.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Use the attachment bar under the instructions.",
+      "Upload or link the material.",
+      "Save."
+    ],
+    "verify": "Learners see the attachment when they open the assignment.",
+    "gotchas": [
+      "Files linked from personal cloud storage need sharing permissions, or learners will not be able to open them."
+    ],
+    "tickets": [
+      "“Students say the template link doesn’t work.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.control.icon-link": {
+    "title": "Attachments for learners",
+    "where": "Assignments > New Assignment > Instructions",
+    "what": "Adds files, links, cloud files or an audio recording to the instructions, such as a template or rubric sheet.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Use the attachment bar under the instructions.",
+      "Upload or link the material.",
+      "Save."
+    ],
+    "verify": "Learners see the attachment when they open the assignment.",
+    "gotchas": [
+      "Files linked from personal cloud storage need sharing permissions, or learners will not be able to open them."
+    ],
+    "tickets": [
+      "“Students say the template link doesn’t work.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.control.icon-cloud-sources": {
+    "title": "Attachments for learners",
+    "where": "Assignments > New Assignment > Instructions",
+    "what": "Adds files, links, cloud files or an audio recording to the instructions, such as a template or rubric sheet.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Use the attachment bar under the instructions.",
+      "Upload or link the material.",
+      "Save."
+    ],
+    "verify": "Learners see the attachment when they open the assignment.",
+    "gotchas": [
+      "Files linked from personal cloud storage need sharing permissions, or learners will not be able to open them."
+    ],
+    "tickets": [
+      "“Students say the template link doesn’t work.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.control.record-audio": {
+    "title": "Attachments for learners",
+    "where": "Assignments > New Assignment > Instructions",
+    "what": "Adds files, links, cloud files or an audio recording to the instructions, such as a template or rubric sheet.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Use the attachment bar under the instructions.",
+      "Upload or link the material.",
+      "Save."
+    ],
+    "verify": "Learners see the attachment when they open the assignment.",
+    "gotchas": [
+      "Files linked from personal cloud storage need sharing permissions, or learners will not be able to open them."
+    ],
+    "tickets": [
+      "“Students say the template link doesn’t work.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.right-column.availability-dates-conditions": {
+    "title": "Availability Dates & Conditions",
+    "where": "Assignments > New Assignment",
+    "what": "Start and end dates, release conditions and special access for this assignment.",
+    "when": "Any question about when, or whether, learners can reach the assignment.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented",
+    "howTo": [
+      "Click the panel header to open it.",
+      "Set start and end dates, release conditions or special access.",
+      "Save."
+    ]
+  },
+  "assignment-new.availability-dates-conditions.start-date": {
+    "title": "Start Date",
+    "where": "Assignments > New Assignment > Availability Dates & Conditions",
+    "what": "The assignment cannot be opened before this time. Depending on display settings, learners may still see it listed.",
+    "when": "Use with the Due Date to control exactly when work can happen.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Set the Start Date date and time.",
+      "Save."
+    ],
+    "verify": "Reopen the activity and check the saved date and time.",
+    "gotchas": [
+      "For one learner who needs different dates, use Special Access instead of moving the dates for the whole class."
+    ],
+    "tickets": [
+      "“My students can already see the assignment before it should open.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-new.availability-dates-conditions.end-date": {
+    "title": "End Date",
+    "where": "Assignments > New Assignment > Availability Dates & Conditions",
+    "what": "Access closes at this time. After it, learners can no longer submit, unless they have special access.",
+    "when": "Use with the Due Date to control exactly when work can happen.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Set the End Date date and time.",
+      "Save."
+    ],
+    "verify": "Reopen the activity and check the saved date and time.",
+    "gotchas": [
+      "For one learner who needs different dates, use Special Access instead of moving the dates for the whole class."
+    ],
+    "tickets": [
+      "“A student missed the deadline and needs to submit late.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-new.control.add-release-condition": {
+    "title": "Release conditions",
+    "where": "Assignments > New Assignment > Availability Dates & Conditions",
+    "what": "Hides the assignment until a learner meets a condition, such as completing a content topic or scoring above a threshold on another activity.",
+    "when": "Sequencing work, such as unlocking a quiz only after the reading is viewed.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Choose Add Release Condition and pick the condition type.",
+      "Set the criteria and save."
+    ],
+    "verify": "Check as a test learner, or confirm the condition is listed under Release Conditions.",
+    "gotchas": [
+      "This is the most common cause of “my student cannot see it”. Always check release conditions before anything else.",
+      "Conditions combine. With several conditions, check whether all or any must be met."
+    ],
+    "tickets": [
+      "“One student can’t see the assignment but everyone else can.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.availability-dates-conditions-release-conditions.users-are-not-able-to-access-or-view-the-assignm": {
+    "title": "Release conditions",
+    "where": "Assignments > New Assignment > Availability Dates & Conditions",
+    "what": "Hides the assignment until a learner meets a condition, such as completing a content topic or scoring above a threshold on another activity.",
+    "when": "Sequencing work, such as unlocking a quiz only after the reading is viewed.",
+    "howTo": [
+      "Open Availability Dates & Conditions.",
+      "Choose Add Release Condition and pick the condition type.",
+      "Set the criteria and save."
+    ],
+    "verify": "Check as a test learner, or confirm the condition is listed under Release Conditions.",
+    "gotchas": [
+      "This is the most common cause of “my student cannot see it”. Always check release conditions before anything else.",
+      "Conditions combine. With several conditions, check whether all or any must be met."
+    ],
+    "tickets": [
+      "“One student can’t see the assignment but everyone else can.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.control.manage-special-access": {
+    "title": "Manage Special Access",
+    "where": "Assignments > New Assignment > Availability Dates & Conditions > Special Access",
+    "what": "Opens the exceptions list for this one assignment: different dates for selected learners, without changing anything for the rest of the class.",
+    "when": "One learner needs an extension, a make-up window or extra time on this activity only.",
+    "howTo": [
+      "Click Manage Special Access.",
+      "Choose whether special access adds exceptions or restricts who can see the activity.",
+      "Add Users to Special Access, set their dates or limits, select the learner and save.",
+      "Save the assignment as well."
+    ],
+    "verify": "The learner appears in the special access list with the new dates or limits.",
+    "gotchas": [
+      "Special access dates replace the normal dates for that learner only. Remember to save the assignment after adding them."
+    ],
+    "tickets": [
+      "“Can you give one student until Monday?”",
+      "“A student was sick and needs a make-up window.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.availability-dates-conditions-special-access.special-access-allows-activities-to-be-available": {
+    "title": "Manage Special Access",
+    "where": "Assignments > New Assignment > Availability Dates & Conditions > Special Access",
+    "what": "Opens the exceptions list for this one assignment: different dates for selected learners, without changing anything for the rest of the class.",
+    "when": "One learner needs an extension, a make-up window or extra time on this activity only.",
+    "howTo": [
+      "Click Manage Special Access.",
+      "Choose whether special access adds exceptions or restricts who can see the activity.",
+      "Add Users to Special Access, set their dates or limits, select the learner and save.",
+      "Save the assignment as well."
+    ],
+    "verify": "The learner appears in the special access list with the new dates or limits.",
+    "gotchas": [
+      "Special access dates replace the normal dates for that learner only. Remember to save the assignment after adding them."
+    ],
+    "tickets": [
+      "“Can you give one student until Monday?”",
+      "“A student was sick and needs a make-up window.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.right-column.submission-completion": {
+    "title": "Submission & Completion",
+    "where": "Assignments > New Assignment",
+    "what": "Who submits, what they submit, and how many submissions are kept.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented",
+    "howTo": [
+      "Click the panel header to open it.",
+      "Set the assignment type, submission type and file rules.",
+      "Save."
+    ]
+  },
+  "assignment-new.submission-completion.assignment-type": {
+    "title": "Assignment type",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "Individual means each learner submits their own work. Group means one submission per group, shared by its members.",
+    "when": "Group projects.",
+    "howTo": [
+      "Create groups in the Groups tool first.",
+      "Choose Group assignment and pick the group category.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "The type cannot be changed once submissions exist. Decide before the assignment opens."
+    ],
+    "tickets": [
+      "“I need one submission per project team.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.submission-completion.category": {
+    "title": "Category",
+    "where": "Assignments > New Assignment",
+    "what": "Groups this assignment with others on the Assignments list page, such as “Midterms” or “Weekly Labs”. This is a display category in Assignments, separate from gradebook categories.",
+    "when": "Keeping a long list of activities tidy for instructors and learners.",
+    "howTo": [
+      "Pick an existing category, or create one with Edit Categories on the Assignments page.",
+      "Save."
+    ],
+    "verify": "The assignment appears under that heading on the list page.",
+    "gotchas": [
+      "This does not change grade weighting. Weighting comes from the gradebook category in Grades."
+    ],
+    "tickets": [
+      "“Why doesn’t moving the assignment to a category change the weighting?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.submission-completion.submission-type": {
+    "title": "Submission type",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "What learners hand in: a file upload, text typed into Brightspace, an on-paper submission, or an observed in person activity.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Pick the type.",
+      "Set the file rules if it is a file submission.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "On-paper and observed types have no upload box. Learners who expect to upload will report it as broken."
+    ],
+    "tickets": [
+      "“There’s no button to upload my work.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.submission-completion-files-allowed-per-submissi.unlimited": {
+    "title": "Files allowed per submission",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "Whether each submission can contain many files or exactly one.",
+    "options": [
+      {
+        "label": "Unlimited",
+        "effect": "Learners can attach several files in one submission."
+      },
+      {
+        "label": "One File",
+        "effect": "Each submission holds exactly one file."
+      }
+    ],
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "With One File, a learner with several parts must combine them first."
+    ],
+    "tickets": [
+      "“It only lets me upload one file.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented",
+    "howTo": [
+      "Choose Unlimited or One File.",
+      "Save."
+    ]
+  },
+  "assignment-new.submission-completion-files-allowed-per-submissi.one-file": {
+    "title": "Files allowed per submission",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "Whether each submission can contain many files or exactly one.",
+    "options": [
+      {
+        "label": "Unlimited",
+        "effect": "Learners can attach several files in one submission."
+      },
+      {
+        "label": "One File",
+        "effect": "Each submission holds exactly one file."
+      }
+    ],
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "With One File, a learner with several parts must combine them first."
+    ],
+    "tickets": [
+      "“It only lets me upload one file.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented",
+    "howTo": [
+      "Choose Unlimited or One File.",
+      "Save."
+    ]
+  },
+  "assignment-new.submission-completion.allowable-file-extensions": {
+    "title": "Allowed file types",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "Limits uploads to certain file types, such as PDF only.",
+    "when": "When the instructor needs a specific format for marking or annotation.",
+    "howTo": [
+      "Choose a restriction.",
+      "Save."
+    ],
+    "verify": "Uploading another type is refused.",
+    "gotchas": [
+      "Students on phones often produce HEIC or Pages files. A strict PDF-only rule creates tickets unless learners are told how to convert."
+    ],
+    "tickets": [
+      "“It won’t accept my file.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.submission-completion-submissions.all-submissions-are-kept": {
+    "title": "Which submissions are kept",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "Controls what happens when a learner submits more than once.",
+    "options": [
+      {
+        "label": "All submissions are kept",
+        "effect": "Every upload is saved; the instructor sees them all."
+      },
+      {
+        "label": "Only one submission allowed",
+        "effect": "The first submission is final."
+      },
+      {
+        "label": "Only the most recent submission is kept",
+        "effect": "Each new upload replaces the previous one."
+      }
+    ],
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "With Only one submission allowed, a learner who uploads the wrong file cannot fix it themselves. The instructor has to delete the submission or allow another."
+    ],
+    "tickets": [
+      "“I uploaded the wrong file and can’t resubmit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented",
+    "howTo": [
+      "Choose the submission rule.",
+      "Save."
+    ]
+  },
+  "assignment-new.submission-completion-submissions.only-one-submission-allowed": {
+    "title": "Which submissions are kept",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "Controls what happens when a learner submits more than once.",
+    "options": [
+      {
+        "label": "All submissions are kept",
+        "effect": "Every upload is saved; the instructor sees them all."
+      },
+      {
+        "label": "Only one submission allowed",
+        "effect": "The first submission is final."
+      },
+      {
+        "label": "Only the most recent submission is kept",
+        "effect": "Each new upload replaces the previous one."
+      }
+    ],
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "With Only one submission allowed, a learner who uploads the wrong file cannot fix it themselves. The instructor has to delete the submission or allow another."
+    ],
+    "tickets": [
+      "“I uploaded the wrong file and can’t resubmit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented",
+    "howTo": [
+      "Choose the submission rule.",
+      "Save."
+    ]
+  },
+  "assignment-new.submission-completion-submissions.only-the-most-recent-submission-is-kept": {
+    "title": "Which submissions are kept",
+    "where": "Assignments > New Assignment > Submission & Completion",
+    "what": "Controls what happens when a learner submits more than once.",
+    "options": [
+      {
+        "label": "All submissions are kept",
+        "effect": "Every upload is saved; the instructor sees them all."
+      },
+      {
+        "label": "Only one submission allowed",
+        "effect": "The first submission is final."
+      },
+      {
+        "label": "Only the most recent submission is kept",
+        "effect": "Each new upload replaces the previous one."
+      }
+    ],
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "With Only one submission allowed, a learner who uploads the wrong file cannot fix it themselves. The instructor has to delete the submission or allow another."
+    ],
+    "tickets": [
+      "“I uploaded the wrong file and can’t resubmit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented",
+    "howTo": [
+      "Choose the submission rule.",
+      "Save."
+    ]
+  },
+  "assignment-new.submission-completion.notification-email": {
+    "title": "Notification email",
+    "where": "Assignments > New Assignment",
+    "what": "Sends an email to the addresses entered whenever a learner submits.",
+    "when": "An instructor or TA wants to know the moment work arrives.",
+    "howTo": [
+      "Enter one or more addresses separated by commas.",
+      "Save."
+    ],
+    "verify": "A test submission sends an email to the address.",
+    "gotchas": [
+      "For a large class this can mean hundreds of emails. Suggest it only for small classes or important deadlines."
+    ],
+    "tickets": [
+      "“I want an email when students hand in the assignment.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.right-column.evaluation-feedback": {
+    "title": "Evaluation & Feedback",
+    "where": "Assignments > New Assignment",
+    "what": "Rubrics, outcomes, annotation, anonymous marking and similarity checking for this assignment.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented",
+    "howTo": [
+      "Click the panel header to open it.",
+      "Add a rubric, outcomes, annotation or similarity checking.",
+      "Save."
+    ]
+  },
+  "assignment-new.control.add-rubric": {
+    "title": "Add rubric",
+    "where": "Assignments > New Assignment > Evaluation & Feedback",
+    "what": "Attaches a rubric so marking uses consistent criteria and learners can see how they will be assessed.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Add Rubric.",
+      "Choose an existing rubric or create one.",
+      "Save."
+    ],
+    "verify": "The rubric opens in the evaluation screen.",
+    "gotchas": [
+      "A rubric’s visibility setting decides whether learners see it before marking. Check it when learners say they can’t find the rubric."
+    ],
+    "tickets": [
+      "“Students can’t see the rubric.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented"
+  },
+  "assignment-new.control.manage-learning-objectives": {
+    "title": "Learning objectives",
+    "where": "Assignments > New Assignment > Evaluation & Feedback",
+    "what": "Aligns this assignment to course outcomes or standards so achievement can be reported against them.",
+    "when": "Programs that report on outcomes or competencies.",
+    "howTo": [
+      "Click Manage Learning Objectives.",
+      "Select the outcomes this activity assesses.",
+      "Save."
+    ],
+    "verify": "The outcomes are listed under Learning Objectives.",
+    "gotchas": [
+      "Alignment alone does not record achievement. Instructors still evaluate against the outcome."
+    ],
+    "tickets": [
+      "“How do I connect this to our program outcomes?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.evaluation-feedback-learning-objectives.no-learning-objectives": {
+    "title": "Learning objectives",
+    "where": "Assignments > New Assignment > Evaluation & Feedback",
+    "what": "Aligns this assignment to course outcomes or standards so achievement can be reported against them.",
+    "when": "Programs that report on outcomes or competencies.",
+    "howTo": [
+      "Click Manage Learning Objectives.",
+      "Select the outcomes this activity assesses.",
+      "Save."
+    ],
+    "verify": "The outcomes are listed under Learning Objectives.",
+    "gotchas": [
+      "Alignment alone does not record achievement. Instructors still evaluate against the outcome."
+    ],
+    "tickets": [
+      "“How do I connect this to our program outcomes?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.evaluation-feedback-annotation-tools.make-annotation-tools-available-for-assessment": {
+    "title": "Annotation tools",
+    "where": "Assignments > New Assignment > Evaluation & Feedback",
+    "what": "Lets the instructor mark up submitted files directly: highlights, comments and drawings on the document.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Check the box.",
+      "Save."
+    ],
+    "verify": "Opening a submission shows the annotation toolbar.",
+    "gotchas": [
+      "Annotations only work on supported file types. Unusual formats open without the toolbar."
+    ],
+    "tickets": [
+      "“I can’t write comments on the student’s PDF.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented"
+  },
+  "assignment-new.evaluation-feedback-anonymous-marking.hide-student-names-during-assessment": {
+    "title": "Anonymous marking",
+    "where": "Assignments > New Assignment > Evaluation & Feedback",
+    "what": "Hides learner names while marking to reduce bias. Names are revealed when marks are published.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Check the box before submissions arrive.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Marks are published together for everyone, not one at a time."
+    ],
+    "tickets": [
+      "“Why can’t I publish one student’s mark?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented"
+  },
+  "assignment-new.control.manage-turnitin": {
+    "title": "Turnitin",
+    "where": "Assignments > New Assignment > Evaluation & Feedback",
+    "what": "Turns on similarity checking for submissions, where the institution licenses Turnitin.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Manage Turnitin.",
+      "Enable similarity checking and choose its options.",
+      "Save."
+    ],
+    "verify": "Submissions show a similarity score after processing.",
+    "gotchas": [
+      "Reports take time to generate, so a fresh submission may show no score yet."
+    ],
+    "tickets": [
+      "“The similarity score isn’t showing.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.evaluation-feedback-turnitin-integration.turnitin-tm-adds-additional-functionality-to-eva": {
+    "title": "Turnitin",
+    "where": "Assignments > New Assignment > Evaluation & Feedback",
+    "what": "Turns on similarity checking for submissions, where the institution licenses Turnitin.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Manage Turnitin.",
+      "Enable similarity checking and choose its options.",
+      "Save."
+    ],
+    "verify": "Submissions show a similarity score after processing.",
+    "gotchas": [
+      "Reports take time to generate, so a fresh submission may show no score yet."
+    ],
+    "tickets": [
+      "“The similarity score isn’t showing.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-new.bottom-bar.hidden": {
+    "title": "Visibility (Hidden switch)",
+    "where": "Assignments > New Assignment > bottom bar",
+    "what": "Controls whether learners can see the assignment at all. Hidden activities do not appear for learners regardless of dates.",
+    "when": "Keeping a assignment out of sight while it is being built.",
+    "howTo": [
+      "Use the switch in the bottom bar.",
+      "Save."
+    ],
+    "verify": "The list page shows the assignment as hidden or visible.",
+    "gotchas": [
+      "A hidden assignment looks “broken” to learners. Check this switch early in any “students can’t see it” ticket."
+    ],
+    "tickets": [
+      "“None of my students can see the assignment.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-manage-special-access-dialog.dialog.allow-users-with-special-access-to-submit-outsid": {
+    "title": "Special access type",
+    "where": "Assignments > New Assignment > Manage Special Access",
+    "what": "Chooses what special access does for this assignment.",
+    "options": [
+      {
+        "label": "Allow users with special access to submit outside the normal availability dates",
+        "effect": "The assignment stays open to everyone; the selected learners get their own dates."
+      },
+      {
+        "label": "Allow only users with special access to see this folder",
+        "effect": "Only the selected learners can see the assignment."
+      }
+    ],
+    "when": "Every extension or private-folder request starts here.",
+    "howTo": [
+      "Pick the option.",
+      "Add users and their dates.",
+      "Save and Close, then save the assignment."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Restricting the folder to special-access users hides it from the whole class."
+    ],
+    "tickets": [
+      "“After I extended one student, the assignment disappeared for everyone.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-manage-special-access-dialog.dialog.allow-only-users-with-special-access-to-see-this": {
+    "title": "Special access type",
+    "where": "Assignments > New Assignment > Manage Special Access",
+    "what": "Chooses what special access does for this assignment.",
+    "options": [
+      {
+        "label": "Allow users with special access to submit outside the normal availability dates",
+        "effect": "The assignment stays open to everyone; the selected learners get their own dates."
+      },
+      {
+        "label": "Allow only users with special access to see this folder",
+        "effect": "Only the selected learners can see the assignment."
+      }
+    ],
+    "when": "Every extension or private-folder request starts here.",
+    "howTo": [
+      "Pick the option.",
+      "Add users and their dates.",
+      "Save and Close, then save the assignment."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Restricting the folder to special-access users hides it from the whole class."
+    ],
+    "tickets": [
+      "“After I extended one student, the assignment disappeared for everyone.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-manage-special-access-dialog.control.add-users-to-special-access": {
+    "title": "Add users to special access",
+    "where": "Assignments > New Assignment > Manage Special Access",
+    "what": "Opens the form where you set new dates and pick the learners they apply to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Add Users to Special Access.",
+      "Set the due, start or end dates.",
+      "Select learners and save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-due-date.has-due-date": {
+    "title": "Has Due Date (special access)",
+    "where": "Assignments > Special Access > Properties",
+    "what": "Gives the selected learners their own due date for this activity. Everyone else keeps the normal due date.",
+    "when": "An extension for one learner or a small group.",
+    "howTo": [
+      "Check Has Due Date.",
+      "Pick the new date and time.",
+      "Select the learners and save, then save the activity."
+    ],
+    "verify": "The learner’s row in special access shows the new due date.",
+    "gotchas": [
+      "Move the End Date too if the extension goes past it, otherwise access still closes at the original end date."
+    ],
+    "tickets": [
+      "“Can you extend the due date for just one student?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-due-date.has-due-date-date": {
+    "title": "Has Due Date (special access)",
+    "where": "Assignments > Special Access > Properties",
+    "what": "Gives the selected learners their own due date for this activity. Everyone else keeps the normal due date.",
+    "when": "An extension for one learner or a small group.",
+    "howTo": [
+      "Check Has Due Date.",
+      "Pick the new date and time.",
+      "Select the learners and save, then save the activity."
+    ],
+    "verify": "The learner’s row in special access shows the new due date.",
+    "gotchas": [
+      "Move the End Date too if the extension goes past it, otherwise access still closes at the original end date."
+    ],
+    "tickets": [
+      "“Can you extend the due date for just one student?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-due-date.has-due-date-time": {
+    "title": "Has Due Date (special access)",
+    "where": "Assignments > Special Access > Properties",
+    "what": "Gives the selected learners their own due date for this activity. Everyone else keeps the normal due date.",
+    "when": "An extension for one learner or a small group.",
+    "howTo": [
+      "Check Has Due Date.",
+      "Pick the new date and time.",
+      "Select the learners and save, then save the activity."
+    ],
+    "verify": "The learner’s row in special access shows the new due date.",
+    "gotchas": [
+      "Move the End Date too if the extension goes past it, otherwise access still closes at the original end date."
+    ],
+    "tickets": [
+      "“Can you extend the due date for just one student?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-availability.has-start-date": {
+    "title": "Has Start Date (special access)",
+    "where": "Assignments > Special Access > Properties > Availability",
+    "what": "Lets the selected learners open the activity from a different time, earlier or later than the class.",
+    "when": "Make-up sittings and early access for planned absences.",
+    "howTo": [
+      "Check Has Start Date.",
+      "Set the date and time.",
+      "Save."
+    ],
+    "verify": "The special access record lists the new start date.",
+    "tickets": [
+      "“A student will be away and needs to write it early.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-availability.has-start-date-date": {
+    "title": "Has Start Date (special access)",
+    "where": "Assignments > Special Access > Properties > Availability",
+    "what": "Lets the selected learners open the activity from a different time, earlier or later than the class.",
+    "when": "Make-up sittings and early access for planned absences.",
+    "howTo": [
+      "Check Has Start Date.",
+      "Set the date and time.",
+      "Save."
+    ],
+    "verify": "The special access record lists the new start date.",
+    "tickets": [
+      "“A student will be away and needs to write it early.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-availability.has-start-date-time": {
+    "title": "Has Start Date (special access)",
+    "where": "Assignments > Special Access > Properties > Availability",
+    "what": "Lets the selected learners open the activity from a different time, earlier or later than the class.",
+    "when": "Make-up sittings and early access for planned absences.",
+    "howTo": [
+      "Check Has Start Date.",
+      "Set the date and time.",
+      "Save."
+    ],
+    "verify": "The special access record lists the new start date.",
+    "tickets": [
+      "“A student will be away and needs to write it early.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-availability.has-end-date": {
+    "title": "Has End Date (special access)",
+    "where": "Assignments > Special Access > Properties > Availability",
+    "what": "Keeps the activity open longer for the selected learners only.",
+    "when": "Late work allowed for one learner without reopening the activity for everyone.",
+    "howTo": [
+      "Check Has End Date.",
+      "Set the new date and time.",
+      "Save."
+    ],
+    "verify": "The learner can still open the activity after the class end date.",
+    "gotchas": [
+      "If the activity is hidden or blocked by a release condition, new dates alone will not make it reachable."
+    ],
+    "tickets": [
+      "“A student got an extension but still can’t submit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.properties-availability.has-end-date-date": {
+    "title": "Has End Date (special access)",
+    "where": "Assignments > Special Access > Properties > Availability",
+    "what": "Keeps the activity open longer for the selected learners only.",
+    "when": "Late work allowed for one learner without reopening the activity for everyone.",
+    "howTo": [
+      "Check Has End Date.",
+      "Set the new date and time.",
+      "Save."
+    ],
+    "verify": "The learner can still open the activity after the class end date.",
+    "gotchas": [
+      "If the activity is hidden or blocked by a release condition, new dates alone will not make it reachable."
+    ],
+    "tickets": [
+      "“A student got an extension but still can’t submit.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/18122-submit-and-manage-assignments",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.users.search-for": {
+    "title": "Search for learners",
+    "where": "Assignments > Special Access > Users",
+    "what": "Filters the learner list so you can find the right person in a large class.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Type part of a name or ID.",
+      "Press Enter or the search icon."
+    ],
+    "verify": "The table narrows to matching learners.",
+    "gotchas": [
+      "Confirm the exact learner with the instructor. Classes often have people with similar names."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.users.users-table": {
+    "title": "Learner list",
+    "where": "Assignments > Special Access > Users",
+    "what": "Every learner who can receive special access. Check the box next to each learner the exception should apply to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Select one or more learners.",
+      "Save."
+    ],
+    "verify": "Only the selected learners show in the special access list.",
+    "gotchas": [
+      "The settings above apply to everyone selected in this one save. Add learners with different needs separately."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.users.learner": {
+    "title": "Learner list",
+    "where": "Assignments > Special Access > Users",
+    "what": "Every learner who can receive special access. Check the box next to each learner the exception should apply to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Select one or more learners.",
+      "Save."
+    ],
+    "verify": "Only the selected learners show in the special access list.",
+    "gotchas": [
+      "The settings above apply to everyone selected in this one save. Add learners with different needs separately."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.users.demo-student": {
+    "title": "Learner list",
+    "where": "Assignments > Special Access > Users",
+    "what": "Every learner who can receive special access. Check the box next to each learner the exception should apply to.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Select one or more learners.",
+      "Save."
+    ],
+    "verify": "Only the selected learners show in the special access list.",
+    "gotchas": [
+      "The settings above apply to everyone selected in this one save. Add learners with different needs separately."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "classlist.control.add-participants": {
+    "title": "Add participants",
+    "where": "Course navigation > Classlist",
+    "what": "Enrols people into this course, one at a time or in bulk, where the role allows it.",
+    "when": "Adding a TA or guest. Student enrolment usually comes from the student system instead.",
+    "howTo": [
+      "Open Add Participants.",
+      "Choose to add existing users or create new ones.",
+      "Pick the role and save."
+    ],
+    "verify": "The person appears in the Classlist with the chosen role.",
+    "gotchas": [
+      "Manually added students may be removed by the next student-system sync. Check how enrolment is managed before adding learners by hand."
+    ],
+    "tickets": [
+      "“Can you add my TA to the course?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.control.class-engagement": {
+    "title": "Class engagement",
+    "where": "Course navigation > Classlist",
+    "what": "Shows how recently and how often learners have been active in the course.",
+    "when": "Spotting learners who have not logged in.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Activity shows access, not understanding or completed work."
+    ],
+    "tickets": [
+      "“Which students haven’t logged in yet?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented",
+    "howTo": [
+      "Click Class Engagement.",
+      "Sort by last access to find learners who have not been active."
+    ]
+  },
+  "classlist.control.enrollment-statistics": {
+    "title": "Enrollment statistics",
+    "where": "Course navigation > Classlist",
+    "what": "Counts of participants by role.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented",
+    "howTo": [
+      "Click Enrollment Statistics.",
+      "Read the counts by role."
+    ]
+  },
+  "classlist.control.email-classlist": {
+    "title": "Email the class",
+    "where": "Course navigation > Classlist",
+    "what": "Sends an email to everyone in the course, or to selected people.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Email Classlist, or select learners and email them.",
+      "Write and send."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Messages go to learners’ institutional addresses. Learners who do not check them will miss it."
+    ],
+    "tickets": [
+      "“How do I email the whole class?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.search.search-for": {
+    "title": "Search the classlist",
+    "where": "Course navigation > Classlist",
+    "what": "Finds a participant by name, username or ID.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Type part of a name.",
+      "Press Enter."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.control.email": {
+    "title": "Email selected",
+    "where": "Course navigation > Classlist",
+    "what": "Emails the participants whose boxes are checked.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Check the participants.",
+      "Click Email."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.control.instant-message": {
+    "title": "Instant message",
+    "where": "Course navigation > Classlist",
+    "what": "Sends a Brightspace instant message to the selected participants.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented",
+    "howTo": [
+      "Check the participants.",
+      "Click Instant Message.",
+      "Write and send."
+    ]
+  },
+  "classlist.control.enrollment": {
+    "title": "Change enrolment",
+    "where": "Course navigation > Classlist",
+    "what": "Changes the role of the selected participants in this course, such as Learner to TA.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Check the participant.",
+      "Click Enrollment and pick the new role.",
+      "Save."
+    ],
+    "verify": "The Role column shows the new role.",
+    "gotchas": [
+      "Roles control what someone can see and do. A wrong role is a common cause of “I can’t see the gradebook”."
+    ],
+    "tickets": [
+      "“My TA can’t see the submissions.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.control.unenroll": {
+    "title": "Unenrol",
+    "where": "Course navigation > Classlist",
+    "what": "Removes the selected participants from this course.",
+    "when": "Removing a TA or a test account. Student drops usually come from the student system.",
+    "howTo": [
+      "Check the participant.",
+      "Click Unenroll and confirm."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Treat this as hard to undo. Re-enrolling restores access, but double-check the right person is selected before confirming."
+    ],
+    "tickets": [
+      "“A student dropped but is still in my course.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.table.classlist-table": {
+    "title": "Participant list",
+    "where": "Course navigation > Classlist",
+    "what": "Everyone enrolled in the course with their role and last access. Each name has a menu with actions for that person.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Find the person.",
+      "Use the arrow beside their name for email, progress, groups or accommodations."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“Is this student actually enrolled in my course?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.table.instructor-row-real-name-withheld": {
+    "title": "Participant list",
+    "where": "Course navigation > Classlist",
+    "what": "Everyone enrolled in the course with their role and last access. Each name has a menu with actions for that person.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Find the person.",
+      "Use the arrow beside their name for email, progress, groups or accommodations."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“Is this student actually enrolled in my course?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.table.student-demo": {
+    "title": "Participant list",
+    "where": "Course navigation > Classlist",
+    "what": "Everyone enrolled in the course with their role and last access. Each name has a menu with actions for that person.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Find the person.",
+      "Use the arrow beside their name for email, progress, groups or accommodations."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“Is this student actually enrolled in my course?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.control.student-demo": {
+    "title": "Participant list",
+    "where": "Course navigation > Classlist",
+    "what": "Everyone enrolled in the course with their role and last access. Each name has a menu with actions for that person.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Find the person.",
+      "Use the arrow beside their name for email, progress, groups or accommodations."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“Is this student actually enrolled in my course?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.control.icon-chevron-beside-student-demo": {
+    "title": "Participant menu",
+    "where": "Course navigation > Classlist",
+    "what": "Actions for one person: send email, view progress, view groups, and Edit Accommodations.",
+    "when": "Opening a learner’s progress or setting their quiz accommodations.",
+    "howTo": [
+      "Click the arrow beside the name.",
+      "Choose the action."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“Where do I set extra time for a student?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.footer.10-per-page": {
+    "title": "Page size",
+    "where": "Course navigation > Classlist",
+    "what": "How many people show per page, and the total enrolled.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented",
+    "howTo": [
+      "Choose how many people to show per page."
+    ]
+  },
+  "classlist.footer.total-users-2": {
+    "title": "Page size",
+    "where": "Course navigation > Classlist",
+    "what": "How many people show per page, and the total enrolled.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented",
+    "howTo": [
+      "Choose how many people to show per page."
+    ]
+  },
+  "classlist-edit-accommodations.dialog-header.demo-student": {
+    "title": "Accommodations for this learner",
+    "where": "Classlist > Edit Accommodations",
+    "what": "The learner these accommodations apply to. Settings here apply across every quiz in this course.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Confirm the exact learner before saving. Accommodation details are private; do not include the reason in tickets or notes."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented",
+    "howTo": [
+      "Check the name matches the learner in the request.",
+      "Set the accommodation below.",
+      "Save."
+    ]
+  },
+  "classlist-edit-accommodations.quizzes-timing.modify-time-limit": {
+    "title": "Modify time limit",
+    "where": "Classlist > Edit Accommodations > Quizzes > Timing",
+    "what": "Gives this learner more time on every timed quiz in the course, automatically.",
+    "when": "A learner with an approved extra-time accommodation.",
+    "howTo": [
+      "Open the learner’s menu in Classlist and choose Edit Accommodations.",
+      "Check Modify Time Limit.",
+      "Choose a multiplier or extra minutes.",
+      "Save."
+    ],
+    "verify": "Reopen the dialog and confirm the saved value.",
+    "gotchas": [
+      "Quiz Preview does not show accommodations. Verify from this dialog, or with a demo learner.",
+      "Special access on one quiz can override the accommodation for that quiz."
+    ],
+    "tickets": [
+      "“Give this student time and a half on all quizzes.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented"
+  },
+  "classlist-edit-accommodations.quizzes-timing.multiplier-of-original-quiz-time": {
+    "title": "Multiplier of original quiz time",
+    "where": "Classlist > Edit Accommodations > Quizzes > Timing",
+    "what": "Multiplies each quiz’s time limit. 1.5 gives time and a half, 2 gives double time.",
+    "when": "Most extra-time accommodations, since they scale with each quiz’s length.",
+    "howTo": [
+      "Choose Multiplier.",
+      "Enter the multiplier, such as 1.5.",
+      "Save."
+    ],
+    "verify": "A 20-minute quiz becomes 30 minutes and a 40-minute quiz becomes 60.",
+    "gotchas": [
+      "Enter 1.5, not 50. The number multiplies the time."
+    ],
+    "tickets": [
+      "“The student should get 50% extra time.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented"
+  },
+  "classlist-edit-accommodations.quizzes-timing.multiplier-of-original-quiz-time-value": {
+    "title": "Multiplier of original quiz time",
+    "where": "Classlist > Edit Accommodations > Quizzes > Timing",
+    "what": "Multiplies each quiz’s time limit. 1.5 gives time and a half, 2 gives double time.",
+    "when": "Most extra-time accommodations, since they scale with each quiz’s length.",
+    "howTo": [
+      "Choose Multiplier.",
+      "Enter the multiplier, such as 1.5.",
+      "Save."
+    ],
+    "verify": "A 20-minute quiz becomes 30 minutes and a 40-minute quiz becomes 60.",
+    "gotchas": [
+      "Enter 1.5, not 50. The number multiplies the time."
+    ],
+    "tickets": [
+      "“The student should get 50% extra time.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented"
+  },
+  "classlist-edit-accommodations.quizzes-timing.extra-time": {
+    "title": "Extra time",
+    "where": "Classlist > Edit Accommodations > Quizzes > Timing",
+    "what": "Adds a fixed number of minutes to every timed quiz.",
+    "when": "An accommodation stated as a set number of minutes.",
+    "howTo": [
+      "Choose Extra time.",
+      "Enter the minutes.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "The same minutes are added to short and long quizzes alike. A multiplier is usually fairer when quiz lengths vary."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented"
+  },
+  "classlist-edit-accommodations.quizzes-timing.extra-time-value": {
+    "title": "Extra time",
+    "where": "Classlist > Edit Accommodations > Quizzes > Timing",
+    "what": "Adds a fixed number of minutes to every timed quiz.",
+    "when": "An accommodation stated as a set number of minutes.",
+    "howTo": [
+      "Choose Extra time.",
+      "Enter the minutes.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "The same minutes are added to short and long quizzes alike. A multiplier is usually fairer when quiz lengths vary."
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented"
+  },
+  "classlist-edit-accommodations.control.icon-close": {
+    "title": "Close without saving",
+    "where": "Classlist > Edit Accommodations",
+    "what": "Closes the dialog. Nothing changes unless you clicked Save.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented",
+    "howTo": [
+      "Click the X, or Cancel."
+    ]
+  },
+  "quiz-new.header.new-quiz": {
+    "title": "Quiz editor",
+    "where": "Quizzes > New Quiz",
+    "what": "The page for building one quiz: questions on the left, settings in the panels on the right.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Add a title and questions.",
+      "Work down the panels on the right.",
+      "Save and Close."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "assignment-new.header.new-assignment": {
+    "title": "Assignment editor",
+    "where": "Assignments > New Assignment",
+    "what": "The page for building one assignment: details on the left, settings in the panels on the right.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Add a title, points and instructions.",
+      "Work down the panels on the right.",
+      "Save and Close."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/2776-create-an-assignment",
+    "evidence": "documented"
+  },
+  "quiz-new.questions.ready-to-begin-adding-quiz-content": {
+    "title": "No questions yet",
+    "where": "Quizzes > New Quiz > Questions",
+    "what": "This quiz has no questions. Add some from the library or write new ones.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click Add Existing or Create New."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.right-column.availability-dates-conditions": {
+    "title": "Availability Dates & Conditions",
+    "where": "Quizzes > New Quiz",
+    "what": "Start and end dates, release conditions, special access, password and network limits for this quiz.",
+    "when": "Any question about when, or whether, learners can open the quiz.",
+    "howTo": [
+      "Click the panel header to open it.",
+      "Adjust the setting.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“My student can’t open the quiz.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.right-column.timing-display": {
+    "title": "Timing & Display",
+    "where": "Quizzes > New Quiz",
+    "what": "Time limit, timer behaviour, paging, shuffling and what learners see while answering.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click the panel header to open it.",
+      "Adjust the setting.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.right-column.attempts-completion": {
+    "title": "Attempts & Completion",
+    "where": "Quizzes > New Quiz",
+    "what": "Number of attempts, which attempt counts, the list category and completion emails.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click the panel header to open it.",
+      "Adjust the setting.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-new.right-column.evaluation-feedback": {
+    "title": "Evaluation & Feedback",
+    "where": "Quizzes > New Quiz",
+    "what": "Publishing, grade book sync, what learners see after the quiz, and learning objectives.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click the panel header to open it.",
+      "Adjust the setting.",
+      "Save."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "tickets": [
+      "“Students can’t see their quiz results.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3533-evaluate-quizzes",
+    "evidence": "documented"
+  },
+  "quiz-special-access-dialog.control.icon-close": {
+    "title": "Close without saving",
+    "where": "Special Access dialog",
+    "what": "Closes the dialog. Nothing changes unless you saved.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click the X, or Cancel."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "assignment-manage-special-access-dialog.control.icon-close": {
+    "title": "Close without saving",
+    "where": "Special Access dialog",
+    "what": "Closes the dialog. Nothing changes unless you saved.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click the X, or Cancel."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "quiz-add-special-access-dialog.users.20-per-page": {
+    "title": "Learners per page",
+    "where": "Special Access > Users",
+    "what": "How many learners show per page in the list.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Choose a page size, or search to find one learner."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "assignment-special-access-user-dialog.users.20-per-page": {
+    "title": "Learners per page",
+    "where": "Special Access > Users",
+    "what": "How many learners show per page in the list.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Choose a page size, or search to find one learner."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3462-set-special-access-for-a-quiz",
+    "evidence": "documented"
+  },
+  "classlist.menu.add-existing-users": {
+    "title": "Add existing users",
+    "where": "Classlist > Add Participants",
+    "what": "Enrols someone who already has an account at the institution.",
+    "when": "Adding a TA, co-instructor or guest.",
+    "howTo": [
+      "Open Add Participants, then Add existing users.",
+      "Search for the person.",
+      "Pick their role and enrol."
+    ],
+    "verify": "They appear in the Classlist with that role.",
+    "gotchas": [
+      "Choose the role carefully. It decides what they can see and change."
+    ],
+    "tickets": [
+      "“Can you add my TA?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.menu.send-email": {
+    "title": "Send email",
+    "where": "Classlist > participant menu",
+    "what": "Emails this one person.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Open the arrow beside the name.",
+      "Choose Send Email."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.menu.impersonate": {
+    "title": "Impersonate",
+    "where": "Classlist > participant menu",
+    "what": "Signs you in as this person to see exactly what they see. Available only to roles with that permission.",
+    "when": "Reproducing what a learner reports, such as a missing activity.",
+    "howTo": [
+      "Open the arrow beside the name.",
+      "Choose Impersonate.",
+      "Look, but do not submit or change anything.",
+      "End impersonation from your profile menu."
+    ],
+    "verify": "You see the course as that person.",
+    "gotchas": [
+      "Actions taken while impersonating are recorded as that person. Look, do not act."
+    ],
+    "tickets": [
+      "“The student says the quiz isn’t there. Can you see what they see?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.menu.view-progress": {
+    "title": "View progress",
+    "where": "Classlist > participant menu",
+    "what": "One learner’s activity in the course: grades, content visited, submissions, quiz attempts and logins.",
+    "when": "Checking whether a learner actually submitted or opened something.",
+    "howTo": [
+      "Open the arrow beside the name.",
+      "Choose View progress.",
+      "Pick the area to review."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "Progress shows access, not understanding."
+    ],
+    "tickets": [
+      "“The student says they submitted. Did they?”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.menu.view-groups": {
+    "title": "View groups",
+    "where": "Classlist > participant menu",
+    "what": "Which groups this learner belongs to.",
+    "when": "Group assignment problems, such as a learner who cannot see their group’s submission folder.",
+    "howTo": [
+      "Open the arrow beside the name.",
+      "Choose View groups."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "gotchas": [
+      "A learner outside the group category cannot submit to a group assignment."
+    ],
+    "tickets": [
+      "“I can’t see my group’s assignment.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3680-use-classlist-to-manage-course-participants",
+    "evidence": "documented"
+  },
+  "classlist.menu.edit-accommodations": {
+    "title": "Edit accommodations",
+    "where": "Classlist > participant menu",
+    "what": "Opens this learner’s quiz accommodations, such as extra time on every quiz in the course.",
+    "when": "An approved accommodation that applies to all quizzes.",
+    "howTo": [
+      "Open the arrow beside the name.",
+      "Choose Edit Accommodations.",
+      "Set the time change and save."
+    ],
+    "verify": "Reopen the dialog and confirm the saved value.",
+    "gotchas": [
+      "For one quiz only, use that quiz’s Special Access instead."
+    ],
+    "tickets": [
+      "“This student gets time and a half on all quizzes.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/34430-manage-classlist-accomodations",
+    "evidence": "documented"
+  },
+  "assignment-new.menu.edit-or-link-to-existing": {
+    "title": "Grade book options",
+    "where": "Assignments > New Assignment > grade book menu",
+    "what": "Chooses how the assignment connects to Grades: a new grade item, an existing one, not in the grade book, or back to ungraded.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Open the grade book menu under Grade Out Of.",
+      "Pick the option.",
+      "Save."
+    ],
+    "verify": "The label under Grade Out Of shows the choice.",
+    "gotchas": [
+      "Unlinking from the grade book stops new marks flowing to Grades. Existing grades stay where they are."
+    ],
+    "tickets": [
+      "“Marks aren’t going into the gradebook.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented"
+  },
+  "assignment-new.menu.not-in-grade-book": {
+    "title": "Grade book options",
+    "where": "Assignments > New Assignment > grade book menu",
+    "what": "Chooses how the assignment connects to Grades: a new grade item, an existing one, not in the grade book, or back to ungraded.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Open the grade book menu under Grade Out Of.",
+      "Pick the option.",
+      "Save."
+    ],
+    "verify": "The label under Grade Out Of shows the choice.",
+    "gotchas": [
+      "Unlinking from the grade book stops new marks flowing to Grades. Existing grades stay where they are."
+    ],
+    "tickets": [
+      "“Marks aren’t going into the gradebook.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented"
+  },
+  "assignment-new.menu.reset-to-ungraded": {
+    "title": "Grade book options",
+    "where": "Assignments > New Assignment > grade book menu",
+    "what": "Chooses how the assignment connects to Grades: a new grade item, an existing one, not in the grade book, or back to ungraded.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Open the grade book menu under Grade Out Of.",
+      "Pick the option.",
+      "Save."
+    ],
+    "verify": "The label under Grade Out Of shows the choice.",
+    "gotchas": [
+      "Unlinking from the grade book stops new marks flowing to Grades. Existing grades stay where they are."
+    ],
+    "tickets": [
+      "“Marks aren’t going into the gradebook.”"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/3529-evaluate-assignments-using-the-assignments-tool",
+    "evidence": "documented"
+  },
+  "quizzes-list.empty-state.you-haven-t-created-any-quizzes-click-new-quiz-t": {
+    "title": "No quizzes yet",
+    "where": "Course navigation > Quizzes",
+    "what": "This course has no quizzes. Create one with New Quiz.",
+    "when": "When an instructor asks about this part of the page or reports that it is not working as expected.",
+    "howTo": [
+      "Click New Quiz."
+    ],
+    "verify": "Reopen the page and confirm the saved setting matches what the instructor asked for.",
+    "source": "https://community.d2l.com/brightspace/kb/articles/3413-create-and-configure-a-quiz",
+    "evidence": "documented"
+  }
+}
