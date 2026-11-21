@@ -2048,7 +2048,7 @@
         "With a category present (seen earlier): row 'Quizzes' showed Max. Points 0, Weight 40, and Final Calculated Grade Weight 40 (screen grades-manage-with-category).",
         "New menu: Item; Category. More Actions menu: Reorder; View Event Log; Make Visible to Users; Hide from Users; Delete.",
         "Row chevron menus (Final Calculated Grade / Final Adjusted Grade / category rows): not opened in this pass on the empty gradebook.",
-        "This is the sandbox end state after the capture pass: Weighted, no items or categories (temporary 'Capture only' item deleted).",
+        "This is the sandbox end state after the capture pass: Weighted, no items or categories (temporary 'Practice Item' item deleted).",
         "After deleting the temporary item the page reloaded here with the Note back at 0%; a 'Deleted successfully' toast was not observed."
       ],
       "unobserved": [
@@ -2065,7 +2065,7 @@
       "read_only": true,
       "observed_at": "2026-09-22",
       "screenshot": null,
-      "page_text": "[reconstructed from control list] Enter Grades | Manage Grades | Schemes | Setup Wizard    Settings | Help\nNew v | More Actions v\nNote\n'Final Calculated Grade' sums to 10%, not 100%. Verify the total weight of all top level categories and items is 100%.\nBulk Edit\n[ ] | Grade Item | Type | Association | Max. Points | Weight\n[ ] Capture only v | Numeric | - | 10 | 10\n[ ] Final Calculated Grade v |  |  | 0 | 10\n[ ] Final Adjusted Grade v |  |  |  | ",
+      "page_text": "[reconstructed from control list] Enter Grades | Manage Grades | Schemes | Setup Wizard    Settings | Help\nNew v | More Actions v\nNote\n'Final Calculated Grade' sums to 10%, not 100%. Verify the total weight of all top level categories and items is 100%.\nBulk Edit\n[ ] | Grade Item | Type | Association | Max. Points | Weight\n[ ] Practice Item v | Numeric | - | 10 | 10\n[ ] Final Calculated Grade v |  |  | 0 | 10\n[ ] Final Adjusted Grade v |  |  |  | ",
       "controls": [
         {
           "label": "Enter Grades",
@@ -2132,13 +2132,13 @@
           "notes": "Columns: [checkbox] | Grade Item | Type | Association | Max. Points | Weight"
         },
         {
-          "label": "Capture only",
+          "label": "Practice Item",
           "kind": "row",
           "group": "table",
           "notes": "temporary Numeric item: Type 'Numeric', Association '-', Max. Points 10, Weight 10; deleted afterwards"
         },
         {
-          "label": "icon:chevron beside Capture only",
+          "label": "icon:chevron beside Practice Item",
           "kind": "menu",
           "group": "table",
           "notes": "grade item row chevron"
@@ -2170,7 +2170,7 @@
       ],
       "menus": [
         {
-          "anchor": "icon:chevron beside Capture only",
+          "anchor": "icon:chevron beside Practice Item",
           "items": [
             "Edit",
             "Hide from Users",
@@ -2229,9 +2229,9 @@
         }
       ],
       "notes": [
-        "Observed with a temporary Numeric item named 'Capture only' present; the item was created by the New Item Restrictions-tab auto-save and deleted afterwards via More Actions > Delete.",
+        "Observed with a temporary Numeric item named 'Practice Item' present; the item was created by the New Item Restrictions-tab auto-save and deleted afterwards via More Actions > Delete.",
         "Table row for the Numeric item showed: Type 'Numeric', Association '-', Max. Points 10, Weight 10; the Note read 'sums to 10%, not 100%' while that item existed.",
-        "Grade item row chevron (Numeric 'Capture only'): Edit; Hide from Users; Enter Grades; View Statistics; View Event Log.",
+        "Grade item row chevron (Numeric 'Practice Item'): Edit; Hide from Users; Enter Grades; View Statistics; View Event Log.",
         "Final Calculated Grade row chevron: Edit; Enter Grades; View Statistics; View Event Log.",
         "Final Adjusted Grade row chevron: not opened (unobserved).",
         "The Grades tool opened on Enter Grades (not the Setup Wizard) once this item existed.",
@@ -2533,7 +2533,7 @@
           "notes": "category row as listed during the tour (Type blank in the tour rebuild)"
         },
         {
-          "label": "Capture only",
+          "label": "Practice Item",
           "kind": "row",
           "group": "table",
           "notes": "temporary Numeric item as listed during the capture pass; Type 'Numeric'"
@@ -2564,7 +2564,7 @@
       ],
       "notes": [
         "The page lists every category and item that can be removed, with a checkbox per row; tick rows then press Delete.",
-        "During the tour the row was the category 'Quizzes'; during the capture pass it was the Numeric item 'Capture only' with Type 'Numeric'. Both are recorded as rows here; only one existed at a time.",
+        "During the tour the row was the category 'Quizzes'; during the capture pass it was the Numeric item 'Practice Item' with Type 'Numeric'. Both are recorded as rows here; only one existed at a time.",
         "The address of this page was not recorded."
       ],
       "unobserved": [

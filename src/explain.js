@@ -12,7 +12,7 @@ const PAGE_HELP={
  'Schemes':simpleHelp('A grade scheme converts a number into a displayed symbol, such as a letter grade.',['Open the practice scheme and inspect each starting percentage.','For example, a row starting at 80 means that range begins at 80%.','Save after changing the ranges.'],'For numeric items, changing the scheme changes the displayed symbol, not the earned points. Selectbox items use different calculation rules and are not simulated here.','“Why is 82% displaying a B instead of an A?”','https://community.d2l.com/brightspace/kb/articles/34122-create-grading-schemes-using-the-grades-tool'),
  'Personal Display Options':simpleHelp('These are your own instructor-view preferences for the Grades page.',['Check Username or Org Defined ID if you need those identifiers beside learner names.','Choose the grade details you want to see.','Click Save.'],'These preferences do not release grades to learners. This file renders only the supported preferences described on the page.','“Can I see student IDs beside names while entering marks?”'),
  'Org Unit Display Options':simpleHelp('Org Unit means this course. This tab includes the course’s default grade display, including student-view options.',['Under Student View Display Options, choose Points grade, Weighted grade, or Grade scheme symbol.','Set the number of decimal places to display.','Click Save.'],'These options affect how grades are displayed. Final-grade release is a separate decision.','“Students should see their mark out of 20 as well as the letter grade.”'),
- 'Calculation Options':simpleHelp('This tab decides how Brightspace calculates the final grade and which final-grade type can be released.',['Read Grading System first: Weighted uses percentages; Points adds earned and possible points.','Read Grade Calculations to decide how empty score cells behave.','Click Save. If changing systems, review both captured confirmation dialogs.'],'The saved settings control calculated finals. They do not change the scores you entered.','“Why does the final grade not match my spreadsheet?”'),
+ 'Calculation Options':simpleHelp('This tab decides how Brightspace calculates the final grade and which final-grade type can be released.',['Read Grading System first: Weighted uses percentages; Points adds earned and possible points.','Read Grade Calculations to decide how empty score cells behave.','Click Save. If changing systems, review both confirmation dialogs.'],'The saved settings control calculated finals. They do not change the scores you entered.','“Why does the final grade not match my spreadsheet?”'),
  'Assessments':simpleHelp('Assessment tools cover activity creation, evaluation, and the gradebook. Assignments handles submitted work; Quizzes handles tests; Grades holds the scored items and final calculation.',['Click Grades for the gradebook.','Click Assignments for submitted work, or Quizzes for tests.'],'An assessment’s gradebook association connects the activity to a grade item; the activity settings and grade item settings still serve different purposes.','“Where do I find the quiz settings?”'),
  'Course Tools':simpleHelp('This menu collects course tools selected for the institution’s navigation bar.',['Read the tool names in the dropdown.','Click the tool you need; Course Admin also provides a grouped directory.'],'A missing navbar link does not necessarily mean the tool is disabled. Compare Course Admin → Tools and Navigation & Themes, subject to your permissions.','“The tool I need is not on the main navigation bar.”'),
  'Communication':simpleHelp('This menu contains tools for course notices and conversations.',['Choose Announcements for a notice shown to the course.','Choose Discussions for a forum where learners post and reply.'],'For visibility tickets, check the item’s dates and release conditions. A visible announcement is separate from whether a learner receives a notification.','“Should I post this as a notice or a discussion?”'),
@@ -39,7 +39,7 @@ const FIELD_HELP={
 };
 let clickContext=null;
 function clearClickExplanation(){document.getElementById('click-explanation')?.remove();document.querySelectorAll('.explain-target').forEach(e=>e.classList.remove('explain-target'));clickContext=null;}
-function helpBody(info){return `<p><b>Purpose</b><br>${h(info.what)}</p><b>Workflow</b><ol>${info.steps.map(s=>`<li>${h(s)}</li>`).join('')}</ol><p><b>Key distinction</b><br>${h(info.result)}</p><p><b>Typical ticket</b><br>“${h(info.ticket.replace(/^[“"]|[”"]$/g,''))}”</p>${info.scope?`<p class="small muted">${h(info.scope)}</p>`:''}${info.source?`<a class="small" href="${h(info.source)}" target="_blank" rel="noopener">Read the supporting documentation ↗</a>`:''}`;}
+function helpBody(info){return `<p><b>Purpose</b><br>${h(info.what)}</p><b>Workflow</b><ol>${info.steps.map(s=>`<li>${h(s)}</li>`).join('')}</ol><p><b>Key distinction</b><br>${h(info.result)}</p><p><b>Typical ticket</b><br>“${h(info.ticket.replace(/^[“"]|[”"]$/g,''))}”</p>${info.source?`<a class="small" href="${h(info.source)}" target="_blank" rel="noopener">Read the D2L documentation ↗</a>`:''}`;}
 // A label's own text, without the explanatory paragraph a D2L radio carries beside it (bug B1).
 function controlLabel(el){
  if(el.dataset.label)return el.dataset.label;
@@ -69,7 +69,7 @@ function registryCard(card,id){
   +(card.howTo&&card.howTo.length?`<h3>How to</h3><ol>${card.howTo.map(x=>`<li>${h(x)}</li>`).join('')}</ol>`:'')
   +(card.verify?`<h3>Verify it worked</h3><p>${h(card.verify)}</p>`:'')
   +(more?`<details class="accordion help-more"><summary>More</summary><div>${more}</div></details>`:'')
-  +`<p class="small muted">${h(card.evidence||'simulated')} · ${/^https?:\/\//.test(card.source||'')?`<a href="${h(card.source)}" target="_blank" rel="noopener noreferrer">source</a>`:h(card.source||'no source recorded')} · <code>${h(id)}</code></p>`;
+  +(/^https?:\/\//.test(card.source||'')?`<p class="small"><a href="${h(card.source)}" target="_blank" rel="noopener noreferrer">Read the D2L documentation ↗</a></p>`:'');
 }
 // Nothing is ever a dead click: an unwritten control says so, and the audit counts it as untaught.
 function capturedEvidence(label){
@@ -79,27 +79,56 @@ function capturedEvidence(label){
  const control=(screen.controls||[]).find(c=>c.label===label);
  return {screen,control};
 }
-// A control with no card still shows everything the capture recorded about it, clearly marked as
-// evidence rather than teaching, so the reader gets the observation instead of an empty box.
+// A control without a written card gets a short, plain-language card built from where it sits
+// and what kind of control it is. Simulator chrome and unknown elements get no card at all.
+const GAP_KIND_TEXT={
+ button:l=>`Runs the ${l} action on this screen. In a live course the change applies as soon as the action completes, so confirm the course and item first.`,
+ link:l=>`Opens ${l}. Use it to move to the related screen without losing your place in the course.`,
+ tab:l=>`Switches this screen to its ${l} view. Tabs change what you are looking at, not the course settings.`,
+ field:l=>`Holds the ${l} value for this item. Edits take effect only after the page is saved.`,
+ text:l=>`Holds the ${l} value for this item. Edits take effect only after the page is saved.`,
+ checkbox:l=>`Turns ${l} on or off for this item. The setting takes effect when the page is saved.`,
+ radio:l=>`One of a set of choices. Selecting ${l} replaces the other options in the group once the page is saved.`,
+ select:l=>`Choose a value for ${l} from the list. The choice takes effect when the page is saved.`,
+ menu:l=>`Opens a menu of actions related to ${l}.`,
+ row:l=>`One record in this list. Open it or use its actions to work on that record only.`,
+ heading:l=>`Marks the ${l} section of this screen.`,
+ table:l=>`Lists the items in ${l}. Open a row to work on that one item; the rest stay as they are.`,
+ toast:l=>`A confirmation Brightspace shows after an action: ${l}`,
+ dialog:l=>`A confirmation step. Brightspace asks before applying a change that is hard to undo.`
+};
+const GAP_TIP_TEXT={
+ button:'When an instructor says this “did nothing,” check that they were in the right course and had the permission for this action.',
+ checkbox:'If an instructor says the setting “did not stick,” ask whether they saved before leaving the page.',
+ field:'If an instructor says the value “did not stick,” ask whether they saved before leaving the page.',
+ text:'If an instructor says the value “did not stick,” ask whether they saved before leaving the page.',
+ radio:'If results look wrong after a change, confirm which option is selected now and when it was changed.',
+ select:'If results look wrong after a change, confirm which option is selected now and when it was changed.',
+ row:'Confirm the exact record with the instructor before changing anything, since lists often hold similar names.'
+};
+function gapScreenPurpose(title){
+ if(typeof TOOL_HELP!=='object'||!title)return null;
+ const key=Object.keys(TOOL_HELP).sort((a,b)=>b.length-a.length).find(k=>title.toLowerCase().includes(k.toLowerCase()));
+ return key?{tool:key,what:TOOL_HELP[key].what}:null;
+}
 function authoringGap(id,label){
  const ev=capturedEvidence(label);
- const bits=[];
- if(ev&&ev.control){const c=ev.control;
-  bits.push(`<p class="help-where">${h(ev.screen.title)}${c.group?' · '+h(c.group):''}</p>`);
-  if(c.notes)bits.push(`<p>${h(c.notes)}</p>`);
-  bits.push(`<dl class="help-options"><dt>Control type</dt><dd>${h(c.kind||'not recorded')}</dd>`
-   +`<dt>State when observed</dt><dd>${h(c.state||'not recorded')}</dd>`
-   +`<dt>Read-only in the capture</dt><dd>${c.read_only===false?'no':'yes'}</dd></dl>`);
-  const t=(ev.screen.transitions||[]).find(x=>x.control===c.label||x.control==='menu:'+c.label||x.control==='dialog:'+c.label);
-  if(t)bits.push(`<h3>What happens next</h3><p>${h(t.result_screen_id?'Opens the captured screen '+t.result_screen_id+'.':t.description||'Not recorded.')}</p>`);
-  if((ev.screen.unobserved||[]).length)bits.push(`<h3>Not observed on this screen</h3><ul>${ev.screen.unobserved.map(u=>`<li>${h(u)}</li>`).join('')}</ul>`);
- } else if(ev){
-  bits.push(`<p class="help-where">${h(ev.screen.title)}</p><p>This element is part of the simulator, not the captured Brightspace page.</p>`);
- }
- const known=bits.length?`<div class="callout"><b>What the capture recorded</b></div>${bits.join('')}`
-  :`<p>Nothing has been recorded about this control yet.</p>`;
- return {title:label||'No teaching card yet',gap:true,
-  html:`<div class="callout warn"><b>No teaching card yet</b><p>This control has not been written up. What the capture observed is below; it is evidence, not instruction, and the coverage audit still counts this as untaught.</p></div>${known}<p class="small muted">Help id <code>${h(id)}</code></p>`};
+ if(!ev||!ev.control||!label)return null;
+ const c=ev.control,kind=(c.kind||'').toLowerCase();
+ const shown=(typeof displayLabel==='function'?displayLabel(label):label);
+ const iconLike=/^icon:/.test(label)||/^(Settings|Help|More|Options|Close|Delete|Edit)$/i.test(label);
+ const otherText=l=>iconLike?GAP_KIND_TEXT.button(l):`${l} is part of the ${c.group||'main'} area of this screen. Read it alongside the settings around it, since together they describe how this item behaves.`;
+ const describe=kind==='other'?otherText:(GAP_KIND_TEXT[{textbox:'field'}[kind]||kind]||GAP_KIND_TEXT.button);
+ const where=`${ev.screen.title}${c.group?' · '+c.group:''}`;
+ const purpose=gapScreenPurpose(ev.screen.title);
+ const next=(ev.screen.transitions||[]).find(x=>x.control===c.label||x.control==='menu:'+c.label||x.control==='dialog:'+c.label);
+ const nextScreen=next&&next.result_screen_id?activeLibrary().data.screens.find(s=>s.id===next.result_screen_id):null;
+ const tip=GAP_TIP_TEXT[{textbox:'field'}[kind]||kind];
+ return {title:(typeof displayLabel==='function'?displayLabel(label):label),
+  html:`<p class="help-where">${h(where)}</p><p>${h(describe(shown))}</p>`
+   +(nextScreen?`<h3>What happens next</h3><p>Opens the ${h(nextScreen.title)} screen.</p>`:'')
+   +(purpose?`<h3>About ${h(purpose.tool)}</h3><p>${h(purpose.what)}</p>`:'')
+   +(tip?`<h3>Support tip</h3><p>${h(tip)}</p>`:'')};
 }
 function explanationFor(el){
  const id=helpIdFor(el);
@@ -115,7 +144,7 @@ function explanationFor(el){
  if(HELP[common])return {title:HELP[common].title||common,html:registryCard(HELP[common],common),helpId:common};
  const legacy=legacyExplanationFor(el);
  if(legacy)return {...legacy,helpId:id};
- return {...authoringGap(id,(el.dataset.label||el.textContent||'').trim().slice(0,60)),helpId:id};
+ const gap=authoringGap(id,(el.dataset.label||el.closest('[data-ref-label]')?.dataset.refLabel||el.textContent||'').trim());return gap?{...gap,helpId:id}:null;
 }
 function legacyExplanationFor(el){const name=el.name||'',text=controlLabel(el);const title=el.dataset.tab?({enter:'Enter Grades',manage:'Manage Grades',personal:'Personal Display Options',display:'Org Unit Display Options',calculation:'Calculation Options',wizard:'Setup Wizard',schemes:'Schemes',finals:'Final Grades'})[el.dataset.tab]:text;
  if(name.startsWith('minutes:'))return {title:'New Time Limit · special access',info:simpleHelp('This is the full duration for this learner on this quiz, in minutes. It replaces the applicable base or accommodated duration.',['For a 30-minute quiz with a 50% allowance, enter 45, not 15 or 1.5.','Leave this field blank in the simulator to remove the override and use the course accommodation.'],'A 45-minute override remains 45 minutes even if the learner also has a course multiplier.','The student’s extra time was applied twice, or the wrong time is showing.')};
@@ -127,17 +156,17 @@ function legacyExplanationFor(el){const name=el.name||'',text=controlLabel(el);c
  if(el.dataset.action==='special'||el.dataset.action==='quiz-special-users')return {title:'Special access for one quiz',info:simpleHelp('Special access is an exception for named learners on this one quiz.',['Click Add Users to Special Access.','Choose the learner and enter the full New Time Limit, such as 45 minutes for a 30-minute quiz with 50% extra time.','Save the special access.'],'That learner uses 45 minutes on this quiz. Other quizzes keep their own timing rules.','“One student needs extra time on the midterm only.”')};
  if(el.dataset.action==='grade-event-log')return {title:'Restore an eligible deleted grade item',info:simpleHelp('The event log records gradebook changes and can offer Restore for eligible deleted items.',['In Manage Grades, click More Actions → View Event Log.','Find the deleted item and click Restore if available.'],'The item returns to the gradebook. Availability depends on item type and permissions in real Brightspace.','“I accidentally deleted a grade column.”','https://community.d2l.com/brightspace/kb/articles/34138-managing-event-logs-in-grade-book')};
  const screen=CAPTURE.screens.find(s=>s.id===view.captureId),control=screen?.controls?.find(c=>c.label===text&&c.notes);
- if(control)return {title:text,info:simpleHelp(control.notes,['Read the recorded control and its notes on this reference screen.','Use an available recorded transition to follow the next captured screen.'],'This reference does not save live course changes. Uncaptured behavior is not assumed.','“Where is this control, and what was observed when it was opened?”','')};
+ 
  return null;
 }
 function showClickExplanation(context){clearClickExplanation();if(!state.explainClicks||!context)return;clickContext=context;const dialog=document.getElementById('dialog'),box=document.createElement('section');box.id='click-explanation';box.className='walkthrough-box click-explanation';box.setAttribute('aria-label','Explanation of '+context.title);box.innerHTML=`<div class="walkthrough-box-heading"><span>EXPLAIN CLICKS</span>${action('×','close-explanation','aria-label="Close explanation"','quiet')}</div><h2>${h(context.title)}</h2><div class="click-explanation-body">${context.html||helpBody(context.info)}</div>`;
  if(dialog.open){box.classList.add('in-dialog');dialog.append(box);box.scrollIntoView({block:'nearest'});return;}
  document.body.append(box);let target=context.element?.isConnected?context.element:null;if(!target&&context.label)target=[...document.querySelectorAll('[data-label],.tabs button,.navitem')].find(e=>(e.dataset.label||e.textContent).replace(/[⚙▾]/g,'').trim()===context.label);target??=document.querySelector('#main h1,#main h2');context.target=target;if(target)target.classList.add('explain-target');positionWalkthroughBox(box,target?.closest('.dropdown')?.querySelector('.menu')||target,true);
 }
-document.addEventListener('click',e=>{const a=e.target.closest('[data-action]')?.dataset.action;if(a==='toggle-explanations'){state.explainClicks=!state.explainClicks;persist();clearClickExplanation();const b=e.target.closest('button');b.textContent='Explain clicks: '+(state.explainClicks?'On':'Off');b.setAttribute('aria-pressed',!!state.explainClicks);toast(state.explainClicks?'Explain clicks is on. Click anything to learn what it does.':'Explain clicks is off.');return;}if(a==='close-explanation'){clearClickExplanation();return;}if(a==='help-jump'){const id=e.target.closest('[data-help-id]').dataset.helpId;const card=HELP[id];const target=document.querySelector(`[data-help="${CSS.escape(id)}"]`);clearClickExplanation();setTimeout(()=>showClickExplanation(card?{title:card.title||id,html:registryCard(card,id),helpId:id,element:target}:{...authoringGap(id,id),element:target}),0);return;}});
+document.addEventListener('click',e=>{const a=e.target.closest('[data-action]')?.dataset.action;if(a==='toggle-explanations'){state.explainClicks=!state.explainClicks;persist();clearClickExplanation();const b=e.target.closest('button');b.textContent='Explain clicks: '+(state.explainClicks?'On':'Off');b.setAttribute('aria-pressed',!!state.explainClicks);toast(state.explainClicks?'Explain clicks is on. Click anything to learn what it does.':'Explain clicks is off.');return;}if(a==='close-explanation'){clearClickExplanation();return;}if(a==='help-jump'){const id=e.target.closest('[data-help-id]').dataset.helpId;const card=HELP[id];const target=document.querySelector(`[data-help="${CSS.escape(id)}"]`);clearClickExplanation();setTimeout(()=>showClickExplanation(card?{title:card.title||id,html:registryCard(card,id),helpId:id,element:target}:(authoringGap(id,id)?{...authoringGap(id,id),element:target}:null)),0);return;}});
 document.addEventListener('click',e=>{if(e.target.closest('#click-explanation,#walkthrough-box,.training-launcher,#about,#about-open,#gate'))return;if(!state.explainClicks)return;
  // During a walkthrough the current step already explains its own target; other controls stay explorable.
- const walk=activeWalkthrough();if(walk&&controlLabel(e.target.closest('button,input,select,summary,a')||e.target)===walk.target)return;const el=e.target.closest('button,input,select,summary,a');if(!el)return;const context=explanationFor(el);clearClickExplanation();if(context)setTimeout(()=>showClickExplanation({...context,element:el,label:context.title}),0);},true);
+ const walk=activeWalkthrough();if(walk&&controlLabel(e.target.closest('button,input,select,summary,a')||e.target)===walk.target)return;const el=e.target.closest('button,input,select,summary,a,.ref-text');if(!el)return;const context=explanationFor(el);clearClickExplanation();if(context)setTimeout(()=>showClickExplanation({...context,element:el,label:context.title}),0);},true);
 const originalHighlight=highlight;
 highlight=function(scroll){originalHighlight(scroll);if(activeWalkthrough())clearClickExplanation();};
 window.addEventListener('resize',()=>{const box=document.getElementById('click-explanation');if(box&&!box.classList.contains('in-dialog'))positionWalkthroughBox(box,clickContext?.target);});
