@@ -1,0 +1,19 @@
+{
+  "_comment": "Captured screen id -> practice-page scope, so one real control has one card wherever it appears.",
+  "grades-enter-grades": "grades.enter",
+  "grades-final-grades": "grades.finals",
+  "grades-manage-empty": "grades.manage",
+  "grades-manage-with-item": "grades.manage",
+  "grades-manage-with-category": "grades.manage",
+  "grades-manage-new-menu": "grades.manage",
+  "grades-manage-more-actions-menu": "grades.manage",
+  "grades-schemes-list": "grades.schemes",
+  "grades-new-scheme": "grades.schemes",
+  "grades-settings-personal": "grades.personal",
+  "grades-settings-org-unit": "grades.display",
+  "grades-settings-calculation": "grades.calculation",
+  "grades-settings-calculation-confirm-1": "grades.calculation",
+  "grades-settings-calculation-confirm-2": "grades.calculation",
+  "grades-settings-calculation-saved": "grades.calculation",
+  "grades-setup-wizard-landing": "grades.wizard"
+}
